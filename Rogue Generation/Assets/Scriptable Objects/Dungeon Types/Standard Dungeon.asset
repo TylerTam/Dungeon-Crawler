@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e95817597be56ac45af7cfb5d3bd99ff, type: 3}
+  m_Name: Standard Dungeon
+  m_EditorClassIdentifier: 
+  m_minRooms: 5
+  m_maxRooms: 8
+  m_minRoomSize: {x: 3, y: 3}
+  m_maxRoomSize: {x: 8, y: 8}
+  m_cellBoarder: 1
+  m_cellsInDungeon: {x: 4, y: 3}
+  m_cellSize: {x: 10, y: 10}
+  m_hallwayTurnAount: 3
+  roomTile: {fileID: 11400000, guid: 8da0398c7aa842446b9fae4e89fca9ab, type: 2}
+  roomExitTile: {fileID: 11400000, guid: f62e4e63100deb74881a83db88d8e7af, type: 2}
+  hallwayTile: {fileID: 11400000, guid: b8a8c44239db898458b5168fe8c1fcd0, type: 2}
+  connectionTile: {fileID: 11400000, guid: 54ef8e6008e4c9243b7628c204d88e78, type: 2}
+  wallTile: {fileID: 11400000, guid: 5de1f8eacdb97514296da83fb5385821, type: 2}
+  m_minEmptyPercent: 0
+  m_maxEmptyPercent: 0.605

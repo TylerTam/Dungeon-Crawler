@@ -1,0 +1,3614 @@
+fileFormatVersion: 2
+guid: 90c73c84f2cf0ba41b392d44d4eefe3b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7903313334170972714
+    second: ForestMapTiles_0
+  - first:
+      213: 5533189649153128245
+    second: ForestMapTiles_1
+  - first:
+      213: -5954909734424208321
+    second: ForestMapTiles_2
+  - first:
+      213: -1454976201874751248
+    second: ForestMapTiles_3
+  - first:
+      213: -6821718632306426940
+    second: ForestMapTiles_4
+  - first:
+      213: -7602648062629486122
+    second: ForestMapTiles_5
+  - first:
+      213: 7407897329255523160
+    second: ForestMapTiles_6
+  - first:
+      213: 6152139355476583410
+    second: ForestMapTiles_7
+  - first:
+      213: -5399991329220594227
+    second: ForestMapTiles_8
+  - first:
+      213: -4739196423155277180
+    second: ForestMapTiles_9
+  - first:
+      213: -5472612583721089461
+    second: ForestMapTiles_10
+  - first:
+      213: 9203049887003847639
+    second: ForestMapTiles_11
+  - first:
+      213: -6283734480120792215
+    second: ForestMapTiles_12
+  - first:
+      213: 5642675630054979696
+    second: ForestMapTiles_13
+  - first:
+      213: -6435330686336994373
+    second: ForestMapTiles_14
+  - first:
+      213: 2130731324177036874
+    second: ForestMapTiles_15
+  - first:
+      213: -1662354199323803331
+    second: ForestMapTiles_16
+  - first:
+      213: -2927205161378748146
+    second: ForestMapTiles_17
+  - first:
+      213: -6160409149958192329
+    second: ForestMapTiles_18
+  - first:
+      213: -1690051727260517794
+    second: ForestMapTiles_19
+  - first:
+      213: -3384455982988603513
+    second: ForestMapTiles_20
+  - first:
+      213: 4046393936891807013
+    second: ForestMapTiles_21
+  - first:
+      213: 4550020455381166442
+    second: ForestMapTiles_22
+  - first:
+      213: 2319230638694706674
+    second: ForestMapTiles_23
+  - first:
+      213: -7420163818806679457
+    second: ForestMapTiles_24
+  - first:
+      213: 2458213954284700320
+    second: ForestMapTiles_25
+  - first:
+      213: -7141356583366319110
+    second: ForestMapTiles_26
+  - first:
+      213: 6105499766909008748
+    second: ForestMapTiles_27
+  - first:
+      213: 1639595039598431910
+    second: ForestMapTiles_28
+  - first:
+      213: 6955160519466945284
+    second: ForestMapTiles_29
+  - first:
+      213: 1898491829103429948
+    second: ForestMapTiles_30
+  - first:
+      213: -3938355910468542999
+    second: ForestMapTiles_31
+  - first:
+      213: 5264545381074915908
+    second: ForestMapTiles_32
+  - first:
+      213: 1478063433359036698
+    second: ForestMapTiles_33
+  - first:
+      213: -8834674929369331164
+    second: ForestMapTiles_34
+  - first:
+      213: 6523934538395298758
+    second: ForestMapTiles_35
+  - first:
+      213: 4516852169799425165
+    second: ForestMapTiles_36
+  - first:
+      213: 5510565929182842882
+    second: ForestMapTiles_37
+  - first:
+      213: 4014570023167307828
+    second: ForestMapTiles_38
+  - first:
+      213: 7096878782859878412
+    second: ForestMapTiles_39
+  - first:
+      213: 2296988403283614483
+    second: ForestMapTiles_40
+  - first:
+      213: -5294470849286846797
+    second: ForestMapTiles_41
+  - first:
+      213: -2602349109765041124
+    second: ForestMapTiles_42
+  - first:
+      213: 1617955135773792102
+    second: ForestMapTiles_43
+  - first:
+      213: -7122450982613636106
+    second: ForestMapTiles_44
+  - first:
+      213: 7130524228188423374
+    second: ForestMapTiles_45
+  - first:
+      213: 5934504327222721817
+    second: ForestMapTiles_46
+  - first:
+      213: -4542346695457718927
+    second: ForestMapTiles_47
+  - first:
+      213: 5599019134624051525
+    second: ForestMapTiles_48
+  - first:
+      213: 4225093901254209544
+    second: ForestMapTiles_49
+  - first:
+      213: -5786188967822955022
+    second: ForestMapTiles_50
+  - first:
+      213: -6931387011266232572
+    second: ForestMapTiles_51
+  - first:
+      213: -1713096407690968627
+    second: ForestMapTiles_52
+  - first:
+      213: -8139051325733660465
+    second: ForestMapTiles_53
+  - first:
+      213: 4906711338051407444
+    second: ForestMapTiles_54
+  - first:
+      213: 8025689696497240383
+    second: ForestMapTiles_55
+  - first:
+      213: 2015595992880676366
+    second: ForestMapTiles_56
+  - first:
+      213: -8854253573859287397
+    second: ForestMapTiles_57
+  - first:
+      213: -1162731613537297135
+    second: ForestMapTiles_58
+  - first:
+      213: 6885939408137828138
+    second: ForestMapTiles_59
+  - first:
+      213: 7518484394809673664
+    second: ForestMapTiles_60
+  - first:
+      213: 4601963900829083958
+    second: ForestMapTiles_61
+  - first:
+      213: 2456294738359776781
+    second: ForestMapTiles_62
+  - first:
+      213: -1329738040216088650
+    second: ForestMapTiles_63
+  - first:
+      213: -8040795193567065419
+    second: ForestMapTiles_64
+  - first:
+      213: -1059618013791719368
+    second: ForestMapTiles_65
+  - first:
+      213: -2225077886846557
+    second: ForestMapTiles_66
+  - first:
+      213: 648912627239040002
+    second: ForestMapTiles_67
+  - first:
+      213: -272117564369071618
+    second: ForestMapTiles_68
+  - first:
+      213: -8747174462394966017
+    second: ForestMapTiles_69
+  - first:
+      213: -6724800991753900670
+    second: ForestMapTiles_70
+  - first:
+      213: 4297351273869176380
+    second: ForestMapTiles_71
+  - first:
+      213: -1891172842458015073
+    second: ForestMapTiles_72
+  - first:
+      213: -8059470752759293875
+    second: ForestMapTiles_73
+  - first:
+      213: 6632344212892066138
+    second: ForestMapTiles_74
+  - first:
+      213: -430045338357670912
+    second: ForestMapTiles_75
+  - first:
+      213: -442870536498985881
+    second: ForestMapTiles_76
+  - first:
+      213: 1382709305674634565
+    second: ForestMapTiles_77
+  - first:
+      213: 5458971177513034443
+    second: ForestMapTiles_78
+  - first:
+      213: 7886270822868462537
+    second: ForestMapTiles_79
+  - first:
+      213: 8397496012622670279
+    second: ForestMapTiles_80
+  - first:
+      213: 3159398789010006719
+    second: ForestMapTiles_81
+  - first:
+      213: 5331489081813461261
+    second: ForestMapTiles_82
+  - first:
+      213: 7484539933294103430
+    second: ForestMapTiles_83
+  - first:
+      213: 9143780856609613650
+    second: ForestMapTiles_84
+  - first:
+      213: 4835346255430949871
+    second: ForestMapTiles_85
+  - first:
+      213: -674442645416451865
+    second: ForestMapTiles_86
+  - first:
+      213: -8077965062372013846
+    second: ForestMapTiles_87
+  - first:
+      213: -3234913598190731321
+    second: ForestMapTiles_88
+  - first:
+      213: -5684402570989043492
+    second: ForestMapTiles_89
+  - first:
+      213: -2316471836967309365
+    second: ForestMapTiles_90
+  - first:
+      213: -8698402518442053399
+    second: ForestMapTiles_91
+  - first:
+      213: 7925119054048443480
+    second: ForestMapTiles_92
+  - first:
+      213: 2416369904165242707
+    second: ForestMapTiles_93
+  - first:
+      213: 3756957280832785609
+    second: ForestMapTiles_94
+  - first:
+      213: -5367066340597881001
+    second: ForestMapTiles_95
+  - first:
+      213: -6961114465358101219
+    second: ForestMapTiles_96
+  - first:
+      213: -5162314157997334190
+    second: ForestMapTiles_97
+  - first:
+      213: -5951089844767484818
+    second: ForestMapTiles_98
+  - first:
+      213: 4335445059129865199
+    second: ForestMapTiles_99
+  - first:
+      213: 675089558233038713
+    second: ForestMapTiles_100
+  - first:
+      213: 2289070682499060438
+    second: ForestMapTiles_101
+  - first:
+      213: 6240206002555865697
+    second: ForestMapTiles_102
+  - first:
+      213: -1249261051276341805
+    second: ForestMapTiles_103
+  - first:
+      213: -846914564582989283
+    second: ForestMapTiles_104
+  - first:
+      213: 8012401143108007197
+    second: ForestMapTiles_105
+  - first:
+      213: 3590076972602313847
+    second: ForestMapTiles_106
+  - first:
+      213: 1480822157745167990
+    second: ForestMapTiles_107
+  - first:
+      213: 5201662786867599670
+    second: ForestMapTiles_108
+  - first:
+      213: 871938023645427302
+    second: ForestMapTiles_109
+  - first:
+      213: 5238998796193117863
+    second: ForestMapTiles_110
+  - first:
+      213: -338872022883286894
+    second: ForestMapTiles_111
+  - first:
+      213: 3736473716282589596
+    second: ForestMapTiles_112
+  - first:
+      213: -958661006018759137
+    second: ForestMapTiles_113
+  - first:
+      213: -6961069346975930905
+    second: ForestMapTiles_114
+  - first:
+      213: 5312199308206859795
+    second: ForestMapTiles_115
+  - first:
+      213: 6988569153590385173
+    second: ForestMapTiles_116
+  - first:
+      213: -3069192507370521125
+    second: ForestMapTiles_117
+  - first:
+      213: -8062123051592665034
+    second: ForestMapTiles_118
+  - first:
+      213: 6333128698420912191
+    second: ForestMapTiles_119
+  - first:
+      213: 4829887980088710389
+    second: ForestMapTiles_120
+  - first:
+      213: 5123153866396634152
+    second: ForestMapTiles_121
+  - first:
+      213: -8191319908382460821
+    second: ForestMapTiles_122
+  - first:
+      213: -2316490534566313932
+    second: ForestMapTiles_123
+  - first:
+      213: 4082117202708015234
+    second: ForestMapTiles_124
+  - first:
+      213: 8169567533844278943
+    second: ForestMapTiles_125
+  - first:
+      213: 2228856002099300511
+    second: ForestMapTiles_126
+  - first:
+      213: 4423611681407847958
+    second: ForestMapTiles_127
+  - first:
+      213: -5373069099134317328
+    second: ForestMapTiles_128
+  - first:
+      213: 3297011061482861816
+    second: ForestMapTiles_129
+  - first:
+      213: -915435726265035904
+    second: ForestMapTiles_130
+  - first:
+      213: 7504262838368995082
+    second: ForestMapTiles_131
+  - first:
+      213: 738255639728705623
+    second: ForestMapTiles_132
+  - first:
+      213: 5586486887168719224
+    second: ForestMapTiles_133
+  - first:
+      213: -7246251631110965779
+    second: ForestMapTiles_134
+  - first:
+      213: 3541494347201593166
+    second: ForestMapTiles_135
+  - first:
+      213: 1876153415610351694
+    second: ForestMapTiles_136
+  - first:
+      213: -5352217567697474736
+    second: ForestMapTiles_137
+  - first:
+      213: -6072347921566239190
+    second: ForestMapTiles_138
+  - first:
+      213: -4448697396947597455
+    second: ForestMapTiles_139
+  - first:
+      213: 4152798162702513916
+    second: ForestMapTiles_140
+  - first:
+      213: -5767812849169412184
+    second: ForestMapTiles_141
+  - first:
+      213: -3310011201597489297
+    second: ForestMapTiles_142
+  - first:
+      213: -7385355973859669033
+    second: ForestMapTiles_143
+  - first:
+      213: -339555279871058463
+    second: ForestMapTiles_144
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 24
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ForestMapTiles_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 562
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23ba0b7ee6d5655419f5b67fe606e29f
+      internalID: 7903313334170972714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_1
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 562
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8ac2e3985af4d440a8053715a8b5c90
+      internalID: 5533189649153128245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_2
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 562
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba7eeaa475982d84288d5d44b872acde
+      internalID: -5954909734424208321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_3
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 562
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc6a6e35876313346b45aa3b4a3dfb26
+      internalID: -1454976201874751248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_4
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 562
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aa0faf8ac5104f4eb413ed249c61e5b
+      internalID: -6821718632306426940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_5
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 562
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cac1e6e1ec6e3734b88c847de7ecf57d
+      internalID: -7602648062629486122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_6
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 562
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcc5a1764185bf241b1565dff3a57194
+      internalID: 7407897329255523160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_7
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 534
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08ca42fd554510e4fa0e1a66ebf6d8c5
+      internalID: 6152139355476583410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_8
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 534
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc6dd8ee3f21b0b48b00c27bb5c2822e
+      internalID: -5399991329220594227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_9
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 534
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc994c35a7149ce45908463ca48099d5
+      internalID: -4739196423155277180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_10
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 534
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dea9140af8ecd8a4395b4dc9f37ecf61
+      internalID: -5472612583721089461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_11
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 534
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d1765591017479408dcadfedeacea8f
+      internalID: 9203049887003847639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_12
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 534
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b060c6a64f552f409391c44f7d829ea
+      internalID: -6283734480120792215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_13
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 534
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 909be1b658228454a92d4a10b8676b4f
+      internalID: 5642675630054979696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_14
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 506
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2566656d47575a8438dff0b3630f43e4
+      internalID: -6435330686336994373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_15
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 506
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8926d7aea46e83a4bb2b5314645f37b9
+      internalID: 2130731324177036874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_16
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 506
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea88e6334d4d42740ba18d419463ad62
+      internalID: -1662354199323803331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_17
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 506
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c019f8d814e110468e44921bfa6cf3f
+      internalID: -2927205161378748146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_18
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 506
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdccac653b42b884092ca3d925e1daf8
+      internalID: -6160409149958192329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_19
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 506
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5d3e074ca3c22541a29cdb22d83efe6
+      internalID: -1690051727260517794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_20
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 506
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25c5e90568d86bf4b8ba59d125162e11
+      internalID: -3384455982988603513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_21
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 478
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f0fcd8e848ca9a4db3955a9cf93b364
+      internalID: 4046393936891807013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_22
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 478
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f55e3c07db7d64bb811a3f0f7322fa
+      internalID: 4550020455381166442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_23
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 478
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b07a2ee3011f88344855799117daf87c
+      internalID: 2319230638694706674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_24
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 478
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 876a3787b26ecb849890a0e3da49d60f
+      internalID: -7420163818806679457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_25
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 478
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e93d77cfa90629c4ca9322d551aa06a1
+      internalID: 2458213954284700320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_26
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 478
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf1873a69ab47874d9a01c3f52f1a424
+      internalID: -7141356583366319110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_27
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 478
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95aea71cd6cf74b4882fa7903a43f0db
+      internalID: 6105499766909008748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_28
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 450
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9a24d234f0021240949ae9ee7e2d74d
+      internalID: 1639595039598431910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_29
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 450
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26f93b036d95fa24dabd1086e46066be
+      internalID: 6955160519466945284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_30
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 450
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7235afd6049e59b4da2d620e6f905922
+      internalID: 1898491829103429948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_31
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 450
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39ef35fb0a6ee5b46abff8aaec369e6d
+      internalID: -3938355910468542999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_32
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 450
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 055da441a6a44a447b37b14a421f4ff8
+      internalID: 5264545381074915908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_33
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 450
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f330fbaecacda9e41b2a3a91d3e0af7a
+      internalID: 1478063433359036698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_34
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 450
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae2620a2b1783294da9832142f35e5c8
+      internalID: -8834674929369331164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_35
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 422
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3db4a7eef25215741b37e5b8c48e309f
+      internalID: 6523934538395298758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_36
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 422
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daad9c0ad8d897545baf68549d2d1f67
+      internalID: 4516852169799425165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_37
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 422
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd4aa96985edb4d498de1e67de522219
+      internalID: 5510565929182842882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_38
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 422
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 155c07128a37f4640902472c7bc2f55a
+      internalID: 4014570023167307828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_39
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 422
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a3a97884a16bc04ca02e9dbdf6ec747
+      internalID: 7096878782859878412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_40
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 422
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e77d5c43b38f8a4c8f9eaa1a63820e5
+      internalID: 2296988403283614483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_41
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 422
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ace1f31c67c37394395d54159230c0ff
+      internalID: -5294470849286846797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_42
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 394
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9df9cf7c98ea2147aa5d670d14b0c0d
+      internalID: -2602349109765041124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_43
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 394
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13b736e879e3f6e4aa108be75cc92e79
+      internalID: 1617955135773792102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_44
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 394
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f459f2c27ca18845800aa5b27470b18
+      internalID: -7122450982613636106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_45
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 394
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03ffc88858af30643983cb8f1fbcfb95
+      internalID: 7130524228188423374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_46
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 394
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b554249df8fe68d4b9fa640a5203e830
+      internalID: 5934504327222721817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_47
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 394
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3663c8b0c9d48ec44aa57e3c343ce513
+      internalID: -4542346695457718927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_48
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 394
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7e16d70a39a5db4fb974a916b1bed45
+      internalID: 5599019134624051525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_49
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 366
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b5293cb3666410438cc15e99df992ea
+      internalID: 4225093901254209544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_50
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 366
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b909bbda5490234284f21345d51b029
+      internalID: -5786188967822955022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_51
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 366
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61dd557fb1027494a8bb2696bd7bdf2c
+      internalID: -6931387011266232572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_52
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 366
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dbf321bce0b7b2488752bf24c35f82d
+      internalID: -1713096407690968627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_53
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 366
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce2dd1825b58201479a193338c7eb88c
+      internalID: -8139051325733660465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_54
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 366
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f8e094064b5c034ea1bbe48ca02eafb
+      internalID: 4906711338051407444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_55
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 366
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f357ec38a307e14b8009d436aafd490
+      internalID: 8025689696497240383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_56
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 338
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2379b79c6ad808e43826116006cae5fb
+      internalID: 2015595992880676366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_57
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 338
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 785a78512cd95fb41944629c1f7f53a0
+      internalID: -8854253573859287397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_58
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 338
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e41c4856ef5fe843a4af9ddddf67abd
+      internalID: -1162731613537297135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_59
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 338
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5b22d61d0a443846afe82e304d3f01f
+      internalID: 6885939408137828138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_60
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 338
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2247ebfb79589e42a4c1203dd33ef26
+      internalID: 7518484394809673664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_61
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 338
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db1580cc3486d364aaac65231d0582ee
+      internalID: 4601963900829083958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_62
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 338
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a570f3233ecf614cac04675d12a93e5
+      internalID: 2456294738359776781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_63
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 310
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18641c5250394804baf5b1008dfba866
+      internalID: -1329738040216088650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_64
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 310
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f74e65d05af97cd4fb640846b5041b54
+      internalID: -8040795193567065419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_65
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 310
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdafaafeab8ee4a4ea3ad04bd40bf8a4
+      internalID: -1059618013791719368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_66
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 310
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d73026d07c791ce458a9ab5d945784cb
+      internalID: -2225077886846557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_67
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 310
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef4aa8ab78ffabe4083ae9f7cce36c00
+      internalID: 648912627239040002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_68
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 310
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47fba717a3a8bf94499ca0310b4bc83e
+      internalID: -272117564369071618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_69
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 310
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f76a5525e5c2f6143bf705aba16c1ec7
+      internalID: -8747174462394966017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_70
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 282
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 832f473c7b82ec346921014e91fb1b78
+      internalID: -6724800991753900670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_71
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 282
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 257991fee5634d44d99f42a3729caa11
+      internalID: 4297351273869176380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_72
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 282
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52dac273ba8706949a81f63118bf369e
+      internalID: -1891172842458015073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_73
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 282
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c195610ac6fcf645a79c166a289816c
+      internalID: -8059470752759293875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_74
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 282
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2678b6b24d8d2b94aac605dea786dc55
+      internalID: 6632344212892066138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_75
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 282
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f040833d6cc1ad4bb49808edc313938
+      internalID: -430045338357670912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_76
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 282
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4658d0ba07badb54e9b8baea2a01720c
+      internalID: -442870536498985881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_77
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 254
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba2ae39d6379de14aa08ed55aec7ca5a
+      internalID: 1382709305674634565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_78
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 254
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2873b56358910dd4ab90eefdd63accd8
+      internalID: 5458971177513034443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_79
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 254
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acfa40b02a298b74bb71e0ac5479f3aa
+      internalID: 7886270822868462537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_80
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 254
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baba2fa4746f8fb47a0bff781b1ebd50
+      internalID: 8397496012622670279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_81
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 254
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4adcde786f3d6d74b92928e2826024ce
+      internalID: 3159398789010006719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_82
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 254
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d5801ad4969be54f84a7aeeec495572
+      internalID: 5331489081813461261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_83
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 254
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a7a2a0d72a46ad43a2d8fd0c8d9bcaf
+      internalID: 7484539933294103430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_84
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 226
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10f5891ce65554449a5d12c05571614d
+      internalID: 9143780856609613650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_85
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 226
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 339e32242345a9a4eb2e8ad64f33bc3c
+      internalID: 4835346255430949871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_86
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 226
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0420dcf9fe93d741883e2f050eda055
+      internalID: -674442645416451865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_87
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 226
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 931a0bf999acca04e878f236e99b6e22
+      internalID: -8077965062372013846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_88
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 226
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaf9683cc8a75a5409b81dfa2525fcce
+      internalID: -3234913598190731321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_89
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 226
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fce8b6b534848eb40af8f6efc1e6f852
+      internalID: -5684402570989043492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_90
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 226
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4f13d6610b85b840bd94b72d14e85d3
+      internalID: -2316471836967309365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_91
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 198
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 790867230dbc37247ae78a9453eecfdd
+      internalID: -8698402518442053399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_92
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 198
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a55d5256c548d8246aa0885845b3c5d0
+      internalID: 7925119054048443480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_93
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 198
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8d1d233419104f4e8512532fe77bfe8
+      internalID: 2416369904165242707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_94
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 198
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03b8995d2bb50d944b86050a0f21de03
+      internalID: 3756957280832785609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_95
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 198
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f903655cf522c04fb2a3ddb44fe084f
+      internalID: -5367066340597881001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_96
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 198
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9804667677474bc419cbf418f4dc46c0
+      internalID: -6961114465358101219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_97
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 198
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39fa089d14f92c549b3b9c98cbc97639
+      internalID: -5162314157997334190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_98
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 170
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15bd022a8fc91d14b8042e4bf8a3bb60
+      internalID: -5951089844767484818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_99
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 170
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e3e9493ba740944eb400984806dc7bc
+      internalID: 4335445059129865199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_100
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 170
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7636abe8b79eb742bfa1e82eb9f4d6f
+      internalID: 675089558233038713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_101
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 170
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6195f019dbba5a24f8a6caa071bb0b8a
+      internalID: 2289070682499060438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_102
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 170
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae83ca774c7d8f14db52786afa67fa5e
+      internalID: 6240206002555865697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_103
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 170
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f4234e39cf53af44949ffa58f3eb6a0
+      internalID: -1249261051276341805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_104
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 170
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eb856e444abb8140b6f5ea375146dd3
+      internalID: -846914564582989283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_105
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 142
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e1cc4d17a89dc54cac82f7ad090596e
+      internalID: 8012401143108007197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_106
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 142
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c4fc34a0cee554498b419d189479b24
+      internalID: 3590076972602313847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_107
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 142
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d7143795520c06498738655fa93b151
+      internalID: 1480822157745167990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_108
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 142
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4a41221aee406a438c06a7ca2ddcd66
+      internalID: 5201662786867599670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_109
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 142
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e2ed64efde185047a8a5660ab8c22a2
+      internalID: 871938023645427302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_110
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 142
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23cdae1a0a8c78e4a93f7e6254f6a776
+      internalID: 5238998796193117863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_111
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 142
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e785cbae65ba81249ad2d93093f84a88
+      internalID: -338872022883286894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_112
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 114
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9f72b5d212deb94fac01d19171cd258
+      internalID: 3736473716282589596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_113
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 114
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e303cfa2f3c6be3459985fbcc677af7e
+      internalID: -958661006018759137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_114
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 114
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e81005b2c2401845adec26a693a7fdc
+      internalID: -6961069346975930905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_115
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 114
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a7b48f67bf1c6d47a9bb165fea34b76
+      internalID: 5312199308206859795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_116
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 114
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7ece937e5cf848458e3f9903bddc19f
+      internalID: 6988569153590385173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_117
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 114
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 515b591fa37b5854fb796c2dcf0f6aa7
+      internalID: -3069192507370521125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_118
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 114
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7360118d7061d54ba1863f28dda84cc
+      internalID: -8062123051592665034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_119
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 86
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5bccc5e6d1d0e14ab3ab14878d1f11a
+      internalID: 6333128698420912191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_120
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 86
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a46ccb614e363cc46893a582d3e34ce2
+      internalID: 4829887980088710389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_121
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 86
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d2b1fe8ae9401b42bb9641619ede2b4
+      internalID: 5123153866396634152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_122
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 86
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea9c6723adcf0c64c94b9ba3677d4ca6
+      internalID: -8191319908382460821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_123
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 86
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f88cd44bc3c5ef44ea96a143a82af42e
+      internalID: -2316490534566313932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_124
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 86
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b72ce49da10118f4d8b3bf27bb957e07
+      internalID: 4082117202708015234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_125
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 86
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78ee474aadd1fa24190fb4f81a578223
+      internalID: 8169567533844278943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_126
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 58
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 886b80d3ab3d6d946bba756e2b433677
+      internalID: 2228856002099300511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_127
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 58
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c87264c51bb74434ea6f2b91fca49c82
+      internalID: 4423611681407847958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_128
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 58
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 633f393554b04db4193dc37e6a8e6022
+      internalID: -5373069099134317328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_129
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 58
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 857f2a014c55cf645a3a0380fb90103d
+      internalID: 3297011061482861816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_130
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 58
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22ca0f1ffc4420642a11a79b8fb412b2
+      internalID: -915435726265035904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_131
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 58
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c478ae3ca380c948a85795582dd9698
+      internalID: 7504262838368995082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_132
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 58
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cc01936870286d46afdeb90a560bac5
+      internalID: 738255639728705623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_133
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 30
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d908c3952e677f04d9a22f057d2a6011
+      internalID: 5586486887168719224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_134
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 30
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67294c521084e1b4bb269b30bf7d04ba
+      internalID: -7246251631110965779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_135
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 30
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03aa05ec5974dad409eba3c91cc2da66
+      internalID: 3541494347201593166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_136
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 30
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3721d604a1644544c986be89a1af6331
+      internalID: 1876153415610351694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_137
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 30
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 880e1f3dc6de822499bc38e23a808974
+      internalID: -5352217567697474736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_138
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 30
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52c57ea6ad1ab0549afdaa43bf44167b
+      internalID: -6072347921566239190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_139
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 30
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57c11c1fae0040b4c91848ba12fc6f82
+      internalID: -4448697396947597455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_140
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e6f1101a2bd8c74898fbfd264952a8d
+      internalID: 4152798162702513916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_141
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 2
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 154b807999e30ad4bb3b6f3c094f7ae6
+      internalID: -5767812849169412184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_142
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 2
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a7748c2ab925984b9700a658fbe07a8
+      internalID: -3310011201597489297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_143
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 2
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eede8cc1cc291140be2cc2653e8648e
+      internalID: -7385355973859669033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestMapTiles_144
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 2
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17844cb6b046ee44088387c0e7171cb0
+      internalID: -339555279871058463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 0ebfa89018f102b4f86080d1f4a7bbf3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
