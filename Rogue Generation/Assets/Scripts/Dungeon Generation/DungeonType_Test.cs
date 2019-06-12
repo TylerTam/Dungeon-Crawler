@@ -103,9 +103,9 @@ public class DungeonType_Test : DungeonType_Base
 
 
         //Draw the boarder
-        for (int x = 0; x < dungeonSize.x; x++)
+        for (int x = 0 - m_dungeonMapBounds.x; x < dungeonSize.x + m_dungeonMapBounds.x; x++)
         {
-            for (int y = 0; y < dungeonSize.y; y++)
+            for (int y = 0 - m_dungeonMapBounds.y; y < dungeonSize.y + m_dungeonMapBounds.y; y++)
             {
                 p_gen.m_wallTiles.SetTile(new Vector3Int(x, y, 0), p_dungeonTheme.m_wallTile);
             }
@@ -484,8 +484,8 @@ public class DungeonType_Test : DungeonType_Base
             int itemSpawnIndex = 0;
             foreach (ItemStruct item in p_itemList)
             {
-                Debug.Log("RandomItem Num: " + randomItem + currentRate);
-                if (randomItem + currentRate < item.m_itemRarity)
+
+                if (randomItem < item.m_itemRarity + currentRate)
                 {
                     
                     itemSpawnIndex = p_itemList.IndexOf(item);

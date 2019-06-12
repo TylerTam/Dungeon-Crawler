@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e95817597be56ac45af7cfb5d3bd99ff, type: 3}
   m_Name: Standard Dungeon
   m_EditorClassIdentifier: 
+  m_dungeonMapBounds: {x: 10, y: 5}
   m_minRooms: 5
   m_maxRooms: 8
   m_minRoomSize: {x: 3, y: 3}

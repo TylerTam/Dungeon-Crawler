@@ -8,17 +8,23 @@ public class DungeonNavigation : MonoBehaviour
     #region  variables
     [Header("Grid Variables")]
     public bool testGrid;
-    public bool onlyDisplayPath;
-    public bool displayGizmos;
+   
     public LayerMask m_terrain;
     public Vector2 m_gridWorldSize;
     public Vector3 m_gridOrigin;
     public float m_nodeRadius;
     Node[,] m_grid;
-    float nodeDiameter;
+    float m_nodeDiameter;
     Vector2Int m_gridSize;
     #endregion
 
+
+    #region Gizmos Settings
+    [Header("Debug Settings")]
+    public bool m_onlyDisplayPath;
+    public bool m_displayGizmos;
+    public Color m_unwalkableColor, m_walkableColor;
+    #endregion
     private void Awake()
     {
         if (testGrid)
@@ -30,11 +36,11 @@ public class DungeonNavigation : MonoBehaviour
     public void CreateGrid()
     {
         m_gridSize = new Vector2Int();
-        nodeDiameter = m_nodeRadius * 2;
+        m_nodeDiameter = m_nodeRadius * 2;
 
         //So that no node is half off the space
-        m_gridSize.x = Mathf.RoundToInt(m_gridWorldSize.x / nodeDiameter);
-        m_gridSize.y = Mathf.RoundToInt(m_gridWorldSize.y / nodeDiameter);
+        m_gridSize.x = Mathf.RoundToInt(m_gridWorldSize.x / m_nodeDiameter);
+        m_gridSize.y = Mathf.RoundToInt(m_gridWorldSize.y / m_nodeDiameter);
 
 
         m_grid = new Node[m_gridSize.x, m_gridSize.y];
@@ -48,7 +54,7 @@ public class DungeonNavigation : MonoBehaviour
 
                 //Get the world point of the current node, using the bottom left
                 //Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + m_nodeRadius) + Vector3.forward * (y * nodeDiameter + m_nodeRadius);
-                Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + m_nodeRadius) + Vector3.up * (y * nodeDiameter + m_nodeRadius);
+                Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * m_nodeDiameter + m_nodeRadius) + Vector3.up * (y * m_nodeDiameter + m_nodeRadius);
                 bool isWalkable = !(Physics2D.OverlapCircle(worldPoint, .1f, m_terrain));//!(Physics2D.OverlapCircle(worldPoint, m_nodeRadius, m_terrain));
                 m_grid[x, y] = new Node(isWalkable, worldPoint, x, y);
 
@@ -69,7 +75,7 @@ public class DungeonNavigation : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (!displayGizmos) return;
+        if (!m_displayGizmos) return;
         Gizmos.DrawWireCube(m_gridOrigin, new Vector3(m_gridWorldSize.x, m_gridWorldSize.y, 1));
 
 
@@ -78,8 +84,8 @@ public class DungeonNavigation : MonoBehaviour
             foreach (Node n in m_grid)
             {
 
-                Gizmos.color = (n.m_walkable) ? Color.green : Color.red;
-                Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - .1f));
+                Gizmos.color = (n.m_walkable) ? m_walkableColor : m_unwalkableColor;
+                Gizmos.DrawCube(n.worldPosition, Vector3.one * (m_nodeDiameter - .1f));
             }
         }
 
@@ -134,8 +140,8 @@ public class DungeonNavigation : MonoBehaviour
             {
                 if (m_grid[x, y] == navNode)
                 {
-                    float xPos = (x * nodeDiameter) - m_gridWorldSize.x / 2;
-                    float yPos = (y * nodeDiameter) - m_gridWorldSize.y / 2;
+                    float xPos = (x * m_nodeDiameter) - m_gridWorldSize.x / 2;
+                    float yPos = (y * m_nodeDiameter) - m_gridWorldSize.y / 2;
                     return new Vector3(xPos, 0f, yPos);
                 }
             }

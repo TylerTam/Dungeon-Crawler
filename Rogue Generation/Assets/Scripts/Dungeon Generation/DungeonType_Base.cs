@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 
 public abstract class DungeonType_Base : ScriptableObject
 {
+    public Vector2Int m_dungeonMapBounds;
     public int m_minRooms, m_maxRooms;
     public Vector2Int m_minRoomSize, m_maxRoomSize;
     public int m_cellBoarder = 2;

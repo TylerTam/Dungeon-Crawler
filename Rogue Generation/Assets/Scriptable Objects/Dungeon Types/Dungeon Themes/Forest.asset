@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Forest
   m_EditorClassIdentifier: 
   m_floorTile: {fileID: 11400000, guid: d0c3298214d404d40acfd1e5949ed8a2, type: 2}
-  m_wallTile: {fileID: 11400000, guid: fde3f1637752a784aabffcfa7f9f6df6, type: 2}
+  m_wallTile: {fileID: 11400000, guid: d8fbe5995e2e9904db5ccf68ea02151b, type: 2}
   m_generationTypes:
   - {fileID: 11400000, guid: 3a21da0cc0c7dfb4f94c6702af290e8b, type: 2}
   m_maxItemsOnFloor: 0
-  m_minItemsPerRoom: 0
-  m_maxItemsPerRoom: 3
+  m_minItemsPerRoom: 1
+  m_maxItemsPerRoom: 4
   m_itemsInDungeon:
   - m_itemType: {fileID: 11400000, guid: 20a045b0a90d9554d8b3307d38895ce4, type: 2}
     m_itemRarity: 1
