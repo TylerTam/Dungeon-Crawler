@@ -20,10 +20,5 @@ MonoBehaviour:
   m_cellsInDungeon: {x: 4, y: 3}
   m_cellSize: {x: 10, y: 10}
   m_hallwayTurnAount: 3
-  roomTile: {fileID: 11400000, guid: 8da0398c7aa842446b9fae4e89fca9ab, type: 2}
-  roomExitTile: {fileID: 11400000, guid: f62e4e63100deb74881a83db88d8e7af, type: 2}
-  hallwayTile: {fileID: 11400000, guid: b8a8c44239db898458b5168fe8c1fcd0, type: 2}
-  connectionTile: {fileID: 11400000, guid: 54ef8e6008e4c9243b7628c204d88e78, type: 2}
-  wallTile: {fileID: 11400000, guid: 5de1f8eacdb97514296da83fb5385821, type: 2}
   m_minEmptyPercent: 0
   m_maxEmptyPercent: 0.605

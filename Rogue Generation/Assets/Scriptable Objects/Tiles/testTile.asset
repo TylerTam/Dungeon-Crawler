@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: roomDoorTile
+  m_Name: testTile
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 2808510959701516568, guid: 41f7903252d2ccf4aa48d34098ce7117,
+  m_Sprite: {fileID: -5162314157997334190, guid: 90c73c84f2cf0ba41b392d44d4eefe3b,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:

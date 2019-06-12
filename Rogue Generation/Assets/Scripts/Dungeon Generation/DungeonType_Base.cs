@@ -12,12 +12,14 @@ public abstract class DungeonType_Base : ScriptableObject
     public Vector2Int m_cellSize;
     public int m_hallwayTurnAount = 3;
 
+
+
     
 
-    public abstract List<DungeonGridCell> CreateDungeon(Tilemap p_wallTiles, Tilemap p_floorTiles, DungeonGenerator p_gen, DungeonNavigation p_dungeonNav);
+    public abstract List<DungeonGridCell> CreateDungeon(DungeonGenerator p_gen, DungeonTheme p_dungeonTheme, DungeonNavigation p_dungeonNav);
 
-    public abstract DungeonGridCell CreateRoom(Tilemap p_wallTiles,Tilemap p_floorTiles, Vector3Int p_roomPosition, DungeonGridCell p_currentCell, DungeonGridCell[,] p_allCells);
-    public abstract void CreateCorridor(Tilemap p_wallTiles, Tilemap p_floorTiles, Vector3Int p_startPos, Vector3Int p_endPos, DungeonGridCell p_currentCell);
+    public abstract DungeonGridCell CreateRoom(DungeonGenerator p_gen, DungeonTheme p_dungeonTheme, Vector3Int p_roomPosition, DungeonGridCell p_currentCell, DungeonGridCell[,] p_allCells);
+    public abstract void CreateCorridor(DungeonGenerator p_gen, DungeonTheme p_dungeonTheme, Vector3Int p_startPos, Vector3Int p_endPos, DungeonGridCell p_currentCell);
 
     [System.Serializable]
     public struct DungeonGridCell
@@ -28,6 +30,8 @@ public abstract class DungeonType_Base : ScriptableObject
         public CellType m_currentCellType;
         public List<ConnectionPoint> m_connectionPoints;
         public List<Vector2Int> m_connectedTo;
+
+        public List<Vector2> m_floorTiles;
 
         public void ChangeCellType(CellType p_newCellType)
         {
