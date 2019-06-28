@@ -1,0 +1,1249 @@
+fileFormatVersion: 2
+guid: 53745163b055e1b428f53a42135971f2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2192645584627722245
+    second: miniMapTiles_0
+  - first:
+      213: 5702922913871412627
+    second: miniMapTiles_1
+  - first:
+      213: -7222567936753718733
+    second: miniMapTiles_2
+  - first:
+      213: 4336355554690794073
+    second: miniMapTiles_3
+  - first:
+      213: -2454140897853145393
+    second: miniMapTiles_4
+  - first:
+      213: 5334186722449374993
+    second: miniMapTiles_5
+  - first:
+      213: -2745005899869769740
+    second: miniMapTiles_6
+  - first:
+      213: 3997998076369261591
+    second: miniMapTiles_7
+  - first:
+      213: -2154226928997985535
+    second: miniMapTiles_8
+  - first:
+      213: -2009782798785670624
+    second: miniMapTiles_9
+  - first:
+      213: -6777355605941541207
+    second: miniMapTiles_10
+  - first:
+      213: 695325749847383092
+    second: miniMapTiles_11
+  - first:
+      213: -8639825626941749534
+    second: miniMapTiles_12
+  - first:
+      213: 2435560042039564753
+    second: miniMapTiles_13
+  - first:
+      213: 3228461678845709629
+    second: miniMapTiles_14
+  - first:
+      213: -6533268993958440406
+    second: miniMapTiles_15
+  - first:
+      213: -1958033654063053634
+    second: miniMapTiles_16
+  - first:
+      213: -1219510496264693163
+    second: miniMapTiles_17
+  - first:
+      213: 5156117778166351277
+    second: miniMapTiles_18
+  - first:
+      213: 6247244969013335305
+    second: miniMapTiles_19
+  - first:
+      213: 165275076853889666
+    second: miniMapTiles_20
+  - first:
+      213: 6308739114278906163
+    second: miniMapTiles_21
+  - first:
+      213: 7742744786828446136
+    second: miniMapTiles_22
+  - first:
+      213: 7881015695228123057
+    second: miniMapTiles_23
+  - first:
+      213: -342317030275553893
+    second: miniMapTiles_24
+  - first:
+      213: -3823949055678435476
+    second: miniMapTiles_25
+  - first:
+      213: -5751181091563883046
+    second: miniMapTiles_26
+  - first:
+      213: 281931699486305811
+    second: miniMapTiles_27
+  - first:
+      213: 1041853463606271126
+    second: miniMapTiles_28
+  - first:
+      213: 2629524595782202395
+    second: miniMapTiles_29
+  - first:
+      213: -8295823362638813532
+    second: miniMapTiles_30
+  - first:
+      213: 5298121108466870886
+    second: miniMapTiles_31
+  - first:
+      213: 6318787673444071019
+    second: miniMapTiles_32
+  - first:
+      213: 8191568070329484806
+    second: miniMapTiles_33
+  - first:
+      213: -4475139304665548805
+    second: miniMapTiles_34
+  - first:
+      213: 6153677983401931188
+    second: miniMapTiles_35
+  - first:
+      213: -3694529624619600933
+    second: miniMapTiles_36
+  - first:
+      213: 4457253975200270044
+    second: miniMapTiles_37
+  - first:
+      213: -3546076202129485408
+    second: miniMapTiles_38
+  - first:
+      213: 6935270757995015268
+    second: miniMapTiles_39
+  - first:
+      213: 3291938707301551979
+    second: miniMapTiles_40
+  - first:
+      213: 1602889220435051818
+    second: miniMapTiles_41
+  - first:
+      213: -4303543674707212727
+    second: miniMapTiles_42
+  - first:
+      213: -8678833308822686299
+    second: miniMapTiles_43
+  - first:
+      213: -7512551537623658633
+    second: miniMapTiles_44
+  - first:
+      213: -3511618959363826682
+    second: miniMapTiles_45
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 24
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: miniMapTiles_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 172
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d4951244afcb084694cf204427bee61
+      internalID: 2192645584627722245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_1
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 172
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2731c9d3cb924794cbd22c4892930075
+      internalID: 5702922913871412627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_2
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 172
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ca86391562c0614eb1c374a951c737c
+      internalID: -7222567936753718733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_3
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 172
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d0d8b756e6e09647a22bea5ea78befa
+      internalID: 4336355554690794073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_4
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 172
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e547b2f9cea61c94f9bcf66b4e63f959
+      internalID: -2454140897853145393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_5
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 172
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 642618fd804c9044da63b539779d3b91
+      internalID: 5334186722449374993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 144
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c92c957e497e0554ba039066b7f2e71d
+      internalID: -2745005899869769740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_7
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 144
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b432b3b6c60a12a4bbb354c923114a7f
+      internalID: 3997998076369261591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_8
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 144
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 546e5e18ee18522458a7694fadd339df
+      internalID: -2154226928997985535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_9
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 144
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19360b0cc947d06498126ef94317dda9
+      internalID: -2009782798785670624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_10
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 144
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e03a4b5f27fd60a45ba34a91d37c671c
+      internalID: -6777355605941541207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_11
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 144
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d41f78cd74bfde42ba3125f6bfb0feb
+      internalID: 695325749847383092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_12
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 144
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fdf75ec24884b947af72fea057fad48
+      internalID: -8639825626941749534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_13
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 116
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94c0464f2310eab46aebe06576ffe3be
+      internalID: 2435560042039564753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_14
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 116
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aebe652d782344a429db0ca4d523bfce
+      internalID: 3228461678845709629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_15
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 116
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39ae4a3f85a6697419b8140e0a884db9
+      internalID: -6533268993958440406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_16
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 116
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1df57891d0cfb2942b3bbd6c27a0a931
+      internalID: -1958033654063053634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_17
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 116
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef2f6181a80a063478591b81b7498680
+      internalID: -1219510496264693163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_18
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 116
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8565475901454ba478a5055d711c7fc7
+      internalID: 5156117778166351277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_19
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 116
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1be5680ea223b2146948a779a7c47d11
+      internalID: 6247244969013335305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_20
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 88
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da5ee9d4e43076a42b46f5c51432f7c2
+      internalID: 165275076853889666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_21
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 88
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 386d8e0d3e8e01f4a848300678759e98
+      internalID: 6308739114278906163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_22
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 88
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6af283e83442c8419b7f11813884e95
+      internalID: 7742744786828446136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_23
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 88
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 258c486463d289e41ae69921f2391bc7
+      internalID: 7881015695228123057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_24
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 88
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab37f396c3188ae44b436a1c51276c38
+      internalID: -342317030275553893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_25
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 88
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7c72dd47ff5daf40abc6482e080f59a
+      internalID: -3823949055678435476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_26
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 88
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aeaa0db73dff234f81280d3af8c2048
+      internalID: -5751181091563883046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_27
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 60
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00f2b652bbb0ea04ab0ca57f347d33a6
+      internalID: 281931699486305811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_28
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 60
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7781da38f63a434bacd2575935471ac
+      internalID: 1041853463606271126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_29
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 60
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d3dbab481f9f4149b849b0a118463ac
+      internalID: 2629524595782202395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_30
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 60
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c94f1d6eaf09abe42949af25f6aa420f
+      internalID: -8295823362638813532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_31
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 60
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d8a70f33b238ef4c8ed2060054bdc92
+      internalID: 5298121108466870886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_32
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 60
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38de283b7dd7db540b536bdc26b739b8
+      internalID: 6318787673444071019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_33
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 60
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d791992d34e40341a489ffc7a6a5b5b
+      internalID: 8191568070329484806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_34
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 32
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f8ab1ee0d5dadb449ba064218f974c0
+      internalID: -4475139304665548805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_35
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 32
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c12e14850234a2d47b3a93a547f354c8
+      internalID: 6153677983401931188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_36
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 32
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd4f6d1304496b74a87223c146eb5f3a
+      internalID: -3694529624619600933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_37
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 32
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78c761fba8e6a584a9d18086546d46a2
+      internalID: 4457253975200270044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_38
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 32
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f7a174402578c942847486d245f9322
+      internalID: -3546076202129485408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_39
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 32
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbc019508f0c4b5459d6c2717708aace
+      internalID: 6935270757995015268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_40
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 32
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afddd9ca85af6834e887661b25ec36d4
+      internalID: 3291938707301551979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_41
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 4
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d33990fddfaf284ea0166594b0e3c1c
+      internalID: 1602889220435051818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_42
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 4
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3a9bb6e67b097a48a60e763f9dc6a86
+      internalID: -4303543674707212727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_43
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 4
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7f6dce25b7a2cd4fa11850e0c93149a
+      internalID: -8678833308822686299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_44
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 4
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04432b2f217345749937557e58441e5b
+      internalID: -7512551537623658633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniMapTiles_45
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 4
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd040db12472bef469eaa95b1e2ae3a1
+      internalID: -3511618959363826682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: fccac3cc86aec7f4fa2a1238f8e2dbc3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
