@@ -12,13 +12,14 @@ public class Input_Android : Input_Base
 
     public Joystick m_joystick;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         m_mainCamera = Camera.main;
         m_screenPercent = new Vector2(m_buttonsPercentWidth * m_mainCamera.pixelWidth, m_buttonsPercentHeight * m_mainCamera.pixelHeight);
         print((m_mainCamera.pixelWidth - m_screenPercent.x) + " | " + (m_mainCamera.pixelHeight - m_screenPercent.y));
     }
-    public override bool CheckInput()
+    public override void CheckInput()
     {
         if (Input.touchCount > 0)
         {
@@ -43,12 +44,23 @@ public class Input_Android : Input_Base
             }
 
             m_movementDirection = new Vector2(horizMove,vertMove);
-            return true;
 
+            if (m_movementDirection.magnitude != 0)
+            {
+                m_movementController.MoveCharacter(m_movementDirection);
+            }
+            
         }
-        else
-        {
-            return false;
-        }
+        
+    }
+
+    public override void CenterPressed()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void ButtonPressed(int p_buttonIndex)
+    {
+        throw new System.NotImplementedException();
     }
 }

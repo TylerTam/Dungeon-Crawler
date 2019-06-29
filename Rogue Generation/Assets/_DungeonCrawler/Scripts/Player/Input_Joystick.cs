@@ -9,26 +9,44 @@ public class Input_Joystick : Input_Base
     public bool m_inputPressed;
     private void Update()
     {
-        m_inputPressed = CheckInput();   
+        if (m_turnAgent.m_actionComplete && m_canPerform)
+        {
+            CheckInput();
+        }
     }
-    public override bool CheckInput()
+    public override void CheckInput()
     {
-        bool inputChecked = false;
+        bool movementPressed = false;
+
         float vert = 0, horiz = 0;
         if (Mathf.Abs(m_joystick.Vertical) > m_deadzone)
         {
             vert = Mathf.Sign(m_joystick.Vertical);
-            inputChecked = true;
+            movementPressed = true;
         }
         if (Mathf.Abs(m_joystick.Horizontal) > m_deadzone)
         {
             horiz = Mathf.Sign(m_joystick.Horizontal);
-            inputChecked = true;
+            movementPressed = true;
         }
-
         m_movementDirection = new Vector2(horiz, vert);
 
-        return inputChecked;
+        if (movementPressed)
+        {
+            m_movementController.MoveCharacter(m_movementDirection);
+        }
+        
+        
 
+    }
+
+    public override void CenterPressed()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void ButtonPressed(int p_buttonIndex)
+    {
+        throw new System.NotImplementedException();
     }
 }

@@ -16,6 +16,8 @@ public class TurnBasedManager : MonoBehaviour
 
     Coroutine m_turnCoroutine;
 
+    //public List<ActionStoppingObjects>
+
     private void Awake()
     {
         Instance = this;

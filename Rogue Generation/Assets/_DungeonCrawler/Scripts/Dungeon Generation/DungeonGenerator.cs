@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class DungeonGenerator : MonoBehaviour
 {
-
+    public static DungeonGenerator Instance { get; private set; }
 
     public UnityEngine.Tilemaps.Tilemap m_wallTiles, m_floorTiles, m_miniMapTiles;
     public UnityEngine.Tilemaps.Tile m_miniMapTile;
@@ -29,35 +29,34 @@ public class DungeonGenerator : MonoBehaviour
     public List<ItemStruct> m_fixedRatios;
 
     public GameObject m_playerObject;
+    Input_Base m_playerInput;
     public GameObject m_staircase;
 
     List<Vector2> m_occupiedSpaces;
 
+    private void OnEnable()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
     private void Awake()
     {
         m_dungeonNav = GetComponent<DungeonNavigation>();
         m_gridTestAgent = GetComponent<DungeonNavigation_Agent>();
         m_occupiedSpaces = new List<Vector2>();
+        m_playerInput = m_playerObject.GetComponent<Input_Base>();
     }
     private void Start()
     {
         objectPool = ObjectPooler.instance;
+        StartCoroutine(CheckDungeonConnection());
     }
-    private void Update()
+    public void NewFloor()
     {
-        if (Input.GetButtonDown("Jump"))
-        {
-            mapGenerated = false;
-
-        }
-
-
-        if (!mapGenerated)
-        {
-
-            Coroutine CreateDungeon = StartCoroutine(CheckDungeonConnection());
-            mapGenerated = true;
-        }
+        //Coroutine CreateDungeon = StartCoroutine(CheckDungeonConnection());
+        StartCoroutine(CheckDungeonConnection());
     }
 
 
@@ -108,6 +107,7 @@ public class DungeonGenerator : MonoBehaviour
         m_staircase.transform.position = randomPos;
         m_occupiedSpaces.Add(randomPos);
 
+        m_playerInput.m_canPerform = true;
 
     }
 
