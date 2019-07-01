@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TurnBasedAgent : MonoBehaviour
 {
 
     public enum AgentAction { Move, Attack, UseItem };
     public AgentAction m_currentAgentAction;
-    bool m_performAction;           //The boolean that determines if they are doing an action
+    private bool m_performAction;           //The boolean that determines if they are doing an action
     [HideInInspector]
     public bool m_performingAction; //Used by the controller, to determine if they can start a new function
     [HideInInspector]
@@ -15,8 +16,8 @@ public class TurnBasedAgent : MonoBehaviour
 
     public TurnBasedAgent m_previousAgent;
     
-    TurnBasedManager m_turnManager;
-    ObjectPooler m_pooler;
+    private TurnBasedManager m_turnManager;
+    private ObjectPooler m_pooler;
 
     #region Movement variables
     [HideInInspector]
@@ -26,15 +27,16 @@ public class TurnBasedAgent : MonoBehaviour
     [Header("Pre-set values")]
     public Transform m_predictedPlace;
 
-    float m_currentMovementTimer;
-    Coroutine m_movementCoroutine;
+    private float m_currentMovementTimer;
+    private Coroutine m_movementCoroutine;
+    private Entity_MovementController m_movementController;
     #endregion
 
     #region Attack Variables
-    AttackController m_attackController;
-    int m_currentAttackIndex;
+    private AttackController m_attackController;
+    private int m_currentAttackIndex;
     public Vector3 m_attackSpawnPos;
-    Coroutine m_attackCoroutine;
+    private Coroutine m_attackCoroutine;
     #endregion
 
     private void Start()
@@ -42,6 +44,7 @@ public class TurnBasedAgent : MonoBehaviour
         m_turnManager = TurnBasedManager.Instance;
         m_pooler = ObjectPooler.instance;
         m_attackController = GetComponent<AttackController>();
+        m_movementController = GetComponent<Entity_MovementController>();
     }
     public void AgentUpdate()
     {
@@ -134,6 +137,8 @@ public class TurnBasedAgent : MonoBehaviour
         m_predictedPlace.transform.position = m_targetPos;
         m_performingAction = false;
         m_actionComplete = true;
+        m_movementController.MovementComplete();
+
     }
     #endregion
 

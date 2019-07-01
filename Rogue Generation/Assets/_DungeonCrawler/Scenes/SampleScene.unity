@@ -339,6 +339,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_movementDirection: {x: 0, y: 0}
+  m_movementController: {fileID: 0}
+  m_turnAgent: {fileID: 0}
+  m_canPerform: 1
   m_joystick: {fileID: 1860307041}
   m_deadzone: 0.2
   m_inputPressed: 0
@@ -428,22 +431,9 @@ MonoBehaviour:
   m_terrainLayer:
     serializedVersion: 2
     m_Bits: 256
-  m_screenCenterTapped:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 711870787}
-        m_MethodName: SetActive
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: BoolActivationEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+  m_objectsOnFloorLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &297833299
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,7 +852,6 @@ GameObject:
   m_Component:
   - component: {fileID: 558595015}
   - component: {fileID: 558595014}
-  - component: {fileID: 558595013}
   m_Layer: 0
   m_Name: MinimapCamera
   m_TagString: Untagged
@@ -870,14 +859,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &558595013
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 558595012}
-  m_Enabled: 1
 --- !u!20 &558595014
 Camera:
   m_ObjectHideFlags: 0
@@ -1080,7 +1061,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1e-45, y: 0, z: 1.63e-43, w: 0.1015625}
+  m_BoundingSphereOverride: {x: 3.4959035e+9, y: 13.945392, z: 12.519604, w: 206906620}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1191,7 +1172,8 @@ GameObject:
   - component: {fileID: 716031692}
   - component: {fileID: 716031691}
   - component: {fileID: 716031690}
-  m_Layer: 0
+  - component: {fileID: 716031694}
+  m_Layer: 9
   m_Name: stairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1308,6 +1290,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &716031694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716031689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702ea4fc45734604eb313430fe8aee8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_playerLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &740084454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,7 +1480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 925569407}
   - component: {fileID: 925569408}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PredictedPlace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1597,7 +1594,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: -5980339277769254810, guid: 666d3ff6ce30a9e4a85072529a11495c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
