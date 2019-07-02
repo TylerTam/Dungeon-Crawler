@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Goes on the entity objects
+//Allows them to pick which move to use
 public class AttackController : MonoBehaviour
 {
-    List<AttackTypeContainer> m_attackType;
+    List<AttackType_Base> m_attackType;
     int m_currentChosenAttack;
 
 

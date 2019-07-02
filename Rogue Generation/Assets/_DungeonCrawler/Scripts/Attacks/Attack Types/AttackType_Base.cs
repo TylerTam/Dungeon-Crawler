@@ -4,17 +4,17 @@ using UnityEngine;
 
 
 //The prefab spawned by the entities
-public abstract class AttackTypeContainer : MonoBehaviour
+public abstract class AttackType_Base : MonoBehaviour
 {
-    public AttackType_Base m_attackFunction;
+    public AttackHitArea_Base m_attackFunction;
 
-    AttackController m_currentAttacker;
-    List<TurnBasedAction> m_newActions;
+    private AttackController m_currentAttacker;
+    private List<TurnBasedAction> m_newActions;
 
-    bool m_attackComplete = false;
+    private bool m_attackComplete = false;
 
     public int m_attackSpawnAmount = 0;
-    int m_currentAttackAmount;
+    private int m_currentAttackAmount;
 
 
     //Ends the attack, if it is compelte
@@ -29,6 +29,7 @@ public abstract class AttackTypeContainer : MonoBehaviour
         m_attackComplete = false;
         m_currentAttacker = p_currentAttacker;
         m_newActions.Clear();
+        m_attackFunction.GetAttackHitbox();
         m_newActions = m_attackFunction.CommencedActions();
         StartCoroutine(CheckAttackAnimation());
     }
@@ -46,7 +47,7 @@ public abstract class AttackTypeContainer : MonoBehaviour
 
     //The coroutine that runs to check if all the actions are completed from this attack
     //IE, all the attack anims, all the hurt anims, etc.
-    IEnumerator CheckAllActions()
+    private IEnumerator CheckAllActions()
     {
         bool allActionsComplete = false;
         while (!allActionsComplete)
