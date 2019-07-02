@@ -1,89 +1,56 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
-//The prefab spawned by the entities
-public abstract class AttackType_Base : MonoBehaviour
+/// <summary>
+/// This is used to determine the logic of an attack
+/// Any inherited scripts can change the "CreateAttackEffects" so that the weapon effects suit that attack
+/// ie. Thunderbolts spawn, or projectiles
+/// </summary>
+[CreateAssetMenu(fileName = "Attack Type Base", menuName = "Attack Types / Basic", order = 0)]
+public class AttackType_Base : ScriptableObject
 {
+
+    //The type of attack, ie, ranged, projectile, adjactent, full room, etc.
     public AttackHitArea_Base m_attackFunction;
 
-    private AttackController m_currentAttacker;
-    private List<TurnBasedAction> m_newActions;
 
-    private bool m_attackComplete = false;
-
+    //How many attack prefabs to spawn. IE. a multihit move, like furyswipes would have more than one
     public int m_attackSpawnAmount = 0;
-    private int m_currentAttackAmount;
 
 
-    //Ends the attack, if it is compelte
-    public bool AttackComplete()
-    {
-        return m_attackComplete;
-    }
+    [Header("Attack Animation")]
+    public RuntimeAnimatorController m_attackAnimationController;
 
-    //Gets all the enemies that are hit by this attack
+
+
+
+    /// <summary>
+    /// Starts the attack animation, and also passes any enemies that are hit
+    /// Called from the attack Controller
+    /// </summary>
+    
     public virtual void StartAttack(AttackController p_currentAttacker)
     {
-        m_attackComplete = false;
-        m_currentAttacker = p_currentAttacker;
-        m_newActions.Clear();
-        m_attackFunction.GetAttackHitbox();
-        m_newActions = m_attackFunction.CommencedActions();
-        StartCoroutine(CheckAttackAnimation());
+        p_currentAttacker.m_attackAnimator.runtimeAnimatorController = m_attackAnimationController;
+        p_currentAttacker.ChangeToAttackAnimation();
+
+        p_currentAttacker.m_newActions.Clear();
+
+        //Pass the hitbox
+        p_currentAttacker.m_newActions = m_attackFunction.CommencedActions(p_currentAttacker);
+        
     }
 
-    public abstract bool AttackAnimComplete();
-    IEnumerator CheckAttackAnimation()
+
+    //Create the weapons effects. This can be changed in the inherited scripts to better suit the attack.
+    public virtual void CreateAttackEffects(AttackController p_attackController)
     {
-        while (!AttackAnimComplete())
-        {
-            yield return null;
-        }
-        StartCoroutine(CheckAllActions());
-
+        Debug.Log("Create weapon effects here");
     }
 
-    //The coroutine that runs to check if all the actions are completed from this attack
-    //IE, all the attack anims, all the hurt anims, etc.
-    private IEnumerator CheckAllActions()
-    {
-        bool allActionsComplete = false;
-        while (!allActionsComplete)
-        {
+    
 
-            for (int i = 0; i < m_newActions.Count; i++)
-            {
-                if (m_newActions[i].IComplete())
-                {
-                    m_newActions.Remove(m_newActions[i]);
-                    i -= 1;
-                }
-                else
-                {
-                    break;
-                }
-            }
-            yield return null;
-            if(m_newActions.Count == 0)
-            {
-                allActionsComplete = true;
-            }
-        }
-
-        //Allow for multiple attacks, IE Fury attack
-        if (m_currentAttackAmount < m_attackSpawnAmount)
-        {
-            m_currentAttackAmount++;
-            StartAttack(m_currentAttacker);
-        }
-        else
-        {
-            m_attackComplete = true;
-            m_currentAttackAmount = 0;
-        }
-    }
+    
 
 
 }

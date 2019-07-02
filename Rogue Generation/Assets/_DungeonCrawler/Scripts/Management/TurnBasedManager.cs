@@ -32,10 +32,12 @@ public class TurnBasedManager : MonoBehaviour
     {
         if (m_currentAgentIndex - 1 < 0)
         {
-            return m_allAgents[m_allAgents.Count];
+            
+            return m_allAgents[m_allAgents.Count-1];
         }
         else
         {
+            
             return m_allAgents[m_currentAgentIndex - 1];
         }
     }

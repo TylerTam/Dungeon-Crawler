@@ -9,7 +9,7 @@ public class TurnBasedAgent : MonoBehaviour
     public enum AgentAction { Move, Attack, UseItem };
     public AgentAction m_currentAgentAction;
     private bool m_performAction;           //The boolean that determines if they are doing an action
-    [HideInInspector]
+    //S[HideInInspector]
     public bool m_performingAction; //Used by the controller, to determine if they can start a new function
     [HideInInspector]
     public bool m_actionComplete = true;   //Used by the following agent, to determine if this agent is done performing its action
@@ -62,10 +62,18 @@ public class TurnBasedAgent : MonoBehaviour
         {
 
             case (AgentAction.Attack):
-                m_attackCoroutine = StartCoroutine(Attack());
+                if (m_attackCoroutine == null)
+                {
+                    m_attackCoroutine = StartCoroutine(Attack());
+                }
+                
                 break;
             case (AgentAction.Move):
-                m_movementCoroutine = StartCoroutine(Movement());
+                if (m_movementCoroutine == null)
+                {
+                    m_movementCoroutine = StartCoroutine(Movement());
+                }
+                
 
                 //ToDo: Add in stepping on traps functionallity, ie, check for traps before ending the turn. 
                 //IF they do step on a trap, wait for this agent's movement action to end, then activate the trap, 
@@ -83,18 +91,29 @@ public class TurnBasedAgent : MonoBehaviour
     #region Called From controller
     public void Action_Move(Vector3 p_targetPos)
     {
-        m_targetPos = p_targetPos;
-        m_currentAgentAction = AgentAction.Move;
-        m_performAction = true;
-        m_actionComplete = false;
+        if (!m_performingAction)
+        {
+
+
+            m_targetPos = p_targetPos;
+            m_currentAgentAction = AgentAction.Move;
+            m_performAction = true;
+            m_actionComplete = false;
+        }
     }
 
     public void Action_Attack(int p_currentAttack)
     {
-        m_currentAttackIndex = p_currentAttack;
-        m_currentAgentAction = AgentAction.Attack;
-        m_performAction = true;
-        m_actionComplete = false;
+        if (!m_performingAction)
+        {
+
+
+            m_currentAttackIndex = p_currentAttack;
+            print(m_currentAttackIndex);
+            m_currentAgentAction = AgentAction.Attack;
+            m_performAction = true;
+            m_actionComplete = false;
+        }
     }
 
     public void Action_UseItem(/*ItemType_Base p_currentItemAction*/)
@@ -135,29 +154,36 @@ public class TurnBasedAgent : MonoBehaviour
         transform.position = m_targetPos;
         //print("Target Pos: " + m_targetPos + " | Transform: " + transform.position);
         m_predictedPlace.transform.position = m_targetPos;
-        m_performingAction = false;
+        
         m_actionComplete = true;
         m_movementController.MovementComplete();
-
+        m_performingAction = false;
+        m_movementCoroutine = null;
     }
     #endregion
 
     #region Attack Methods
     IEnumerator Attack()
     {
+        
+        m_performingAction = true;
         m_previousAgent = m_turnManager.PreviousAgent();
-
         while (!m_previousAgent.m_actionComplete)
         {
+            if (m_previousAgent == this) break;
             yield return null;
         }
+        
 
         m_attackController.StartAttack(m_currentAttackIndex);
+        
         while (!m_attackController.m_attackComplete)
         {
             yield return null;
         }
         m_actionComplete = true;
+        m_performingAction = false;
+        m_attackCoroutine = null;
         EndTurn();
 
     }
