@@ -4,7 +4,17 @@ using UnityEngine;
 
 public class DungeonNavigation_Agent : MonoBehaviour
 {
+    [HideInInspector]
     public DungeonNavigation navGrid;
+
+    public bool m_drawDebugTools;
+    private List<Node> m_debugPath;
+    public Color m_pathColor;
+    private void Start()
+    {
+        navGrid = DungeonManager.Instance.GetComponent<DungeonNavigation>();
+
+    }
 
     ///<Summary>
     ///Calculates the path towards the target
@@ -29,7 +39,9 @@ public class DungeonNavigation_Agent : MonoBehaviour
             //If its the target node, stop calculating
             if (currentNode == endNode)
             {
-                return RetracePath(startNode, endNode);
+                m_debugPath = RetracePath(startNode, endNode);
+                //return RetracePath(startNode, endNode);
+                return m_debugPath;
             }
 
 
@@ -92,6 +104,20 @@ public class DungeonNavigation_Agent : MonoBehaviour
         else
         {
             return 14 * distX + 10 * (distY - distX);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!m_drawDebugTools) return;
+        if (m_debugPath == null) return;
+        if (m_debugPath.Count > 0)
+        {
+            Gizmos.color = m_pathColor;
+            foreach (Node path in m_debugPath)
+            {
+                Gizmos.DrawCube(path.worldPosition, new Vector3(.25f, .25f));
+            }
         }
     }
 }

@@ -12,9 +12,9 @@ public class DungeonType_Test : DungeonType_Base
     public float m_minEmptyPercent, m_maxEmptyPercent;
 
 
-    public override List<DungeonGridCell> CreateDungeon(DungeonGenerator p_gen, DungeonTheme p_dungeonTheme, DungeonNavigation p_dungeonNav)
+    public override List<DungeonGridCell> CreateDungeon(DungeonManager p_gen, DungeonTheme p_dungeonTheme, DungeonNavigation p_dungeonNav)
     {
-
+        p_gen.m_currentDungeonType = this;
         
 
 
@@ -90,7 +90,10 @@ public class DungeonType_Test : DungeonType_Base
                     allCells[x, y].ChangeCellType(DungeonGridCell.CellType.Hallway);
                     Vector2Int bounds = new Vector2Int(m_cellSize.x - m_cellBoarder, m_cellSize.y - m_cellBoarder);
                     Vector3Int newPos = new Vector3Int(Random.Range(2, bounds.x) + (x * m_cellSize.x), Random.Range(2, bounds.y) + (y * m_cellSize.y), 0);
+                    
                     allCells[x, y].AddConnectionPoint(newPos, ConnectionPoint.ConnectionType.Node);
+
+                    
 
                 }
 
@@ -113,7 +116,8 @@ public class DungeonType_Test : DungeonType_Base
 
 
         //Get the items structs
-        List<ItemStruct> itemsInDungeon = p_dungeonTheme.ItemsInDungeon(p_gen);
+        p_dungeonTheme.FixRates();
+        List<ItemStruct> itemsInDungeon = p_dungeonTheme.ItemsInDungeon();
 
         //Actually draw the tiles
         for (int x = 0; x < m_cellsInDungeon.x; x++)
@@ -137,6 +141,8 @@ public class DungeonType_Test : DungeonType_Base
 
                     case DungeonGridCell.CellType.Hallway:
                         CreateCorridor(p_gen, p_dungeonTheme, Vector3Int.zero, allCells[x, y].m_connectionPoints[0].m_connectionPos, allCells[x, y]);
+                        
+
                         break;
 
                     case DungeonGridCell.CellType.None:
@@ -173,15 +179,16 @@ public class DungeonType_Test : DungeonType_Base
 
     }
 
-    public override void CreateCorridor(DungeonGenerator p_gen, DungeonTheme p_dungeonTheme, Vector3Int p_startPos, Vector3Int p_endPos, DungeonGridCell p_currentCell)
+    public override void CreateCorridor(DungeonManager p_gen, DungeonTheme p_dungeonTheme, Vector3Int p_startPos, Vector3Int p_endPos, DungeonGridCell p_currentCell)
     {
-
+        p_currentCell.m_worldPos = (Vector3)p_endPos + new Vector3(.5f,.5f,0f);
+        p_gen.m_hallwayPoints.Add(p_currentCell);
         p_gen.m_floorTiles.SetTile(p_endPos, p_dungeonTheme.m_floorTile);
         p_gen.m_wallTiles.SetTile(p_endPos, null);
     }
 
 
-    void CreateHallway(DungeonGenerator p_gen, DungeonTheme p_dungeonTheme, Vector3Int p_startPos, Vector3Int p_endPos)
+    void CreateHallway(DungeonManager p_gen, DungeonTheme p_dungeonTheme, Vector3Int p_startPos, Vector3Int p_endPos)
     {
 
 
@@ -283,7 +290,7 @@ public class DungeonType_Test : DungeonType_Base
 
 
 
-    public override DungeonGridCell CreateRoom(DungeonGenerator p_gen, DungeonTheme p_dungeonTheme, Vector3Int p_roomPosition, DungeonGridCell p_currentCell, DungeonGridCell[,] p_allCells)
+    public override DungeonGridCell CreateRoom(DungeonManager p_gen, DungeonTheme p_dungeonTheme, Vector3Int p_roomPosition, DungeonGridCell p_currentCell, DungeonGridCell[,] p_allCells)
     {
 
         Vector2Int bounds = new Vector2Int(m_cellSize.x - m_cellBoarder, m_cellSize.y - m_cellBoarder);
@@ -358,7 +365,7 @@ public class DungeonType_Test : DungeonType_Base
         return p_currentCell;
     }
 
-    void RoomConnections(DungeonGenerator p_gen, DungeonTheme p_dungeonTheme, DungeonGridCell[,] p_allCells, DungeonGridCell p_currentCell,  ConnectionPoint p_currentConnectionPoint)
+    void RoomConnections(DungeonManager p_gen, DungeonTheme p_dungeonTheme, DungeonGridCell[,] p_allCells, DungeonGridCell p_currentCell,  ConnectionPoint p_currentConnectionPoint)
     {
 
         Vector2Int neighbourIndex = new Vector2Int();
@@ -469,7 +476,7 @@ public class DungeonType_Test : DungeonType_Base
 
     }
 
-    void PopulateRoomWithItems(DungeonGenerator p_gen, DungeonTheme p_dungeonTheme, List<Vector2> p_floorTilesLocations, List<ItemStruct> p_itemList)
+    void PopulateRoomWithItems(DungeonManager p_gen, DungeonTheme p_dungeonTheme, List<Vector2> p_floorTilesLocations, List<ItemStruct> p_itemList)
     {
         int numberOfItems = Random.Range(p_dungeonTheme.m_minItemsPerRoom, p_dungeonTheme.m_maxItemsPerRoom);
         List<Vector2> itemPlacements = new List<Vector2>();

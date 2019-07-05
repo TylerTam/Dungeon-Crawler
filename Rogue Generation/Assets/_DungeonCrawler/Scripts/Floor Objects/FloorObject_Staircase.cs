@@ -7,11 +7,11 @@ public class FloorObject_Staircase : MonoBehaviour, IFloorObject
     public LayerMask m_playerLayer;
     
 
-    DungeonGenerator m_dungeonGenerator;
+    DungeonManager m_dungeonGenerator;
 
     private void Start()
     {
-        m_dungeonGenerator = DungeonGenerator.Instance;
+        m_dungeonGenerator = DungeonManager.Instance;
     }
     public void Interact()
     {

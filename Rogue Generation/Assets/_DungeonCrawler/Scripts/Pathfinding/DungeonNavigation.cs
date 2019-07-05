@@ -8,7 +8,7 @@ public class DungeonNavigation : MonoBehaviour
     #region  variables
     [Header("Grid Variables")]
     public bool testGrid;
-   
+
     public LayerMask m_terrain;
     public Vector2 m_gridWorldSize;
     public Vector3 m_gridOrigin;
@@ -107,7 +107,10 @@ public class DungeonNavigation : MonoBehaviour
 
                 if (checkX >= 0 && checkX < m_gridSize.x && checkY >= 0 && checkY < m_gridSize.y)
                 {
-                    neighbours.Add(m_grid[checkX, checkY]);
+                    if (!Physics2D.CircleCast(node.worldPosition, .5f, m_grid[checkX, checkY].worldPosition - node.worldPosition, new Vector2(x, y).magnitude, m_terrain))
+                    {
+                        neighbours.Add(m_grid[checkX, checkY]);
+                    }
                 }
             }
         }

@@ -1,6 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class ActivationEvent : UnityEvent { }
+
 
 public class TurnBasedManager : MonoBehaviour
 {
@@ -8,6 +13,7 @@ public class TurnBasedManager : MonoBehaviour
 
     public float m_lerpSpeed;
     public float m_moveDistance = 1;
+    public List<TurnBasedAgent> m_keepAgents;
     public List<TurnBasedAgent> m_allAgents;
     int m_currentAgentIndex;
     List<TurnBasedAgent> m_defeatedAgents = new List<TurnBasedAgent>();
@@ -17,6 +23,9 @@ public class TurnBasedManager : MonoBehaviour
     Coroutine m_turnCoroutine;
 
     //public List<ActionStoppingObjects>
+
+    public ActivationEvent m_turnComplete = new ActivationEvent();
+    public ActivationEvent m_cycleComplete = new ActivationEvent();
 
     private void Awake()
     {
@@ -28,6 +37,11 @@ public class TurnBasedManager : MonoBehaviour
         return m_allAgents[m_currentAgentIndex] == p_agentRequest;
     }
 
+
+    /// <summary>
+    /// Returns the previous agent, if there is one. 
+    /// </summary>
+    
     public TurnBasedAgent PreviousAgent()
     {
         if (m_currentAgentIndex - 1 < 0)
@@ -42,6 +56,11 @@ public class TurnBasedManager : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// Runs when a turn has completed
+    /// Any defeated agents are removed from the queue here, and the queue adjusts accordingly, fixing the turn order
+    /// </summary>
     public void TurnComplete()
     {
 
@@ -55,9 +74,16 @@ public class TurnBasedManager : MonoBehaviour
         if (m_currentAgentIndex >= m_allAgents.Count)
         {
             m_currentAgentIndex = 0;
+            m_cycleComplete.Invoke();
         }
-        print("turn complete");
+        m_turnComplete.Invoke();
     }
+
+
+    /// <summary>
+    /// Called when an agent is defeated. As instantly removing it may mess up the queue, it stashes them into another list
+    /// Once the turn is complete, then these agents are removed from the master agent queue
+    /// </summary>
 
     public void AgentDefeated(TurnBasedAgent p_defeatedAgent)
     {
@@ -69,11 +95,39 @@ public class TurnBasedManager : MonoBehaviour
         m_defeatedAgents.Add(p_defeatedAgent);
     }
 
+    /// <summary>
+    /// Called from the dungeon manager, when a new ai has spawned.
+    /// This adds it to the agent queue.
+    /// </summary>
+    public void NewAgent(TurnBasedAgent p_newAgent)
+    {
+        m_allAgents.Add(p_newAgent);
+    }
 
+    /// <summary>
+    /// Clears all agents, save for the player, and their allies, when a new floor is loaded
+    /// </summary>
+    public void ClearAgents()
+    {
+        m_allAgents.Clear();
+        foreach (TurnBasedAgent keepAgent in m_keepAgents)
+        {
+            m_allAgents.Add(keepAgent);
+            
+        }
+        m_currentAgentIndex = 0;
+    }
+
+    /// <summary>
+    /// This is turn system takes place. This coroutine constantly runs, determining which active agent is allowed to perform their requested action.
+    /// It cycles through all the agents, running events when an agent has completed their turn, and also when the queue has been cycled through
+    /// </summary>
+    /// <returns></returns>
     IEnumerator PerformTurns()
     {
         while (true)
         {
+            if(m_allAgents.Count > 0)
             for (int i = 0; i < m_allAgents.Count; i++)
             {
                 if (m_currentAgentIndex != i)
