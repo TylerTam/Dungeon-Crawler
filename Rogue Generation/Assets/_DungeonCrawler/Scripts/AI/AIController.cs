@@ -104,7 +104,8 @@ public class AIController : MonoBehaviour
 
 
         ///The current stuck code
-        /*if (Physics2D.Raycast(m_currentNode.worldPosition, transform.forward, 100f, m_blockingMask))
+        RaycastHit2D oi = Physics2D.Raycast(m_currentNode.worldPosition, transform.forward, 100f, m_blockingMask);
+        if (oi && oi.transform.gameObject !=this.gameObject)
         {
             if (m_currentSkipTurn >= m_skipTurnAmount)
             {
@@ -113,12 +114,13 @@ public class AIController : MonoBehaviour
             m_currentSkipTurn++;
             m_turnAgent.Action_SkipTurn();
             
+
         }
         else
-        {*/
+        {
             m_currentSkipTurn = 0;
             m_turnAgent.Action_Move(m_currentNode.worldPosition);
-        //}
+        }
         
 
     }

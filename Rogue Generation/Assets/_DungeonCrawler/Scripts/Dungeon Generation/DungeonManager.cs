@@ -185,7 +185,7 @@ public class DungeonManager : MonoBehaviour
                 if (hall.m_gridPosition == currentCell.m_gridPosition) continue;
                 randomCell.Add(hall);
             }
-            print("Target Hallway At Pos");
+
         }
         return randomCell[Random.Range(0, randomCell.Count)].m_worldPos;
     }

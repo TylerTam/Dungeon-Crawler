@@ -55,7 +55,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.75, y: 0.75}
   m_EdgeRadius: 0
 --- !u!1 &4597749072222295545
 GameObject:
@@ -316,6 +316,9 @@ MonoBehaviour:
   m_terrainLayer:
     serializedVersion: 2
     m_Bits: 256
+  m_diagonalTerrainLayer:
+    serializedVersion: 2
+    m_Bits: 4352
   m_objectsOnFloorLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -350,7 +353,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51c7bb6d2ce8da49a428a9ac9d5d851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_facingDir: {x: 0, y: 0}
+  m_attackType: []
   m_attackComplete: 0
+  m_attackAnimComplete: 0
+  m_attackAnimator: {fileID: 0}
 --- !u!114 &4597749072606483147
 MonoBehaviour:
   m_ObjectHideFlags: 0

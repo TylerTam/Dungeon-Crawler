@@ -55,7 +55,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.75, y: 0.75}
   m_EdgeRadius: 0
 --- !u!1 &5134884546461566381
 GameObject:
@@ -310,7 +310,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_terrainLayer:
     serializedVersion: 2
-    m_Bits: 1280
+    m_Bits: 256
+  m_diagonalTerrainLayer:
+    serializedVersion: 2
+    m_Bits: 7424
   m_objectsOnFloorLayer:
     serializedVersion: 2
     m_Bits: 512
