@@ -1036,7 +1036,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1.338e-41, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 1.9456e-41, z: 0, w: -5.020411e-10}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1581,6 +1581,7 @@ MonoBehaviour:
   m_displayGizmos: 0
   m_unwalkableColor: {r: 0.99215686, g: 0, b: 0.94507045, a: 0.6156863}
   m_walkableColor: {r: 0, g: 1, b: 0.20430565, a: 0.5019608}
+  m_recalculatePath: 0
 --- !u!114 &1144627411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1711,9 +1712,9 @@ MonoBehaviour:
   m_lerpSpeed: 0.35
   m_moveDistance: 1
   m_keepAgents:
-  - {fileID: 259538146}
+  - {fileID: 1648875502}
   m_allAgents:
-  - {fileID: 259538146}
+  - {fileID: 1648875502}
   m_currentAgentIndex: 0
   m_turnComplete:
     m_PersistentCalls:
@@ -2222,7 +2223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e827e1736f76a349a837c2cb42d03ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxAiOnScene: 5
+  m_maxAiOnScene: 1
   m_currentAiOnScene: 0
 --- !u!1 &1648875501
 GameObject:
@@ -2240,7 +2241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1648875502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2319,7 +2320,7 @@ PrefabInstance:
     - target: {fileID: 4597749072606483144, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4597749072606483146, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
         type: 3}

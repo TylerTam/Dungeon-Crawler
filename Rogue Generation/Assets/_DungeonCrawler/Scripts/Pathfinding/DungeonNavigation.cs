@@ -24,6 +24,18 @@ public class DungeonNavigation : MonoBehaviour
     public bool m_onlyDisplayPath;
     public bool m_displayGizmos;
     public Color m_unwalkableColor, m_walkableColor;
+    public bool m_recalculatePath;
+
+#if UNITY_EDITOR
+    private void Update()
+    {
+        if (m_recalculatePath)
+        {
+            m_recalculatePath = false;
+            CreateGrid();
+        }
+    }
+#endif
     #endregion
     private void Awake()
     {
@@ -109,7 +121,43 @@ public class DungeonNavigation : MonoBehaviour
                 {
                     if (m_grid[checkX, checkY].m_walkable)
                     {
-                        neighbours.Add(m_grid[checkX, checkY]);
+
+
+                        if (x == -1 && y == -1)
+                        {
+                            if (m_grid[node.m_gridPos.x - 1, node.m_gridPos.y].m_walkable && m_grid[node.m_gridPos.x, node.m_gridPos.y - 1].m_walkable)
+                            {
+                                neighbours.Add(m_grid[checkX, checkY]);
+                            }
+                        }
+                        else if (x == 1 && y == -1)
+                        {
+                            if (m_grid[node.m_gridPos.x + 1, node.m_gridPos.y].m_walkable && m_grid[node.m_gridPos.x, node.m_gridPos.y - 1].m_walkable)
+                            {
+                                neighbours.Add(m_grid[checkX, checkY]);
+                            }
+                        }
+                        else if (x == -1 && y == 1)
+                        {
+                            if (m_grid[node.m_gridPos.x - 1, node.m_gridPos.y].m_walkable && m_grid[node.m_gridPos.x, node.m_gridPos.y + 1].m_walkable)
+                            {
+                                neighbours.Add(m_grid[checkX, checkY]);
+                            }
+                        }
+                        else if (x == 1 && y == 1)
+                        {
+                            if (m_grid[node.m_gridPos.x + 1, node.m_gridPos.y].m_walkable && m_grid[node.m_gridPos.x, node.m_gridPos.y + 1].m_walkable)
+                            {
+                                neighbours.Add(m_grid[checkX, checkY]);
+                            }
+                        }
+                        else
+                        {
+                            if (m_grid[checkX, checkY].m_walkable)
+                            {
+                                neighbours.Add(m_grid[checkX, checkY]);
+                            }
+                        }
                     }
                     /*
                     ///Why is this a raycast?
