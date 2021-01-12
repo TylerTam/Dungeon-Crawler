@@ -7,5 +7,6 @@ public class AIType_Base : ScriptableObject
 {
     public Sprite m_aiBaseSprite;
     public RuntimeAnimatorController m_animController;
+    public LayerMask m_detectionBlockingMask;
     
 }

@@ -15,6 +15,7 @@ public class Entity_MovementController : MonoBehaviour
     private TurnBasedAgent m_actionAgent;
     public LayerMask m_terrainLayer;
     public LayerMask m_diagonalTerrainLayer;
+    public bool m_performLayerCheck;
     #endregion
 
 
@@ -31,24 +32,39 @@ public class Entity_MovementController : MonoBehaviour
 
     public void MoveCharacter(Vector2 p_movement)
     {
-
-        Debug.DrawLine(transform.position, (p_movement.normalized * p_movement.magnitude) + (Vector2)transform.position);
-        if (!Physics2D.CircleCast(transform.position, .25f, p_movement.normalized, p_movement.magnitude, m_terrainLayer))
+        if (m_performLayerCheck)
         {
-            if (!Physics2D.Raycast(transform.position, p_movement.normalized, p_movement.magnitude, m_diagonalTerrainLayer))
+            if (!Physics2D.Raycast(transform.position, p_movement.normalized, p_movement.magnitude, m_terrainLayer))
             {
-                if (p_movement.magnitude != 0)
+                if (!Physics2D.Raycast(transform.position, p_movement.normalized, p_movement.magnitude, m_diagonalTerrainLayer))
                 {
-                    m_actionAgent.Action_Move(p_movement + (Vector2)transform.position);
-                }
-                else
-                {
-                    print("Rotate me");
-                }
 
+                    if (p_movement.magnitude != 0)
+                    {
+
+                        m_actionAgent.Action_Move(p_movement + (Vector2)transform.position);
+                    }
+                    else
+                    {
+                        print("Rotate me");
+                    }
+
+
+                }
 
             }
+        }
+        else
+        {
+            if (p_movement.magnitude != 0)
+            {
 
+                m_actionAgent.Action_Move(p_movement + (Vector2)transform.position);
+            }
+            else
+            {
+                print("Rotate me");
+            }
         }
 
 
@@ -58,6 +74,7 @@ public class Entity_MovementController : MonoBehaviour
     public void MovementComplete()
     {
         CheckGround();
+        
     }
 
     private void CheckGround()

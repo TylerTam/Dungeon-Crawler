@@ -1519,10 +1519,20 @@ MonoBehaviour:
   m_floorTiles: {fileID: 1570283518}
   m_miniMapTiles: {fileID: 140938921}
   m_miniMapTile: {fileID: 11400000, guid: 266ca6c8fa5b0754593865914a1f7fbf, type: 2}
-  m_dungeonTheme: {fileID: 11400000, guid: e267bf9b3008db042b4fa50b0c969ee4, type: 2}
+  m_dungeonTheme: {fileID: 11400000, guid: 7116ccd687ef3834da2fb54fcb9bc6ad, type: 2}
   m_currentDungeonType: {fileID: 0}
   m_allRooms: []
-  m_hallwayPoints: []
+  m_hallwayPoints:
+  - m_currentCellType: 0
+    m_roomIndex: 0
+    m_cellMultiplier: 0
+    m_gridPosition: {x: 0, y: 0}
+    m_worldPos: {x: 0, y: 0}
+    m_roomSize: {x: 0, y: 0}
+    m_connectionPoints: []
+    m_connectedTo: []
+    m_floorTiles: []
+    m_entitiesInRoom: []
   m_itemsOnFloor: []
   m_dungeonGenTypeIndex: 0
   m_fixedRatios: []
@@ -1704,6 +1714,7 @@ MonoBehaviour:
   - {fileID: 259538146}
   m_allAgents:
   - {fileID: 259538146}
+  m_currentAgentIndex: 0
   m_turnComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -2213,6 +2224,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_maxAiOnScene: 5
   m_currentAiOnScene: 0
+--- !u!1 &1648875501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1648875503}
+  - component: {fileID: 1648875502}
+  m_Layer: 0
+  m_Name: Debug Actions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1648875502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648875501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd8a12c4ff52e404ba84039698c18e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_currentAgentAction: 0
+  m_performAction: 0
+  m_performingAction: 0
+  m_actionComplete: 1
+  m_previousAgent: {fileID: 0}
+  m_isPlayer: 0
+  m_targetPos: {x: 0, y: 0, z: 0}
+  m_predictedPlace: {fileID: 0}
+  m_attackSpawnPos: {x: 0, y: 0, z: 0}
+--- !u!4 &1648875503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648875501}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.895864, y: 12.278018, z: -37.989613}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1860307040 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
@@ -2252,6 +2315,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597749072606483144, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4597749072606483146, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
         type: 3}
@@ -2349,5 +2417,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 7051b08ebf11d96459c997ce3c8056dd,
         type: 2}
+    - target: {fileID: 4597749072606483191, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
+        type: 3}
+      propertyPath: m_isPlayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f00d8a2bb817dc429c1f6812d6a626c, type: 3}

@@ -15,7 +15,7 @@ public class TurnBasedManager : MonoBehaviour
     public float m_moveDistance = 1;
     public List<TurnBasedAgent> m_keepAgents;
     public List<TurnBasedAgent> m_allAgents;
-    int m_currentAgentIndex;
+    public int m_currentAgentIndex;
     List<TurnBasedAgent> m_defeatedAgents = new List<TurnBasedAgent>();
     int m_indexAlter;
 
@@ -119,11 +119,12 @@ public class TurnBasedManager : MonoBehaviour
     }
 
     /// <summary>
-    /// This is turn system takes place. This coroutine constantly runs, determining which active agent is allowed to perform their requested action.
-    /// It cycles through all the agents, running events when an agent has completed their turn, and also when the queue has been cycled through
+    /// This is where the turn system takes place.<br/> 
+    /// This coroutine constantly runs, determining which active agent is allowed to perform their requested action.<br/>
+    /// It cycles through all the agents, running events when an agent has completed their turn, and also when the queue has been cycled through<br/>
     /// </summary>
     /// <returns></returns>
-    IEnumerator PerformTurns()
+    private IEnumerator PerformTurns()
     {
         while (true)
         {

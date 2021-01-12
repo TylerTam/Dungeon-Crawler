@@ -15,9 +15,9 @@ TagManager:
   - 
   - Terrain
   - FloorObject
-  - Player
   - FriendlyEntity
-  - EnemyEntity
+  - HostileEntity
+  - 
   - 
   - 
   - 

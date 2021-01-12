@@ -87,6 +87,7 @@ public class DungeonManager : MonoBehaviour
         StartCoroutine(CheckDungeonConnection());
     }
 
+    
 
     IEnumerator CheckDungeonConnection()
     {
@@ -101,6 +102,7 @@ public class DungeonManager : MonoBehaviour
             m_itemsOnFloor.Clear();
 
             m_allRooms.Clear();
+            m_hallwayPoints.Clear();
             m_wallTiles.ClearAllTiles();
             m_floorTiles.ClearAllTiles();
             m_miniMapTiles.ClearAllTiles();
@@ -142,6 +144,20 @@ public class DungeonManager : MonoBehaviour
             m_floorTiles.color = Color.white;*/
             //mapSuccess = false;
 
+        }
+        List<int> removeIndex = new List<int>();
+        for (int i = 0; i < m_hallwayPoints.Count; i++)
+        {
+            if(m_hallwayPoints[i].m_connectedTo.Count == 0)
+            {
+                Debug.LogWarning("Hallway point: " + m_hallwayPoints[i].m_worldPos + " is not connected to anything. Removing");
+                removeIndex.Add(i);
+            }
+        }
+        removeIndex.Reverse();
+        foreach (int i in removeIndex)
+        {
+            m_hallwayPoints.RemoveAt(i);
         }
         m_occupiedSpaces.Clear();
 
@@ -219,7 +235,7 @@ public class DungeonManager : MonoBehaviour
     /// Calculates which cell the character is currently in
     /// </summary>
 
-    DungeonGridCell CurrentCell(Vector3 m_currentPos)
+    public DungeonGridCell CurrentCell(Vector3 m_currentPos)
     {
         DungeonGridCell returnCell = new DungeonGridCell();
         int xPos = 0, yPos = 0;
@@ -317,7 +333,7 @@ public class DungeonManager : MonoBehaviour
 }
 
 [System.Serializable]
-public struct DungeonGridCell
+public class DungeonGridCell
 {
     public enum CellType { Wall, Room, Hallway, HallwayOneWay, Hazard, None }
     public CellType m_currentCellType;
@@ -330,11 +346,13 @@ public struct DungeonGridCell
     public int m_cellMultiplier;
     public Vector2Int m_gridPosition;
     public Vector2 m_worldPos;
+    public Vector2 m_roomSize;
     
     public List<ConnectionPoint> m_connectionPoints;
     public List<Vector2Int> m_connectedTo;
 
     public List<Vector2> m_floorTiles;
+    public List<GameObject> m_entitiesInRoom = new List<GameObject>();
 
     public void ChangeCellType(CellType p_newCellType)
     {
@@ -347,6 +365,32 @@ public struct DungeonGridCell
     public void SetGridPosition(Vector2Int p_gridPos)
     {
         m_gridPosition = p_gridPos;
+    }
+
+    public bool IsWithinCell(Vector3 p_worldPos)
+    {
+        if (p_worldPos.x > m_worldPos.x - m_roomSize.x / 2 && p_worldPos.x < m_worldPos.x + m_roomSize.x / 2
+            && p_worldPos.y > m_worldPos.y - m_roomSize.y / 2 && p_worldPos.y < m_worldPos.y + m_roomSize.y / 2)
+        {
+            //Debug.DrawLine(new Vector3(m_worldPos.x - m_roomSize.x / 2, m_worldPos.y - m_roomSize.y / 2, 0), new Vector3(m_worldPos.x + m_roomSize.x / 2, m_worldPos.y + m_roomSize.y / 2, 0), Color.blue, 5f);
+            return true;
+        }
+        return false;
+    }
+
+    public void AddEntityToRoom(GameObject p_newEntity)
+    {
+        if (!m_entitiesInRoom.Contains(p_newEntity))
+        {
+            m_entitiesInRoom.Add(p_newEntity);
+        }
+    }
+    public void RemoveEntityFromRoom(GameObject p_removeEntity)
+    {
+        if (m_entitiesInRoom.Contains(p_removeEntity))
+        {
+            m_entitiesInRoom.Remove(p_removeEntity);
+        }
     }
 }
 

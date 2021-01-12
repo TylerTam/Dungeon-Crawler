@@ -23,3 +23,7 @@ MonoBehaviour:
   m_hallwayTurnAount: 3
   m_minEmptyPercent: 0
   m_maxEmptyPercent: 0.605
+  m_debugCube: {fileID: 5291961607871462303, guid: efa035121ceddb048ab20eeeee5b852e,
+    type: 3}
+  m_debugCube2: {fileID: 5222788198159637470, guid: 5a36b249265adfa448be16daffd0c8a0,
+    type: 3}

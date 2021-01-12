@@ -8,16 +8,21 @@ public class TurnBasedAgent : MonoBehaviour
 
     public enum AgentAction { Move, Attack, UseItem, SkipTurn };
     public AgentAction m_currentAgentAction;
-    private bool m_performAction;           //The boolean that determines if they are doing an action
+    [HideInInspector]
+    public bool m_performAction;           //The boolean that determines if they are doing an action
     [HideInInspector]
     public bool m_performingAction; //Used by the controller, to determine if they can start a new function
     [HideInInspector]
     public bool m_actionComplete = true;   //Used by the following agent, to determine if this agent is done performing its action
 
     public TurnBasedAgent m_previousAgent;
-    
+
     private TurnBasedManager m_turnManager;
     private ObjectPooler m_pooler;
+
+    private EntityDungeonState m_dungeonState;
+    public bool m_isPlayer;
+
 
     #region Movement variables
     [HideInInspector]
@@ -25,7 +30,7 @@ public class TurnBasedAgent : MonoBehaviour
 
 
     [Header("Pre-set values")]
-    public Transform m_predictedPlace;  
+    public Transform m_predictedPlace;
     ///Predicted place is used to make sure no characters land on top of each other. 
     ///It is a collision box that is moved to the target position, so that any ai are able to know where the player will be once their movement is complete
     ///this is to stop the ai from targeting an occupied spot, when moving, and also to stop targeting an empty spot, when attacking
@@ -48,13 +53,14 @@ public class TurnBasedAgent : MonoBehaviour
         m_pooler = ObjectPooler.instance;
         m_attackController = GetComponent<AttackController>();
         m_movementController = GetComponent<Entity_MovementController>();
+        m_dungeonState = GetComponent<EntityDungeonState>();
 
     }
 
     /// <summary>
     /// This function is called from the turn system manager, in it's coroutine that constantly runs.
     /// </summary>
-    public void AgentUpdate()
+    public virtual void AgentUpdate()
     {
         if (m_performAction)
         {
@@ -64,7 +70,7 @@ public class TurnBasedAgent : MonoBehaviour
 
 
     //The state machine for this agent
-    void PerformTurn()
+    public virtual void PerformTurn()
     {
         switch (m_currentAgentAction)
         {
@@ -76,12 +82,12 @@ public class TurnBasedAgent : MonoBehaviour
                     m_attackCoroutine = StartCoroutine(Attack());
                     m_actionComplete = false;
                 }
-                
+
                 break;
             case (AgentAction.Move):
                 if (m_movementCoroutine == null)
                 {
-                    
+
                     m_movementCoroutine = StartCoroutine(Movement());
                     m_actionComplete = false;
                 }
@@ -111,8 +117,8 @@ public class TurnBasedAgent : MonoBehaviour
             m_targetPos = p_targetPos;
             m_currentAgentAction = AgentAction.Move;
             m_performAction = true;
-            
-            
+
+
         }
     }
 
@@ -123,7 +129,6 @@ public class TurnBasedAgent : MonoBehaviour
 
 
             m_currentAttackIndex = p_currentAttack;
-            print(m_currentAttackIndex);
             m_currentAgentAction = AgentAction.Attack;
             m_performAction = true;
 
@@ -148,10 +153,10 @@ public class TurnBasedAgent : MonoBehaviour
     }
 
     #endregion
-    
+
     #region Turn Manage Methods
     //Completes this agent's turn
-    void EndTurn()
+    public void EndTurn()
     {
         m_performAction = false;
         m_turnManager.TurnComplete();
@@ -169,16 +174,18 @@ public class TurnBasedAgent : MonoBehaviour
     /// If the next agent, in the queue for the turn system, chooses to attack they will have to wait for this coroutine to be completed
     /// The opposite is also true
     /// </summary>
-    
-    IEnumerator Movement()
+
+    private IEnumerator Movement()
     {
-        
+
         m_performingAction = true;
         m_currentMovementTimer = 0;
         Vector3 startPos = transform.position;
+        m_predictedPlace.transform.position = m_targetPos;
+        m_dungeonState.UpdateCellAttendance();
         while (m_currentMovementTimer / m_turnManager.m_lerpSpeed < 1)
         {
-            
+
             m_predictedPlace.transform.position = m_targetPos;
             float percent = m_currentMovementTimer / m_turnManager.m_lerpSpeed;
             transform.position = Vector3.Lerp(startPos, m_targetPos, percent);
@@ -186,9 +193,13 @@ public class TurnBasedAgent : MonoBehaviour
             yield return null;
         }
         transform.position = m_targetPos;
-        
+
         m_predictedPlace.transform.position = m_targetPos;
-        
+
+        if (m_isPlayer)
+        {
+            yield return new WaitForSeconds(.001f);
+        }
         m_actionComplete = true;
         m_movementController.MovementComplete();
         m_performingAction = false;
@@ -203,10 +214,10 @@ public class TurnBasedAgent : MonoBehaviour
     /// This calls the attack controller, to initate the attack and all it's components (the animation, and any follow up actions, such as applying damage and its animation)
     /// Once the attack controller returns the attack as complete, this agent ends its turn
     /// </summary>
-    
-    IEnumerator Attack()
+
+    private IEnumerator Attack()
     {
-        
+
         m_performingAction = true;
         m_previousAgent = m_turnManager.PreviousAgent();
         while (!m_previousAgent.m_actionComplete)
@@ -215,10 +226,10 @@ public class TurnBasedAgent : MonoBehaviour
             if (m_previousAgent == this) break;
             yield return null;
         }
-        
+
 
         m_attackController.StartAttack(m_currentAttackIndex);
-        
+
         while (!m_attackController.m_attackComplete)
         {
             yield return null;

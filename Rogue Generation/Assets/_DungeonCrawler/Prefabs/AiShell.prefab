@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5134884546370170686}
   - component: {fileID: 5134884546370170817}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: PredictedPlace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 5134884546461566380}
   - component: {fileID: 5134884546461566383}
   - component: {fileID: 1859227586939157960}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,6 +103,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -114,6 +116,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -166,7 +169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5134884546887740693}
   - component: {fileID: 5134884546887740692}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: miniMap_Entity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,6 +204,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -212,6 +217,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -246,12 +252,14 @@ GameObject:
   - component: {fileID: 5134884547314991774}
   - component: {fileID: 5134884547314991777}
   - component: {fileID: 5134884547314991781}
-  - component: {fileID: 5134884547314991779}
+  - component: {fileID: 1541658862317782881}
   - component: {fileID: 5134884547314991778}
   - component: {fileID: 5134884547314991773}
   - component: {fileID: 5134884547314991760}
   - component: {fileID: 5134884547314991775}
-  m_Layer: 12
+  - component: {fileID: 5112181938764940866}
+  - component: {fileID: 5715755393832415617}
+  m_Layer: 0
   m_Name: AiShell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,14 +318,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_terrainLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   m_diagonalTerrainLayer:
     serializedVersion: 2
     m_Bits: 7424
   m_objectsOnFloorLayer:
     serializedVersion: 2
     m_Bits: 512
---- !u!114 &5134884547314991779
+--- !u!114 &1541658862317782881
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -326,16 +334,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 5134884547314991772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d96cf0d6613b6c847ae977e326e0da0b, type: 3}
+  m_Script: {fileID: 11500000, guid: ae54c1d1b9b0c364aafc9342a17dd6b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_currentAgentAction: 0
+  m_performAction: 0
   m_performingAction: 0
   m_actionComplete: 1
   m_previousAgent: {fileID: 0}
+  m_isPlayer: 0
   m_targetPos: {x: 0, y: 0, z: 0}
   m_predictedPlace: {fileID: 5134884546370170686}
   m_attackSpawnPos: {x: 0, y: 0, z: 0}
+  m_aiCont: {fileID: 5134884547314991760}
 --- !u!114 &5134884547314991778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,12 +399,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d18814bb3ec09fe429dcb3a5fe8b2dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_currentBehave: 0
+  m_currentBehaviour: 0
+  m_aiType: {fileID: 0}
   m_nodeStoppingDistance: 0.1
   m_skipTurnAmount: 3
   m_blockingMask:
     serializedVersion: 2
     m_Bits: 7424
+  m_detectionRadius: {x: 0, y: 0}
+  m_detectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_currentTarget: {fileID: 0}
+  m_predictedPlace: {fileID: 5134884546370170686}
 --- !u!114 &5134884547314991775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,3 +427,41 @@ MonoBehaviour:
   navGrid: {fileID: 0}
   m_drawDebugTools: 1
   m_pathColor: {r: 0, g: 1, b: 0.9717827, a: 0.6509804}
+--- !u!114 &5112181938764940866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134884547314991772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a9f2d36e466be40b54917a3f77168d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_currentTeam: 1
+--- !u!114 &5715755393832415617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134884547314991772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdafa00436e240a44a64fdd3b678acce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_inRoom: 0
+  m_currentCell:
+    m_currentCellType: 0
+    m_roomIndex: 0
+    m_cellMultiplier: 0
+    m_gridPosition: {x: 0, y: 0}
+    m_worldPos: {x: 0, y: 0}
+    m_roomSize: {x: 0, y: 0}
+    m_connectionPoints: []
+    m_connectedTo: []
+    m_floorTiles: []
+    m_entitiesInRoom: []
+  predictedPlace: {fileID: 5134884546370170686}

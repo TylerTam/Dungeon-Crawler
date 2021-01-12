@@ -10,7 +10,7 @@ public class DungeonType_Test : DungeonType_Base
 
     [Range(0, 1)]
     public float m_minEmptyPercent, m_maxEmptyPercent;
-
+    public GameObject m_debugCube, m_debugCube2;
 
     public override List<DungeonGridCell> CreateDungeon(DungeonManager p_gen, DungeonTheme p_dungeonTheme, DungeonNavigation p_dungeonNav)
     {
@@ -100,7 +100,6 @@ public class DungeonType_Test : DungeonType_Base
         #endregion
 
         int[,] dungeonGrid = new int[m_cellsInDungeon.x * m_cellSize.x, m_cellsInDungeon.y * m_cellSize.y];
-        Debug.Log("Grid Size | x: " + dungeonGrid.GetLength(0) + " | y: " + dungeonGrid.GetLength(1));
         //Draw the boarder
         /*for (int x = -m_dungeonMapBounds.x; x < m_cellsInDungeon.x * m_cellSize.x + m_dungeonMapBounds.x; x++)
         {
@@ -299,7 +298,7 @@ public class DungeonType_Test : DungeonType_Base
     }
 
 
-
+    
     public override DungeonGridCell CreateRoom(DungeonManager p_gen, DungeonTheme p_dungeonTheme, Vector3Int p_roomPosition, DungeonGridCell p_currentCell, DungeonGridCell[,] p_allCells, ref int[,] p_dungeonGrid)
     {
 
@@ -310,9 +309,11 @@ public class DungeonType_Test : DungeonType_Base
         Vector2Int randomStart = new Vector2Int(Random.Range(m_cellBoarder, bounds.x - roomSize.x), Random.Range(m_cellBoarder, bounds.y - roomSize.y));
 
 
-        p_currentCell.m_worldPos = new Vector3(randomStart.x + p_roomPosition.x + .5f, randomStart.y + p_roomPosition.y + .5f);
-
-
+        //p_currentCell.m_worldPos = new Vector3(randomStart.x + p_roomPosition.x + .5f, randomStart.y + p_roomPosition.y + .5f);
+        p_currentCell.m_worldPos = new Vector3(randomStart.x + p_roomPosition.x + ((float)roomSize.x / 2), randomStart.y + p_roomPosition.y + ((float)roomSize.y / 2));
+        p_currentCell.m_roomSize = roomSize;
+        Vector3 pos = p_currentCell.m_worldPos;
+        //GameObject.Instantiate(m_debugCube, pos - Vector3.forward*3, Quaternion.identity);
         List<Vector2> floorTiles = new List<Vector2>();
 
         for (int x = randomStart.x; x < roomSize.x + randomStart.x; x++)
@@ -322,6 +323,7 @@ public class DungeonType_Test : DungeonType_Base
 
 
                 p_dungeonGrid[x + p_roomPosition.x, y + p_roomPosition.y] = 1;
+                //GameObject.Instantiate(m_debugCube2, new Vector3(p_roomPosition.x + x + .5f, p_roomPosition.y +y + .5f), Quaternion.identity);
                 if (x > randomStart.x && x < roomSize.x + randomStart.x - 1 && y > randomStart.y && y < roomSize.y + randomStart.y - 1)
                 {
                     floorTiles.Add(new Vector2(x + p_roomPosition.x, y + p_roomPosition.y));

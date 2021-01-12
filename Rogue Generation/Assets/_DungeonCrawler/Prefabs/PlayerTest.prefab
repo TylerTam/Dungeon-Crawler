@@ -102,6 +102,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -113,6 +115,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -255,6 +258,8 @@ GameObject:
   - component: {fileID: 4597749072606483191}
   - component: {fileID: 4597749072606483190}
   - component: {fileID: 4597749072606483147}
+  - component: {fileID: 7189210199279401681}
+  - component: {fileID: 998601835824673501}
   m_Layer: 0
   m_Name: PlayerTest
   m_TagString: Untagged
@@ -319,6 +324,7 @@ MonoBehaviour:
   m_diagonalTerrainLayer:
     serializedVersion: 2
     m_Bits: 4352
+  m_performLayerCheck: 1
   m_objectsOnFloorLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -335,9 +341,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_currentAgentAction: 0
+  m_performAction: 0
   m_performingAction: 0
   m_actionComplete: 1
   m_previousAgent: {fileID: 0}
+  m_isPlayer: 0
   m_targetPos: {x: 0, y: 0, z: 0}
   m_predictedPlace: {fileID: 4597749072206790506}
   m_attackSpawnPos: {x: 0, y: 0, z: 0}
@@ -377,9 +385,49 @@ MonoBehaviour:
   m_movementController: {fileID: 0}
   m_turnAgent: {fileID: 0}
   m_canPerform: 1
+  m_currentInputType: 0
+  m_joystickCanvas: {fileID: 0}
   m_joystick: {fileID: 0}
   m_deadzone: 0.2
   m_inputPressed: 0
+--- !u!114 &7189210199279401681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4597749072606483144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a9f2d36e466be40b54917a3f77168d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_currentTeam: 0
+--- !u!114 &998601835824673501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4597749072606483144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdafa00436e240a44a64fdd3b678acce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_inRoom: 0
+  m_currentCell:
+    m_currentCellType: 0
+    m_roomIndex: 0
+    m_cellMultiplier: 0
+    m_gridPosition: {x: 0, y: 0}
+    m_worldPos: {x: 0, y: 0}
+    m_roomSize: {x: 0, y: 0}
+    m_connectionPoints: []
+    m_connectedTo: []
+    m_floorTiles: []
+    m_entitiesInRoom: []
+  predictedPlace: {fileID: 4597749072206790506}
 --- !u!1 &4597749072650042694
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,6 +473,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -436,6 +486,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
