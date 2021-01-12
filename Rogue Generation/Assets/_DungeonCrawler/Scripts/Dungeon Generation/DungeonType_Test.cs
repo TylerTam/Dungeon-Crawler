@@ -322,7 +322,10 @@ public class DungeonType_Test : DungeonType_Base
 
 
                 p_dungeonGrid[x + p_roomPosition.x, y + p_roomPosition.y] = 1;
-                floorTiles.Add(new Vector2(x + p_roomPosition.x, y + p_roomPosition.y));
+                if (x > randomStart.x && x < roomSize.x + randomStart.x - 1 && y > randomStart.y && y < roomSize.y + randomStart.y - 1)
+                {
+                    floorTiles.Add(new Vector2(x + p_roomPosition.x, y + p_roomPosition.y));
+                }
 
             }
         }
