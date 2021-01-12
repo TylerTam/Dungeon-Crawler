@@ -107,10 +107,19 @@ public class DungeonNavigation : MonoBehaviour
 
                 if (checkX >= 0 && checkX < m_gridSize.x && checkY >= 0 && checkY < m_gridSize.y)
                 {
-                    if (!Physics2D.CircleCast(node.worldPosition, .5f, m_grid[checkX, checkY].worldPosition - node.worldPosition, new Vector2(x, y).magnitude, m_terrain))
+                    if (m_grid[checkX, checkY].m_walkable)
                     {
                         neighbours.Add(m_grid[checkX, checkY]);
                     }
+                    /*
+                    ///Why is this a raycast?
+                    ///This was causing a memory overload, as it was being generated for a large path, for a few agents, hence overload.
+                    ///Commeneted out, but not deelted, incase something arises later, and this may be able to help.
+                    ///
+                    if (!Physics2D.Raycast(node.worldPosition, m_grid[checkX, checkY].worldPosition - node.worldPosition, new Vector2(x, y).magnitude, m_terrain))
+                    {
+                        neighbours.Add(m_grid[checkX, checkY]);
+                    }*/
                 }
             }
         }
