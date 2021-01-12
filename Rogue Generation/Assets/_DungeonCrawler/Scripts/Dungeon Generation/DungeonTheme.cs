@@ -8,8 +8,8 @@ public class DungeonTheme : ScriptableObject
     public Tile m_floorTile, m_wallTile;
 
     public List<DungeonType_Base> m_generationTypes;
-    
-    [Header ("Item Properties")]
+
+    [Header("Item Properties")]
     public int m_maxItemsOnFloor;
     public int m_minItemsPerRoom, m_maxItemsPerRoom;
 
@@ -17,7 +17,7 @@ public class DungeonTheme : ScriptableObject
     private List<ItemStruct> m_fixedItemRate;
 
     [Header("Enemy Properties")]
-    [Range(0,1)]
+    [Range(0, 1)]
     public float m_chanceOfEnemySpawn;  //How often a new enemy will spawn, after a cycle is complete. 1 = always, if there is room, 0 = never.
     public List<AiStruct> m_aiInDungeon;
     private List<AiStruct> m_fixedAiRate;
@@ -55,7 +55,7 @@ public class DungeonTheme : ScriptableObject
         m_fixedAiRate = new List<AiStruct>();
         currentRate = 0;
 
-        foreach(AiStruct ai in m_aiInDungeon)
+        foreach (AiStruct ai in m_aiInDungeon)
         {
             currentRate += ai.m_aiRarity;
         }
@@ -77,11 +77,11 @@ public class DungeonTheme : ScriptableObject
 
 
 
-
-    public List<DungeonType_Base.DungeonGridCell> CreateNewFloor(DungeonManager p_gen, DungeonNavigation p_dungeonNav)
+    public List<DungeonGridCell> CreateNewFloor(DungeonManager p_gen, DungeonNavigation p_dungeonNav)
     {
 
-       p_gen.m_dungeonGenTypeIndex = Random.Range(0, m_generationTypes.Count);
+        p_gen.m_dungeonGenTypeIndex = Random.Range(0, m_generationTypes.Count);
+        p_gen.m_currentDungeonType = m_generationTypes[p_gen.m_dungeonGenTypeIndex];
         return m_generationTypes[p_gen.m_dungeonGenTypeIndex].CreateDungeon(p_gen, this, p_dungeonNav);
 
     }

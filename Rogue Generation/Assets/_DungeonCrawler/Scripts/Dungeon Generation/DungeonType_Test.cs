@@ -14,87 +14,82 @@ public class DungeonType_Test : DungeonType_Base
 
     public override List<DungeonGridCell> CreateDungeon(DungeonManager p_gen, DungeonTheme p_dungeonTheme, DungeonNavigation p_dungeonNav)
     {
-        p_gen.m_currentDungeonType = this;
-        
+        p_gen.m_allCells = new DungeonGridCell[m_cellsInDungeon.x, m_cellsInDungeon.y];
 
-
-        ///Create th cell grid
-        Vector2Int dungeonSize = new Vector2Int(m_cellsInDungeon.x * m_cellSize.x, m_cellsInDungeon.y * m_cellSize.y);
-
-        DungeonGridCell[,] allCells = new DungeonGridCell[m_cellsInDungeon.x, m_cellsInDungeon.y];
-
-
-
+        ///Generates a random amount of room cells
+        #region Room Cell Generation
         int numOfRooms = Random.Range(m_minRooms, m_maxRooms);
 
-        List<int> roomIndexs = new List<int>();
-        List<int> emptyIndexs = new List<int>();
+        List<int> roomCells = new List<int>();
+        List<int> emptyCells = new List<int>();
 
-        List<DungeonGridCell> roomCells = new List<DungeonGridCell>();
 
+        List<DungeonGridCell> returningRoomCells = new List<DungeonGridCell>();
         int cellCount = m_cellsInDungeon.x * m_cellsInDungeon.y;
         for (int z = 0; z < cellCount; z++)
         {
-            roomIndexs.Add(z);
+            roomCells.Add(z);
         }
 
 
         //Create the number of rooms
         for (int i = 0; i < cellCount - numOfRooms; i++)
         {
-            int currentCellIndex = Random.Range(0, roomIndexs.Count);
-            emptyIndexs.Add(roomIndexs[currentCellIndex]);
-            roomIndexs.RemoveAt(currentCellIndex);
+            int currentCellIndex = Random.Range(0, roomCells.Count);
+            emptyCells.Add(roomCells[currentCellIndex]);
+            roomCells.RemoveAt(currentCellIndex);
 
         }
+        #endregion
 
+
+        #region Hallway Cell Generation
         //The hallways
-        int currentCorridors = Random.Range((int)((float)emptyIndexs.Count * m_minEmptyPercent), (int)((float)emptyIndexs.Count * m_maxEmptyPercent));
+        int currentCorridors = Random.Range((int)((float)emptyCells.Count * m_minEmptyPercent), (int)((float)emptyCells.Count * m_maxEmptyPercent));
 
         for (int c = 0; c < cellCount - numOfRooms; c++)
         {
             if (c >= currentCorridors)
             {
-                int currentCellIndex = Random.Range(0, emptyIndexs.Count);
-                emptyIndexs.RemoveAt(currentCellIndex);
+                int currentCellIndex = Random.Range(0, emptyCells.Count);
+                emptyCells.RemoveAt(currentCellIndex);
             }
 
         }
 
+        #endregion
 
 
+        #region Creates the connections between cells
         int currentIndex = 0;
         for (int x = 0; x < m_cellsInDungeon.x; x++)
         {
             for (int y = 0; y < m_cellsInDungeon.y; y++)
             {
-                allCells[x, y] = new DungeonGridCell();
-                allCells[x, y].m_connectionPoints = new List<ConnectionPoint>();
-                allCells[x, y].m_connectedTo = new List<Vector2Int>();
+                p_gen.m_allCells[x, y] = new DungeonGridCell();
+                p_gen.m_allCells[x, y].m_connectionPoints = new List<ConnectionPoint>();
+                p_gen.m_allCells[x, y].m_connectedTo = new List<Vector2Int>();
 
 
                 //Create the rooms
-                if (roomIndexs.Contains(currentIndex))
+                if (roomCells.Contains(currentIndex))
                 {
-                    allCells[x, y].ChangeCellType(DungeonGridCell.CellType.Room);
-                    
+                    p_gen.m_allCells[x, y].ChangeCellType(DungeonGridCell.CellType.Room);
+
                 }
-                else if (emptyIndexs.Contains(currentIndex))
+                else if (emptyCells.Contains(currentIndex))
                 {
-                    allCells[x, y].ChangeCellType(DungeonGridCell.CellType.None);
+                    p_gen.m_allCells[x, y].ChangeCellType(DungeonGridCell.CellType.None);
                 }
 
                 //The connection points
                 else
                 {
-                    allCells[x, y].ChangeCellType(DungeonGridCell.CellType.Hallway);
+                    p_gen.m_allCells[x, y].ChangeCellType(DungeonGridCell.CellType.Hallway);
                     Vector2Int bounds = new Vector2Int(m_cellSize.x - m_cellBoarder, m_cellSize.y - m_cellBoarder);
                     Vector3Int newPos = new Vector3Int(Random.Range(2, bounds.x) + (x * m_cellSize.x), Random.Range(2, bounds.y) + (y * m_cellSize.y), 0);
-                    
-                    allCells[x, y].AddConnectionPoint(newPos, ConnectionPoint.ConnectionType.Node);
 
-                    
-
+                    p_gen.m_allCells[x, y].AddConnectionPoint(newPos, ConnectionPoint.ConnectionType.Node);
                 }
 
 
@@ -102,17 +97,27 @@ public class DungeonType_Test : DungeonType_Base
             }
         }
 
+        #endregion
 
-
-
+        int[,] dungeonGrid = new int[m_cellsInDungeon.x * m_cellSize.x, m_cellsInDungeon.y * m_cellSize.y];
+        Debug.Log("Grid Size | x: " + dungeonGrid.GetLength(0) + " | y: " + dungeonGrid.GetLength(1));
         //Draw the boarder
-        for (int x = 0 - m_dungeonMapBounds.x; x < dungeonSize.x + m_dungeonMapBounds.x; x++)
+        /*for (int x = -m_dungeonMapBounds.x; x < m_cellsInDungeon.x * m_cellSize.x + m_dungeonMapBounds.x; x++)
         {
-            for (int y = 0 - m_dungeonMapBounds.y; y < dungeonSize.y + m_dungeonMapBounds.y; y++)
+            for (int y = -m_dungeonMapBounds.y; y < m_cellsInDungeon.y * m_cellSize.y + m_dungeonMapBounds.y; y++)
             {
-                p_gen.m_wallTiles.SetTile(new Vector3Int(x, y, 0), p_dungeonTheme.m_wallTile);
+                if(x > dungeonGrid.GetLength(0))
+                {
+                    Debug.LogError("X Too big: " + x);
+                }
+                else if (y > dungeonGrid.GetLength(1))
+                {
+                    Debug.LogError("Y Too big: " + y);
+                }
+                dungeonGrid[x, y] = 0;
+
             }
-        }
+        }*/
 
 
         //Get the items structs
@@ -124,29 +129,24 @@ public class DungeonType_Test : DungeonType_Base
         {
             for (int y = 0; y < m_cellsInDungeon.y; y++)
             {
-                allCells[x, y].SetGridPosition(new Vector2Int(x, y));
-                switch (allCells[x, y].m_currentCellType)
+                p_gen.m_allCells[x, y].SetGridPosition(new Vector2Int(x, y));
+                switch (p_gen.m_allCells[x, y].m_currentCellType)
                 {
                     case DungeonGridCell.CellType.Room:
 
-                        DungeonGridCell roomCell = CreateRoom(p_gen, p_dungeonTheme, new Vector3Int(x * m_cellSize.x, y * m_cellSize.y, 0), allCells[x, y], allCells);
-                        PopulateRoomWithItems(p_gen,p_dungeonTheme, roomCell.m_floorTiles, itemsInDungeon);
-                        roomCells.Add(roomCell);
+                        DungeonGridCell roomCell = CreateRoom(p_gen, p_dungeonTheme, new Vector3Int(x * m_cellSize.x, y * m_cellSize.y, 0), p_gen.m_allCells[x, y], p_gen.m_allCells, ref dungeonGrid);
+                        PopulateRoomWithItems(p_gen, p_dungeonTheme, roomCell.m_floorTiles, itemsInDungeon);
+                        returningRoomCells.Add(roomCell);
                         break;
 
                     case DungeonGridCell.CellType.HallwayOneWay:
-
                         break;
 
-
                     case DungeonGridCell.CellType.Hallway:
-                        CreateCorridor(p_gen, p_dungeonTheme, Vector3Int.zero, allCells[x, y].m_connectionPoints[0].m_connectionPos, allCells[x, y]);
-                        
-
+                        CreateCorridor(p_gen, p_dungeonTheme, Vector3Int.zero, p_gen.m_allCells[x, y].m_connectionPoints[0].m_connectionPos, p_gen.m_allCells[x, y], ref dungeonGrid);
                         break;
 
                     case DungeonGridCell.CellType.None:
-
                         break;
 
 
@@ -161,34 +161,51 @@ public class DungeonType_Test : DungeonType_Base
             for (int y = 0; y < m_cellsInDungeon.y; y++)
             {
 
-                p_gen.m_allRooms.Add(allCells[x, y]);
-                foreach (ConnectionPoint connectedPoint in allCells[x, y].m_connectionPoints)
-                    RoomConnections(p_gen, p_dungeonTheme, allCells, allCells[x, y], connectedPoint);
+                p_gen.m_allRooms.Add(p_gen.m_allCells[x, y]);
+                foreach (ConnectionPoint connectedPoint in p_gen.m_allCells[x, y].m_connectionPoints)
+                {
+                    RoomConnections(p_gen, p_dungeonTheme, p_gen.m_allCells, p_gen.m_allCells[x, y], connectedPoint, ref dungeonGrid);
+                }
             }
         }
 
-        
-        
 
 
+        for (int x = 0; x < dungeonGrid.GetLength(0); x++)
+        {
+            for (int y = 0; y < dungeonGrid.GetLength(1); y++)
+            {
+                ///Wall
+                if (dungeonGrid[x, y] == 0)
+                {
+                    p_gen.m_wallTiles.SetTile(new Vector3Int(x, y, 0), p_dungeonTheme.m_wallTile);
+                }
+
+                ///Floor
+                else if (dungeonGrid[x, y] == 1)
+                {
+                    p_gen.m_floorTiles.SetTile(new Vector3Int(x, y, 0), p_dungeonTheme.m_floorTile);
+                    p_gen.m_miniMapTiles.SetTile(new Vector3Int(x, y, 0), p_gen.m_miniMapTile);
+                }
+            }
+        }
 
         p_dungeonNav.m_gridWorldSize = new Vector2(m_cellSize.x * m_cellsInDungeon.x, m_cellSize.y * m_cellsInDungeon.y);
         p_dungeonNav.m_gridOrigin = p_dungeonNav.m_gridWorldSize / 2;
         p_dungeonNav.CreateGrid();
-        return roomCells;
+        return returningRoomCells;
 
     }
 
-    public override void CreateCorridor(DungeonManager p_gen, DungeonTheme p_dungeonTheme, Vector3Int p_startPos, Vector3Int p_endPos, DungeonGridCell p_currentCell)
+    public override void CreateCorridor(DungeonManager p_gen, DungeonTheme p_dungeonTheme, Vector3Int p_startPos, Vector3Int p_endPos, DungeonGridCell p_currentCell, ref int[,] p_dungeonGrid)
     {
-        p_currentCell.m_worldPos = (Vector3)p_endPos + new Vector3(.5f,.5f,0f);
+        p_currentCell.m_worldPos = (Vector3)p_endPos + new Vector3(.5f, .5f, 0f);
         p_gen.m_hallwayPoints.Add(p_currentCell);
-        p_gen.m_floorTiles.SetTile(p_endPos, p_dungeonTheme.m_floorTile);
-        p_gen.m_wallTiles.SetTile(p_endPos, null);
+        p_dungeonGrid[p_endPos.x, p_endPos.y] = 1;
     }
 
 
-    void CreateHallway(DungeonManager p_gen, DungeonTheme p_dungeonTheme, Vector3Int p_startPos, Vector3Int p_endPos)
+    public override void CreateHallway(DungeonManager p_gen, DungeonTheme p_dungeonTheme, Vector3Int p_startPos, Vector3Int p_endPos, ref int[,] p_dungeonGrid)
     {
 
 
@@ -277,20 +294,13 @@ public class DungeonType_Test : DungeonType_Base
                 }
             }
 
-            p_gen.m_floorTiles.SetTile(currentPos, p_dungeonTheme.m_floorTile);
-            p_gen.m_wallTiles.SetTile(currentPos, null);
-            p_gen.m_miniMapTiles.SetTile(currentPos, p_gen.m_miniMapTile);
-
-
-
+            p_dungeonGrid[currentPos.x, currentPos.y] = 1;
         }
-
-
     }
 
 
 
-    public override DungeonGridCell CreateRoom(DungeonManager p_gen, DungeonTheme p_dungeonTheme, Vector3Int p_roomPosition, DungeonGridCell p_currentCell, DungeonGridCell[,] p_allCells)
+    public override DungeonGridCell CreateRoom(DungeonManager p_gen, DungeonTheme p_dungeonTheme, Vector3Int p_roomPosition, DungeonGridCell p_currentCell, DungeonGridCell[,] p_allCells, ref int[,] p_dungeonGrid)
     {
 
         Vector2Int bounds = new Vector2Int(m_cellSize.x - m_cellBoarder, m_cellSize.y - m_cellBoarder);
@@ -300,7 +310,7 @@ public class DungeonType_Test : DungeonType_Base
         Vector2Int randomStart = new Vector2Int(Random.Range(m_cellBoarder, bounds.x - roomSize.x), Random.Range(m_cellBoarder, bounds.y - roomSize.y));
 
 
-        p_currentCell.m_worldPos = new Vector3(randomStart.x + p_roomPosition.x +.5f, randomStart.y + p_roomPosition.y + .5f);
+        p_currentCell.m_worldPos = new Vector3(randomStart.x + p_roomPosition.x + .5f, randomStart.y + p_roomPosition.y + .5f);
 
 
         List<Vector2> floorTiles = new List<Vector2>();
@@ -309,9 +319,9 @@ public class DungeonType_Test : DungeonType_Base
         {
             for (int y = randomStart.y; y < roomSize.y + randomStart.y; y++)
             {
-                p_gen.m_floorTiles.SetTile(new Vector3Int(x + p_roomPosition.x, y + p_roomPosition.y, 0), p_dungeonTheme.m_floorTile);
-                p_gen.m_wallTiles.SetTile(new Vector3Int(x + p_roomPosition.x, y + p_roomPosition.y, 0), null);
-                p_gen.m_miniMapTiles.SetTile(new Vector3Int(x + p_roomPosition.x, y + p_roomPosition.y, 0), p_gen.m_miniMapTile);
+
+
+                p_dungeonGrid[x + p_roomPosition.x, y + p_roomPosition.y] = 1;
                 floorTiles.Add(new Vector2(x + p_roomPosition.x, y + p_roomPosition.y));
 
             }
@@ -354,9 +364,7 @@ public class DungeonType_Test : DungeonType_Base
                         connectType = ConnectionPoint.ConnectionType.Left;
                     }
 
-                    p_gen.m_floorTiles.SetTile(connectionPos, p_dungeonTheme.m_floorTile);
-                    p_gen.m_wallTiles.SetTile(connectionPos, null);
-                    p_gen.m_miniMapTiles.SetTile(connectionPos, p_gen.m_miniMapTile);
+                    p_dungeonGrid[connectionPos.x, connectionPos.y] = 1;
                     p_currentCell.AddConnectionPoint(connectionPos, connectType);
                 }
             }
@@ -365,7 +373,7 @@ public class DungeonType_Test : DungeonType_Base
         return p_currentCell;
     }
 
-    void RoomConnections(DungeonManager p_gen, DungeonTheme p_dungeonTheme, DungeonGridCell[,] p_allCells, DungeonGridCell p_currentCell,  ConnectionPoint p_currentConnectionPoint)
+    public override void RoomConnections(DungeonManager p_gen, DungeonTheme p_dungeonTheme, DungeonGridCell[,] p_allCells, DungeonGridCell p_currentCell, ConnectionPoint p_currentConnectionPoint, ref int[,] p_dungeonGrid)
     {
 
         Vector2Int neighbourIndex = new Vector2Int();
@@ -381,7 +389,7 @@ public class DungeonType_Test : DungeonType_Base
                 {
                     if (neighbour.currentConnectionType == ConnectionPoint.ConnectionType.Right || neighbour.currentConnectionType == ConnectionPoint.ConnectionType.Node)
                     {
-                        CreateHallway(p_gen, p_dungeonTheme, p_currentConnectionPoint.m_connectionPos, neighbour.m_connectionPos);
+                        CreateHallway(p_gen, p_dungeonTheme, p_currentConnectionPoint.m_connectionPos, neighbour.m_connectionPos, ref p_dungeonGrid);
                     }
                 }
 
@@ -399,7 +407,7 @@ public class DungeonType_Test : DungeonType_Base
                 {
                     if (neighbour.currentConnectionType == ConnectionPoint.ConnectionType.Left || neighbour.currentConnectionType == ConnectionPoint.ConnectionType.Node)
                     {
-                        CreateHallway(p_gen, p_dungeonTheme, p_currentConnectionPoint.m_connectionPos, neighbour.m_connectionPos);
+                        CreateHallway(p_gen, p_dungeonTheme, p_currentConnectionPoint.m_connectionPos, neighbour.m_connectionPos, ref p_dungeonGrid);
                     }
                 }
 
@@ -415,7 +423,7 @@ public class DungeonType_Test : DungeonType_Base
                 {
                     if (neighbour.currentConnectionType == ConnectionPoint.ConnectionType.Down || neighbour.currentConnectionType == ConnectionPoint.ConnectionType.Node)
                     {
-                        CreateHallway(p_gen, p_dungeonTheme, p_currentConnectionPoint.m_connectionPos, neighbour.m_connectionPos);
+                        CreateHallway(p_gen, p_dungeonTheme, p_currentConnectionPoint.m_connectionPos, neighbour.m_connectionPos, ref p_dungeonGrid);
                     }
                 }
 
@@ -431,7 +439,7 @@ public class DungeonType_Test : DungeonType_Base
                 {
                     if (neighbour.currentConnectionType == ConnectionPoint.ConnectionType.Up || neighbour.currentConnectionType == ConnectionPoint.ConnectionType.Node)
                     {
-                        CreateHallway(p_gen, p_dungeonTheme, p_currentConnectionPoint.m_connectionPos, neighbour.m_connectionPos);
+                        CreateHallway(p_gen, p_dungeonTheme, p_currentConnectionPoint.m_connectionPos, neighbour.m_connectionPos, ref p_dungeonGrid);
                     }
                 }
 
@@ -461,7 +469,7 @@ public class DungeonType_Test : DungeonType_Base
                         {
                             neighbourCell.m_connectedTo.Add(p_currentCell.m_gridPosition);
                             p_currentCell.m_connectedTo.Add(neighbourCell.m_gridPosition);
-                            CreateHallway(p_gen, p_dungeonTheme, p_currentConnectionPoint.m_connectionPos, neighbourCell.m_connectionPoints[0].m_connectionPos);
+                            CreateHallway(p_gen, p_dungeonTheme, p_currentConnectionPoint.m_connectionPos, neighbourCell.m_connectionPoints[0].m_connectionPos, ref p_dungeonGrid);
                         }
                     }
 
@@ -487,7 +495,7 @@ public class DungeonType_Test : DungeonType_Base
             p_floorTilesLocations.RemoveAt(randomPlace);
         }
 
-        foreach(Vector2 itemPlace in itemPlacements)
+        foreach (Vector2 itemPlace in itemPlacements)
         {
             float randomItem = Random.Range(0f, 1f);
             float currentRate = 0;
@@ -497,7 +505,7 @@ public class DungeonType_Test : DungeonType_Base
 
                 if (randomItem < item.m_itemRarity + currentRate)
                 {
-                    
+
                     itemSpawnIndex = p_itemList.IndexOf(item);
                     break;
                 }

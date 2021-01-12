@@ -13,14 +13,17 @@ public class DungeonManager : MonoBehaviour
     public UnityEngine.Tilemaps.Tile m_miniMapTile;
     public DungeonTheme m_dungeonTheme;
     public DungeonType_Base m_currentDungeonType;
-    public List<DungeonType_Base.DungeonGridCell> m_allRooms;
-    public List<DungeonType_Base.DungeonGridCell> m_hallwayPoints;
+    public List<DungeonGridCell> m_allRooms;
+    public List<DungeonGridCell> m_hallwayPoints;
     private DungeonNavigation m_dungeonNav;
     private DungeonNavigation_Agent m_gridTestAgent;
 
     public List<GameObject> m_itemsOnFloor;
 
-
+    /// <summary>
+    /// Used to create the dungeon's layout.
+    /// </summary>
+    public DungeonGridCell[,] m_allCells;
 
     [HideInInspector]
     public int m_dungeonGenTypeIndex;
@@ -36,14 +39,19 @@ public class DungeonManager : MonoBehaviour
     Input_Base m_playerInput;
     public GameObject m_staircase;
 
+    /// <summary>
+    /// Used to ensure the staircase, ai, and friendly characters dont spawn on each other
+    /// </summary>
     List<Vector2> m_occupiedSpaces;
+    
+    
 
     [Header("AI Properties")]
     public AIManager m_aiManager;
     public GameObject m_aiShell;
     public LayerMask m_spawnMask;
     private List<AiStruct> m_currentEnemyTypesInDungeon;
-    
+
 
     #region Initialization
     private void OnEnable()
@@ -96,6 +104,9 @@ public class DungeonManager : MonoBehaviour
             m_wallTiles.ClearAllTiles();
             m_floorTiles.ClearAllTiles();
             m_miniMapTiles.ClearAllTiles();
+
+            
+
             m_allRooms = m_dungeonTheme.CreateNewFloor(this, m_dungeonNav);
             m_currentEnemyTypesInDungeon = m_dungeonTheme.AiInDungeon();
 
@@ -116,8 +127,22 @@ public class DungeonManager : MonoBehaviour
             }
             mapSuccess = !roomFailed;
 
-        }
+            /*TODO
+            /// Currently, the path is drawn first, to create all the physical colliders, generate the navigation grid, and uses a* to determine if the path is possible.<br/>
+            /// But maybe its more efficient to utilize cell types isntead, so there are no physics and art parts to that.
+             */
 
+
+            /*if (roomFailed)
+            {
+                m_floorTiles.color = Color.red;
+                yield return new WaitForSeconds(.25f);
+            }
+            yield return new WaitForSeconds(.1f);
+            m_floorTiles.color = Color.white;*/
+            //mapSuccess = false;
+
+        }
         m_occupiedSpaces.Clear();
 
         Vector2 randomPos = RandomSpawnPosition(m_allRooms);
@@ -132,7 +157,7 @@ public class DungeonManager : MonoBehaviour
 
     }
 
-    Vector2 RandomSpawnPosition(List<DungeonType_Base.DungeonGridCell> m_possibleRooms)
+    Vector2 RandomSpawnPosition(List<DungeonGridCell> m_possibleRooms)
     {
         int randomRoomSpawn = Random.Range(0, m_allRooms.Count);
         List<Vector2> possibleSpawnPos = new List<Vector2>();
@@ -159,19 +184,19 @@ public class DungeonManager : MonoBehaviour
     /// This method is called by the AIController script, when it desires a new path / target
     /// This returns the world position of a random room, or hallway, that is not the currently occupied one
     /// </summary>
-    
+
     public Vector3 GetRandomCell(Vector3 m_currentPos)
     {
-        
-        DungeonType_Base.DungeonGridCell currentCell = CurrentCell(m_currentPos);
 
-        List<DungeonType_Base.DungeonGridCell> randomCell = new List<DungeonType_Base.DungeonGridCell>();
+        DungeonGridCell currentCell = CurrentCell(m_currentPos);
+
+        List<DungeonGridCell> randomCell = new List<DungeonGridCell>();
 
         bool targetRoom = (Random.Range(0f, 1f) > .5) ? true : false;
 
         if (targetRoom)
         {
-            foreach (DungeonType_Base.DungeonGridCell room in m_allRooms)
+            foreach (DungeonGridCell room in m_allRooms)
             {
                 if (room.m_gridPosition == currentCell.m_gridPosition) continue;
                 randomCell.Add(room);
@@ -180,7 +205,7 @@ public class DungeonManager : MonoBehaviour
         }
         else
         {
-            foreach(DungeonType_Base.DungeonGridCell hall in m_hallwayPoints)
+            foreach (DungeonGridCell hall in m_hallwayPoints)
             {
                 if (hall.m_gridPosition == currentCell.m_gridPosition) continue;
                 randomCell.Add(hall);
@@ -193,14 +218,14 @@ public class DungeonManager : MonoBehaviour
     /// <summary>
     /// Calculates which cell the character is currently in
     /// </summary>
-    
-    DungeonType_Base.DungeonGridCell CurrentCell(Vector3 m_currentPos)
+
+    DungeonGridCell CurrentCell(Vector3 m_currentPos)
     {
-        DungeonType_Base.DungeonGridCell returnCell = new DungeonType_Base.DungeonGridCell();
+        DungeonGridCell returnCell = new DungeonGridCell();
         int xPos = 0, yPos = 0;
         for (int x = 0; x < m_currentDungeonType.m_cellsInDungeon.x; x++)
         {
-            if ((x+1) * m_currentDungeonType.m_cellSize.x > m_currentPos.x)
+            if ((x + 1) * m_currentDungeonType.m_cellSize.x > m_currentPos.x)
             {
                 xPos = x;
                 break;
@@ -208,18 +233,18 @@ public class DungeonManager : MonoBehaviour
         }
         for (int y = 0; y < m_currentDungeonType.m_cellsInDungeon.y; y++)
         {
-            if ((y+1) * m_currentDungeonType.m_cellSize.y > m_currentPos.y)
+            if ((y + 1) * m_currentDungeonType.m_cellSize.y > m_currentPos.y)
             {
                 yPos = y;
                 break;
             }
         }
         bool inRoom = false;
-        foreach (DungeonType_Base.DungeonGridCell currentRoom in m_allRooms)
+        foreach (DungeonGridCell currentRoom in m_allRooms)
         {
-            if(currentRoom.m_gridPosition.x == xPos)
+            if (currentRoom.m_gridPosition.x == xPos)
             {
-                if(currentRoom.m_gridPosition.y == yPos)
+                if (currentRoom.m_gridPosition.y == yPos)
                 {
                     returnCell = currentRoom;
                     inRoom = true;
@@ -228,7 +253,7 @@ public class DungeonManager : MonoBehaviour
         }
         if (!inRoom)
         {
-            foreach(DungeonType_Base.DungeonGridCell currentHallway in m_hallwayPoints)
+            foreach (DungeonGridCell currentHallway in m_hallwayPoints)
             {
                 if (currentHallway.m_gridPosition.x == xPos)
                 {
@@ -243,7 +268,7 @@ public class DungeonManager : MonoBehaviour
 
         return returnCell;
     }
-    
+
     /// <summary>
     /// Called through an event in the TurnBased manager, when the cycle of agents is complete, and the player is given control again
     /// This determines whether an enemy should spawn, using a random chance to determine whether it should actually spawn
@@ -253,13 +278,13 @@ public class DungeonManager : MonoBehaviour
     {
         if (m_aiManager.m_currentAiOnScene < m_aiManager.m_maxAiOnScene)
         {
-            
+
             float randomAi = Random.Range(0f, 1f);
             if (randomAi < m_dungeonTheme.m_chanceOfEnemySpawn)
             {
                 m_aiManager.m_currentAiOnScene++;
-                
-                DungeonType_Base.DungeonGridCell spawnRoom = m_allRooms[Random.Range(0, m_allRooms.Count)];
+
+                DungeonGridCell spawnRoom = m_allRooms[Random.Range(0, m_allRooms.Count)];
                 List<Vector2> possiblePos = new List<Vector2>();
                 foreach (Vector2 possibleSpot in spawnRoom.m_floorTiles)
                 {
@@ -275,7 +300,7 @@ public class DungeonManager : MonoBehaviour
 
                 foreach (AiStruct ai in m_currentEnemyTypesInDungeon)
                 {
-                    if(randomAi < ai.m_aiRarity)
+                    if (randomAi < ai.m_aiRarity)
                     {
                         AIController newAi = m_pooler.NewObject(m_aiShell, spawnPos, Quaternion.identity).GetComponent<AIController>();
                         newAi.InitializeAi(ai.m_aiType);
@@ -287,6 +312,60 @@ public class DungeonManager : MonoBehaviour
             }
         }
     }
-    
+
     #endregion
+}
+
+[System.Serializable]
+public struct DungeonGridCell
+{
+    public enum CellType { Wall, Room, Hallway, HallwayOneWay, Hazard, None }
+    public CellType m_currentCellType;
+
+    public int m_roomIndex;
+
+    /// <summary>
+    /// Maybe use this to check for a path before all the tiles are drawn.<br/>
+    /// </summary>
+    public int m_cellMultiplier;
+    public Vector2Int m_gridPosition;
+    public Vector2 m_worldPos;
+    
+    public List<ConnectionPoint> m_connectionPoints;
+    public List<Vector2Int> m_connectedTo;
+
+    public List<Vector2> m_floorTiles;
+
+    public void ChangeCellType(CellType p_newCellType)
+    {
+        m_currentCellType = p_newCellType;
+    }
+    public void AddConnectionPoint(Vector3Int p_position, ConnectionPoint.ConnectionType p_connectType)
+    {
+        m_connectionPoints.Add(new ConnectionPoint(p_position, p_connectType));
+    }
+    public void SetGridPosition(Vector2Int p_gridPos)
+    {
+        m_gridPosition = p_gridPos;
+    }
+}
+
+[System.Serializable]
+public struct ConnectionPoint
+{
+    public enum ConnectionType { Up, Down, Left, Right, Node }
+    public Vector3Int m_connectionPos;
+    public ConnectionType currentConnectionType;
+    public ConnectionPoint(Vector3Int p_pos, ConnectionType p_connectType)
+    {
+        m_connectionPos = p_pos;
+        currentConnectionType = p_connectType;
+    }
+}
+
+[System.Serializable]
+public struct DungeonRoom
+{
+    public Vector2 m_roomOrigin;
+    public Vector2 m_roomDimensions;
 }
