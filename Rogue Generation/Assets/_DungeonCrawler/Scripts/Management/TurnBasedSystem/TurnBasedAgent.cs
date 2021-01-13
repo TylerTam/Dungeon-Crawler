@@ -183,6 +183,9 @@ public class TurnBasedAgent : MonoBehaviour
         Vector3 startPos = transform.position;
         m_predictedPlace.transform.position = m_targetPos;
         m_dungeonState.UpdateCellAttendance();
+        m_movementController.UpdateFacingDir(new Vector2(Mathf.Sign(m_targetPos.x - transform.position.x) * Mathf.Abs(m_targetPos.x - transform.position.x), 
+                                                        Mathf.Sign(m_targetPos.y - transform.position.y) * Mathf.Abs(m_targetPos.y - transform.position.y)));
+
         while (m_currentMovementTimer / m_turnManager.m_lerpSpeed < 1)
         {
 

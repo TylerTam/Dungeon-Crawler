@@ -9,5 +9,5 @@ using UnityEngine;
 /// </summary>
 public abstract class AttackHitArea_Base : ScriptableObject
 {
-    public abstract List<TurnBasedAction> CommencedActions(AttackController p_attackController);
+    public abstract List<AttackController> CommencedActions(AttackController p_attackController, Vector2 p_facingDir);
 }

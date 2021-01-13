@@ -18,6 +18,7 @@ public class Entity_MovementController : MonoBehaviour
     public bool m_performLayerCheck;
     #endregion
 
+    public Vector2 m_facingDir;
 
 
 
@@ -30,6 +31,10 @@ public class Entity_MovementController : MonoBehaviour
         m_turnManager = TurnBasedManager.Instance;
     }
 
+    /// <summary>
+    /// Only the player utilizes this function.<br/>
+    /// The AI uses it's own movement function
+    /// </summary>
     public void MoveCharacter(Vector2 p_movement)
     {
         if (m_performLayerCheck)
@@ -38,7 +43,7 @@ public class Entity_MovementController : MonoBehaviour
             {
                 if (!Physics2D.Raycast(transform.position, p_movement.normalized, p_movement.magnitude, m_diagonalTerrainLayer))
                 {
-
+                    UpdateFacingDir(p_movement);
                     if (p_movement.magnitude != 0)
                     {
 
@@ -58,7 +63,7 @@ public class Entity_MovementController : MonoBehaviour
         {
             if (p_movement.magnitude != 0)
             {
-
+                UpdateFacingDir(p_movement);
                 m_actionAgent.Action_Move(p_movement + (Vector2)transform.position);
             }
             else
@@ -71,6 +76,10 @@ public class Entity_MovementController : MonoBehaviour
 
     }
 
+    public void UpdateFacingDir(Vector2 p_newDir)
+    {
+        m_facingDir = p_newDir;
+    }
     public void MovementComplete()
     {
         CheckGround();

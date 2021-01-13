@@ -9,7 +9,7 @@
 [CreateAssetMenu(fileName = "Attack Type Base", menuName = "Attack Types / Basic", order = 0)]
 public class AttackType_Base : ScriptableObject
 {
-
+    public int m_baseDamage;
     //The type of attack, ie, ranged, projectile, adjactent, full room, etc.
     public AttackHitArea_Base m_attackFunction;
 
@@ -29,7 +29,7 @@ public class AttackType_Base : ScriptableObject
     /// Called from the attack Controller
     /// </summary>
     
-    public virtual void StartAttack(AttackController p_currentAttacker)
+    public virtual void StartAttack(AttackController p_currentAttacker, Vector2 p_facingDir)
     {
         p_currentAttacker.m_attackAnimator.runtimeAnimatorController = m_attackAnimationController;
         p_currentAttacker.ChangeToAttackAnimation();
@@ -37,7 +37,7 @@ public class AttackType_Base : ScriptableObject
         p_currentAttacker.m_newActions.Clear();
 
         //Pass the hitbox
-        p_currentAttacker.m_newActions = m_attackFunction.CommencedActions(p_currentAttacker);
+        p_currentAttacker.m_newActions = m_attackFunction.CommencedActions(p_currentAttacker, p_facingDir);
         
     }
 

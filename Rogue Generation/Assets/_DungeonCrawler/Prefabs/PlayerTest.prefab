@@ -67,6 +67,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4597749072222295544}
   - component: {fileID: 4597749072222295547}
+  - component: {fileID: 3191191909163644450}
+  - component: {fileID: 3422668320827393992}
   m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
@@ -140,6 +142,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3191191909163644450
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4597749072222295545}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3422668320827393992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4597749072222295545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 297a781578bfa1140b6d8c1fc23c1334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_spriteAnimator: {fileID: 3191191909163644450}
 --- !u!1 &4597749072236266340
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,6 +359,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4352
   m_performLayerCheck: 1
+  m_facingDir: {x: 0, y: 0}
   m_objectsOnFloorLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -364,11 +399,11 @@ MonoBehaviour:
   m_enemyMask:
     serializedVersion: 2
     m_Bits: 0
-  m_facingDir: {x: 0, y: 0}
   m_attackType: []
   m_attackComplete: 0
   m_attackAnimComplete: 0
   m_attackAnimator: {fileID: 0}
+  m_newActions: []
 --- !u!114 &4597749072606483147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,7 +423,7 @@ MonoBehaviour:
   m_currentInputType: 0
   m_joystickCanvas: {fileID: 0}
   m_joystick: {fileID: 0}
-  m_deadzone: 0.2
+  m_deadzone: 0.3
   m_inputPressed: 0
 --- !u!114 &7189210199279401681
 MonoBehaviour:

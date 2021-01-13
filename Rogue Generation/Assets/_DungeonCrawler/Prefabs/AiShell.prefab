@@ -68,6 +68,7 @@ GameObject:
   - component: {fileID: 5134884546461566380}
   - component: {fileID: 5134884546461566383}
   - component: {fileID: 1859227586939157960}
+  - component: {fileID: 3446943291906035773}
   m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
@@ -159,6 +160,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3446943291906035773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134884546461566381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 297a781578bfa1140b6d8c1fc23c1334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_spriteAnimator: {fileID: 1859227586939157960}
 --- !u!1 &5134884546887740690
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,6 +337,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 7424
   m_performLayerCheck: 0
+  m_facingDir: {x: 0, y: 0}
   m_objectsOnFloorLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -363,12 +378,12 @@ MonoBehaviour:
   m_enemyMask:
     serializedVersion: 2
     m_Bits: 0
-  m_facingDir: {x: 0, y: 0}
   m_attackType:
   - {fileID: 11400000, guid: 7051b08ebf11d96459c997ce3c8056dd, type: 2}
   m_attackComplete: 0
   m_attackAnimComplete: 0
   m_attackAnimator: {fileID: 0}
+  m_newActions: []
 --- !u!95 &5134884547314991773
 Animator:
   serializedVersion: 3

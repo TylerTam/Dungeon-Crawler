@@ -6,8 +6,8 @@ using UnityEngine;
 //Allows them to pick which move to use
 public class AttackController : MonoBehaviour
 {
+
     public LayerMask m_enemyMask;
-    public Vector2 m_facingDir;
 
     [Header("Attack properties")]
     public List<AttackType_Base> m_attackType;
@@ -24,6 +24,9 @@ public class AttackController : MonoBehaviour
     public Animator m_attackAnimator;
 
     private TurnBasedAgent m_actionAgent;
+
+    private Entity_MovementController m_movementController;
+    private Health m_entityHealth;
     #endregion
 
     #region Attack type management
@@ -35,7 +38,7 @@ public class AttackController : MonoBehaviour
     //The actions that are spawned from the attack
     //IE. the hurt animations, the actual attack animations (if prefabs are spawned ie thunderbolts)
     [HideInInspector]
-    public List<TurnBasedAction> m_newActions = new List<TurnBasedAction>();
+    public List<AttackController> m_newActions = new List<AttackController>();
     #endregion
 
 
@@ -43,6 +46,8 @@ public class AttackController : MonoBehaviour
     {
         m_attackAnimator = GetComponent<Animator>();
         m_actionAgent = GetComponent<TurnBasedAgent>();
+        m_movementController = GetComponent<Entity_MovementController>();
+        m_entityHealth = GetComponent<Health>();
     }
 
     /// <summary>
@@ -51,17 +56,13 @@ public class AttackController : MonoBehaviour
     public void StartAttack(int p_chosenAttack)
     {
 
+        m_attackComplete = false;
+        m_attackAnimComplete = false;
+        m_currentAttack = m_attackType[p_chosenAttack];
+        m_currentAttack.StartAttack(this, m_movementController.m_facingDir);
+        StartCoroutine(CheckAttackAnimation());
 
-            m_attackComplete = false;
-            m_attackAnimComplete = false;
-            m_currentAttack = m_attackType[p_chosenAttack];
-            m_currentAttack.StartAttack(this);
-            print("Attack Started");
-
-            StartCoroutine(CheckAttackAnimation());
-        
     }
-
 
 
     /// <summary>
@@ -69,7 +70,7 @@ public class AttackController : MonoBehaviour
     /// When the animation is complete, create the attack effects
     /// </summary>
 
-    IEnumerator CheckAttackAnimation()
+    private IEnumerator CheckAttackAnimation()
     {
         while (!m_attackAnimComplete)
         {
@@ -93,7 +94,7 @@ public class AttackController : MonoBehaviour
 
             for (int i = 0; i < m_newActions.Count; i++)
             {
-                if (m_newActions[i].IComplete())
+                if (m_newActions[i].AttackAnimComplete())
                 {
                     m_newActions.Remove(m_newActions[i]);
                     i -= 1;
@@ -114,7 +115,7 @@ public class AttackController : MonoBehaviour
         if (m_currentAttackAmount < m_currentAttack.m_attackSpawnAmount)
         {
             m_currentAttackAmount++;
-            m_currentAttack.StartAttack(this);
+            m_currentAttack.StartAttack(this, m_movementController.m_facingDir);
         }
         else
         {
@@ -123,7 +124,58 @@ public class AttackController : MonoBehaviour
         }
     }
 
+    #region Attacked Functionality
+    private bool m_attackedComplete = true;
+    private Coroutine m_attackedCoroutine;
+    private int m_takenDamage;
+    Health.DamageType m_takenDamageType;
 
+    public void ApplyAttackedDamage(int p_takenDamage, Health.DamageType p_damageType)
+    {
+        m_takenDamage = p_takenDamage;
+        m_takenDamageType = p_damageType;
+    }
+
+    /// <summary>
+    /// Inherited from the TurnBasedAction Interface<br/>
+    /// Used to determine whether the hurt animation is complete.
+    /// </summary>
+    public bool AttackAnimComplete()
+    {
+        if (m_attackedCoroutine == null)
+        {
+            m_attackedComplete = false;
+            m_attackedCoroutine = StartCoroutine(AttackedCoroutine());
+        }
+        else
+        {
+            if (m_attackedComplete)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private IEnumerator AttackedCoroutine()
+    {
+        Debug.Log("Put hurt message here");
+        /*
+        GameObject damageObject = Instantiate (m_damageObjectPrefab, transform.position, Quaternion.identity);
+        damageObject.GetComponent<InWorldUI>().m_uiText.text = -m_takenDamage.ToString();
+        */
+        yield return m_entityHealth.TakeDamage(m_takenDamage, m_takenDamageType);
+
+
+
+        if (m_entityHealth.m_defeated)
+        {
+            m_entityHealth.Defeated();
+        }
+        m_attackAnimComplete = true;
+
+    }
+    #endregion
 
     #region Animator Called Events
 
@@ -135,11 +187,17 @@ public class AttackController : MonoBehaviour
 
     public void ChangeToAttackAnimation()
     {
+        m_attackAnimator.SetInteger("FacingX", (int)m_movementController.m_facingDir.x);
+        m_attackAnimator.SetInteger("FacingY", (int)m_movementController.m_facingDir.y);
+
         m_attackAnimator.SetTrigger("IsAttacking");
     }
     public void ChangeToIdleAnimation()
     {
         m_attackAnimator.SetTrigger("IsIdle");
     }
+
+
+
     #endregion
 }

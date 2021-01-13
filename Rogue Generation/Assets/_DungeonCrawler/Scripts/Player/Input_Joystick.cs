@@ -15,6 +15,7 @@ public class Input_Joystick : Input_Base
     public override void Start()
     {
         base.Start();
+
         if(m_currentInputType == InputType.Keyboard)
         {
             m_joystickCanvas.SetActive(false);
