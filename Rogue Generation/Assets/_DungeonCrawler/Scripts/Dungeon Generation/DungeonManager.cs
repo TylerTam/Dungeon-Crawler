@@ -43,8 +43,8 @@ public class DungeonManager : MonoBehaviour
     /// Used to ensure the staircase, ai, and friendly characters dont spawn on each other
     /// </summary>
     List<Vector2> m_occupiedSpaces;
-    
-    
+
+
 
     [Header("AI Properties")]
     public AIManager m_aiManager;
@@ -87,7 +87,7 @@ public class DungeonManager : MonoBehaviour
         StartCoroutine(CheckDungeonConnection());
     }
 
-    
+
 
     IEnumerator CheckDungeonConnection()
     {
@@ -107,7 +107,7 @@ public class DungeonManager : MonoBehaviour
             m_floorTiles.ClearAllTiles();
             m_miniMapTiles.ClearAllTiles();
 
-            
+
 
             m_allRooms = m_dungeonTheme.CreateNewFloor(this, m_dungeonNav);
             m_currentEnemyTypesInDungeon = m_dungeonTheme.AiInDungeon();
@@ -148,7 +148,7 @@ public class DungeonManager : MonoBehaviour
         List<int> removeIndex = new List<int>();
         for (int i = 0; i < m_hallwayPoints.Count; i++)
         {
-            if(m_hallwayPoints[i].m_connectedTo.Count == 0)
+            if (m_hallwayPoints[i].m_connectedTo.Count == 0)
             {
                 Debug.LogWarning("Hallway point: " + m_hallwayPoints[i].m_worldPos + " is not connected to anything. Removing");
                 removeIndex.Add(i);
@@ -330,6 +330,19 @@ public class DungeonManager : MonoBehaviour
     }
 
     #endregion
+
+    public void AssignEntityToRoom(int p_roomInt, GameObject p_entity)
+    {
+
+        m_allRooms[p_roomInt].AddEntityToRoom(p_entity);
+
+    }
+    public void RemoveEntityFromRoom(int p_roomInt, GameObject p_entity)
+    {
+
+        m_allRooms[p_roomInt].m_entitiesInRoom.Remove(p_entity);
+
+    }
 }
 
 [System.Serializable]
@@ -347,7 +360,7 @@ public class DungeonGridCell
     public Vector2Int m_gridPosition;
     public Vector2 m_worldPos;
     public Vector2 m_roomSize;
-    
+
     public List<ConnectionPoint> m_connectionPoints;
     public List<Vector2Int> m_connectedTo;
 

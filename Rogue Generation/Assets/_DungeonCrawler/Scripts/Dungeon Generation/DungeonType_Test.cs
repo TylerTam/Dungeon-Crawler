@@ -135,6 +135,7 @@ public class DungeonType_Test : DungeonType_Base
 
                         DungeonGridCell roomCell = CreateRoom(p_gen, p_dungeonTheme, new Vector3Int(x * m_cellSize.x, y * m_cellSize.y, 0), p_gen.m_allCells[x, y], p_gen.m_allCells, ref dungeonGrid);
                         PopulateRoomWithItems(p_gen, p_dungeonTheme, roomCell.m_floorTiles, itemsInDungeon);
+                        roomCell.m_roomIndex = returningRoomCells.Count;
                         returningRoomCells.Add(roomCell);
                         break;
 

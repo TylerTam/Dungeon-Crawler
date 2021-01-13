@@ -322,6 +322,7 @@ MonoBehaviour:
   m_diagonalTerrainLayer:
     serializedVersion: 2
     m_Bits: 7424
+  m_performLayerCheck: 0
   m_objectsOnFloorLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -409,7 +410,7 @@ MonoBehaviour:
   m_detectionRadius: {x: 0, y: 0}
   m_detectionMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_currentTarget: {fileID: 0}
   m_predictedPlace: {fileID: 5134884546370170686}
 --- !u!114 &5134884547314991775

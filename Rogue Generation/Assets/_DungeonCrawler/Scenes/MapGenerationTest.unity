@@ -1712,9 +1712,9 @@ MonoBehaviour:
   m_lerpSpeed: 0.35
   m_moveDistance: 1
   m_keepAgents:
-  - {fileID: 1648875502}
+  - {fileID: 259538146}
   m_allAgents:
-  - {fileID: 1648875502}
+  - {fileID: 259538146}
   m_currentAgentIndex: 0
   m_turnComplete:
     m_PersistentCalls:
@@ -2241,7 +2241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1648875502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2320,7 +2320,7 @@ PrefabInstance:
     - target: {fileID: 4597749072606483144, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4597749072606483146, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
         type: 3}
@@ -2406,6 +2406,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_canPerform
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597749072606483185, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
+        type: 3}
+      propertyPath: m_terrainLayer.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 4597749072606483190, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
         type: 3}

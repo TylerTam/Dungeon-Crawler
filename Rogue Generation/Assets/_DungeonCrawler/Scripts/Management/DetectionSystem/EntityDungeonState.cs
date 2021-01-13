@@ -9,13 +9,14 @@ public class EntityDungeonState : MonoBehaviour
 
     public void UpdateCellAttendance()
     {
-        if (m_currentCell != null)
+        if (m_currentCell != null && m_inRoom)
         {
+            
             if (!m_currentCell.IsWithinCell(predictedPlace.position))
             {
                 if (m_currentCell.m_currentCellType == DungeonGridCell.CellType.Room)
                 {
-                    m_currentCell.RemoveEntityFromRoom(gameObject);
+                    DungeonManager.Instance.RemoveEntityFromRoom(m_currentCell.m_roomIndex, gameObject);
                 }
                 DungeonGridCell currentGrid = DungeonManager.Instance.CurrentCell(predictedPlace.position);
                 if (currentGrid.IsWithinCell(predictedPlace.position))
@@ -39,7 +40,7 @@ public class EntityDungeonState : MonoBehaviour
                 m_currentCell = currentGrid;
                 if (m_currentCell.m_currentCellType == DungeonGridCell.CellType.Room)
                 {
-                    m_currentCell.AddEntityToRoom(gameObject);
+                    DungeonManager.Instance.AssignEntityToRoom(m_currentCell.m_roomIndex, gameObject);
                 }
             }
             else

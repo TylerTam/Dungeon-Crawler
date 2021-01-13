@@ -17,6 +17,9 @@ public class AIController : MonoBehaviour
     private AttackController m_attackController;
 
     #region Idle Behaviour
+    /// <summary>
+    /// The target position for the ai to move towards
+    /// </summary>
     private Vector3 m_currentTargetPos;
     private DungeonNavigation_Agent m_navAgent;
     private List<Node> m_path;
@@ -115,7 +118,7 @@ public class AIController : MonoBehaviour
             switch (m_currentBehaviour)
             {
                 case AiBehaviour.Attack:
-                    m_currentTargetPos = (Vector2)m_currentTarget.transform.position;
+                    m_currentTargetPos = (Vector2)m_currentTargetPrediction.transform.position;
                     break;
                 case AiBehaviour.Idle:
                     m_currentTargetPos = m_dungeonManager.GetRandomCell(transform.position);
@@ -149,6 +152,15 @@ public class AIController : MonoBehaviour
         if (m_currentNode == null || m_path == null)
         {
             NewPath();
+
+        }
+        if (m_currentBehaviour == AiBehaviour.Attack)
+        {
+
+            if (m_currentTargetPrediction.position != m_currentTargetPos)
+            {
+                NewPath();
+            }
 
         }
         if (Vector2.Distance(transform.position, (Vector2)m_currentNode.worldPosition) < m_nodeStoppingDistance)
@@ -224,7 +236,7 @@ public class AIController : MonoBehaviour
             m_currentBehaviour = AiBehaviour.Idle;
             if (findNewPath)
             {
-                m_currentTargetPos = m_path[m_path.Count-1].worldPosition;
+                m_currentTargetPos = m_path[m_path.Count - 1].worldPosition;
                 NewPath(m_path.Count > 1);
             }
         }
@@ -252,26 +264,9 @@ public class AIController : MonoBehaviour
 
             #region Radius Check
             ///Else, only check 2 sqaures around
-            for (int x = -3; x <= 3; x++)
+            if (Vector3.Distance(m_predictedPlace.position, m_currentTargetPrediction.position) < 1.45 * 2)
             {
-                for (int y = -3; y <= 3; y++)
-                {
-                    if (x == 0 && y == 0) continue;
-
-                    RaycastHit2D hit2D = Physics2D.Raycast(m_predictedPlace.position + new Vector3(x, y, 0) - Vector3.forward * 1, Vector3.forward, 5, m_detectionMask);
-                    if (hit2D)
-                    {
-                        if (hit2D.transform.gameObject == m_currentTarget)
-                        {
-                            EntityTeam tempTeam = hit2D.transform.GetComponent<EntityTeam>();
-                            if (tempTeam.m_currentTeam != m_entityTeam.m_currentTeam && tempTeam.m_currentTeam != EntityTeam.Team.Neutral)
-                            {
-
-                                return true;
-                            }
-                        }
-                    }
-                }
+                return true;
             }
             #endregion
 
@@ -294,7 +289,9 @@ public class AIController : MonoBehaviour
                     if (newTeam.m_currentTeam != m_entityTeam.m_currentTeam && newTeam.m_currentTeam != EntityTeam.Team.Neutral)
                     {
                         m_currentTargetPrediction = ent.GetComponent<TurnBasedAgent>().m_predictedPlace.transform;
+                        Debug.Log("Player Located: Room");
                         return ent.transform.gameObject;
+
                     }
                 }
                 #endregion
@@ -316,6 +313,7 @@ public class AIController : MonoBehaviour
                             EntityTeam newTeam = hit2D.transform.GetComponent<EntityTeam>();
                             if (newTeam.m_currentTeam != m_entityTeam.m_currentTeam && newTeam.m_currentTeam != EntityTeam.Team.Neutral)
                             {
+                                Debug.Log("Player Located: Radius");
                                 m_currentTargetPrediction = hit2D.transform.GetComponent<TurnBasedAgent>().m_predictedPlace.transform;
                                 return hit2D.transform.gameObject;
                             }
