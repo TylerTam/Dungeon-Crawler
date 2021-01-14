@@ -146,6 +146,162 @@ TextureImporter:
   - first:
       213: -6019874097217884885
     second: Jolteon V2_47
+  - first:
+      213: 7652240788870028534
+    second: Jolteon V2_0
+  - first:
+      213: 5793179313612413799
+    second: Jolteon V2_1
+  - first:
+      213: -6596489435251572273
+    second: Jolteon V2_2
+  - first:
+      213: 2713843804041182681
+    second: Jolteon V2_3
+  - first:
+      213: 8517334988146191146
+    second: Jolteon V2_4
+  - first:
+      213: -1423627705133459273
+    second: Jolteon V2_5
+  - first:
+      213: 4642263412932570237
+    second: Jolteon V2_6
+  - first:
+      213: -6830019871629762965
+    second: Jolteon V2_7
+  - first:
+      213: 4397713936756016070
+    second: Jolteon V2_8
+  - first:
+      213: 5989713671058573318
+    second: Jolteon V2_9
+  - first:
+      213: -5811767327556116273
+    second: Jolteon V2_10
+  - first:
+      213: -1097124249155733056
+    second: Jolteon V2_11
+  - first:
+      213: 8819778963720669436
+    second: Jolteon V2_12
+  - first:
+      213: 2609163803333284320
+    second: Jolteon V2_13
+  - first:
+      213: -272168840610082136
+    second: Jolteon V2_14
+  - first:
+      213: -3637207649645557863
+    second: Jolteon V2_15
+  - first:
+      213: 3499140681720405179
+    second: Jolteon V2_16
+  - first:
+      213: 5623630852193888103
+    second: Jolteon V2_17
+  - first:
+      213: -2723981391551250227
+    second: Jolteon V2_18
+  - first:
+      213: 2675365561533825772
+    second: Jolteon V2_19
+  - first:
+      213: 8787419296945773024
+    second: Jolteon V2_20
+  - first:
+      213: -2378582008636880602
+    second: Jolteon V2_21
+  - first:
+      213: -6908706032547118166
+    second: Jolteon V2_22
+  - first:
+      213: 1540778186320926339
+    second: Jolteon V2_23
+  - first:
+      213: 2481662265249572016
+    second: Jolteon V2_24
+  - first:
+      213: 956660111398289632
+    second: Jolteon V2_25
+  - first:
+      213: 2760667669301483950
+    second: Jolteon V2_26
+  - first:
+      213: -4779043295262941319
+    second: Jolteon V2_27
+  - first:
+      213: 7323541388520976798
+    second: Jolteon V2_28
+  - first:
+      213: 587747653649176045
+    second: Jolteon V2_29
+  - first:
+      213: -6955243164577025257
+    second: Jolteon V2_30
+  - first:
+      213: -3726752756425526706
+    second: Jolteon V2_31
+  - first:
+      213: 1516010310331278975
+    second: Jolteon V2_32
+  - first:
+      213: -6988731750246647248
+    second: Jolteon V2_33
+  - first:
+      213: -2296250657372565132
+    second: Jolteon V2_34
+  - first:
+      213: -5770958898269406181
+    second: Jolteon V2_35
+  - first:
+      213: 4000445773996491382
+    second: Jolteon V2_36
+  - first:
+      213: -411532417544285825
+    second: Jolteon V2_37
+  - first:
+      213: -4416696733949005973
+    second: Jolteon V2_38
+  - first:
+      213: -1085160283346044914
+    second: Jolteon V2_39
+  - first:
+      213: 8172401401124187195
+    second: Jolteon V2_40
+  - first:
+      213: -2444465718176978020
+    second: Jolteon V2_41
+  - first:
+      213: -5647453866744140154
+    second: Jolteon V2_42
+  - first:
+      213: 6700462845194122112
+    second: Jolteon V2_43
+  - first:
+      213: 6456697039959125447
+    second: Jolteon V2_44
+  - first:
+      213: -965797488982767900
+    second: Jolteon V2_45
+  - first:
+      213: -6508246524818708879
+    second: Jolteon V2_46
+  - first:
+      213: 1772689165494107696
+    second: Jolteon V2_47
+  - first:
+      213: 661256309940940860
+    second: Jolteon V2_48
+  - first:
+      213: -972930629824333221
+    second: Jolteon V2_49
+  - first:
+      213: -7174567618859514276
+    second: Jolteon V2_48
+  - first:
+      213: -1645773057530474315
+    second: Jolteon V2_49
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -207,7 +363,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: 4
     textureCompression: 1
@@ -219,7 +375,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: 4
     textureCompression: 1
@@ -231,7 +387,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: iPhone
-    maxTextureSize: 1024
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: 4
     textureCompression: 1
@@ -243,7 +399,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 1024
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: 4
     textureCompression: 1
@@ -261,7 +417,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 366
+        y: 418
         width: 48
         height: 48
       alignment: 0
@@ -271,14 +427,119 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 295cf0af1f4889b90800000000000000
-      internalID: -7234886626553379438
+      spriteID: 6fc5a544478323a60800000000000000
+      internalID: 7652240788870028534
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: Jolteon V2_1
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 418
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76b520464e1856050800000000000000
+      internalID: 5793179313612413799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_2
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 418
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc1863feecf8474a0800000000000000
+      internalID: -6596489435251572273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_3
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 418
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ddf4cbaf8289a520800000000000000
+      internalID: 2713843804041182681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_4
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 418
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2ba5718b07a33670800000000000000
+      internalID: 8517334988146191146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_5
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 418
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b89d1715224e3ce0800000000000000
+      internalID: -1423627705133459273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_7
       rect:
         serializedVersion: 2
         x: 54
@@ -292,14 +553,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0187a0d0f013c9850800000000000000
-      internalID: 6385032312417581072
+      spriteID: b6e16ae1d15e631a0800000000000000
+      internalID: -6830019871629762965
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jolteon V2_2
+      name: Jolteon V2_8
       rect:
         serializedVersion: 2
         x: 106
@@ -313,14 +574,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6ee2374a4d58b8e0800000000000000
-      internalID: -1677488287592026513
+      spriteID: 6c380208681d70d30800000000000000
+      internalID: 4397713936756016070
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jolteon V2_3
+      name: Jolteon V2_9
       rect:
         serializedVersion: 2
         x: 158
@@ -334,14 +595,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd03c1b44572db1b0800000000000000
-      internalID: -5639307915407118113
+      spriteID: 6084fb559dcbf1350800000000000000
+      internalID: 5989713671058573318
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jolteon V2_4
+      name: Jolteon V2_10
       rect:
         serializedVersion: 2
         x: 210
@@ -355,14 +616,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 464f2ad717e0b0320800000000000000
-      internalID: 2525127896673219684
+      spriteID: fc0ebcb5864785fa0800000000000000
+      internalID: -5811767327556116273
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jolteon V2_5
+      name: Jolteon V2_11
       rect:
         serializedVersion: 2
         x: 262
@@ -376,8 +637,743 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ee43c2abc35dc290800000000000000
-      internalID: -7868540839872213273
+      spriteID: 0c9fa96ee4b36c0f0800000000000000
+      internalID: -1097124249155733056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_12
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 314
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf888020d36266a70800000000000000
+      internalID: 8819778963720669436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_14
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 314
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a29188a1ef093cf0800000000000000
+      internalID: -272168840610082136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_15
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 314
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9970b84d9ea068dc0800000000000000
+      internalID: -3637207649645557863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_16
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 314
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbc101929e17f8030800000000000000
+      internalID: 3499140681720405179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_17
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 314
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767a1fcf6762b0e40800000000000000
+      internalID: 5623630852193888103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_18
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 262
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc040dd4b59723ad0800000000000000
+      internalID: -2723981391551250227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_19
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 262
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce28983bdcec02520800000000000000
+      internalID: 2675365561533825772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_20
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 262
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e99dd6fa4f23f970800000000000000
+      internalID: 8787419296945773024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_21
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 262
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6294012f3449dfed0800000000000000
+      internalID: -2378582008636880602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_22
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 262
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa34e60a7785f10a0800000000000000
+      internalID: -6908706032547118166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_23
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 262
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3865459d891f16510800000000000000
+      internalID: 1540778186320926339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_24
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 210
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b421bc8ea2a07220800000000000000
+      internalID: 2481662265249572016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_25
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 210
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e04eae7d4db64d00800000000000000
+      internalID: 956660111398289632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_26
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 210
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea9de9b5e9cdf4620800000000000000
+      internalID: 2760667669301483950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_27
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 210
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97fd3a3817d6dadb0800000000000000
+      internalID: -4779043295262941319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_28
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 210
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e91f9a0571272a560800000000000000
+      internalID: 7323541388520976798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_29
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 210
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de514518069182800800000000000000
+      internalID: 587747653649176045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_30
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 158
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7133ce831330a7f90800000000000000
+      internalID: -6955243164577025257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_31
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 158
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e427c8bfc1ae74cc0800000000000000
+      internalID: -3726752756425526706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_32
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 158
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7620275853f90510800000000000000
+      internalID: 1516010310331278975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_33
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 158
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03afd044089030f90800000000000000
+      internalID: -6988731750246647248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_34
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 158
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4711d0471341220e0800000000000000
+      internalID: -2296250657372565132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_35
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 158
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1cb547357f69efa0800000000000000
+      internalID: -5770958898269406181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_36
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 106
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67206467c30748730800000000000000
+      internalID: 4000445773996491382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_37
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 106
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7117b65271f94af0800000000000000
+      internalID: -411532417544285825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_38
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 106
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6f675c98bdb4b2c0800000000000000
+      internalID: -4416696733949005973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_39
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 106
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08fbc2c87cb0f0f0800000000000000
+      internalID: -1085160283346044914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_40
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 106
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3c69eb66c33a6170800000000000000
+      internalID: 8172401401124187195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_41
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 106
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9be0727163831ed0800000000000000
+      internalID: -2444465718176978020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_42
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 54
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68e2f4331a630a1b0800000000000000
+      internalID: -5647453866744140154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_43
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 54
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 083bf760573dcfc50800000000000000
+      internalID: 6700462845194122112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_44
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 54
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cd6411bfbbca9950800000000000000
+      internalID: 6456697039959125447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_45
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 54
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e6c7300d4cc892f0800000000000000
+      internalID: -965797488982767900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_46
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 54
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 176a28194401ea5a0800000000000000
+      internalID: -6508246524818708879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jolteon V2_47
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 54
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03eb576676bd99810800000000000000
+      internalID: 1772689165494107696
       vertices: []
       indices: 
       edges: []
@@ -387,7 +1383,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 314
+        y: 366
         width: 48
         height: 48
       alignment: 0
@@ -404,137 +1400,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jolteon V2_7
-      rect:
-        serializedVersion: 2
-        x: 54
-        y: 314
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c37eb66f21733a300800000000000000
-      internalID: 262113757900826428
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_8
-      rect:
-        serializedVersion: 2
-        x: 106
-        y: 314
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e41d47220a0240a90800000000000000
-      internalID: -7348712819816869554
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_9
-      rect:
-        serializedVersion: 2
-        x: 158
-        y: 314
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a9be61cf196db6290800000000000000
-      internalID: -7895981599176070246
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_10
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 314
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7387cd3d757432ae0800000000000000
-      internalID: -1575337002107373513
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_11
-      rect:
-        serializedVersion: 2
-        x: 262
-        y: 314
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d40876221b27ce30800000000000000
-      internalID: 4523631707671758039
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_12
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 262
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 67b2af79fc98adb70800000000000000
-      internalID: 8924597136289049462
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Jolteon V2_13
       rect:
         serializedVersion: 2
         x: 54
-        y: 262
+        y: 314
         width: 48
         height: 48
       alignment: 0
@@ -551,595 +1421,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jolteon V2_14
-      rect:
-        serializedVersion: 2
-        x: 106
-        y: 262
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e74cfae7547c940d0800000000000000
-      internalID: -3437997739228543874
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_15
-      rect:
-        serializedVersion: 2
-        x: 158
-        y: 262
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 09aa508fd035b6c90800000000000000
-      internalID: -7175550261823952240
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_16
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 262
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 89ba576d8832b89b0800000000000000
-      internalID: -5076925084309541992
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_17
-      rect:
-        serializedVersion: 2
-        x: 262
-        y: 262
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5512a4f7e3aca85c0800000000000000
-      internalID: -4212332131679329963
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_18
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 210
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c194ce04ac6eff40800000000000000
-      internalID: 5764164024959013316
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_19
-      rect:
-        serializedVersion: 2
-        x: 54
-        y: 210
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce3c76ed37f604a60800000000000000
-      internalID: 7656241909973107692
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_20
-      rect:
-        serializedVersion: 2
-        x: 106
-        y: 210
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1069593eee1780bc0800000000000000
-      internalID: -3816675413362108927
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_21
-      rect:
-        serializedVersion: 2
-        x: 158
-        y: 210
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: da28a1e3e84254490800000000000000
-      internalID: -7762758189357301075
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_22
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 210
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3a431b8fe7d343ad0800000000000000
-      internalID: -2723484259104770909
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_23
-      rect:
-        serializedVersion: 2
-        x: 262
-        y: 210
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 59feb108b35c13580800000000000000
-      internalID: -8849074933463257195
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_24
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 158
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e878ec16c731a9770800000000000000
-      internalID: 8618222261864662926
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_25
-      rect:
-        serializedVersion: 2
-        x: 54
-        y: 158
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 01e5b2127de900f50800000000000000
-      internalID: 6845646080414801424
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_26
-      rect:
-        serializedVersion: 2
-        x: 106
-        y: 158
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b2b4d42b55eea870800000000000000
-      internalID: 8696140110121710261
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_27
-      rect:
-        serializedVersion: 2
-        x: 158
-        y: 158
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7443d1fb226715b10800000000000000
-      internalID: 1968484403744945223
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_28
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 158
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 34936e5332a6fa700800000000000000
-      internalID: 553777978650540355
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_29
-      rect:
-        serializedVersion: 2
-        x: 262
-        y: 158
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0e4bf7db2896a4500800000000000000
-      internalID: 381233128712156384
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_30
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 106
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 48136f347d0bc76c0800000000000000
-      internalID: -4144243118483033724
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_31
-      rect:
-        serializedVersion: 2
-        x: 54
-        y: 106
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: da06f13df1f201730800000000000000
-      internalID: 3967723085445947565
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_32
-      rect:
-        serializedVersion: 2
-        x: 106
-        y: 106
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c48888abf189c7a0800000000000000
-      internalID: -6356406481192450877
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_33
-      rect:
-        serializedVersion: 2
-        x: 158
-        y: 106
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c22f4a3204a578560800000000000000
-      internalID: 7315915351209079340
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_34
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 106
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce96f64b89f421a30800000000000000
-      internalID: 4184494521061435884
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_35
-      rect:
-        serializedVersion: 2
-        x: 262
-        y: 106
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c068e067fed883260800000000000000
-      internalID: 7077562874030097932
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_36
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 54
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d744a3eb8882aed80800000000000000
-      internalID: -8220713602039266179
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_37
-      rect:
-        serializedVersion: 2
-        x: 54
-        y: 54
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fcc710a21b7845460800000000000000
-      internalID: 7229552496820190415
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_38
-      rect:
-        serializedVersion: 2
-        x: 106
-        y: 54
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e186a3160212a2c30800000000000000
-      internalID: 4335314014251411486
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_39
-      rect:
-        serializedVersion: 2
-        x: 158
-        y: 54
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eddb75a4eef7dfa20800000000000000
-      internalID: 3097772780126977502
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_40
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 54
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2f6490fc453869dd0800000000000000
-      internalID: -2479650144546896142
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_41
-      rect:
-        serializedVersion: 2
-        x: 262
-        y: 54
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 35216b232e4fc8ed0800000000000000
-      internalID: -2410282448199478701
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_42
+      name: Jolteon V2_48
       rect:
         serializedVersion: 2
         x: 2
@@ -1153,14 +1435,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 375ffbcdf25b25620800000000000000
-      internalID: 2761468738703193459
+      spriteID: c56cbdc53c0de6c90800000000000000
+      internalID: -7174567618859514276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jolteon V2_43
+      name: Jolteon V2_49
       rect:
         serializedVersion: 2
         x: 54
@@ -1174,92 +1456,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0345a9680eed8fed0800000000000000
-      internalID: -2379907347153005520
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_44
-      rect:
-        serializedVersion: 2
-        x: 106
-        y: 2
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac48dbd8d03e00040800000000000000
-      internalID: 4611935665779475658
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_45
-      rect:
-        serializedVersion: 2
-        x: 158
-        y: 2
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cfb420f4eb02e3820800000000000000
-      internalID: 2899791211814603772
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_46
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 2
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f65ad39c6812476d0800000000000000
-      internalID: -2993730989508942481
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jolteon V2_47
-      rect:
-        serializedVersion: 2
-        x: 262
-        y: 2
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b2da0ca376c157ca0800000000000000
-      internalID: -6019874097217884885
+      spriteID: 5b0dcf4bf1a0929e0800000000000000
+      internalID: -1645773057530474315
       vertices: []
       indices: 
       edges: []

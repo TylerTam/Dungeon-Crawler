@@ -151,7 +151,7 @@ Animator:
   m_GameObject: {fileID: 5134884546461566381}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d88d40aba886ed64e9670e4c8c709ae2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -172,7 +172,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 297a781578bfa1140b6d8c1fc23c1334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_sRend: {fileID: 5134884546461566383}
   m_spriteAnimator: {fileID: 1859227586939157960}
+  m_aiController: {fileID: 5134884547314991760}
 --- !u!1 &5134884546887740690
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,14 +267,16 @@ GameObject:
   m_Component:
   - component: {fileID: 5134884547314991774}
   - component: {fileID: 5134884547314991777}
+  - component: {fileID: 7126509641186255227}
   - component: {fileID: 5134884547314991781}
   - component: {fileID: 1541658862317782881}
   - component: {fileID: 5134884547314991778}
   - component: {fileID: 5134884547314991773}
   - component: {fileID: 5134884547314991760}
-  - component: {fileID: 5134884547314991775}
   - component: {fileID: 5112181938764940866}
   - component: {fileID: 5715755393832415617}
+  - component: {fileID: 5134884547314991775}
+  - component: {fileID: 8172292840321747689}
   m_Layer: 0
   m_Name: AiShell
   m_TagString: Untagged
@@ -318,6 +322,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7126509641186255227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134884547314991772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 960a48094fc700446a983261a07a3f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_entityVisualManager: {fileID: 3446943291906035773}
+  m_movementController: {fileID: 5134884547314991781}
+  m_turnBasedAgent: {fileID: 1541658862317782881}
+  m_attackController: {fileID: 5134884547314991778}
+  m_entityTeam: {fileID: 5112181938764940866}
+  m_dungeonState: {fileID: 5715755393832415617}
+  m_entityHealth: {fileID: 8172292840321747689}
 --- !u!114 &5134884547314991781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,8 +380,9 @@ MonoBehaviour:
   m_performAction: 0
   m_performingAction: 0
   m_actionComplete: 1
-  m_previousAgent: {fileID: 0}
   m_isPlayer: 0
+  m_previousAgent: {fileID: 0}
+  m_entityContainer: {fileID: 0}
   m_targetPos: {x: 0, y: 0, z: 0}
   m_predictedPlace: {fileID: 5134884546370170686}
   m_attackSpawnPos: {x: 0, y: 0, z: 0}
@@ -416,7 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_currentBehaviour: 0
-  m_aiType: {fileID: 0}
+  m_entityType: {fileID: 0}
   m_nodeStoppingDistance: 0.1
   m_skipTurnAmount: 3
   m_blockingMask:
@@ -428,21 +452,6 @@ MonoBehaviour:
     m_Bits: 1024
   m_currentTarget: {fileID: 0}
   m_predictedPlace: {fileID: 5134884546370170686}
---- !u!114 &5134884547314991775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5134884547314991772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08dd3458956483c4dab9f1dc428df16a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  navGrid: {fileID: 0}
-  m_drawDebugTools: 1
-  m_pathColor: {r: 0, g: 1, b: 0.9717827, a: 0.6509804}
 --- !u!114 &5112181938764940866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,3 +490,35 @@ MonoBehaviour:
     m_floorTiles: []
     m_entitiesInRoom: []
   predictedPlace: {fileID: 5134884546370170686}
+--- !u!114 &5134884547314991775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134884547314991772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08dd3458956483c4dab9f1dc428df16a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navGrid: {fileID: 0}
+  m_drawDebugTools: 1
+  m_pathColor: {r: 0, g: 1, b: 0.9717827, a: 0.6509804}
+--- !u!114 &8172292840321747689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134884547314991772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db39174ce12792646903913e4dd572dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_defeated: 0
+  m_maxHealth: 0
+  m_currentHealth: 0
+  m_visualManager: {fileID: 0}
+  m_damageAnimComplete: 0

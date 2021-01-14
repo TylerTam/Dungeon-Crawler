@@ -7,14 +7,11 @@ public class AIController : MonoBehaviour
 
     public enum AiBehaviour { Idle, Attack };
     public AiBehaviour m_currentBehaviour;
-    public AIType_Base m_aiType;
+    public EntityData m_entityType;
 
     private DungeonManager m_dungeonManager;
-    private SpriteRenderer m_spriteRender;
-    private Animator m_visualsAnimator;
-    private EntityTeam m_entityTeam;
-    private EntityDungeonState m_dungeonState;
-    private AttackController m_attackController;
+    private EntityContainer m_entityContainer;
+
 
     #region Idle Behaviour
     /// <summary>
@@ -33,9 +30,6 @@ public class AIController : MonoBehaviour
 
     #endregion
 
-    #region TurnBased System
-    private TurnBasedAgent m_turnAgent;
-    #endregion
 
     #region Detection
 
@@ -45,29 +39,21 @@ public class AIController : MonoBehaviour
     private Transform m_currentTargetPrediction;
     public Transform m_predictedPlace;
     #endregion
-
-    private void OnEnable()
+    private void Awake()
     {
+        m_entityContainer = GetComponent<EntityContainer>();
         m_navAgent = GetComponent<DungeonNavigation_Agent>();
-        m_turnAgent = GetComponent<TurnBasedAgent>();
-        m_entityTeam = GetComponent<EntityTeam>();
-        m_spriteRender = transform.GetChild(1).GetComponent<SpriteRenderer>();
-        m_visualsAnimator = transform.GetChild(1).GetComponent<Animator>();
-        m_attackController = GetComponent<AttackController>();
-        m_dungeonState = GetComponent<EntityDungeonState>();
     }
-
 
     /// <summary>
     /// Called from the Dungeon manager, in the SpawnAI Function
     /// This function will set up the ai, with the provided sprite, animator, stats, and moveset
     /// </summary>
 
-    public void InitializeAi(AIType_Base p_aiType)
+    public void InitializeAi(EntityData p_entityType)
     {
-        m_aiType = p_aiType;
-        m_spriteRender.sprite = p_aiType.m_aiBaseSprite;
-        m_visualsAnimator.runtimeAnimatorController = p_aiType.m_animController;
+        m_entityType = p_entityType;
+        m_entityContainer.m_entityVisualManager.AssignEntityData(p_entityType);
         m_path = null;
         m_currentNode = null;
     }
@@ -83,12 +69,12 @@ public class AIController : MonoBehaviour
         switch (m_currentBehaviour)
         {
             case AiBehaviour.Idle:
-                m_spriteRender.color = Color.white;
+                m_entityContainer.m_entityVisualManager.m_sRend.color = Color.white;
                 MoveAi();
                 //CheckForPlayer();
                 break;
             case AiBehaviour.Attack:
-                m_spriteRender.color = Color.green;
+                m_entityContainer.m_entityVisualManager.m_sRend.color = Color.green;
                 if (CanAttack())
                 {
                     ChooseAttack();
@@ -101,7 +87,7 @@ public class AIController : MonoBehaviour
                 break;
         }
 
-        m_turnAgent.PerformTurn();
+        m_entityContainer.m_turnBasedAgent.PerformTurn();
     }
 
     /// <summary>
@@ -188,20 +174,20 @@ public class AIController : MonoBehaviour
                     NewPath();
                 }
                 m_currentSkipTurn++;
-                m_turnAgent.Action_SkipTurn();
+                m_entityContainer.m_turnBasedAgent.Action_SkipTurn();
 
 
             }
             else
             {
                 m_currentSkipTurn = 0;
-                m_turnAgent.Action_Move(m_currentNode.worldPosition);
+                m_entityContainer.m_turnBasedAgent.Action_Move(m_currentNode.worldPosition);
             }
         }
         else
         {
             m_currentSkipTurn++;
-            m_turnAgent.Action_SkipTurn();
+            m_entityContainer.m_turnBasedAgent.Action_SkipTurn();
         }
 
 
@@ -250,13 +236,13 @@ public class AIController : MonoBehaviour
     #region Detection
     public bool CanSeeTarget()
     {
-        if (m_dungeonState)
+        if (m_entityContainer.m_dungeonState)
         {
             ///If in a room, check the entire room
-            if (m_dungeonState.m_inRoom)
+            if (m_entityContainer.m_dungeonState.m_inRoom)
             {
 
-                if (m_dungeonState.m_currentCell.m_entitiesInRoom.Contains(m_currentTarget))
+                if (m_entityContainer.m_dungeonState.m_currentCell.m_entitiesInRoom.Contains(m_currentTarget))
                 {
                     return true;
                 }
@@ -276,19 +262,19 @@ public class AIController : MonoBehaviour
 
     public GameObject SearchForNewTarget()
     {
-        if (m_dungeonState)
+        if (m_entityContainer.m_dungeonState)
         {
 
             ///If in a room, check the entire room
-            if (m_dungeonState.m_inRoom)
+            if (m_entityContainer.m_dungeonState.m_inRoom)
             {
                 #region Room Check
-                foreach (GameObject ent in m_dungeonState.m_currentCell.m_entitiesInRoom)
+                foreach (GameObject ent in m_entityContainer.m_dungeonState.m_currentCell.m_entitiesInRoom)
                 {
-                    EntityTeam newTeam = ent.GetComponent<EntityTeam>();
-                    if (newTeam.m_currentTeam != m_entityTeam.m_currentTeam && newTeam.m_currentTeam != EntityTeam.Team.Neutral)
+                    EntityContainer newTeam = ent.GetComponent<EntityContainer>();
+                    if (newTeam.m_entityTeam.m_currentTeam != m_entityContainer.m_entityTeam.m_currentTeam && newTeam.m_entityTeam.m_currentTeam != EntityTeam.Team.Neutral)
                     {
-                        m_currentTargetPrediction = ent.GetComponent<TurnBasedAgent>().m_predictedPlace.transform;
+                        m_currentTargetPrediction = newTeam.m_turnBasedAgent.m_predictedPlace.transform;
                         Debug.Log("Player Located: Room");
                         return ent.transform.gameObject;
 
@@ -310,11 +296,11 @@ public class AIController : MonoBehaviour
                         RaycastHit2D hit2D = Physics2D.Raycast(m_predictedPlace.position + new Vector3(x, y, 0) - Vector3.forward * 1, Vector3.forward, 5, m_detectionMask);
                         if (hit2D)
                         {
-                            EntityTeam newTeam = hit2D.transform.GetComponent<EntityTeam>();
-                            if (newTeam.m_currentTeam != m_entityTeam.m_currentTeam && newTeam.m_currentTeam != EntityTeam.Team.Neutral)
+                            EntityContainer newTeam = hit2D.transform.GetComponent<EntityContainer>();
+                            if (newTeam.m_entityTeam.m_currentTeam != m_entityContainer.m_entityTeam.m_currentTeam && newTeam.m_entityTeam.m_currentTeam != EntityTeam.Team.Neutral)
                             {
                                 Debug.Log("Player Located: Radius");
-                                m_currentTargetPrediction = hit2D.transform.GetComponent<TurnBasedAgent>().m_predictedPlace.transform;
+                                m_currentTargetPrediction = newTeam.m_turnBasedAgent.m_predictedPlace.transform;
                                 return hit2D.transform.gameObject;
                             }
                         }

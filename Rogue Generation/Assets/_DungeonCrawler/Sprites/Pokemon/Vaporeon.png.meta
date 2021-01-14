@@ -62,6 +62,180 @@ TextureImporter:
   - first:
       213: -5557556162986582108
     second: Vaporeon_19
+  - first:
+      213: 610796062721699504
+    second: Vaporeon_0
+  - first:
+      213: -1416853617506295768
+    second: Vaporeon_1
+  - first:
+      213: -6370504242021942673
+    second: Vaporeon_2
+  - first:
+      213: -6128581348931507601
+    second: Vaporeon_3
+  - first:
+      213: -2986447710991095062
+    second: Vaporeon_4
+  - first:
+      213: -181905179895512727
+    second: Vaporeon_5
+  - first:
+      213: 8951412686641917378
+    second: Vaporeon_6
+  - first:
+      213: -8064084525364936926
+    second: Vaporeon_7
+  - first:
+      213: -901177599398393817
+    second: Vaporeon_8
+  - first:
+      213: -8968098800847079987
+    second: Vaporeon_9
+  - first:
+      213: -3230252590101151364
+    second: Vaporeon_10
+  - first:
+      213: 7526760656053037075
+    second: Vaporeon_11
+  - first:
+      213: -61613115279582584
+    second: Vaporeon_12
+  - first:
+      213: 8815843432123462391
+    second: Vaporeon_13
+  - first:
+      213: -6970771916191797369
+    second: Vaporeon_14
+  - first:
+      213: 3488195435517342827
+    second: Vaporeon_15
+  - first:
+      213: 4621759446092369041
+    second: Vaporeon_16
+  - first:
+      213: -7184415493243111155
+    second: Vaporeon_17
+  - first:
+      213: -3197306860564564689
+    second: Vaporeon_18
+  - first:
+      213: -5015154248476000910
+    second: Vaporeon_19
+  - first:
+      213: 9154144528992445423
+    second: Vaporeon_20
+  - first:
+      213: 3595092833924664716
+    second: Vaporeon_21
+  - first:
+      213: -3208419715718333130
+    second: Vaporeon_22
+  - first:
+      213: -2502483650622515537
+    second: Vaporeon_23
+  - first:
+      213: 8005994822026181528
+    second: Vaporeon_24
+  - first:
+      213: 2075989919673541488
+    second: Vaporeon_25
+  - first:
+      213: 8157716167548834521
+    second: Vaporeon_26
+  - first:
+      213: -3213274570233295979
+    second: Vaporeon_27
+  - first:
+      213: -3286571800756721148
+    second: Vaporeon_28
+  - first:
+      213: 1801056223829962516
+    second: Vaporeon_29
+  - first:
+      213: 2997179136718318670
+    second: Vaporeon_30
+  - first:
+      213: -5139676390686731835
+    second: Vaporeon_31
+  - first:
+      213: -5813521495550183953
+    second: Vaporeon_32
+  - first:
+      213: 3673281320764524445
+    second: Vaporeon_33
+  - first:
+      213: -7159639932330137024
+    second: Vaporeon_34
+  - first:
+      213: -4606596244899106459
+    second: Vaporeon_35
+  - first:
+      213: 2317129694892896365
+    second: Vaporeon_36
+  - first:
+      213: -7533999408852443816
+    second: Vaporeon_37
+  - first:
+      213: -790088830153335052
+    second: Vaporeon_38
+  - first:
+      213: 5340806850460945820
+    second: Vaporeon_39
+  - first:
+      213: 2344380938130422292
+    second: Vaporeon_40
+  - first:
+      213: 8609867423257778383
+    second: Vaporeon_41
+  - first:
+      213: 2038684254556353322
+    second: Vaporeon_42
+  - first:
+      213: -6126705249133885854
+    second: Vaporeon_43
+  - first:
+      213: 4675652751861688376
+    second: Vaporeon_44
+  - first:
+      213: -3184171798960004159
+    second: Vaporeon_45
+  - first:
+      213: 5121016618789863783
+    second: Vaporeon_46
+  - first:
+      213: -4670895932714683852
+    second: Vaporeon_47
+  - first:
+      213: -5200851370025032831
+    second: Vaporeon_48
+  - first:
+      213: -8881956113233133578
+    second: Vaporeon_49
+  - first:
+      213: -2131904879438742775
+    second: Vaporeon_50
+  - first:
+      213: -8721101670044489735
+    second: Vaporeon_51
+  - first:
+      213: -7097771584046674954
+    second: Vaporeon_52
+  - first:
+      213: -6457727122066089687
+    second: Vaporeon_53
+  - first:
+      213: -8631660105650183762
+    second: Vaporeon_54
+  - first:
+      213: 442515468608959747
+    second: Vaporeon_55
+  - first:
+      213: -6719137638282123344
+    second: Vaporeon_56
+  - first:
+      213: -8316876293645049102
+    second: Vaporeon_57
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -123,9 +297,9 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -135,9 +309,9 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -147,9 +321,9 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: iPhone
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -159,9 +333,9 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -177,7 +351,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 158
+        y: 366
         width: 48
         height: 48
       alignment: 0
@@ -187,8 +361,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db3347ad6b5a86b20800000000000000
-      internalID: 3127932145976488893
+      spriteID: 0beebbc68cbf97800800000000000000
+      internalID: 610796062721699504
       vertices: []
       indices: 
       edges: []
@@ -198,7 +372,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 54
-        y: 158
+        y: 366
         width: 48
         height: 48
       alignment: 0
@@ -208,8 +382,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98d6de504d4c21e20800000000000000
-      internalID: 3319932290237033865
+      spriteID: 8206fc54423565ce0800000000000000
+      internalID: -1416853617506295768
       vertices: []
       indices: 
       edges: []
@@ -219,7 +393,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 106
-        y: 158
+        y: 366
         width: 48
         height: 48
       alignment: 0
@@ -229,8 +403,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccca4c76593a0a030800000000000000
-      internalID: 3503980372180643020
+      spriteID: f6ab92ee42c6797a0800000000000000
+      internalID: -6370504242021942673
       vertices: []
       indices: 
       edges: []
@@ -240,7 +414,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 158
-        y: 158
+        y: 366
         width: 48
         height: 48
       alignment: 0
@@ -250,8 +424,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20eb7682a946e5bf0800000000000000
-      internalID: -333718709113209342
+      spriteID: f6a6ad7dbb7e2faa0800000000000000
+      internalID: -6128581348931507601
       vertices: []
       indices: 
       edges: []
@@ -261,6 +435,552 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 210
+        y: 366
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeae81631a10e86d0800000000000000
+      internalID: -2986447710991095062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_5
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 366
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9614681e33eb97df0800000000000000
+      internalID: -181905179895512727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_6
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 366
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cd6731796ec93c70800000000000000
+      internalID: 8951412686641917378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_7
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 366
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22ff5ea79dd961090800000000000000
+      internalID: -8064084525364936926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_8
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 314
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 728c15c7fbf5e73f0800000000000000
+      internalID: -901177599398393817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_9
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 314
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc537e8d7a9ea8380800000000000000
+      internalID: -8968098800847079987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_10
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 314
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c714c384266db23d0800000000000000
+      internalID: -3230252590101151364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_11
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 314
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3186d6d20fc647860800000000000000
+      internalID: 7526760656053037075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_12
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 314
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88a5146b23b152ff0800000000000000
+      internalID: -61613115279582584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_13
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 314
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f2fd27a4ea285a70800000000000000
+      internalID: 8815843432123462391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_14
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 314
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78f6e1dffd7d24f90800000000000000
+      internalID: -6970771916191797369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_15
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 314
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b647621744f886030800000000000000
+      internalID: 3488195435517342827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_16
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 262
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19c44a5aab9c32040800000000000000
+      internalID: 4621759446092369041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_17
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 262
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d097e6e6c24db4c90800000000000000
+      internalID: -7184415493243111155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_18
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 262
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f253122b952e0a3d0800000000000000
+      internalID: -3197306860564564689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_19
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 262
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27dfbcd48c7966ab0800000000000000
+      internalID: -5015154248476000910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_20
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 262
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe32e29c2fd0a0f70800000000000000
+      internalID: 9154144528992445423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_21
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 262
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8dc1a482e554e130800000000000000
+      internalID: 3595092833924664716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_22
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 262
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63dbf3a74476973d0800000000000000
+      internalID: -3208419715718333130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_23
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 210
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa61c64e064654dd0800000000000000
+      internalID: -2502483650622515537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_24
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 210
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89bbc708fd10b1f60800000000000000
+      internalID: 8005994822026181528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_25
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 210
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 073ee6735d56fcc10800000000000000
+      internalID: 2075989919673541488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_26
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 210
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d2953902a7063170800000000000000
+      internalID: 8157716167548834521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_27
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 210
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59bc2739dc72863d0800000000000000
+      internalID: -3213274570233295979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_28
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 210
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40a64173c50c362d0800000000000000
+      internalID: -3286571800756721148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_29
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 210
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41f24e9d713aef810800000000000000
+      internalID: 1801056223829962516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_30
+      rect:
+        serializedVersion: 2
+        x: 2
         y: 158
         width: 48
         height: 48
@@ -271,14 +991,140 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e2241b5a481e42b0800000000000000
-      internalID: -5598510579140255003
+      spriteID: e4cae4c8b8e189920800000000000000
+      internalID: 2997179136718318670
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vaporeon_5
+      name: Vaporeon_31
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 158
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c1d7a8cd833ca8b0800000000000000
+      internalID: -5139676390686731835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_32
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 158
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe532ab4009325fa0800000000000000
+      internalID: -5813521495550183953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_33
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 158
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d974f3c36ed1af230800000000000000
+      internalID: 3673281320764524445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_34
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 158
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04aa2c93a69d3ac90800000000000000
+      internalID: -7159639932330137024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_35
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 158
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 561f32f3f151210c0800000000000000
+      internalID: -4606596244899106459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_36
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 158
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d60b99a4e29182020800000000000000
+      internalID: 2317129694892896365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_37
       rect:
         serializedVersion: 2
         x: 2
@@ -292,14 +1138,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b3a426bc80d64f10800000000000000
-      internalID: 2253717966315365297
+      spriteID: 85dd859547bd17790800000000000000
+      internalID: -7533999408852443816
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vaporeon_6
+      name: Vaporeon_38
       rect:
         serializedVersion: 2
         x: 54
@@ -313,14 +1159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2c38a5e69b2345b0800000000000000
-      internalID: -5385412802306884565
+      spriteID: 4fed4b1256a0905f0800000000000000
+      internalID: -790088830153335052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vaporeon_7
+      name: Vaporeon_39
       rect:
         serializedVersion: 2
         x: 106
@@ -334,14 +1180,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d67725b8d149d640800000000000000
-      internalID: 5105184051609171670
+      spriteID: c9d82bf988b5e1a40800000000000000
+      internalID: 5340806850460945820
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vaporeon_8
+      name: Vaporeon_40
       rect:
         serializedVersion: 2
         x: 158
@@ -355,14 +1201,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 891c39a690982e0e0800000000000000
-      internalID: -2242078990941306472
+      spriteID: 41af57bca0ae88020800000000000000
+      internalID: 2344380938130422292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vaporeon_9
+      name: Vaporeon_41
       rect:
         serializedVersion: 2
         x: 210
@@ -376,14 +1222,56 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0823d07b60f84dd0800000000000000
-      internalID: -2501485248759257077
+      spriteID: fc8dc7eedc46c7770800000000000000
+      internalID: 8609867423257778383
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vaporeon_10
+      name: Vaporeon_42
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 106
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a237302378cda4c10800000000000000
+      internalID: 2038684254556353322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_43
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 106
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2668add590299faa0800000000000000
+      internalID: -6126705249133885854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_44
       rect:
         serializedVersion: 2
         x: 2
@@ -397,14 +1285,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae23a368a25a5e940800000000000000
-      internalID: 5324843736494650090
+      spriteID: 8382bc7b76143e040800000000000000
+      internalID: 4675652751861688376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vaporeon_11
+      name: Vaporeon_45
       rect:
         serializedVersion: 2
         x: 54
@@ -418,14 +1306,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94e6aed1bbda6cf80800000000000000
-      internalID: -8086585061724754359
+      spriteID: 1c32c2b8e9c8fc3d0800000000000000
+      internalID: -3184171798960004159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vaporeon_12
+      name: Vaporeon_46
       rect:
         serializedVersion: 2
         x: 106
@@ -439,14 +1327,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae72e12f708419bf0800000000000000
-      internalID: -319394899602561046
+      spriteID: 76187d38b71811740800000000000000
+      internalID: 5121016618789863783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vaporeon_13
+      name: Vaporeon_47
       rect:
         serializedVersion: 2
         x: 158
@@ -460,14 +1348,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd862768257159190800000000000000
-      internalID: -7956427523469711140
+      spriteID: 43279bb85e4ad2fb0800000000000000
+      internalID: -4670895932714683852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vaporeon_14
+      name: Vaporeon_48
       rect:
         serializedVersion: 2
         x: 210
@@ -481,14 +1369,56 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d2f67ff783c6b4a0800000000000000
-      internalID: -6577855216854043952
+      spriteID: 183ed08fb3dd2d7b0800000000000000
+      internalID: -5200851370025032831
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vaporeon_15
+      name: Vaporeon_49
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 54
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ff312049f3fcb480800000000000000
+      internalID: -8881956113233133578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_50
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 54
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90bb126bec3f962e0800000000000000
+      internalID: -2131904879438742775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_51
       rect:
         serializedVersion: 2
         x: 2
@@ -502,14 +1432,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b9946ca805c04890800000000000000
-      internalID: -7475758740392339016
+      spriteID: 9f7aeeacc3c68f680800000000000000
+      internalID: -8721101670044489735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vaporeon_16
+      name: Vaporeon_52
       rect:
         serializedVersion: 2
         x: 54
@@ -523,14 +1453,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0115bcc3d0cc23470800000000000000
-      internalID: 8372979014461772048
+      spriteID: 6fb49049956af7d90800000000000000
+      internalID: -7097771584046674954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vaporeon_17
+      name: Vaporeon_53
       rect:
         serializedVersion: 2
         x: 106
@@ -544,14 +1474,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 424231c799eb64ac0800000000000000
-      internalID: -3871197263257459676
+      spriteID: 92958d0a56b8166a0800000000000000
+      internalID: -6457727122066089687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vaporeon_18
+      name: Vaporeon_54
       rect:
         serializedVersion: 2
         x: 158
@@ -565,14 +1495,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed619855861dc4ac0800000000000000
-      internalID: -3869487733776247074
+      spriteID: ea16fcccdde263880800000000000000
+      internalID: -8631660105650183762
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Vaporeon_19
+      name: Vaporeon_55
       rect:
         serializedVersion: 2
         x: 210
@@ -586,8 +1516,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4afd6ed6d189fd2b0800000000000000
-      internalID: -5557556162986582108
+      spriteID: 3057d026971242600800000000000000
+      internalID: 442515468608959747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_56
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 2
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b7ac31eae3d0c2a0800000000000000
+      internalID: -6719137638282123344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vaporeon_57
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 2
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f26b6c5315849c80800000000000000
+      internalID: -8316876293645049102
       vertices: []
       indices: 
       edges: []

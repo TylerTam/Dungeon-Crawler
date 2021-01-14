@@ -15,13 +15,13 @@ public class TurnBasedAgent : MonoBehaviour
     [HideInInspector]
     public bool m_actionComplete = true;   //Used by the following agent, to determine if this agent is done performing its action
 
-    public TurnBasedAgent m_previousAgent;
 
+    public bool m_isPlayer;
     private TurnBasedManager m_turnManager;
     private ObjectPooler m_pooler;
+    public TurnBasedAgent m_previousAgent;
 
-    private EntityDungeonState m_dungeonState;
-    public bool m_isPlayer;
+    public EntityContainer m_entityContainer;
 
 
     #region Movement variables
@@ -37,24 +37,22 @@ public class TurnBasedAgent : MonoBehaviour
 
     private float m_currentMovementTimer;
     private Coroutine m_movementCoroutine;
-    private Entity_MovementController m_movementController;
     #endregion
 
     #region Attack Variables
-    private AttackController m_attackController;
     private int m_currentAttackIndex;
     public Vector3 m_attackSpawnPos;
     private Coroutine m_attackCoroutine;
     #endregion
 
+    private void Awake()
+    {
+        m_entityContainer = GetComponent<EntityContainer>();
+    }
     private void Start()
     {
         m_turnManager = TurnBasedManager.Instance;
         m_pooler = ObjectPooler.instance;
-        m_attackController = GetComponent<AttackController>();
-        m_movementController = GetComponent<Entity_MovementController>();
-        m_dungeonState = GetComponent<EntityDungeonState>();
-
     }
 
     /// <summary>
@@ -89,6 +87,7 @@ public class TurnBasedAgent : MonoBehaviour
                 {
 
                     m_movementCoroutine = StartCoroutine(Movement());
+
                     m_actionComplete = false;
                 }
 
@@ -100,6 +99,7 @@ public class TurnBasedAgent : MonoBehaviour
             case (AgentAction.UseItem):
                 break;
             case (AgentAction.SkipTurn):
+                m_entityContainer.m_entityVisualManager.SwitchToIdleAnimation();
                 m_actionComplete = true;
                 EndTurn();
                 break;
@@ -182,9 +182,14 @@ public class TurnBasedAgent : MonoBehaviour
         m_currentMovementTimer = 0;
         Vector3 startPos = transform.position;
         m_predictedPlace.transform.position = m_targetPos;
-        m_dungeonState.UpdateCellAttendance();
-        m_movementController.UpdateFacingDir(new Vector2(Mathf.Sign(m_targetPos.x - transform.position.x) * Mathf.Abs(m_targetPos.x - transform.position.x), 
-                                                        Mathf.Sign(m_targetPos.y - transform.position.y) * Mathf.Abs(m_targetPos.y - transform.position.y)));
+        m_entityContainer.m_dungeonState.UpdateCellAttendance();
+        Vector2 newFacingDir = new Vector2(Mathf.Sign(m_targetPos.x - transform.position.x) * Mathf.Abs(m_targetPos.x - transform.position.x),
+                                                        Mathf.Sign(m_targetPos.y - transform.position.y) * Mathf.Abs(m_targetPos.y - transform.position.y));
+        m_entityContainer.m_movementController.UpdateFacingDir(newFacingDir);
+
+
+        m_entityContainer.m_entityVisualManager.UpdateFacingDir(newFacingDir);
+        m_entityContainer.m_entityVisualManager.SwitchToMovingAnimation();
 
         while (m_currentMovementTimer / m_turnManager.m_lerpSpeed < 1)
         {
@@ -204,10 +209,18 @@ public class TurnBasedAgent : MonoBehaviour
             yield return new WaitForSeconds(.001f);
         }
         m_actionComplete = true;
-        m_movementController.MovementComplete();
+        m_entityContainer.m_movementController.MovementComplete();
+        m_entityContainer.m_entityVisualManager.UpdateFacingDir(newFacingDir);
+        
         m_performingAction = false;
         m_movementCoroutine = null;
+        yield return new WaitForSeconds(.025f);
+        if(m_movementCoroutine == null)
+        {
+            m_entityContainer.m_entityVisualManager.SwitchToIdleAnimation();
+        }
     }
+
     #endregion
 
     #region Attack Methods
@@ -231,9 +244,9 @@ public class TurnBasedAgent : MonoBehaviour
         }
 
 
-        m_attackController.StartAttack(m_currentAttackIndex);
+        m_entityContainer.m_attackController.StartAttack(m_currentAttackIndex);
 
-        while (!m_attackController.m_attackComplete)
+        while (!m_entityContainer.m_attackController.m_attackComplete)
         {
             yield return null;
         }
