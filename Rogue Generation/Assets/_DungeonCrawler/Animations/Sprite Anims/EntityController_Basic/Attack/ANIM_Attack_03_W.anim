@@ -56,13 +56,6 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 6
-    messageOptions: 0
-  - time: 0.083333336
-    functionName: ChangeAttackSprite
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
     intParameter: 7
     messageOptions: 0
   - time: 0.5

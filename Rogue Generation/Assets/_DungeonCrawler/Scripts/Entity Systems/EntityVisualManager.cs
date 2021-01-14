@@ -9,7 +9,7 @@ public class EntityVisualManager : MonoBehaviour
     public Animator m_spriteAnimator;
     
     public EntityData m_entityData;
-
+    public Health m_entityHealth;
     public enum CurrentState { Movement,Hurt,Idle,Attack,SpecialAttack,Sleep,Defeated}
     public CurrentState m_currentAnimationState;
     public Vector2 m_currentFacingDir;
@@ -22,6 +22,10 @@ public class EntityVisualManager : MonoBehaviour
         public EntityVisualEvents m_defeatedAnimComplete;
     }
 
+    private void Start()
+    {
+        m_entityHealth = transform.parent.GetComponent<Health>();
+    }
     public void AssignEntityData(EntityData p_data)
     {
         m_entityData = p_data;
@@ -115,6 +119,11 @@ public class EntityVisualManager : MonoBehaviour
         //Debug.Log("Change Hurt sprite: " + p_index);
     }
 
+    public void HurtAnimComplete()
+    {
+        Debug.Log("Hurt Complete");
+        m_entityHealth.HurtAnimationCompleted();
+    }
 
 
     public void ChangeIdleSprite(int p_index)

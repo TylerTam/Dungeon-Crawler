@@ -9,15 +9,15 @@ public class Health : MonoBehaviour
     public int m_maxHealth;
     public int m_currentHealth;
 
-    public EntityVisualManager m_visualManager;
-    private TurnBasedAgent m_turnBasedAgent;
+    private EntityContainer m_entityContainer;
+
 
     public bool m_damageAnimComplete;
     //public HealthEvent m_onDamageTaken, m_onDefeatedEvent;
 
     private void Start()
     {
-        m_turnBasedAgent = GetComponent<TurnBasedAgent>();
+        m_entityContainer = GetComponent<EntityContainer>();
     }
 
     private void OnEnable()
@@ -35,24 +35,25 @@ public class Health : MonoBehaviour
         m_currentHealth -= p_damageTaken;
         if (m_currentHealth <= 0)
         {
-            m_visualManager.SwitchToDefeatedAnimation();
+            m_entityContainer.m_entityVisualManager.SwitchToDefeatedAnimation();
             m_defeated = true;
         }
         else
         {
-            m_visualManager.SwitchToHurtAnimation();
+            m_entityContainer.m_entityVisualManager.SwitchToHurtAnimation();
         }
         while (!m_damageAnimComplete)
         {
+            Debug.Log("Run Coroutine");
             yield return null;
         }
     }
 
-    public void DamageAnimationCompleted()
+    public void HurtAnimationCompleted()
     {
         if (m_defeated)
         {
-            TurnBasedManager.Instance.AgentDefeated(m_turnBasedAgent);
+            TurnBasedManager.Instance.AgentDefeated(m_entityContainer.m_turnBasedAgent);
         }
         m_damageAnimComplete = true;
     }

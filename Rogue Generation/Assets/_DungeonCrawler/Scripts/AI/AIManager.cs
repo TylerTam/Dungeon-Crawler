@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class AIManager : MonoBehaviour
 {
+    public static AIManager Instance;
     public int m_maxAiOnScene = 5;
     public int m_currentAiOnScene = 0;
     private List<GameObject> m_activeAiEntities = new List<GameObject>();
     private ObjectPooler m_pooler;
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
         m_pooler = ObjectPooler.instance;
@@ -31,5 +36,13 @@ public class AIManager : MonoBehaviour
         }
         m_activeAiEntities.Clear();
         m_currentAiOnScene = 0;
+    }
+
+    public void AIDefeated()
+    {
+        if(m_currentAiOnScene > 0)
+        {
+            m_currentAiOnScene--;
+        }
     }
 }

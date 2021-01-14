@@ -89,15 +89,11 @@ public class AttackController : MonoBehaviour
 
             for (int i = 0; i < m_newActions.Count; i++)
             {
-                if (m_newActions[i].AttackAnimComplete())
-                {
-                    m_newActions.Remove(m_newActions[i]);
-                    i -= 1;
-                }
-                else
-                {
-                    break;
-                }
+                yield return StartCoroutine(m_newActions[i].AttackAnimComplete());
+
+                m_newActions.Remove(m_newActions[i]);
+                i -= 1;
+
             }
             yield return null;
             if (m_newActions.Count == 0)
@@ -135,24 +131,7 @@ public class AttackController : MonoBehaviour
     /// Inherited from the TurnBasedAction Interface<br/>
     /// Used to determine whether the hurt animation is complete.
     /// </summary>
-    public bool AttackAnimComplete()
-    {
-        if (m_attackedCoroutine == null)
-        {
-            m_attackedComplete = false;
-            m_attackedCoroutine = StartCoroutine(AttackedCoroutine());
-        }
-        else
-        {
-            if (m_attackedComplete)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private IEnumerator AttackedCoroutine()
+    public IEnumerator AttackAnimComplete()
     {
         Debug.Log("Put hurt message here");
         /*
@@ -160,16 +139,15 @@ public class AttackController : MonoBehaviour
         damageObject.GetComponent<InWorldUI>().m_uiText.text = -m_takenDamage.ToString();
         */
         yield return m_entityContainer.m_entityHealth.TakeDamage(m_takenDamage, m_takenDamageType);
-
+        Debug.Log("Coroutine Completed");
 
 
         if (m_entityContainer.m_entityHealth.m_defeated)
         {
             m_entityContainer.m_entityHealth.Defeated();
         }
-        m_attackAnimComplete = true;
-
     }
+
     #endregion
 
     #region Animator Called Events
@@ -177,11 +155,21 @@ public class AttackController : MonoBehaviour
     public void AttackAnimationCompleted()
     {
         m_attackAnimComplete = true;
+        m_entityContainer.m_entityVisualManager.SwitchToIdleAnimation();
     }
 
 
-    public void ChangeToAttackAnimation()
+    public void ChangeToAttackAnimation(AttackType_Base.AttackType p_attackType)
     {
+        switch (p_attackType)
+        {
+            case AttackType_Base.AttackType.PhysicalAttack:
+                m_entityContainer.m_entityVisualManager.SwitchToPhysicalAttackAnimation();
+                break;
+            case AttackType_Base.AttackType.SpecialAttack:
+                m_entityContainer.m_entityVisualManager.SwitchToSpecialAttackAnimation();
+                break;
+        }
         m_attackAnimator.SetInteger("FacingX", (int)m_entityContainer.m_movementController.m_facingDir.x);
         m_attackAnimator.SetInteger("FacingY", (int)m_entityContainer.m_movementController.m_facingDir.y);
 

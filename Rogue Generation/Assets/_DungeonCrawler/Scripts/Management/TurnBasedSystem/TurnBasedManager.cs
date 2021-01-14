@@ -94,6 +94,7 @@ public class TurnBasedManager : MonoBehaviour
             m_indexAlter++;
         }
         m_defeatedAgents.Add(p_defeatedAgent);
+        AIManager.Instance.AIDefeated();
     }
 
     /// <summary>

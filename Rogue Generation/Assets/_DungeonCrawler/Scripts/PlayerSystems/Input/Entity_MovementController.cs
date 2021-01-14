@@ -12,13 +12,14 @@ public class Entity_MovementController : MonoBehaviour
     #region Components
 
     private TurnBasedManager m_turnManager;
-    private TurnBasedAgent m_actionAgent;
+    private EntityContainer m_entityContainer;
+
     public LayerMask m_terrainLayer;
     public LayerMask m_diagonalTerrainLayer;
     public bool m_performLayerCheck;
     #endregion
 
-    public Vector2 m_facingDir;
+    public Vector2 m_facingDir = new Vector2(0, -1);
 
 
 
@@ -27,8 +28,13 @@ public class Entity_MovementController : MonoBehaviour
 
     private void Start()
     {
-        m_actionAgent = GetComponent<TurnBasedAgent>();
+
+        m_entityContainer = GetComponent<EntityContainer>();
         m_turnManager = TurnBasedManager.Instance;
+    }
+    private void OnEnable()
+    {
+        m_facingDir = new Vector2(0, -1);
     }
 
     /// <summary>
@@ -46,7 +52,7 @@ public class Entity_MovementController : MonoBehaviour
                     UpdateFacingDir(p_movement);
                     if (p_movement.magnitude != 0)
                     {
-                        m_actionAgent.Action_Move(p_movement + (Vector2)transform.position);
+                        m_entityContainer.m_turnBasedAgent.Action_Move(p_movement + (Vector2)transform.position);
                     }
                 }
             }
@@ -56,14 +62,14 @@ public class Entity_MovementController : MonoBehaviour
             if (p_movement.magnitude != 0)
             {
                 UpdateFacingDir(p_movement);
-                m_actionAgent.Action_Move(p_movement + (Vector2)transform.position);
+                m_entityContainer.m_turnBasedAgent.Action_Move(p_movement + (Vector2)transform.position);
             }
         }
     }
 
     public void SkipMovement()
     {
-        m_actionAgent.Action_SkipTurn();
+        m_entityContainer.m_turnBasedAgent.Action_SkipTurn();
     }
 
     public void UpdateFacingDir(Vector2 p_newDir)
@@ -73,7 +79,7 @@ public class Entity_MovementController : MonoBehaviour
     public void MovementComplete()
     {
         CheckGround();
-        
+
     }
 
     private void CheckGround()

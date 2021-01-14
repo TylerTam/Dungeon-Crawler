@@ -47,7 +47,6 @@ public class DungeonManager : MonoBehaviour
 
 
     [Header("AI Properties")]
-    public AIManager m_aiManager;
     public GameObject m_aiShell;
     public LayerMask m_spawnMask;
     private List<AiStruct> m_currentEnemyTypesInDungeon;
@@ -81,7 +80,7 @@ public class DungeonManager : MonoBehaviour
     public void NewFloor()
     {
         //Coroutine CreateDungeon = StartCoroutine(CheckDungeonConnection());
-        m_aiManager.ClearFloor();
+        AIManager.Instance.ClearFloor();
         m_turnSystem.ClearAgents();
 
         StartCoroutine(CheckDungeonConnection());
@@ -292,13 +291,13 @@ public class DungeonManager : MonoBehaviour
     /// </summary>
     public void SpawnNewEnemy()
     {
-        if (m_aiManager.m_currentAiOnScene < m_aiManager.m_maxAiOnScene)
+        if (AIManager.Instance.m_currentAiOnScene < AIManager.Instance.m_maxAiOnScene)
         {
 
             float randomAi = Random.Range(0f, 1f);
             if (randomAi < m_dungeonTheme.m_chanceOfEnemySpawn)
             {
-                m_aiManager.m_currentAiOnScene++;
+                AIManager.Instance.m_currentAiOnScene++;
 
                 DungeonGridCell spawnRoom = m_allRooms[Random.Range(0, m_allRooms.Count)];
                 List<Vector2> possiblePos = new List<Vector2>();
@@ -321,7 +320,7 @@ public class DungeonManager : MonoBehaviour
                         AIController newAi = m_pooler.NewObject(m_aiShell, spawnPos, Quaternion.identity).GetComponent<AIController>();
                         newAi.InitializeAi(ai.m_entityType);
                         m_turnSystem.NewAgent(newAi.GetComponent<TurnBasedAgent>());
-                        m_aiManager.AddAiEntity(newAi.gameObject);
+                        AIManager.Instance.AddAiEntity(newAi.gameObject);
                         return;
                     }
                 }
