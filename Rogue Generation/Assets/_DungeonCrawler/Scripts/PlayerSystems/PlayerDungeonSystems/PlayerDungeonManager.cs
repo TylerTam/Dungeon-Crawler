@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class PlayerDungeonManager : MonoBehaviour
 {
+    public static PlayerDungeonManager Instance;
     public int m_currentTeamAmount;
-    public EntityContainer m_playerObject;
+    public EntityContainer m_playerEntityContainer;
 
     public GameObject m_aiShellPrefab;
     public List<GameObject> m_playerTeam;
 
-
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
         m_currentTeamAmount = PlayerData.Instance.m_currentPlayerTeam.Count;
@@ -19,7 +23,7 @@ public class PlayerDungeonManager : MonoBehaviour
 
     private void InitializePlayerObject()
     {
-        m_playerObject.m_entityVisualManager.AssignEntityData(PlayerData.Instance.m_playerEntityData);
+        m_playerEntityContainer.m_entityVisualManager.AssignEntityData(PlayerData.Instance.m_playerEntityData);
     }
     public void CreatePlayerTeam()
     {

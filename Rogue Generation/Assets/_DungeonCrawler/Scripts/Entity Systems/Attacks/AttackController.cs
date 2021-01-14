@@ -50,7 +50,7 @@ public class AttackController : MonoBehaviour
     /// </summary>
     public void StartAttack(int p_chosenAttack)
     {
-
+        Debug.Log("Attack");
         m_attackComplete = false;
         m_attackAnimComplete = false;
         m_currentAttack = m_attackType[p_chosenAttack];

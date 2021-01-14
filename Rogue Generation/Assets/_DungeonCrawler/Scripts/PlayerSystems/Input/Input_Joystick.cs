@@ -5,10 +5,11 @@ using UnityEngine;
 public class Input_Joystick : Input_Base
 {
 
-    public enum InputType { Keyboard, ScreenJoystick }
+    public enum InputType { Keyboard, ScreenJoystick , ScreenRaycast}
     public InputType m_currentInputType;
     public GameObject m_joystickCanvas;
     public Joystick m_joystick;
+    public UIRaycastInput m_raycastInput;
     public float m_deadzone;
     public bool m_inputPressed;
 
@@ -17,10 +18,13 @@ public class Input_Joystick : Input_Base
     {
         base.Start();
 
-        if (m_currentInputType == InputType.Keyboard)
+        m_raycastInput = UIRaycastInput.Instance;
+        if (m_currentInputType != InputType.ScreenJoystick)
         {
             m_joystickCanvas.SetActive(false);
         }
+
+
     }
     private void Update()
     {
@@ -77,6 +81,15 @@ public class Input_Joystick : Input_Base
                     vert = Mathf.Sign(vert);
                     p_movementPressed = true;
                 }
+                break;
+            case InputType.ScreenRaycast:
+                Debug.Log("ScreenRaycast");
+                if(Mathf.Abs(m_raycastInput.m_input.magnitude) > 0)
+                {
+                    p_movementPressed = true;
+                }
+                horiz = m_raycastInput.m_input.x;
+                vert = m_raycastInput.m_input.y;
                 break;
 
         }

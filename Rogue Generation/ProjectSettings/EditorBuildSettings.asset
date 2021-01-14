@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_DungeonCrawler/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/_DungeonCrawler/Scenes/MapGenerationTest.unity
+    guid: 19e4a72928e347d40ad79ea9ac9be99c
   m_configObjects: {}
