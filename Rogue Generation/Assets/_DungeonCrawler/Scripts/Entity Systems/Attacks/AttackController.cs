@@ -152,6 +152,7 @@ public class AttackController : MonoBehaviour
 
     public void AttackAnimationCompleted()
     {
+        Debug.Log("Attack Complete");
         m_attackAnimComplete = true;
         m_entityContainer.m_entityVisualManager.SwitchToIdleAnimation();
     }

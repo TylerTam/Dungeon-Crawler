@@ -55,8 +55,9 @@ public class EntityVisualManager : MonoBehaviour
 
     public void SwitchToIdleAnimation()
     {
-        if (m_currentAnimationState != CurrentState.Idle)
+        if (m_currentAnimationState != CurrentState.Idle || m_currentFacingDir != m_currentMovementDir)
         {
+            m_currentMovementDir = m_currentFacingDir;
             m_currentAnimationState = CurrentState.Idle;
             m_spriteAnimator.SetTrigger("Idle");
         }

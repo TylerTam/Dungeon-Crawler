@@ -10,13 +10,23 @@ public class UIRaycastInput : MonoBehaviour
 
     private bool m_draging;
 
-    private enum TouchState { Initial, Movement, Attack }
+
+    private enum TouchState { Initial, Movement, Attack, Toggle }
     private TouchState m_touchState;
+
+
+
     public EntityContainer m_playerEntityContainer;
 
     [Header("Movement Keys")]
     public List<GameObject> m_movementKeys;
     public List<Vector2> m_movementKeyDirections;
+
+    public enum MovementState { Moving, Aiming }
+    [Header("Aiming / Movement toggle")]
+    public MovementState m_currentMovementState;
+    public GameObject m_aimingToggleUI;
+    public UnityEngine.UI.Text m_aimingText;
 
     [Header("Attack Keys")]
     public GameObject m_attackKey;
@@ -88,6 +98,12 @@ public class UIRaycastInput : MonoBehaviour
                         return;
                     }
 
+                    if(res.gameObject == m_aimingToggleUI)
+                    {
+                        m_touchState = TouchState.Toggle;
+                        return;
+                    }
+
                     if (m_movementKeys.Contains(res.gameObject))
                     {
                         m_touchState = TouchState.Movement;
@@ -130,6 +146,7 @@ public class UIRaycastInput : MonoBehaviour
                     break;
                 case TouchState.Attack:
                     break;
+                
             }
         }
 
@@ -149,6 +166,18 @@ public class UIRaycastInput : MonoBehaviour
                 }
                 break;
             case TouchState.Movement:
+                break;
+            case TouchState.Toggle:
+                if (m_currentMovementState == MovementState.Aiming)
+                {
+                    m_currentMovementState = MovementState.Moving;
+                    m_aimingText.text = "Moving";
+                }
+                else if (m_currentMovementState == MovementState.Moving)
+                {
+                    m_currentMovementState = MovementState.Aiming;
+                    m_aimingText.text = "Aiming";
+                }
                 break;
         }
     }

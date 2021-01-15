@@ -44,7 +44,14 @@ public class Input_Joystick : Input_Base
         m_movementDirection = GetInput(out movementPressed);
         if (movementPressed)
         {
-            m_movementController.MoveCharacter(m_movementDirection);
+            if (!IsAimingToggled())
+            {
+                m_movementController.MoveCharacter(m_movementDirection);
+            }
+            else
+            {
+                m_movementController.RotateCharacterIdle(m_movementDirection);
+            }
         }
         else if (m_skipTurn)
         {
@@ -72,6 +79,7 @@ public class Input_Joystick : Input_Base
                     p_movementPressed = true;
                 }
                 break;
+
             case InputType.Keyboard:
                 horiz = Input.GetAxis("Horizontal");
                 vert = Input.GetAxis("Vertical");
@@ -86,8 +94,8 @@ public class Input_Joystick : Input_Base
                     p_movementPressed = true;
                 }
                 break;
+
             case InputType.ScreenRaycast:
-                Debug.Log("ScreenRaycast");
                 if(Mathf.Abs(m_raycastInput.m_input.magnitude) > 0)
                 {
                     p_movementPressed = true;
@@ -98,6 +106,25 @@ public class Input_Joystick : Input_Base
 
         }
         return new Vector3(horiz, vert, 0);
+    }
+
+    public bool IsAimingToggled()
+    {
+        switch (m_currentInputType)
+        {
+            case InputType.Keyboard:
+                return false;
+                break;
+
+            case InputType.ScreenJoystick:
+                return false;
+                break;
+
+            case InputType.ScreenRaycast:
+                return m_raycastInput.m_currentMovementState == UIRaycastInput.MovementState.Aiming;
+                break;
+        }
+        return false;
     }
     public override void CenterPressed()
     {

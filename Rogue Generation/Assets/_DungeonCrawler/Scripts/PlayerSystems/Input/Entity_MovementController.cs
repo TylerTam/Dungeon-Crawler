@@ -43,6 +43,7 @@ public class Entity_MovementController : MonoBehaviour
     /// </summary>
     public void MoveCharacter(Vector2 p_movement)
     {
+        bool rotate = false;
         if (m_performLayerCheck)
         {
             if (!Physics2D.Raycast(transform.position, p_movement.normalized, p_movement.magnitude, m_terrainLayer))
@@ -55,6 +56,14 @@ public class Entity_MovementController : MonoBehaviour
                         m_entityContainer.m_turnBasedAgent.Action_Move(p_movement + (Vector2)transform.position);
                     }
                 }
+                else
+                {
+                    rotate = true;
+                }
+            }
+            else
+            {
+                rotate = true;
             }
         }
         else
@@ -65,7 +74,13 @@ public class Entity_MovementController : MonoBehaviour
                 m_entityContainer.m_turnBasedAgent.Action_Move(p_movement + (Vector2)transform.position);
             }
         }
+
+        if (rotate && p_movement.magnitude >0)
+        {
+            RotateCharacterIdle(p_movement);
+        }
     }
+    
 
     public void SkipMovement()
     {
@@ -76,6 +91,14 @@ public class Entity_MovementController : MonoBehaviour
     {
         m_facingDir = p_newDir;
     }
+
+    public void RotateCharacterIdle(Vector2 p_newDir)
+    {
+        UpdateFacingDir(p_newDir);
+        m_entityContainer.m_entityVisualManager.UpdateFacingDir(p_newDir);
+        m_entityContainer.m_entityVisualManager.SwitchToIdleAnimation();
+    }
+
     public void MovementComplete()
     {
         CheckGround();
