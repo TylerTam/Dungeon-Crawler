@@ -23,6 +23,10 @@ public class Input_Joystick : Input_Base
         {
             m_joystickCanvas.SetActive(false);
         }
+        if (m_currentInputType != InputType.ScreenRaycast)
+        {
+            m_raycastInput.gameObject.SetActive(false);
+        }
 
 
     }

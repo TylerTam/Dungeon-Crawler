@@ -44,7 +44,6 @@ public class Health : MonoBehaviour
         }
         while (!m_damageAnimComplete)
         {
-            Debug.Log("Run Coroutine");
             yield return null;
         }
     }

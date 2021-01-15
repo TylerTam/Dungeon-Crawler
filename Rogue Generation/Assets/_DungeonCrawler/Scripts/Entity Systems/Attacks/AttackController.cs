@@ -50,7 +50,6 @@ public class AttackController : MonoBehaviour
     /// </summary>
     public void StartAttack(int p_chosenAttack)
     {
-        Debug.Log("Attack");
         m_attackComplete = false;
         m_attackAnimComplete = false;
         m_currentAttack = m_attackType[p_chosenAttack];
@@ -116,14 +115,13 @@ public class AttackController : MonoBehaviour
     }
 
     #region Attacked Functionality
-    private bool m_attackedComplete = true;
-    private Coroutine m_attackedCoroutine;
-    private int m_takenDamage;
+    private int m_takenDamage = 100;
     Health.DamageType m_takenDamageType;
 
     public void ApplyAttackedDamage(int p_takenDamage, Health.DamageType p_damageType)
     {
         m_takenDamage = p_takenDamage;
+
         m_takenDamageType = p_damageType;
     }
 
@@ -133,13 +131,13 @@ public class AttackController : MonoBehaviour
     /// </summary>
     public IEnumerator AttackAnimComplete()
     {
-        Debug.Log("Put hurt message here");
+        //TODO: Put hurt message here
+//        Debug.Log("Put hurt message here");
         /*
         GameObject damageObject = Instantiate (m_damageObjectPrefab, transform.position, Quaternion.identity);
         damageObject.GetComponent<InWorldUI>().m_uiText.text = -m_takenDamage.ToString();
         */
         yield return m_entityContainer.m_entityHealth.TakeDamage(m_takenDamage, m_takenDamageType);
-        Debug.Log("Coroutine Completed");
 
 
         if (m_entityContainer.m_entityHealth.m_defeated)

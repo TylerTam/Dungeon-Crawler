@@ -44,7 +44,7 @@ public class AIController : MonoBehaviour
         m_entityContainer = GetComponent<EntityContainer>();
         m_navAgent = GetComponent<DungeonNavigation_Agent>();
     }
-
+    private bool m_restart;
     /// <summary>
     /// Called from the Dungeon manager, in the SpawnAI Function
     /// This function will set up the ai, with the provided sprite, animator, stats, and moveset
@@ -56,6 +56,17 @@ public class AIController : MonoBehaviour
         m_entityContainer.m_entityVisualManager.AssignEntityData(p_entityType);
         m_path = null;
         m_currentNode = null;
+        m_entityContainer.Reinitialize(p_entityType);
+        m_currentTarget = null;
+        m_currentBehaviour = AiBehaviour.Idle;
+        m_path = null;
+        m_currentNode = null;
+        m_currentTargetPrediction = null;
+        if (m_dungeonManager != null)
+        {
+            m_restart = true;
+            NewPath();
+        }
     }
     private void Start()
     {
@@ -65,16 +76,18 @@ public class AIController : MonoBehaviour
 
     public void UpdateAI()
     {
+        if (m_restart)
+        {
+            Debug.Log("Reused AI");
+        }
         CheckCurrentBehaviour();
         switch (m_currentBehaviour)
         {
             case AiBehaviour.Idle:
-                m_entityContainer.m_entityVisualManager.m_sRend.color = Color.white;
                 MoveAi();
                 //CheckForPlayer();
                 break;
             case AiBehaviour.Attack:
-                m_entityContainer.m_entityVisualManager.m_sRend.color = Color.green;
                 if (CanAttack())
                 {
                     ChooseAttack();
@@ -82,6 +95,7 @@ public class AIController : MonoBehaviour
                 else
                 {
                     MoveAi();
+
                 }
 
                 break;
@@ -275,7 +289,6 @@ public class AIController : MonoBehaviour
                     if (newTeam.m_entityTeam.m_currentTeam != m_entityContainer.m_entityTeam.m_currentTeam && newTeam.m_entityTeam.m_currentTeam != EntityTeam.Team.Neutral)
                     {
                         m_currentTargetPrediction = newTeam.m_turnBasedAgent.m_predictedPlace.transform;
-                        Debug.Log("Player Located: Room");
                         return ent.transform.gameObject;
 
                     }

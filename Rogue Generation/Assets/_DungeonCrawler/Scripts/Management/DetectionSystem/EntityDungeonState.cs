@@ -7,6 +7,12 @@ public class EntityDungeonState : MonoBehaviour
 
     public Transform predictedPlace;
 
+    public void Reinitialize()
+    {
+        m_currentCell = null;
+        m_inRoom = false;
+
+    }
     public void UpdateCellAttendance()
     {
         if (m_currentCell != null && m_inRoom)

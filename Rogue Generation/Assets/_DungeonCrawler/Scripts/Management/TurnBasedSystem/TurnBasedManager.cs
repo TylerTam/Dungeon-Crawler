@@ -71,6 +71,7 @@ public class TurnBasedManager : MonoBehaviour
             m_allAgents.Remove(defeated);
 
         }
+        m_defeatedAgents.Clear();
 
         if (m_currentAgentIndex >= m_allAgents.Count)
         {

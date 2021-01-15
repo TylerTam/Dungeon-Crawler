@@ -23,7 +23,13 @@ public class PlayerDungeonManager : MonoBehaviour
 
     private void InitializePlayerObject()
     {
-        m_playerEntityContainer.m_entityVisualManager.AssignEntityData(PlayerData.Instance.m_playerEntityData);
+        m_playerEntityContainer.Reinitialize(PlayerData.Instance.m_playerEntityData);
+        
+    }
+
+    public void ResetPlayerComponents()
+    {
+        m_playerEntityContainer.CarryOverToNextFloor();
     }
     public void CreatePlayerTeam()
     {

@@ -129,7 +129,7 @@ AnimationClip:
     intParameter: 6
     messageOptions: 0
   - time: 0.51666665
-    functionName: HurtAnimComplete
+    functionName: DefeatAnimComplete
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

@@ -30,7 +30,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.41666666
+        time: 0.5
         value: 0
         inSlope: 0
         outSlope: 0
@@ -95,7 +95,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.41666666
+        time: 0.5
         value: 0
         inSlope: 0
         outSlope: 0
@@ -129,7 +129,7 @@ AnimationClip:
     intParameter: 8
     messageOptions: 0
   - time: 0.51666665
-    functionName: HurtAnimComplete
+    functionName: DefeatAnimComplete
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

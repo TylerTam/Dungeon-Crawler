@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledObjects: []
   pooledObjectParents: []
-  growthRate: 5
+  growthRate: 2
   initalPoolSize: 5
 --- !u!4 &16846778
 Transform:
@@ -672,7 +672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &362030493
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2902,7 +2902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e827e1736f76a349a837c2cb42d03ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxAiOnScene: 5
+  m_maxAiOnScene: 1
   m_currentAiOnScene: 0
 --- !u!1 &1598879319
 GameObject:
@@ -3460,7 +3460,7 @@ PrefabInstance:
     - target: {fileID: 4597749072606483147, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
         type: 3}
       propertyPath: m_currentInputType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4597749072606483147, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
         type: 3}

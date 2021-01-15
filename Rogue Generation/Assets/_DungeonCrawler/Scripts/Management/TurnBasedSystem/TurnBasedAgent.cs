@@ -54,6 +54,14 @@ public class TurnBasedAgent : MonoBehaviour
         m_turnManager = TurnBasedManager.Instance;
         m_pooler = ObjectPooler.instance;
     }
+    public void Reinitialize()
+    {
+        StopAllCoroutines();
+        m_movementCoroutine = null;
+        m_attackCoroutine = null;
+        m_actionComplete = true;
+
+    }
 
     /// <summary>
     /// This function is called from the turn system manager, in it's coroutine that constantly runs.

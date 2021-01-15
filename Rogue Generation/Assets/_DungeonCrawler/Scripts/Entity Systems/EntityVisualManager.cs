@@ -29,10 +29,22 @@ public class EntityVisualManager : MonoBehaviour
     public void AssignEntityData(EntityData p_data)
     {
         m_entityData = p_data;
-        m_spriteAnimator.runtimeAnimatorController = m_entityData.m_animController;
+        m_spriteAnimator.runtimeAnimatorController = p_data.m_animController;
+        m_spriteAnimator.enabled = true;
+        SwitchToIdleAnimation();
+        UpdateFacingDir(new Vector2(0, -1));
 
     }
 
+    public void DisableAnimator()
+    {
+        m_spriteAnimator.enabled = false;
+    }
+
+    private void OnDisable()
+    {
+        m_sRend.color = new Color(1, 1, 1, 1);
+    }
     #region Animation Switch Functions
     public void UpdateFacingDir(Vector2 p_facingDir)
     {
@@ -121,7 +133,12 @@ public class EntityVisualManager : MonoBehaviour
 
     public void HurtAnimComplete()
     {
-        Debug.Log("Hurt Complete");
+        m_entityHealth.HurtAnimationCompleted();
+    }
+
+    public void DefeatAnimComplete()
+    {
+        DisableAnimator();
         m_entityHealth.HurtAnimationCompleted();
     }
 

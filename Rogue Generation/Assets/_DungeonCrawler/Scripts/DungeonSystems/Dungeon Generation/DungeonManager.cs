@@ -82,13 +82,13 @@ public class DungeonManager : MonoBehaviour
         //Coroutine CreateDungeon = StartCoroutine(CheckDungeonConnection());
         AIManager.Instance.ClearFloor();
         m_turnSystem.ClearAgents();
-
+        PlayerDungeonManager.Instance.ResetPlayerComponents();
         StartCoroutine(CheckDungeonConnection());
     }
 
 
 
-    IEnumerator CheckDungeonConnection()
+    private IEnumerator CheckDungeonConnection()
     {
         bool mapSuccess = false;
 
@@ -172,7 +172,7 @@ public class DungeonManager : MonoBehaviour
 
     }
 
-    Vector2 RandomSpawnPosition(List<DungeonGridCell> m_possibleRooms)
+    private Vector2 RandomSpawnPosition(List<DungeonGridCell> m_possibleRooms)
     {
         int randomRoomSpawn = Random.Range(0, m_allRooms.Count);
         List<Vector2> possibleSpawnPos = new List<Vector2>();
@@ -188,6 +188,16 @@ public class DungeonManager : MonoBehaviour
 
         randomRoomSpawn = Random.Range(0, possibleSpawnPos.Count);
 
+        if(randomRoomSpawn > possibleSpawnPos.Count)
+        {
+            Debug.LogError("Index out of array");
+
+        }
+        if(possibleSpawnPos.Count == 0)
+        {
+            Debug.LogError("No room to spawn in | " + m_possibleRooms.Count);
+        }
+        
         return possibleSpawnPos[randomRoomSpawn];
     }
 
@@ -338,7 +348,10 @@ public class DungeonManager : MonoBehaviour
     }
     public void RemoveEntityFromRoom(int p_roomInt, GameObject p_entity)
     {
-
+        if (p_roomInt > m_allRooms.Count || p_roomInt < 0)
+        {
+            Debug.Log("Room out of index: " + p_roomInt + " | Room Count: " + m_allRooms.Count);
+        }
         m_allRooms[p_roomInt].m_entitiesInRoom.Remove(p_entity);
 
     }
