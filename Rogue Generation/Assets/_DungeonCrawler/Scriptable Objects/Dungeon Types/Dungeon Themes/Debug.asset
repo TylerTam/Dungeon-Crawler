@@ -22,5 +22,5 @@ MonoBehaviour:
   m_itemsInDungeon: []
   m_chanceOfEnemySpawn: 0.4
   m_aiInDungeon:
-  - m_aiType: {fileID: 11400000, guid: 703920c3fe225264fbf41f2d29703912, type: 2}
+  - m_entityType: {fileID: 11400000, guid: 703920c3fe225264fbf41f2d29703912, type: 2}
     m_aiRarity: 1

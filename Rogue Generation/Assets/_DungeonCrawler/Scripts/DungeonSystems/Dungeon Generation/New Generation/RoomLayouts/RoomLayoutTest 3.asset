@@ -1,0 +1,207 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a4d8b975f6778546a5c4b73ce23faa0, type: 3}
+  m_Name: RoomLayoutTest 3
+  m_EditorClassIdentifier: 
+  m_roomSize: {x: 5, y: 7}
+  m_rooWeight: 0
+  m_roomGridData:
+  - m_roomRowData:
+    - m_gridPosition: {x: 0, y: 0}
+      m_cellType: 0
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 1, y: 0}
+      m_cellType: 0
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 2, y: 0}
+      m_cellType: 1
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 3, y: 0}
+      m_cellType: 0
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 4, y: 0}
+      m_cellType: 0
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+  - m_roomRowData:
+    - m_gridPosition: {x: 0, y: 1}
+      m_cellType: 0
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 1, y: 1}
+      m_cellType: 0
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 2, y: 1}
+      m_cellType: 1
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 3, y: 1}
+      m_cellType: 0
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 4, y: 1}
+      m_cellType: 0
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+  - m_roomRowData:
+    - m_gridPosition: {x: 0, y: 2}
+      m_cellType: 0
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 1, y: 2}
+      m_cellType: 1
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 2, y: 2}
+      m_cellType: 1
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 3, y: 2}
+      m_cellType: 1
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 4, y: 2}
+      m_cellType: 0
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+  - m_roomRowData:
+    - m_gridPosition: {x: 0, y: 3}
+      m_cellType: 1
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 1, y: 3}
+      m_cellType: 1
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 2, y: 3}
+      m_cellType: 1
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 3, y: 3}
+      m_cellType: 1
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 4, y: 3}
+      m_cellType: 0
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+  - m_roomRowData:
+    - m_gridPosition: {x: 0, y: 4}
+      m_cellType: 0
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 1, y: 4}
+      m_cellType: 1
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 2, y: 4}
+      m_cellType: 1
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 3, y: 4}
+      m_cellType: 1
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 4, y: 4}
+      m_cellType: 0
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+  - m_roomRowData:
+    - m_gridPosition: {x: 0, y: 5}
+      m_cellType: 0
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 1, y: 5}
+      m_cellType: 1
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 2, y: 5}
+      m_cellType: 1
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 3, y: 5}
+      m_cellType: 1
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 4, y: 5}
+      m_cellType: 0
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+  - m_roomRowData:
+    - m_gridPosition: {x: 0, y: 6}
+      m_cellType: 0
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 1, y: 6}
+      m_cellType: 0
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 2, y: 6}
+      m_cellType: 0
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 3, y: 6}
+      m_cellType: 0
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+    - m_gridPosition: {x: 4, y: 6}
+      m_cellType: 0
+      m_canSpawnItem: 0
+      m_canSpawnEnemy: 0
+      m_data: 
+  m_northExit: 1
+  m_northExitPos: {x: 2, y: 0}
+  m_southExit: 0
+  m_southExitPos: {x: 2, y: 6}
+  m_eastExit: 0
+  m_eastExitPos: {x: 4, y: 3}
+  m_westExit: 1
+  m_westExitPos: {x: 0, y: 3}
