@@ -663,6 +663,8 @@ MonoBehaviour:
   m_cellSize: {x: 15, y: 15}
   m_floorTilemap: {fileID: 1970489734}
   m_wallTilemap: {fileID: 934170036}
+  m_floorData:
+    m_cellGrid: []
   m_generate: 0
   m_dungeonCellGrid: []
   m_debug: 1

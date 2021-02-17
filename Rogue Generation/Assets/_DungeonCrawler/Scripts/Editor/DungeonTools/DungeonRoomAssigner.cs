@@ -67,53 +67,60 @@ public class DungeonRoomAssigner : EditorWindow
                 DungeonGeneration_RoomLayout.RoomGridRow newRow;
 
                 string[] fLines = Regex.Split(m_referencedTextFile.text, "\n");
-                string[] splitLines = Regex.Split(fLines[0], " "); ;
-                for (int x = 0; x < fLines.GetLength(0); x++)
+                string[] splitLines = Regex.Split(fLines[0], " ");
+
+                Vector2Int origin = new Vector2Int((splitLines.GetLength(0)) / 2, (fLines.GetLength(0)) / 2);
+                Vector2Int size = new Vector2Int(splitLines.GetLength(0), fLines.GetLength(0));
+                room.m_roomSize = size;
+
+                for (int x = 0; x < size.x; x++)
                 {
                     newRow = new DungeonGeneration_RoomLayout.RoomGridRow();
                     newRow.m_roomRowData = new List<DungeonGeneration_RoomLayout.RoomGridData>();
-                    splitLines = Regex.Split(fLines[x], " ");
-                    for (int y = 0; y < splitLines.GetLength(0); y++)
+
+                    for (int y = 0; y < size.y; y++)
                     {
+                        splitLines = Regex.Split(fLines[y], " ");
+                        string current = splitLines[x];
+
                         newData = new DungeonGeneration_RoomLayout.RoomGridData();
 
-                        newData.m_gridPosition = new Vector2Int(y,x);
+                        newData.m_gridPosition = new Vector2Int(x - origin.x, y - origin.y);
                         int integer = 0;
-                        if (int.TryParse(splitLines[y], out integer))
+
+                        if (int.TryParse(current, out integer))
                         {
-                            newData.m_cellType = int.Parse(splitLines[y]);
+                            newData.m_cellType = integer;
                         }
                         else
                         {
                             newData.m_cellType = 1;
-                            if(splitLines[y] == "n" || splitLines[y] == "n\r")
+                            if (current == "n" || current == "n\r")
                             {
                                 room.m_northExit = true;
-                                room.m_northExitPos = new Vector2Int(y, x);
+                                room.m_northExitPos = new Vector2Int(x - origin.x, y - origin.y);
                             }
-                            if (splitLines[y] == "s" || splitLines[y] == "s\r")
+                            if (current == "s" || current == "s\r")
                             {
                                 room.m_southExit = true;
-                                room.m_southExitPos = new Vector2Int(y, x);
+                                room.m_southExitPos = new Vector2Int(x - origin.x, y - origin.y);
                             }
-                            if (splitLines[y] == "e" || splitLines[y] == "e\r")
+                            if (current == "e" || current == "e\r")
                             {
                                 room.m_eastExit = true;
-                                room.m_eastExitPos = new Vector2Int(y, x);
+                                room.m_eastExitPos = new Vector2Int(x - origin.x, y - origin.y);
                             }
-                            if (splitLines[y] == "w" || splitLines[y] == "w\r")
+                            if (current == "w" || current == "w\r")
                             {
                                 room.m_westExit = true;
-                                room.m_westExitPos = new Vector2Int(y, x);
+                                room.m_westExitPos = new Vector2Int(x - origin.x, y - origin.y);
                             }
                         }
-                        
                         newRow.m_roomRowData.Add(newData);
                     }
                     returnRow.Add(newRow);
                 }
                 room.m_roomGridData = returnRow;
-                room.m_roomSize = new Vector2Int(splitLines.Length, fLines.Length);
             }
 
         }

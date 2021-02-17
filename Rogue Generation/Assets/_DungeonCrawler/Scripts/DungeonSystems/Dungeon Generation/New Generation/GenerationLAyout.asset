@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GenerationLAyout
   m_EditorClassIdentifier: 
   m_roomAmount: 8
-  m_connectionAmounts: 5
+  m_connectionAmounts: 0

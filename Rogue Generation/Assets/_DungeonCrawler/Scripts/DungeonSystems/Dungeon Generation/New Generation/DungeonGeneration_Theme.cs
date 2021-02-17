@@ -18,11 +18,11 @@ public class DungeonGeneration_Theme : ScriptableObject
             {
                 if(p_floorLayout[x,y] == 0)
                 {
-                    p_wallTilemap.SetTile(new Vector3Int(x, y, 0), m_wallTile);
+                    p_wallTilemap.SetTile(new Vector3Int(x, -y, 0), m_wallTile);
                 }
                 else
                 {
-                    p_floorTilemap.SetTile(new Vector3Int(x, y, 0), m_floorTile);
+                    p_floorTilemap.SetTile(new Vector3Int(x, -y, 0), m_floorTile);
                 }
             }
         }
