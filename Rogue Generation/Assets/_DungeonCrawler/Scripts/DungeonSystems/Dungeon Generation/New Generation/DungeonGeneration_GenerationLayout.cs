@@ -5,10 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Dungeon Generation Layout", menuName = "NewDungeonGen/New Dungeon Generation Layout", order = 0)]
 public class DungeonGeneration_GenerationLayout : ScriptableObject
 {
-    public int m_roomAmount;
-    public int m_connectionAmounts;
 
-    public FloorData GenerateArray(List<DungeonGeneration_RoomLayout> p_rooms, Vector2Int p_cellAmount, Vector2Int p_cellSize)
+    public FloorData GenerateArray(List<DungeonGeneration_RoomLayout> p_rooms, List<DungeonGeneration_RoomLayout> p_connections, Vector2Int p_cellAmount, Vector2Int p_cellSize, int p_roomAmount, int p_connectionAmount)
     {
         int[,] floorLayout = new int[p_cellAmount.x * p_cellSize.y, p_cellAmount.y * p_cellSize.y];
         FloorData currentFloorData = new FloorData();
@@ -39,7 +37,7 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
         foreach (CellGridData cell in randomGridOrder)
         {
 
-            if (p_currentRoomAmount >= m_roomAmount)
+            if (p_currentRoomAmount >= p_roomAmount)
             {
                 break;
             }
@@ -57,12 +55,13 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
         p_currentRoomAmount = 0;
         foreach (CellGridData cell in randomGridOrder)
         {
-            if (p_currentRoomAmount >= m_connectionAmounts)
+            if (p_currentRoomAmount >= p_connectionAmount)
             {
                 break;
             }
             if (allCells[cell.m_gridIndex.x].m_gridColumn[cell.m_gridIndex.y].m_isRoom) continue;
-            CreateConnectionPoint(ref floorLayout, ref allCells, cell, p_cellSize);
+            //CreateConnectionPoint(ref floorLayout, ref allCells, cell, p_cellSize);
+            allCells[cell.m_gridIndex.x].m_gridColumn[cell.m_gridIndex.y].m_isConnectionPoint = true;
             p_currentRoomAmount++;
         }
         ///Generate the room types
@@ -70,30 +69,108 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
 
 
 
-        List<DungeonGeneration_RoomLayout> randomizedRoomList;
         List<CellGridData> allRooms = new List<CellGridData>();
-        randomizedRoomList = RandomizeRoom(p_rooms);
+
+        List<RoomData> newRoomData = new List<RoomData>();
 
         for (int i = 0; i < cellsWithRooms.Count; i++)
         {
             CellGridData cell = cellsWithRooms[i];
             DungeonGeneration_RoomLayout tempRoom = GetCellBasedRoom(p_rooms, allCells, cell);
             allCells[cell.m_gridIndex.x].m_gridColumn[cell.m_gridIndex.y].m_roomLayout = tempRoom;
-            UpdateSurroundingCells(ref floorLayout, ref allCells, tempRoom, cell, p_cellSize);
+            UpdateSurroundingCells(ref floorLayout, ref allCells, tempRoom, cell, p_cellSize, p_rooms);
 
-            Vector2Int bounds = new Vector2Int(p_cellSize.x - tempRoom.m_roomGridData.Count, p_cellSize.y - tempRoom.m_roomGridData[0].m_roomRowData.Count);
-            Vector2Int randomOffset = new Vector2Int(Random.Range(0, bounds.x), Random.Range(0, bounds.y));
 
-            Vector2Int worldPos = new Vector2Int(cell.m_gridIndex.x * p_cellSize.x + randomOffset.x + tempRoom.m_roomGridData.Count/2,
-                cell.m_gridIndex.y * p_cellSize.y +  randomOffset.y + tempRoom.m_roomGridData[0].m_roomRowData.Count/2); 
 
             allRooms.Add(cell);
-            if (tempRoom != null)
+
+        }
+
+
+        for (int i = 0; i < allRooms.Count; i++)
+        {
+            CellGridData cell = allRooms[i];
+            Vector2Int bounds = new Vector2Int(p_cellSize.x - cell.m_roomLayout.m_roomGridData.Count, p_cellSize.y - cell.m_roomLayout.m_roomGridData[0].m_roomRowData.Count);
+            Vector2Int randomOffset = new Vector2Int(Random.Range(0, bounds.x), Random.Range(0, bounds.y));
+
+            Vector2Int worldPos = new Vector2Int(cell.m_gridIndex.x * p_cellSize.x + randomOffset.x + cell.m_roomLayout.m_roomGridData.Count / 2,
+                cell.m_gridIndex.y * p_cellSize.y + randomOffset.y + cell.m_roomLayout.m_roomGridData[0].m_roomRowData.Count / 2);
+
+            if (cell.m_roomLayout != null)
             {
-                tempRoom.UpdateFloorLayoutWithRoom(ref floorLayout, worldPos, ref cell);
+                cell.m_roomLayout.UpdateFloorLayoutWithRoom(ref floorLayout, worldPos, ref cell);
             }
         }
 
+
+
+        ///Determine the hallwayConnection Point Layouts
+
+        bool north, south, east, west;
+
+        for (int x = 0; x < allCells.Count; x++)
+        {
+            for (int y = 0; y < allCells[x].m_gridColumn.Count; y++)
+            {
+                if (!allCells[x].m_gridColumn[y].m_isConnectionPoint) continue;
+                north = south = east = west = false;
+
+                for (int xx = -1; xx < 2; xx++)
+                {
+                    for (int yy = -1; yy < 2; yy++)
+                    {
+                        if (x + xx < 0 || x + xx >= allCells.Count) continue;
+                        if (y + yy < 0 || y + yy >= allCells[x].m_gridColumn.Count) continue;
+                        if (xx == -1 && yy != 0 || xx == 1 && yy != 0) continue;
+                        if (xx != 0 && yy == -1 || xx != 0 && yy == 1) continue;
+
+                        if (allCells[x + xx].m_gridColumn[y + yy].m_isConnectionPoint || allCells[x + xx].m_gridColumn[y + yy].m_isRoom)
+                        {
+
+                            if (xx == 1)
+                            {
+                                east = true;
+                            }
+                            else if (xx == -1)
+                            {
+                                west = true;
+                            }
+                            else if (yy == -1)
+                            {
+                                north = true;
+                            }
+                            else if (yy == 1)
+                            {
+                                south = true;
+                            }
+
+                        }
+                    }
+                }
+
+
+                List<DungeonGeneration_RoomLayout> possibleRooms = new List<DungeonGeneration_RoomLayout>();
+
+                foreach (DungeonGeneration_RoomLayout connection in p_connections)
+                {
+                    if (connection.m_northExit == north && connection.m_southExit == south && connection.m_eastExit == east && connection.m_westExit == west)
+                    {
+                        possibleRooms.Add(connection);
+                    }
+                }
+                allCells[x].m_gridColumn[y].m_connectionLayout = possibleRooms[Random.Range(0, possibleRooms.Count)];
+                CellGridData currentCell = allCells[x].m_gridColumn[y];
+                if (allCells[x].m_gridColumn[y].m_connectionLayout != null)
+                {
+                    Vector2Int bounds = new Vector2Int(p_cellSize.x - currentCell.m_connectionLayout.m_roomGridData.Count, p_cellSize.y - currentCell.m_connectionLayout.m_roomGridData[0].m_roomRowData.Count);
+                    Vector2Int randomOffset = new Vector2Int(Random.Range(0, bounds.x), Random.Range(0, bounds.y));
+
+                    Vector2Int worldPos = new Vector2Int(currentCell.m_gridIndex.x * p_cellSize.x + randomOffset.x + currentCell.m_connectionLayout.m_roomGridData.Count / 2,
+                        currentCell.m_gridIndex.y * p_cellSize.y + randomOffset.y + currentCell.m_connectionLayout.m_roomGridData[0].m_roomRowData.Count / 2);
+                    allCells[x].m_gridColumn[y].m_connectionLayout.UpdateFloorLayoutWithRoom(ref floorLayout, worldPos, ref currentCell);
+                }
+            }
+        }
 
 
 
@@ -161,28 +238,28 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
                     {
                         if (cell.m_eastConnectionPoint != Vector2.zero && currentConnected.m_westConnectionPoint != Vector2.zero)
                         {
-                            CreateHallway(ref floorLayout, cell.m_eastConnectionPoint, currentConnected.m_westConnectionPoint);
+                            CreateHallway(ref floorLayout, cell.m_eastConnectionPoint, currentConnected.m_westConnectionPoint, true);
                         }
                     }
                     else if (cell.m_gridIndex.x > currentConnected.m_gridIndex.x)
                     {
                         if (currentConnected.m_eastConnectionPoint != Vector2.zero && cell.m_westConnectionPoint != Vector2.zero)
                         {
-                            CreateHallway(ref floorLayout, cell.m_westConnectionPoint, currentConnected.m_eastConnectionPoint);
+                            CreateHallway(ref floorLayout, cell.m_westConnectionPoint, currentConnected.m_eastConnectionPoint, true);
                         }
                     }
                     else if (cell.m_gridIndex.y < currentConnected.m_gridIndex.y)
                     {
                         if (currentConnected.m_northConnectionPoint != Vector2.zero && cell.m_southConnectionPoint != Vector2.zero)
                         {
-                            CreateHallway(ref floorLayout, cell.m_southConnectionPoint, currentConnected.m_northConnectionPoint);
+                            CreateHallway(ref floorLayout, cell.m_southConnectionPoint, currentConnected.m_northConnectionPoint, false);
                         }
                     }
                     else if (cell.m_gridIndex.y > currentConnected.m_gridIndex.y)
                     {
                         if (cell.m_northConnectionPoint != Vector2.zero && currentConnected.m_southConnectionPoint != Vector2.zero)
                         {
-                            CreateHallway(ref floorLayout, cell.m_northConnectionPoint, currentConnected.m_southConnectionPoint);
+                            CreateHallway(ref floorLayout, cell.m_northConnectionPoint, currentConnected.m_southConnectionPoint, false);
                         }
                     }
                     allCells[cell.m_gridIndex.x].m_gridColumn[cell.m_gridIndex.y].m_hallwayToCell.Add(currentConnected.m_gridIndex);
@@ -240,84 +317,57 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
     {
         List<DungeonGeneration_RoomLayout> returnList = new List<DungeonGeneration_RoomLayout>();
 
-        foreach (DungeonGeneration_RoomLayout room in p_allRooms)
+        bool needNorth, needSouth, needEast, needWest;
+        needNorth = needSouth = needEast = needWest = false;
+
+        for (int x = -1; x < 2; x++)
         {
-            if (p_cellData.m_gridIndex == new Vector2Int(0, 0))
+            for (int y = -1; y < 2; y++)
             {
-                if (!room.m_southExit && !room.m_eastExit) continue;
-            }
-            else if (p_cellData.m_gridIndex == new Vector2Int(0, p_allCells[0].m_gridColumn.Count - 1))
-            {
-                if (!room.m_northExit && !room.m_westExit) continue;
-            }
-            else if (p_cellData.m_gridIndex == new Vector2Int(p_allCells.Count - 1, 0))
-            {
-                if (!room.m_southExit && !room.m_eastExit) continue;
-            }
-            else if (p_cellData.m_gridIndex == new Vector2Int(p_allCells.Count - 1, p_allCells[0].m_gridColumn.Count - 1))
-            {
-                if (!room.m_northExit && !room.m_eastExit) continue;
-            }
+                if (x == 0 && y == 0) continue;
+                if (x == -1 && y == -1 || x == -1 && y == 1 || x == 1 && y == 1 || x == 1 && y == -1) continue;
+                if (p_cellData.m_gridIndex.x + x < 0 || p_cellData.m_gridIndex.x + x > p_allCells.Count - 1) continue;
+                if (p_cellData.m_gridIndex.y + y < 0 || p_cellData.m_gridIndex.y + y > p_allCells[0].m_gridColumn.Count - 1) continue;
 
-            bool canAddRoom = true;
-            for (int x = -1; x < 2; x++)
-            {
-                for (int y = -1; y < 2; y++)
+                Vector2Int currentIndex = new Vector2Int(p_cellData.m_gridIndex.x + x, p_cellData.m_gridIndex.y + y);
+                CellGridData currentCell = p_allCells[currentIndex.x].m_gridColumn[currentIndex.y];
+                if (currentCell.m_isRoom || currentCell.m_isConnectionPoint)
                 {
-                    if (x == 0 && y == 0) continue;
-                    if (x == -1 && y == -1 || x == -1 && y == 1 || x == 1 && y == 1 || x == 1 && y == -1) continue;
-                    if (p_cellData.m_gridIndex.x + x < 0 || p_cellData.m_gridIndex.x + x > p_allCells.Count - 1) continue;
-                    if (p_cellData.m_gridIndex.y + y < 0 || p_cellData.m_gridIndex.y + y > p_allCells[0].m_gridColumn.Count - 1) continue;
-
-                    Vector2Int currentIndex = new Vector2Int(p_cellData.m_gridIndex.x + x, p_cellData.m_gridIndex.y + y);
-                    CellGridData currentCell = p_allCells[currentIndex.x].m_gridColumn[currentIndex.y];
-                    if (currentCell.m_isRoom || currentCell.m_isConnectionPoint)
+                    if (x == 1)
                     {
-
-                        if (x == -1 && y == 0)
-                        {
-
-                            if (!room.m_westExit)
-                            {
-                                canAddRoom = false;
-                                break;
-                            }
-
-                        }
-                        if (x == 1 && y == 0)
-                        {
-                            if (!room.m_eastExit)
-                            {
-                                canAddRoom = false;
-                                break;
-                            }
-                        }
-                        if (x == 0 && y == -1)
-                        {
-                            if (!room.m_northExit)
-                            {
-                                canAddRoom = false;
-                                break;
-                            }
-                        }
-                        if (x == 0 && y == 1)
-                        {
-                            if (!room.m_southExit)
-                            {
-                                canAddRoom = false;
-                                break;
-                            }
-                        }
-
-                        //Debug.Log("Index: " + new Vector2(x, y) + " | Room: " + p_cellData.m_gridIndex + " | Room Layout Name:" + room.m_roomLayoutName + " |  North: " + room.m_northExit + " |  South: " + room.m_southExit + " |  East: " + room.m_eastExit + " |  West: " + room.m_westExit);
+                        needEast = true;
+                    }
+                    else if (x == -1)
+                    {
+                        needWest = true;
+                    }
+                    else if (y == 1)
+                    {
+                        needSouth = true;
+                    }
+                    else if (y == -1)
+                    {
+                        needNorth = true;
                     }
 
                 }
-                if (!canAddRoom)
-                {
-                    break;
-                }
             }
+        }
+        foreach (DungeonGeneration_RoomLayout room in p_allRooms)
+        {
+            bool canAddRoom = true;
+
+            if (needNorth && !room.m_northExit) continue;
+
+            if (needSouth && !room.m_southExit) continue;
+
+            if (needEast && !room.m_eastExit) continue;
+
+            if (needWest && !room.m_westExit) continue;
+
+
+
+
             if (canAddRoom)
             {
                 returnList.Add(room);
@@ -327,23 +377,31 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
 
         if (returnList.Count > 0)
         {
-            return RandomizeRoom(returnList)[0];
+            DungeonGeneration_RoomLayout returnRoom = RandomizeRoom(returnList)[0];
+            return returnRoom;
         }
-        else return p_allRooms[Random.Range(0, p_allRooms.Count)];
+        else
+        {
+            Debug.Log("Cell Index: " + p_cellData.m_gridIndex + " | Return Randomized DEfault List");
+            return p_allRooms[Random.Range(0, p_allRooms.Count)];
+        }
     }
 
-    private void UpdateSurroundingCells(ref int[,] p_floorLayout, ref List<DungeonCellGridRow> p_allCells, DungeonGeneration_RoomLayout p_roomLayout, CellGridData p_placedCell, Vector2Int p_cellSize)
+    private void UpdateSurroundingCells(ref int[,] p_floorLayout, ref List<DungeonCellGridRow> p_allCells, DungeonGeneration_RoomLayout p_roomLayout, CellGridData p_placedCell, Vector2Int p_cellSize, List<DungeonGeneration_RoomLayout> p_allRooms)
     {
+        CellGridData currentNewCell = null;
         if (p_roomLayout.m_northExit)
         {
             if (p_placedCell.m_gridIndex.y - 1 >= 0)
             {
-                if (!p_allCells[p_placedCell.m_gridIndex.x].m_gridColumn[p_placedCell.m_gridIndex.y - 1].m_isRoom &&
-                !p_allCells[p_placedCell.m_gridIndex.x].m_gridColumn[p_placedCell.m_gridIndex.y - 1].m_isConnectionPoint)
+                currentNewCell = p_allCells[p_placedCell.m_gridIndex.x].m_gridColumn[p_placedCell.m_gridIndex.y - 1];
+
+                if (!currentNewCell.m_isRoom && !currentNewCell.m_isConnectionPoint)
                 {
                     p_allCells[p_placedCell.m_gridIndex.x].m_gridColumn[p_placedCell.m_gridIndex.y - 1].m_isConnectionPoint = true;
 
-                    CreateConnectionPoint(ref p_floorLayout, ref p_allCells, p_allCells[p_placedCell.m_gridIndex.x].m_gridColumn[p_placedCell.m_gridIndex.y - 1], p_cellSize);
+                    AdjustSurroundingRooms(ref p_allCells, currentNewCell, p_allRooms);
+
                 }
             }
         }
@@ -352,11 +410,11 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
         {
             if (p_placedCell.m_gridIndex.y + 1 < p_allCells[0].m_gridColumn.Count)
             {
-                if (!p_allCells[p_placedCell.m_gridIndex.x].m_gridColumn[p_placedCell.m_gridIndex.y + 1].m_isRoom &&
-                !p_allCells[p_placedCell.m_gridIndex.x].m_gridColumn[p_placedCell.m_gridIndex.y + 1].m_isConnectionPoint)
+                currentNewCell = p_allCells[p_placedCell.m_gridIndex.x].m_gridColumn[p_placedCell.m_gridIndex.y + 1];
+                if (!currentNewCell.m_isRoom && !currentNewCell.m_isConnectionPoint)
                 {
-                    CreateConnectionPoint(ref p_floorLayout, ref p_allCells, p_allCells[p_placedCell.m_gridIndex.x].m_gridColumn[p_placedCell.m_gridIndex.y + 1], p_cellSize);
-                    //Debug.Log("New Connection Point: " + new Vector2(worldPos.x, -worldPos.y));
+                    p_allCells[p_placedCell.m_gridIndex.x].m_gridColumn[p_placedCell.m_gridIndex.y + 1].m_isConnectionPoint = true;
+                    AdjustSurroundingRooms(ref p_allCells, currentNewCell, p_allRooms);
 
                 }
             }
@@ -366,11 +424,12 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
         {
             if (p_placedCell.m_gridIndex.x + 1 < p_allCells.Count)
             {
-                if (!p_allCells[p_placedCell.m_gridIndex.x + 1].m_gridColumn[p_placedCell.m_gridIndex.y].m_isRoom &&
-                    !p_allCells[p_placedCell.m_gridIndex.x + 1].m_gridColumn[p_placedCell.m_gridIndex.y].m_isConnectionPoint)
+                currentNewCell = p_allCells[p_placedCell.m_gridIndex.x + 1].m_gridColumn[p_placedCell.m_gridIndex.y];
+                if (!currentNewCell.m_isRoom &&
+                    !currentNewCell.m_isConnectionPoint)
                 {
-                    CreateConnectionPoint(ref p_floorLayout, ref p_allCells, p_allCells[p_placedCell.m_gridIndex.x + 1].m_gridColumn[p_placedCell.m_gridIndex.y], p_cellSize);
-                    //Debug.Log("New Connection Point: " + new Vector2(worldPos.x, -worldPos.y));
+                    p_allCells[p_placedCell.m_gridIndex.x + 1].m_gridColumn[p_placedCell.m_gridIndex.y].m_isConnectionPoint = true;
+                    AdjustSurroundingRooms(ref p_allCells, currentNewCell, p_allRooms);
                 }
             }
         }
@@ -379,11 +438,60 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
         {
             if (p_placedCell.m_gridIndex.x - 1 >= 0)
             {
-                if (!p_allCells[p_placedCell.m_gridIndex.x - 1].m_gridColumn[p_placedCell.m_gridIndex.y].m_isRoom &&
-                !p_allCells[p_placedCell.m_gridIndex.x - 1].m_gridColumn[p_placedCell.m_gridIndex.y].m_isConnectionPoint)
+                currentNewCell = p_allCells[p_placedCell.m_gridIndex.x - 1].m_gridColumn[p_placedCell.m_gridIndex.y];
+                if (!currentNewCell.m_isRoom &&
+                !currentNewCell.m_isConnectionPoint)
                 {
-                    CreateConnectionPoint(ref p_floorLayout, ref p_allCells, p_allCells[p_placedCell.m_gridIndex.x - 1].m_gridColumn[p_placedCell.m_gridIndex.y], p_cellSize);
-                    //Debug.Log("New Connection Point: " + new Vector2(worldPos.x, -worldPos.y));
+                    p_allCells[p_placedCell.m_gridIndex.x - 1].m_gridColumn[p_placedCell.m_gridIndex.y].m_isConnectionPoint = true;
+                    AdjustSurroundingRooms(ref p_allCells, currentNewCell, p_allRooms);
+                }
+            }
+        }
+    }
+
+    private void AdjustSurroundingRooms(ref List<DungeonCellGridRow> p_allCells, CellGridData p_currentCell, List<DungeonGeneration_RoomLayout> p_allRooms)
+    {
+
+        for (int x = -1; x < 2; x++)
+        {
+            for (int y = -1; y < 2; y++)
+            {
+                if (x == 0 && y == 0) continue;
+                if (p_currentCell.m_gridIndex.x + x >= p_allCells.Count || p_currentCell.m_gridIndex.x + x < 0) continue;
+                if (p_currentCell.m_gridIndex.y + y >= p_allCells[p_currentCell.m_gridIndex.x + x].m_gridColumn.Count || p_currentCell.m_gridIndex.y + y < 0) continue;
+
+                if (x == 1 && y != 0 || x == -1 && y != 0) continue;
+                if (x != 0 && y == 1 || x != 0 && y == -1) continue;
+
+                CellGridData cell = p_allCells[p_currentCell.m_gridIndex.x + x].m_gridColumn[p_currentCell.m_gridIndex.y + y];
+                if (!cell.m_isRoom || cell.m_roomLayout == null) continue;
+                if (x == -1)
+                {
+                    if (!cell.m_roomLayout.m_eastExit)
+                    {
+                        p_allCells[p_currentCell.m_gridIndex.x + x].m_gridColumn[p_currentCell.m_gridIndex.y + y].m_roomLayout = GetCellBasedRoom(p_allRooms, p_allCells, cell);
+                    }
+                }
+                else if (x == 1)
+                {
+                    if (!cell.m_roomLayout.m_westExit)
+                    {
+                        p_allCells[p_currentCell.m_gridIndex.x + x].m_gridColumn[p_currentCell.m_gridIndex.y + y].m_roomLayout = GetCellBasedRoom(p_allRooms, p_allCells, cell);
+                    }
+                }
+                else if (y == -1)
+                {
+                    if (!cell.m_roomLayout.m_southExit)
+                    {
+                        p_allCells[p_currentCell.m_gridIndex.x + x].m_gridColumn[p_currentCell.m_gridIndex.y + y].m_roomLayout = GetCellBasedRoom(p_allRooms, p_allCells, cell);
+                    }
+                }
+                else if (y == 1)
+                {
+                    if (!cell.m_roomLayout.m_northExit)
+                    {
+                        p_allCells[p_currentCell.m_gridIndex.x + x].m_gridColumn[p_currentCell.m_gridIndex.y + y].m_roomLayout = GetCellBasedRoom(p_allRooms, p_allCells, cell);
+                    }
                 }
             }
         }
@@ -409,9 +517,9 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
                         if (!currentCell.m_connectedCells.Contains(newCell.m_gridIndex))
                         {
 
-                            p_allCells[p_checkData.m_gridIndex.x].m_gridColumn[p_checkData.m_gridIndex.y].m_connectedCells.Add (newCell.m_gridIndex);
+                            p_allCells[p_checkData.m_gridIndex.x].m_gridColumn[p_checkData.m_gridIndex.y].m_connectedCells.Add(newCell.m_gridIndex);
 
-                            p_allCells[p_checkData.m_gridIndex.x].m_gridColumn[p_checkData.m_gridIndex.y - 1].m_connectedCells.Add (currentCell.m_gridIndex);
+                            p_allCells[p_checkData.m_gridIndex.x].m_gridColumn[p_checkData.m_gridIndex.y - 1].m_connectedCells.Add(currentCell.m_gridIndex);
                         }
                     }
                 }
@@ -434,7 +542,7 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
 
                     if (connect)
                     {
-                        if (!currentCell.m_connectedCells.Contains (newCell.m_gridIndex))
+                        if (!currentCell.m_connectedCells.Contains(newCell.m_gridIndex))
                         {
                             p_allCells[p_checkData.m_gridIndex.x].m_gridColumn[p_checkData.m_gridIndex.y].m_connectedCells.Add
                                 (newCell.m_gridIndex);
@@ -468,8 +576,8 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
                         if (!currentCell.m_connectedCells.Contains
                         (newCell.m_gridIndex))
                         {
-                            p_allCells[p_checkData.m_gridIndex.x].m_gridColumn[p_checkData.m_gridIndex.y].m_connectedCells.Add (newCell.m_gridIndex);
-                            p_allCells[p_checkData.m_gridIndex.x + 1].m_gridColumn[p_checkData.m_gridIndex.y].m_connectedCells.Add (currentCell.m_gridIndex);
+                            p_allCells[p_checkData.m_gridIndex.x].m_gridColumn[p_checkData.m_gridIndex.y].m_connectedCells.Add(newCell.m_gridIndex);
+                            p_allCells[p_checkData.m_gridIndex.x + 1].m_gridColumn[p_checkData.m_gridIndex.y].m_connectedCells.Add(currentCell.m_gridIndex);
                         }
                     }
                 }
@@ -497,8 +605,8 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
                         if (!newCell.m_connectedCells.Contains
                         (newCell.m_gridIndex))
                         {
-                            p_allCells[p_checkData.m_gridIndex.x].m_gridColumn[p_checkData.m_gridIndex.y].m_connectedCells.Add (newCell.m_gridIndex);
-                            p_allCells[p_checkData.m_gridIndex.x - 1].m_gridColumn[p_checkData.m_gridIndex.y].m_connectedCells.Add (currentCell.m_gridIndex);
+                            p_allCells[p_checkData.m_gridIndex.x].m_gridColumn[p_checkData.m_gridIndex.y].m_connectedCells.Add(newCell.m_gridIndex);
+                            p_allCells[p_checkData.m_gridIndex.x - 1].m_gridColumn[p_checkData.m_gridIndex.y].m_connectedCells.Add(currentCell.m_gridIndex);
                         }
                     }
                 }
@@ -512,9 +620,11 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
     {
         ///Getting some padding
         Vector2Int bounds = new Vector2Int(p_cellSize.x - 3, p_cellSize.x - 3);
-        Vector2Int worldPos = new Vector2Int(p_cellData.m_gridIndex.x * p_cellSize.x + (p_cellSize.x / 2) /*+ Random.Range(-bounds.x, bounds.x)*/, 
+        Vector2Int worldPos = new Vector2Int(p_cellData.m_gridIndex.x * p_cellSize.x + (p_cellSize.x / 2) /*+ Random.Range(-bounds.x, bounds.x)*/,
             -((p_cellData.m_gridIndex.y) * p_cellSize.y + (p_cellSize.y / 2) /*+ Random.Range(-bounds.y, bounds.y)*/));
         p_floorLayout[worldPos.x, -worldPos.y] = 1;
+
+
 
         p_allCells[p_cellData.m_gridIndex.x].m_gridColumn[p_cellData.m_gridIndex.y].m_northConnectionPoint =
         p_allCells[p_cellData.m_gridIndex.x].m_gridColumn[p_cellData.m_gridIndex.y].m_southConnectionPoint =
@@ -525,7 +635,7 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
         p_allCells[p_cellData.m_gridIndex.x].m_gridColumn[p_cellData.m_gridIndex.y].m_isConnectionPoint = true;
     }
 
-    private void CreateHallway(ref int[,] p_floorLayout, Vector2Int p_startPos, Vector2Int p_endPos)
+    private void CreateHallway(ref int[,] p_floorLayout, Vector2Int p_startPos, Vector2Int p_endPos, bool p_horizontal)
     {
         int disX = (p_endPos.x - p_startPos.x);
         int disY = (p_endPos.y - p_startPos.y);
@@ -538,7 +648,7 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
 
         int curX = p_startPos.x;
         int curY = p_startPos.y;
-        if (disX >= disY)
+        if (p_horizontal)
         {
             for (int x = 0; x < Mathf.Abs(disX) + 1; x++)
             {
@@ -558,14 +668,18 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
                 {
                     if (curX > 2)
                     {
+
                         if (Random.Range(0f, ((float)x / (float)dirX)) > .5f)
                         {
+
                             isTurning = true;
+
                         }
                         if (x + 2 == Mathf.Abs(disX))
                         {
                             isTurning = true;
                         }
+
                     }
                 }
             }
@@ -591,10 +705,12 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
                 {
                     if (curY > 2)
                     {
-                        Debug.Log("CurY: " + curY + " | DisY: " + disY + " | disX: " + disX );
+
                         if (Random.Range(0f, ((float)y / (float)dirY)) > .5f)
                         {
+
                             isTurning = true;
+
                         }
 
                         if (y + 2 == Mathf.Abs(disY))
