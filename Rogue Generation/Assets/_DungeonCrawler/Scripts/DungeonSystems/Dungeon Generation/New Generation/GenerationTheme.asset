@@ -22,12 +22,21 @@ MonoBehaviour:
     m_cellSize: {x: 15, y: 15}
     m_layoutType: {fileID: 11400000, guid: e3eeba4d9b4878b48823647850a531c7, type: 2}
     m_roomTypesInDungeon:
-    - {fileID: 11400000, guid: 85b630f25c1245b40b6793a8ddcaac5b, type: 2}
-    - {fileID: 11400000, guid: 2f4f40bcbbd2a93459daccfb25df01f9, type: 2}
-    - {fileID: 11400000, guid: 15d676881a0af7d478e5631cc687e129, type: 2}
-    - {fileID: 11400000, guid: e8c147c7369dad04cbdcbc6482facd0f, type: 2}
+    - {fileID: 11400000, guid: dac1569262cc73d41a669310edb50a9d, type: 2}
+    - {fileID: 11400000, guid: be15fe083f0596e4c8cb4add7297a37b, type: 2}
+    - {fileID: 11400000, guid: 0bf3f1b8e0ba7494482dbd813de1357d, type: 2}
+    - {fileID: 11400000, guid: 46685e3ab84f65843861ba2b897c25ad, type: 2}
     - {fileID: 11400000, guid: cdcb0faaadf8caf4e97eb2333fd12bdc, type: 2}
+    - {fileID: 11400000, guid: 85b630f25c1245b40b6793a8ddcaac5b, type: 2}
+    - {fileID: 11400000, guid: 5dc8f3863aa59f2468a0d31a8f5815f4, type: 2}
     - {fileID: 11400000, guid: 97a74b9917a405b4bb28899578cae774, type: 2}
+    - {fileID: 11400000, guid: b0dc0ba9102fadf4d86f692b64b7dbb1, type: 2}
+    - {fileID: 11400000, guid: e66642a3e5901c342ac75caf81b25423, type: 2}
+    - {fileID: 11400000, guid: 8757d4b99b9b13d41a835a8481c71000, type: 2}
+    - {fileID: 11400000, guid: 2f4f40bcbbd2a93459daccfb25df01f9, type: 2}
+    - {fileID: 11400000, guid: e8c147c7369dad04cbdcbc6482facd0f, type: 2}
+    - {fileID: 11400000, guid: 15d676881a0af7d478e5631cc687e129, type: 2}
+    - {fileID: 11400000, guid: 9dfc2fb9dbe93a549913a8a357f97770, type: 2}
   m_connectionTypesInDungeon:
   - {fileID: 11400000, guid: f2da64364f4906c45bd3beb887652734, type: 2}
   - {fileID: 11400000, guid: 68adfe6d9f3cd364d8a69e34c2c958cb, type: 2}
