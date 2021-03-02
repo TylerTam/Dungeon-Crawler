@@ -528,6 +528,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1878328986}
   - component: {fileID: 1878328987}
+  - component: {fileID: 1878328988}
+  - component: {fileID: 1878328989}
   m_Layer: 0
   m_Name: DungeonGen
   m_TagString: Untagged
@@ -565,11 +567,14 @@ MonoBehaviour:
   m_floorTilemap: {fileID: 1970489734}
   m_wallTilemap: {fileID: 934170036}
   m_dungeonTheme: {fileID: 11400000, guid: 24e3ce03d437af641843307f9ffa3ecd, type: 2}
+  m_navGrid: {fileID: 1878328988}
+  m_checkAgent: {fileID: 1878328989}
   m_floorData:
+    m_allRooms: []
     m_cellGrid: []
   m_generate: 0
   m_dungeonCellGrid: []
-  m_debug: 1
+  m_debug: 0
   m_xColor:
     serializedVersion: 2
     key0: {r: 1, g: 0.61547077, b: 0, a: 0.5019608}
@@ -628,9 +633,42 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  m_debugGeneralFloorSize: 0
   m_generalFloorSize: {x: 75, y: 60}
   m_generalFloorDebugColor: {r: 0, g: 1, b: 0.44900656, a: 0.21960784}
   m_currentFloor: 0
+--- !u!114 &1878328988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878328985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e0fb89104b14c438d0d155bb9e22c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_nodeRadius: 0.5
+  m_displayGizmos: 1
+  m_unwalkableColor: {r: 1, g: 0, b: 0, a: 1}
+  m_walkableColor: {r: 0, g: 1, b: 0.23288822, a: 1}
+  m_connectionColor: {r: 0, g: 0.42676473, b: 1, a: 1}
+--- !u!114 &1878328989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878328985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08dd3458956483c4dab9f1dc428df16a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navGrid: {fileID: 0}
+  m_drawDebugTools: 0
+  m_pathColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1960685614
 GameObject:
   m_ObjectHideFlags: 0

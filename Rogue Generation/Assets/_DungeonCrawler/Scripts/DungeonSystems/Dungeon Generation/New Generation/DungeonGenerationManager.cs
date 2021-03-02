@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class DungeonGenerationManager : MonoBehaviour
 {
 
@@ -13,6 +14,8 @@ public class DungeonGenerationManager : MonoBehaviour
 
     [Header("Dungeon Type")]
     public DungeonGeneration_Theme m_dungeonTheme;
+    public DungeonNavigation m_navGrid;
+    public DungeonNavigation_Agent m_checkAgent;
 
     [Header("Generated Data")]
     public FloorData m_floorData;
@@ -29,6 +32,7 @@ public class DungeonGenerationManager : MonoBehaviour
     [Header("Runtime Variables")]
     public int m_currentFloor;
 
+
     private void Update()
     {
         if (m_generate)
@@ -42,10 +46,38 @@ public class DungeonGenerationManager : MonoBehaviour
     {
         m_floorTilemap.ClearAllTiles();
         m_wallTilemap.ClearAllTiles();
-        m_floorData = m_dungeonTheme.GenerateFloor(m_currentFloor);
-        m_dungeonTheme.PaintDungeon(m_floorData.m_floorLayout, m_wallTilemap, m_floorTilemap);
+        StartCoroutine(GenerateDungeon());
+
     }
 
+    private IEnumerator GenerateDungeon()
+    {
+        bool canPass = false;
+        while (!canPass)
+        {
+            m_floorData = m_dungeonTheme.GenerateFloor(m_currentFloor);
+            m_navGrid.GenerateGrid(m_floorData.m_floorLayout);
+
+
+
+            for (int i = 1; i < m_floorData.m_allRooms.Count; i++)
+            {
+                if (m_checkAgent.CreatePath((Vector2)m_floorData.m_allRooms[0].m_roomCenterWorldPos, (Vector2)m_floorData.m_allRooms[i].m_roomCenterWorldPos) == null)
+                {
+                    //yield return new WaitForSeconds(0.5f);
+                    canPass = false;
+                    break;
+                }
+                else
+                {
+                    //canPass = true;
+                    
+                }
+            }
+            yield return null;
+        }
+        m_dungeonTheme.PaintDungeon(m_floorData.m_floorLayout, m_wallTilemap, m_floorTilemap);
+    }
 
     private void OnDrawGizmos()
     {
@@ -83,10 +115,15 @@ public class FloorData
     public List<DungeonCellGridRow> m_cellGrid;
 
 }
+[System.Serializable]
 public class RoomData
 {
     public int m_roomIndex;
+    public Vector2Int m_roomCellIndex;
     public List<Vector2Int> m_enemySpawnLocations;
+    public List<Vector2Int> m_itemSpawnLocations;
+    public List<Vector2Int> m_trapSpawnLocations;
+    public Vector2Int m_roomCenterWorldPos;
 }
 
 [System.Serializable]

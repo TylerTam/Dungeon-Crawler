@@ -7,58 +7,28 @@ public class DungeonNavigation : MonoBehaviour
 {
     #region  variables
     [Header("Grid Variables")]
-    public bool testGrid;
-
-    public LayerMask m_terrain;
-    public Vector2 m_gridWorldSize;
-    public Vector3 m_gridOrigin;
     public float m_nodeRadius;
     Node[,] m_grid;
     float m_nodeDiameter;
     Vector2Int m_gridSize;
     #endregion
 
-
-    #region Gizmos Settings
-    [Header("Debug Settings")]
-    public bool m_onlyDisplayPath;
-    public bool m_displayGizmos;
-    public Color m_unwalkableColor, m_walkableColor;
-    public bool m_recalculatePath;
-
-#if UNITY_EDITOR
-    private void Update()
-    {
-        if (m_recalculatePath)
-        {
-            m_recalculatePath = false;
-            CreateGrid();
-        }
-    }
-#endif
-    #endregion
+    public static DungeonNavigation Instance;
     private void Awake()
     {
-        if (testGrid)
-        {
-            CreateGrid();
-        }
+        Instance = this;
     }
 
-    public void CreateGrid()
+    public void GenerateGrid(int[,] p_gridData = null)
     {
         m_gridSize = new Vector2Int();
         m_nodeDiameter = m_nodeRadius * 2;
 
         //So that no node is half off the space
-        m_gridSize.x = Mathf.RoundToInt(m_gridWorldSize.x / m_nodeDiameter);
-        m_gridSize.y = Mathf.RoundToInt(m_gridWorldSize.y / m_nodeDiameter);
-
-
+        m_gridSize.x = p_gridData.GetLength(0);
+        m_gridSize.y = p_gridData.GetLength(1);
         m_grid = new Node[m_gridSize.x, m_gridSize.y];
 
-        //start at the bottom left of the m_grid
-        Vector3 worldBottomLeft = m_gridOrigin - Vector3.right * m_gridWorldSize.x / 2 - Vector3.up * m_gridWorldSize.y / 2;
         for (int x = 0; x < m_gridSize.x; x++)
         {
             for (int y = 0; y < m_gridSize.y; y++)
@@ -66,14 +36,29 @@ public class DungeonNavigation : MonoBehaviour
 
                 //Get the world point of the current node, using the bottom left
                 //Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + m_nodeRadius) + Vector3.forward * (y * nodeDiameter + m_nodeRadius);
-                Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * m_nodeDiameter + m_nodeRadius) + Vector3.up * (y * m_nodeDiameter + m_nodeRadius);
-                bool isWalkable = !(Physics2D.OverlapCircle(worldPoint, .1f, m_terrain));//!(Physics2D.OverlapCircle(worldPoint, m_nodeRadius, m_terrain));
+                Vector3 worldPoint = new Vector3((x + 0.5f) * m_nodeDiameter, -(y + 0.5f) * m_nodeDiameter, 0);
+                bool isWalkable = p_gridData[x, y] >= GlobalVariables.m_startingWalkable;//!(Physics2D.OverlapCircle(worldPoint, m_nodeRadius, m_terrain));
                 m_grid[x, y] = new Node(isWalkable, worldPoint, x, y);
-
             }
         }
 
+        for (int x = 0; x < m_gridSize.x; x++)
+        {
+            for (int y = 0; y < m_gridSize.y; y++)
+            {
+                if (m_grid[x, y].m_walkable)
+                {
+                    m_grid[x, y].m_neighbors = GetNeighbours(m_grid[x, y]);
+                }
+                else
+                {
+                    m_grid[x, y].m_neighbors = new List<Node>();
+                }
+            }
+        }
     }
+
+
 
 
     public int MaxSize
@@ -85,23 +70,6 @@ public class DungeonNavigation : MonoBehaviour
     }
 
 
-    private void OnDrawGizmos()
-    {
-        if (!m_displayGizmos) return;
-        Gizmos.DrawWireCube(m_gridOrigin, new Vector3(m_gridWorldSize.x, m_gridWorldSize.y, 1));
-
-
-        if (m_grid != null)
-        {
-            foreach (Node n in m_grid)
-            {
-
-                Gizmos.color = (n.m_walkable) ? m_walkableColor : m_unwalkableColor;
-                Gizmos.DrawCube(n.worldPosition, Vector3.one * (m_nodeDiameter - .1f));
-            }
-        }
-
-    }
 
     public List<Node> GetNeighbours(Node node)
     {
@@ -159,15 +127,6 @@ public class DungeonNavigation : MonoBehaviour
                             }
                         }
                     }
-                    /*
-                    ///Why is this a raycast?
-                    ///This was causing a memory overload, as it was being generated for a large path, for a few agents, hence overload.
-                    ///Commeneted out, but not deelted, incase something arises later, and this may be able to help.
-                    ///
-                    if (!Physics2D.Raycast(node.worldPosition, m_grid[checkX, checkY].worldPosition - node.worldPosition, new Vector2(x, y).magnitude, m_terrain))
-                    {
-                        neighbours.Add(m_grid[checkX, checkY]);
-                    }*/
                 }
             }
         }
@@ -178,36 +137,49 @@ public class DungeonNavigation : MonoBehaviour
     //Called to gather a node using a world point
     public Node NodeFromWorldPoint(Vector3 p_worldPos)
     {
-
-
-        float percentX = (p_worldPos.x - m_gridOrigin.x + m_gridWorldSize.x / 2) / m_gridWorldSize.x;
-        float percentY = (p_worldPos.y - m_gridOrigin.y + m_gridWorldSize.y / 2) / m_gridWorldSize.y;
-
-        //Create the percentage of the current position on the m_nodeGrid
-        percentX = Mathf.Clamp01(percentX);
-        percentY = Mathf.Clamp01(percentY);
-
-        //Calculate the actual positon, into an int
-        int x = Mathf.RoundToInt((m_gridSize.x - 1) * percentX);
-        int y = Mathf.RoundToInt((m_gridSize.y - 1) * percentY);
-        return m_grid[x, y];
+        return m_grid[(int)p_worldPos.x, (int)p_worldPos.y];
     }
     public Vector3 NodeToWorldPoint(Node navNode)
     {
-        for (int x = 0; x < m_gridSize.x; x++)
-        {
-            for (int y = 0; y < m_gridSize.y; y++)
-            {
-                if (m_grid[x, y] == navNode)
-                {
-                    float xPos = (x * m_nodeDiameter) - m_gridWorldSize.x / 2;
-                    float yPos = (y * m_nodeDiameter) - m_gridWorldSize.y / 2;
-                    return new Vector3(xPos, 0f, yPos);
-                }
-            }
-        }
+        return (Vector3)(Vector2)navNode.m_gridPos + new Vector3(0.5f, 0.5f, 0);
         Debug.Log("Node does not exist in current m_grid. Defaulting to origin");
         return Vector3.zero;
+    }
+
+
+
+    #region Gizmos Settings
+    [Header("Debug Settings")]
+    public bool m_displayGizmos;
+    public Color m_unwalkableColor, m_walkableColor;
+    public Color m_connectionColor;
+
+    #endregion
+
+    private void OnDrawGizmos()
+    {
+        if (!m_displayGizmos) return;
+        //Gizmos.DrawWireCube(m_gridOrigin, new Vector3(m_gridWorldSize.x, m_gridWorldSize.y, 1));
+
+
+        if (m_grid != null)
+        {
+            foreach (Node n in m_grid)
+            {
+
+                Gizmos.color = (n.m_walkable) ? m_walkableColor : m_unwalkableColor;
+                Gizmos.DrawCube(n.worldPosition, Vector3.one * (m_nodeDiameter - .1f));
+                Gizmos.color = m_connectionColor;
+
+                foreach (Node nei in n.m_neighbors)
+                {
+                    Gizmos.DrawLine(n.worldPosition, nei.worldPosition);
+                }
+
+
+            }
+        }
+
     }
 
 
@@ -219,6 +191,7 @@ public class Node : IHeapItem<Node>
     public Vector2Int m_gridPos;
     public int m_gCost, m_hCost;
     public Node m_parent;
+    public List<Node> m_neighbors;
     int heapIndex;
 
     public Node(bool m_walkable, Vector3 p_worldPos, int p_gridX, int p_gridY)

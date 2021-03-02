@@ -36,15 +36,11 @@ public class DungeonGeneration_Theme : ScriptableObject
             {
                 if (p_floorLayout[x, y] == 0)
                 {
-                    p_wallTilemap.SetTile(new Vector3Int(x, -y, 0), m_wallTile);
+                    p_wallTilemap.SetTile(new Vector3Int(x, -y-1, 0), m_wallTile);
                 }
-                else if (p_floorLayout[x, y] == 1)
+                else if (p_floorLayout[x, y] >= GlobalVariables.m_startingWalkable)
                 {
-                    p_floorTilemap.SetTile(new Vector3Int(x, -y, 0), m_floorTile);
-                }else if (p_floorLayout[x, y] == 3)
-                {
-                    
-                    p_floorTilemap.SetTile(new Vector3Int(x, -y, 0), m_debugTile);
+                    p_floorTilemap.SetTile(new Vector3Int(x, -y-1, 0), m_floorTile);
                 }
             }
         }

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class DungeonNavigation_Agent : MonoBehaviour
@@ -12,7 +11,7 @@ public class DungeonNavigation_Agent : MonoBehaviour
     public Color m_pathColor;
     private void Start()
     {
-        navGrid = DungeonManager.Instance.GetComponent<DungeonNavigation>();
+        navGrid = DungeonNavigation.Instance;
 
     }
 

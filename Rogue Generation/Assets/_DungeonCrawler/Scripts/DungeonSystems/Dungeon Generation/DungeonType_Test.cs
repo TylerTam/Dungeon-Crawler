@@ -198,9 +198,9 @@ public class DungeonType_Test : DungeonType_Base
             }
         }
 
-        p_dungeonNav.m_gridWorldSize = new Vector2(m_cellSize.x * m_cellsInDungeon.x, m_cellSize.y * m_cellsInDungeon.y);
+        /*p_dungeonNav.m_gridWorldSize = new Vector2(m_cellSize.x * m_cellsInDungeon.x, m_cellSize.y * m_cellsInDungeon.y);
         p_dungeonNav.m_gridOrigin = p_dungeonNav.m_gridWorldSize / 2;
-        p_dungeonNav.CreateGrid();
+        p_dungeonNav.GenerateGrid();*/
         return returningRoomCells;
 
     }

@@ -8,8 +8,10 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
 
     public FloorData GenerateArray(List<DungeonGeneration_RoomLayout> p_rooms, List<DungeonGeneration_RoomLayout> p_connections, Vector2Int p_cellAmount, Vector2Int p_cellSize, int p_roomAmount, int p_connectionAmount)
     {
-        int[,] floorLayout = new int[p_cellAmount.x * p_cellSize.y, p_cellAmount.y * p_cellSize.y];
         FloorData currentFloorData = new FloorData();
+        currentFloorData.m_allRooms = new List<RoomData>();
+
+        int[,] floorLayout = new int[p_cellAmount.x * p_cellSize.y, p_cellAmount.y * p_cellSize.y];
 
         List<DungeonCellGridRow> cellGridRow = new List<DungeonCellGridRow>();
 
@@ -96,10 +98,14 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
             Vector2Int worldPos = new Vector2Int(cell.m_gridIndex.x * p_cellSize.x + randomOffset.x + cell.m_roomLayout.m_roomGridData.Count / 2,
                 cell.m_gridIndex.y * p_cellSize.y + randomOffset.y + cell.m_roomLayout.m_roomGridData[0].m_roomRowData.Count / 2);
 
+            RoomData newRoom = new RoomData();
+            newRoom.m_roomCenterWorldPos = worldPos;
+
             if (cell.m_roomLayout != null)
             {
-                cell.m_roomLayout.UpdateFloorLayoutWithRoom(ref floorLayout, worldPos, ref cell);
+                newRoom = cell.m_roomLayout.UpdateFloorLayoutWithRoom(ref floorLayout, worldPos, ref cell, currentFloorData.m_allRooms.Count);
             }
+            currentFloorData.m_allRooms.Add(newRoom);
         }
 
 
@@ -365,7 +371,11 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
 
             if (needWest && !room.m_westExit) continue;
 
+            if (p_cellData.m_gridIndex.x == 0 && room.m_westExit) continue;
+            if (p_cellData.m_gridIndex.x == p_allCells.Count - 1 && room.m_eastExit) continue;
 
+            if (p_cellData.m_gridIndex.y == 0 && room.m_northExit) continue;
+            if (p_cellData.m_gridIndex.y == p_allCells[0].m_gridColumn.Count - 1 && room.m_southExit) continue;
 
 
             if (canAddRoom)
@@ -614,25 +624,6 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
             }
         }
 
-    }
-
-    private void CreateConnectionPoint(ref int[,] p_floorLayout, ref List<DungeonCellGridRow> p_allCells, CellGridData p_cellData, Vector2Int p_cellSize)
-    {
-        ///Getting some padding
-        Vector2Int bounds = new Vector2Int(p_cellSize.x - 3, p_cellSize.x - 3);
-        Vector2Int worldPos = new Vector2Int(p_cellData.m_gridIndex.x * p_cellSize.x + (p_cellSize.x / 2) /*+ Random.Range(-bounds.x, bounds.x)*/,
-            -((p_cellData.m_gridIndex.y) * p_cellSize.y + (p_cellSize.y / 2) /*+ Random.Range(-bounds.y, bounds.y)*/));
-        p_floorLayout[worldPos.x, -worldPos.y] = 1;
-
-
-
-        p_allCells[p_cellData.m_gridIndex.x].m_gridColumn[p_cellData.m_gridIndex.y].m_northConnectionPoint =
-        p_allCells[p_cellData.m_gridIndex.x].m_gridColumn[p_cellData.m_gridIndex.y].m_southConnectionPoint =
-        p_allCells[p_cellData.m_gridIndex.x].m_gridColumn[p_cellData.m_gridIndex.y].m_eastConnectionPoint =
-        p_allCells[p_cellData.m_gridIndex.x].m_gridColumn[p_cellData.m_gridIndex.y].m_westConnectionPoint = new Vector2Int(worldPos.x, Mathf.Abs(worldPos.y));
-
-
-        p_allCells[p_cellData.m_gridIndex.x].m_gridColumn[p_cellData.m_gridIndex.y].m_isConnectionPoint = true;
     }
 
     private void CreateHallway(ref int[,] p_floorLayout, Vector2Int p_startPos, Vector2Int p_endPos, bool p_horizontal)

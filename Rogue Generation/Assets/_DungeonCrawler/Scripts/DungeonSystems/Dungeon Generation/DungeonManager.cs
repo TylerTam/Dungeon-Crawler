@@ -90,7 +90,7 @@ public class DungeonManager : MonoBehaviour
 
     private IEnumerator CheckDungeonConnection()
     {
-        bool mapSuccess = false;
+        /*bool mapSuccess = false;
 
         while (!mapSuccess)
         {
@@ -115,7 +115,7 @@ public class DungeonManager : MonoBehaviour
 
             m_dungeonNav.m_gridWorldSize = new Vector2(m_dungeonTheme.m_generationTypes[m_dungeonGenTypeIndex].m_cellSize.x * m_dungeonTheme.m_generationTypes[m_dungeonGenTypeIndex].m_cellsInDungeon.x, m_dungeonTheme.m_generationTypes[m_dungeonGenTypeIndex].m_cellSize.y * m_dungeonTheme.m_generationTypes[m_dungeonGenTypeIndex].m_cellsInDungeon.y);
             m_dungeonNav.m_gridOrigin = m_dungeonNav.m_gridWorldSize / 2;
-            m_dungeonNav.CreateGrid();
+            m_dungeonNav.GenerateGrid();
             Vector3 startPoint = m_allRooms[0].m_worldPos;
             bool roomFailed = false;
             for (int i = 1; i < m_allRooms.Count; i++)
@@ -134,42 +134,43 @@ public class DungeonManager : MonoBehaviour
              */
 
 
-            /*if (roomFailed)
-            {
-                m_floorTiles.color = Color.red;
-                yield return new WaitForSeconds(.25f);
-            }
-            yield return new WaitForSeconds(.1f);
-            m_floorTiles.color = Color.white;*/
-            //mapSuccess = false;
-
-        }
-        List<int> removeIndex = new List<int>();
-        for (int i = 0; i < m_hallwayPoints.Count; i++)
+        /*if (roomFailed)
         {
-            if (m_hallwayPoints[i].m_connectedTo.Count == 0)
-            {
-                Debug.LogWarning("Hallway point: " + m_hallwayPoints[i].m_worldPos + " is not connected to anything. Removing");
-                removeIndex.Add(i);
-            }
+            m_floorTiles.color = Color.red;
+            yield return new WaitForSeconds(.25f);
         }
-        removeIndex.Reverse();
-        foreach (int i in removeIndex)
+        yield return new WaitForSeconds(.1f);
+        m_floorTiles.color = Color.white;
+        //mapSuccess = false;
+
+    }
+    List<int> removeIndex = new List<int>();
+    for (int i = 0; i < m_hallwayPoints.Count; i++)
+    {
+        if (m_hallwayPoints[i].m_connectedTo.Count == 0)
         {
-            m_hallwayPoints.RemoveAt(i);
+            Debug.LogWarning("Hallway point: " + m_hallwayPoints[i].m_worldPos + " is not connected to anything. Removing");
+            removeIndex.Add(i);
         }
-        m_occupiedSpaces.Clear();
+    }
+    removeIndex.Reverse();
+    foreach (int i in removeIndex)
+    {
+        m_hallwayPoints.RemoveAt(i);
+    }
+    m_occupiedSpaces.Clear();
 
-        Vector2 randomPos = RandomSpawnPosition(m_allRooms);
-        m_playerObject.transform.position = randomPos;
-        m_occupiedSpaces.Add(randomPos);
+    Vector2 randomPos = RandomSpawnPosition(m_allRooms);
+    m_playerObject.transform.position = randomPos;
+    m_occupiedSpaces.Add(randomPos);
 
-        randomPos = RandomSpawnPosition(m_allRooms);
-        m_staircase.transform.position = randomPos;
-        m_occupiedSpaces.Add(randomPos);
+    randomPos = RandomSpawnPosition(m_allRooms);
+    m_staircase.transform.position = randomPos;
+    m_occupiedSpaces.Add(randomPos);
 
-        m_playerInput.m_canPerform = true;
-
+    m_playerInput.m_canPerform = true;
+    */
+        yield return null;
     }
 
     private Vector2 RandomSpawnPosition(List<DungeonGridCell> m_possibleRooms)
