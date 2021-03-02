@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DungeonGenerationManager : MonoBehaviour
 {
-
+    public static DungeonGenerationManager Instance;
 
     [Header("Unchanged Variables")]
     public float m_cellWorldSize = 1;
@@ -19,8 +19,13 @@ public class DungeonGenerationManager : MonoBehaviour
 
     [Header("Generated Data")]
     public FloorData m_floorData;
-    public bool m_generate = false;
     public List<DungeonCellGridRow> m_dungeonCellGrid;
+
+
+
+    [Header("Runtime Variables")]
+    public int m_currentFloor;
+
 
     [Header("Debugging")]
     public bool m_debug;
@@ -29,12 +34,23 @@ public class DungeonGenerationManager : MonoBehaviour
     public Vector2Int m_generalFloorSize;
     public Color m_generalFloorDebugColor;
 
-    [Header("Runtime Variables")]
-    public int m_currentFloor;
+    public bool m_isDebuggingFloorGeneration;
+    public bool m_generate = false;
 
-
+    //Used to keep track of entities
+    //Used to replace raycasts check, and to check this 2d array instead for detection
+    public int[,] m_runtimeGridOccupancy;
+    private void Awake()
+    {
+        Instance = this;
+    }
+    private void Start()
+    {
+        GenerateFloor();
+    }
     private void Update()
     {
+        if (!m_isDebuggingFloorGeneration) return;
         if (m_generate)
         {
             GenerateFloor();
@@ -46,11 +62,11 @@ public class DungeonGenerationManager : MonoBehaviour
     {
         m_floorTilemap.ClearAllTiles();
         m_wallTilemap.ClearAllTiles();
-        StartCoroutine(GenerateDungeon());
+        StartCoroutine(GenerationCoroutine());
 
     }
 
-    private IEnumerator GenerateDungeon()
+    private IEnumerator GenerationCoroutine()
     {
         bool canPass = false;
         while (!canPass)
@@ -70,13 +86,42 @@ public class DungeonGenerationManager : MonoBehaviour
                 }
                 else
                 {
-                    //canPass = true;
-                    
+                    canPass = true;
+
                 }
             }
             yield return null;
         }
         m_dungeonTheme.PaintDungeon(m_floorData.m_floorLayout, m_wallTilemap, m_floorTilemap);
+
+
+        int currentRoomIndex = Random.Range(0, m_floorData.m_allRooms.Count);
+        Vector3 newPos = Vector3.zero;
+        for (int i = 0; i < PlayerDungeonManager.Instance.m_playerTeam.Count; i++)
+        {
+            newPos = (Vector2)(m_floorData.m_allRooms[currentRoomIndex].m_roomCenterWorldPos + m_floorData.m_allRooms[currentRoomIndex].m_enemySpawnLocations[Random.Range(0, m_floorData.m_allRooms[currentRoomIndex].m_enemySpawnLocations.Count)]);
+            newPos = new Vector3(newPos.x + 0.5f, -newPos.y - 0.5f, 0);
+
+
+            PlayerDungeonManager.Instance.m_playerTeam[i].transform.position = newPos;
+        }
+        currentRoomIndex = Random.Range(0, m_floorData.m_allRooms.Count);
+
+        newPos = (Vector2)(m_floorData.m_allRooms[currentRoomIndex].m_roomCenterWorldPos + m_floorData.m_allRooms[currentRoomIndex].m_enemySpawnLocations[Random.Range(0, m_floorData.m_allRooms[currentRoomIndex].m_enemySpawnLocations.Count)]);
+        newPos = new Vector3(newPos.x + 0.5f, -newPos.y - 0.5f, 0);
+        FloorObject_Staircase.Instance.transform.position = newPos;
+    }
+
+    public void NewFloor()
+    {
+        ///Disable turn based movement
+        ///
+        ///Fade to black;
+        ///
+        GenerateFloor();
+        ///
+        ///Fade out black
+        ///
     }
 
     private void OnDrawGizmos()

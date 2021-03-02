@@ -546,12 +546,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183460548}
   m_CullTransparentMesh: 0
---- !u!1 &259538141 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4597749072606483144, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
-    type: 3}
-  m_PrefabInstance: {fileID: 4597749072360599061}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &259538142 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4597749072606483146, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
@@ -564,7 +558,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 4597749072360599061}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 259538141}
+  m_GameObject: {fileID: 1069362447}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d96cf0d6613b6c847ae977e326e0da0b, type: 3}
@@ -576,7 +570,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 4597749072360599061}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 259538141}
+  m_GameObject: {fileID: 1069362447}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 960a48094fc700446a983261a07a3f1a, type: 3}
@@ -948,7 +942,8 @@ MonoBehaviour:
   m_playerEntityContainer: {fileID: 259538153}
   m_aiShellPrefab: {fileID: 5134884547314991772, guid: 3b6bc1e0b434a8c42a2aa8e9e9958ced,
     type: 3}
-  m_playerTeam: []
+  m_playerTeam:
+  - {fileID: 1069362447}
 --- !u!1 &416019565
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,7 +955,7 @@ GameObject:
   - component: {fileID: 416019566}
   - component: {fileID: 416019567}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: Tilemaps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -974,14 +969,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416019565}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.067723, y: -19.661459, z: 1.0863363}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 532188029}
   - {fileID: 1570283521}
   - {fileID: 140938924}
   m_Father: {fileID: 1633781165}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &416019567
 Grid:
@@ -1082,7 +1077,6 @@ GameObject:
   - component: {fileID: 532188029}
   - component: {fileID: 532188027}
   - component: {fileID: 532188028}
-  - component: {fileID: 532188030}
   m_Layer: 8
   m_Name: Wall Tiles
   m_TagString: Untagged
@@ -1214,22 +1208,6 @@ Transform:
   m_Father: {fileID: 416019566}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!19719996 &532188030
-TilemapCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532188026}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_MaximumTileChangeCount: 1000
-  m_ExtrusionFactor: 0.00001
 --- !u!1001 &544303183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1819,12 +1797,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716031689}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.067723, y: -19.661459, z: 1.0863363}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1245400484}
   m_Father: {fileID: 1633781165}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &716031694
 MonoBehaviour:
@@ -2120,6 +2098,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1069362447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4597749072606483144, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4597749072360599061}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1095802922
 GameObject:
   m_ObjectHideFlags: 0
@@ -2223,37 +2207,84 @@ MonoBehaviour:
   m_GameObject: {fileID: 1144627407}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed4ebf43875644743a501138e7646989, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a96b823403c48b40b5097c244413a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_wallTiles: {fileID: 532188027}
-  m_floorTiles: {fileID: 1570283518}
-  m_miniMapTiles: {fileID: 140938921}
-  m_miniMapTile: {fileID: 11400000, guid: 266ca6c8fa5b0754593865914a1f7fbf, type: 2}
-  m_dungeonTheme: {fileID: 11400000, guid: e267bf9b3008db042b4fa50b0c969ee4, type: 2}
-  m_currentDungeonType: {fileID: 0}
-  m_allRooms: []
-  m_hallwayPoints:
-  - m_currentCellType: 0
-    m_roomIndex: 0
-    m_cellMultiplier: 0
-    m_gridPosition: {x: 0, y: 0}
-    m_worldPos: {x: 0, y: 0}
-    m_roomSize: {x: 0, y: 0}
-    m_connectionPoints: []
-    m_connectedTo: []
-    m_floorTiles: []
-    m_entitiesInRoom: []
-  m_itemsOnFloor: []
-  m_dungeonGenTypeIndex: 0
-  m_fixedRatios: []
-  m_playerObject: {fileID: 259538141}
-  m_staircase: {fileID: 716031689}
-  m_aiShell: {fileID: 5134884547314991772, guid: 3b6bc1e0b434a8c42a2aa8e9e9958ced,
-    type: 3}
-  m_spawnMask:
+  m_cellWorldSize: 1
+  m_floorTilemap: {fileID: 1570283518}
+  m_wallTilemap: {fileID: 532188027}
+  m_dungeonTheme: {fileID: 11400000, guid: 24e3ce03d437af641843307f9ffa3ecd, type: 2}
+  m_navGrid: {fileID: 1144627410}
+  m_checkAgent: {fileID: 1144627411}
+  m_floorData:
+    m_allRooms: []
+    m_cellGrid: []
+  m_dungeonCellGrid: []
+  m_currentFloor: 0
+  m_debug: 1
+  m_xColor:
     serializedVersion: 2
-    m_Bits: 256
+    key0: {r: 1, g: 0.61547077, b: 0, a: 0.5019608}
+    key1: {r: 0.9811321, g: 0, b: 0, a: 0.5019608}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 65535
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  m_yColor:
+    serializedVersion: 2
+    key0: {r: 0.5990566, g: 0.9364441, b: 1, a: 0.5019608}
+    key1: {r: 0.28924584, g: 0, b: 0.33962262, a: 0.5019608}
+    key2: {r: 0.28924584, g: 0, b: 0.33962262, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 34310
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 57825
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  m_debugGeneralFloorSize: 0
+  m_generalFloorSize: {x: 75, y: 60}
+  m_generalFloorDebugColor: {r: 0, g: 1, b: 0.44900656, a: 0.21960784}
+  m_isDebuggingFloorGeneration: 0
+  m_generate: 0
 --- !u!4 &1144627409
 Transform:
   m_ObjectHideFlags: 0
@@ -2262,7 +2293,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1144627407}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.067723, y: -19.661459, z: 1.0863363}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1633781165}
@@ -2280,18 +2311,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e0fb89104b14c438d0d155bb9e22c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testGrid: 0
-  m_terrain:
-    serializedVersion: 2
-    m_Bits: 256
-  m_gridWorldSize: {x: 0, y: 0}
-  m_gridOrigin: {x: 0, y: 0, z: 0}
   m_nodeRadius: 0.5
-  m_onlyDisplayPath: 0
   m_displayGizmos: 0
   m_unwalkableColor: {r: 0.99215686, g: 0, b: 0.94507045, a: 0.6156863}
   m_walkableColor: {r: 0, g: 1, b: 0.20430565, a: 0.5019608}
-  m_recalculatePath: 0
+  m_connectionColor: {r: 0, g: 0.34083128, b: 1, a: 1}
 --- !u!114 &1144627411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2513,7 +2537,7 @@ MonoBehaviour:
   m_cycleComplete:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1144627408}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: SpawnNewEnemy
         m_Mode: 1
@@ -2533,11 +2557,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408167194}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.067723, y: -19.661459, z: 1.0863363}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1633781165}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1464499747
 GameObject:
@@ -2621,7 +2645,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1144627408}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DungeonManager, Assembly-CSharp
         m_MethodName: SpawnNewEnemy
         m_Mode: 1
@@ -3030,7 +3054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1583441777
 Transform:
   m_ObjectHideFlags: 0
@@ -3039,11 +3063,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583441776}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.582068, y: -8.683782, z: -8.026945}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1633781165}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1583441778
 MonoBehaviour:
@@ -3128,14 +3152,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1633781164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.067723, y: 19.661459, z: -1.0863363}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1144627409}
+  - {fileID: 416019566}
   - {fileID: 716031693}
   - {fileID: 1408167196}
   - {fileID: 1583441777}
-  - {fileID: 416019566}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class FloorObject_Staircase : MonoBehaviour, IFloorObject
 {
+    public static FloorObject_Staircase Instance;
     public LayerMask m_playerLayer;
-    
-
-    DungeonManager m_dungeonGenerator;
-
-    private void Start()
+    private void Awake()
     {
-        m_dungeonGenerator = DungeonManager.Instance;
+        Instance = this;
     }
     public void Interact()
     {
@@ -22,7 +19,7 @@ public class FloorObject_Staircase : MonoBehaviour, IFloorObject
             {
                 Input_Base playerInput = hit.transform.GetComponent<Input_Base>();
                 playerInput.m_canPerform = false;
-                m_dungeonGenerator.NewFloor();
+                DungeonGenerationManager.Instance.NewFloor();
             }
             
 

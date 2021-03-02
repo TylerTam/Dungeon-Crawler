@@ -13,8 +13,8 @@ public class EntityContainer : MonoBehaviour
     private EntityData m_currentEntityData;
     public void Reinitialize(EntityData p_entityData)
     {
-        m_entityHealth.Respawn();
         m_entityVisualManager.AssignEntityData(p_entityData);
+        m_entityHealth.Respawn();
         m_currentEntityData = p_entityData;
         m_dungeonState.Reinitialize();
         m_turnBasedAgent.Reinitialize();

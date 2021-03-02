@@ -9,7 +9,6 @@ public class AIController : MonoBehaviour
     public AiBehaviour m_currentBehaviour;
     public EntityData m_entityType;
 
-    private DungeonManager m_dungeonManager;
     private EntityContainer m_entityContainer;
 
 
@@ -62,16 +61,11 @@ public class AIController : MonoBehaviour
         m_path = null;
         m_currentNode = null;
         m_currentTargetPrediction = null;
-        if (m_dungeonManager != null)
+        /*if (m_dungeonManager != null)
         {
             m_restart = true;
             NewPath();
-        }
-    }
-    private void Start()
-    {
-        m_dungeonManager = DungeonManager.Instance;
-
+        }*/
     }
 
     public void UpdateAI()
@@ -121,7 +115,7 @@ public class AIController : MonoBehaviour
                     m_currentTargetPos = (Vector2)m_currentTargetPrediction.transform.position;
                     break;
                 case AiBehaviour.Idle:
-                    m_currentTargetPos = m_dungeonManager.GetRandomCell(transform.position);
+                    //m_currentTargetPos = m_dungeonManager.GetRandomCell(transform.position);
                     break;
             }
         }
@@ -255,11 +249,6 @@ public class AIController : MonoBehaviour
             ///If in a room, check the entire room
             if (m_entityContainer.m_dungeonState.m_inRoom)
             {
-
-                if (m_entityContainer.m_dungeonState.m_currentCell.m_entitiesInRoom.Contains(m_currentTarget))
-                {
-                    return true;
-                }
             }
 
             #region Radius Check
@@ -283,16 +272,7 @@ public class AIController : MonoBehaviour
             if (m_entityContainer.m_dungeonState.m_inRoom)
             {
                 #region Room Check
-                foreach (GameObject ent in m_entityContainer.m_dungeonState.m_currentCell.m_entitiesInRoom)
-                {
-                    EntityContainer newTeam = ent.GetComponent<EntityContainer>();
-                    if (newTeam.m_entityTeam.m_currentTeam != m_entityContainer.m_entityTeam.m_currentTeam && newTeam.m_entityTeam.m_currentTeam != EntityTeam.Team.Neutral)
-                    {
-                        m_currentTargetPrediction = newTeam.m_turnBasedAgent.m_predictedPlace.transform;
-                        return ent.transform.gameObject;
-
-                    }
-                }
+                ///Check if any enemy team is in the room
                 #endregion
             }
             else

@@ -148,12 +148,12 @@ public class DungeonGeneration_RoomLayout : ScriptableObject
                 }
                 else if (data.m_cellType == GlobalVariables.m_trapSpawnCell)
                 {
-                    newData.m_trapSpawnLocations.Add(new Vector2Int(x, y));
+                    newData.m_trapSpawnLocations.Add(new Vector2Int(data.m_gridPosition.x, data.m_gridPosition.y));
                     p_dungeonGrid[pos.x, pos.y] = GlobalVariables.m_startingWalkable + p_roomIndex;
                 }
                 else if (data.m_cellType == GlobalVariables.m_itemSpawnCell)
                 {
-                    newData.m_itemSpawnLocations.Add(new Vector2Int(x, y));
+                    newData.m_itemSpawnLocations.Add(new Vector2Int(data.m_gridPosition.x, data.m_gridPosition.y));
                     p_dungeonGrid[pos.x, pos.y] = GlobalVariables.m_startingWalkable + p_roomIndex;
                 }
 
@@ -163,8 +163,13 @@ public class DungeonGeneration_RoomLayout : ScriptableObject
                 }
                 else if (data.m_cellType == GlobalVariables.m_startingWalkable)
                 {
-                    newData.m_enemySpawnLocations.Add(new Vector2Int(x, y));
                     p_dungeonGrid[pos.x, pos.y] = GlobalVariables.m_startingWalkable + p_roomIndex;
+
+
+                    if (!CheckIfCellIsExit(new Vector2Int(data.m_gridPosition.x, data.m_gridPosition.y)))
+                    {
+                        newData.m_enemySpawnLocations.Add(new Vector2Int(data.m_gridPosition.x, data.m_gridPosition.y));
+                    }
                 }
             }
         }
@@ -189,4 +194,40 @@ public class DungeonGeneration_RoomLayout : ScriptableObject
         return newData;
     }
 
+    private bool CheckIfCellIsExit(Vector2Int p_checkPoint)
+    {
+
+            
+
+        if (m_northExit)
+        {
+            if(p_checkPoint == m_northExitPos)
+            {
+                return true;
+            }
+        }
+        if (m_southExit)
+        {
+            if (p_checkPoint == m_southExitPos)
+            {
+                return true;
+            }
+        }
+        if (m_eastExit)
+        {
+            if (p_checkPoint == m_eastExitPos)
+            {
+                return true;
+            }
+        }
+        if (m_westExit)
+        {
+            if (p_checkPoint == m_westExitPos)
+            {
+                return true;
+            }
+        }
+        return false;
+
+    }
 }
