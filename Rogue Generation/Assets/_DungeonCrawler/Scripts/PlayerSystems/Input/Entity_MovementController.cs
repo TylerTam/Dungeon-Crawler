@@ -14,8 +14,6 @@ public class Entity_MovementController : MonoBehaviour
     private TurnBasedManager m_turnManager;
     private EntityContainer m_entityContainer;
 
-    public LayerMask m_terrainLayer;
-    public LayerMask m_diagonalTerrainLayer;
     public bool m_performLayerCheck;
     #endregion
 
@@ -46,20 +44,15 @@ public class Entity_MovementController : MonoBehaviour
         bool rotate = false;
         if (m_performLayerCheck)
         {
-            if (!Physics2D.Raycast(transform.position, p_movement.normalized, p_movement.magnitude, m_terrainLayer))
+            if (DungeonNavigation.Instance.NodeIsNeighbor(transform.position, (Vector2)transform.position + p_movement.normalized))
             {
-                if (!Physics2D.Raycast(transform.position, p_movement.normalized, p_movement.magnitude, m_diagonalTerrainLayer))
+
+                UpdateFacingDir(p_movement);
+                if (p_movement.magnitude != 0)
                 {
-                    UpdateFacingDir(p_movement);
-                    if (p_movement.magnitude != 0)
-                    {
-                        m_entityContainer.m_turnBasedAgent.Action_Move(p_movement + (Vector2)transform.position);
-                    }
+                    m_entityContainer.m_turnBasedAgent.Action_Move(p_movement + (Vector2)transform.position);
                 }
-                else
-                {
-                    rotate = true;
-                }
+
             }
             else
             {
@@ -75,12 +68,12 @@ public class Entity_MovementController : MonoBehaviour
             }
         }
 
-        if (rotate && p_movement.magnitude >0)
+        if (rotate && p_movement.magnitude > 0)
         {
             RotateCharacterIdle(p_movement);
         }
     }
-    
+
 
     public void SkipMovement()
     {

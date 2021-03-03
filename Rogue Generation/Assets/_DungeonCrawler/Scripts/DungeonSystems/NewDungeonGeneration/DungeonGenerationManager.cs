@@ -39,7 +39,7 @@ public class DungeonGenerationManager : MonoBehaviour
 
     //Used to keep track of entities
     //Used to replace raycasts check, and to check this 2d array instead for detection
-    public int[,] m_runtimeGridOccupancy;
+    public GameObject[,] m_runtimeGridOccupancy;
     private void Awake()
     {
         Instance = this;
@@ -124,6 +124,18 @@ public class DungeonGenerationManager : MonoBehaviour
         ///
     }
 
+
+    #region Getter Functions
+
+    public int GetWallCheck(float x, float y)
+    {
+        return m_floorData.m_floorLayout[(int)x, (int)y];
+    }
+    public GameObject GetRuntimeCheck(float x, float y)
+    {
+        return m_runtimeGridOccupancy[(int)x, (int)y];
+    }
+    #endregion
     private void OnDrawGizmos()
     {
         if (!m_debug) return;

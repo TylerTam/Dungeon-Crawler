@@ -146,6 +146,12 @@ public class DungeonNavigation : MonoBehaviour
         return Vector3.zero;
     }
 
+    public bool NodeIsNeighbor(Vector2 p_startingNodePos, Vector2 p_targetNodePos)
+    {
+
+        ///TODO: Change generation to account for hazard, and hazard type from entity
+        return m_grid[(int)p_startingNodePos.x, Mathf.Abs((int)p_startingNodePos.y)].m_neighbors.Contains(m_grid[(int)p_targetNodePos.x, Mathf.Abs((int)p_targetNodePos.y)]);
+    }
 
 
     #region Gizmos Settings
