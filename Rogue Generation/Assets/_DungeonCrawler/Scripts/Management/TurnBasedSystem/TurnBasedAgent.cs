@@ -28,13 +28,6 @@ public class TurnBasedAgent : MonoBehaviour
     [HideInInspector]
     public Vector3 m_targetPos;
 
-
-    [Header("Pre-set values")]
-    public Transform m_predictedPlace;
-    ///Predicted place is used to make sure no characters land on top of each other. 
-    ///It is a collision box that is moved to the target position, so that any ai are able to know where the player will be once their movement is complete
-    ///this is to stop the ai from targeting an occupied spot, when moving, and also to stop targeting an empty spot, when attacking
-
     private float m_currentMovementTimer;
     private Coroutine m_movementCoroutine;
     #endregion
@@ -93,7 +86,8 @@ public class TurnBasedAgent : MonoBehaviour
             case (AgentAction.Move):
                 if (m_movementCoroutine == null)
                 {
-
+                    DungeonGenerationManager.Instance.AdjustEntityCheckGrid(transform.position.x, transform.position.y, null);
+                    DungeonGenerationManager.Instance.AdjustEntityCheckGrid(m_targetPos.x, m_targetPos.y, gameObject);
                     m_movementCoroutine = StartCoroutine(Movement());
 
                     m_actionComplete = false;
@@ -186,10 +180,11 @@ public class TurnBasedAgent : MonoBehaviour
     private IEnumerator Movement()
     {
 
+
+        
         m_performingAction = true;
         m_currentMovementTimer = 0;
         Vector3 startPos = transform.position;
-        m_predictedPlace.transform.position = m_targetPos;
         m_entityContainer.m_dungeonState.UpdateCellAttendance();
         Vector2 newFacingDir = new Vector2(Mathf.Sign(m_targetPos.x - transform.position.x) * Mathf.Abs(m_targetPos.x - transform.position.x),
                                                         Mathf.Sign(m_targetPos.y - transform.position.y) * Mathf.Abs(m_targetPos.y - transform.position.y));
@@ -202,15 +197,12 @@ public class TurnBasedAgent : MonoBehaviour
         while (m_currentMovementTimer / m_turnManager.m_lerpSpeed < 1)
         {
 
-            m_predictedPlace.transform.position = m_targetPos;
             float percent = m_currentMovementTimer / m_turnManager.m_lerpSpeed;
             transform.position = Vector3.Lerp(startPos, m_targetPos, percent);
             m_currentMovementTimer += Time.deltaTime;
             yield return null;
         }
         transform.position = m_targetPos;
-
-        m_predictedPlace.transform.position = m_targetPos;
 
         if (m_isPlayer)
         {

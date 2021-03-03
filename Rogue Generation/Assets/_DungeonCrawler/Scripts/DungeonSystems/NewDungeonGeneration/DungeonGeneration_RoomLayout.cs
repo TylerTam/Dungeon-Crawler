@@ -74,8 +74,14 @@ public class DungeonGeneration_RoomLayout : ScriptableObject
     /// </summary>
     public RoomData UpdateFloorLayoutWithRoom(ref int[,] p_dungeonGrid, Vector2Int p_position, ref CellGridData p_refCellData)
     {
+
         RoomData newData = new RoomData();
         RoomGridData data;
+
+
+        p_refCellData.m_centerWorldPosition = p_position;
+
+
         for (int x = 0; x < m_roomGridData.Count; x++)
         {
             for (int y = 0; y < m_roomGridData[x].m_roomRowData.Count; y++)
@@ -94,6 +100,7 @@ public class DungeonGeneration_RoomLayout : ScriptableObject
             }
         }
 
+        
         if (m_northExit)
         {
             p_refCellData.m_northConnectionPoint = p_position + m_northExitPos;
@@ -120,11 +127,15 @@ public class DungeonGeneration_RoomLayout : ScriptableObject
         RoomData newData = new RoomData();
         newData.m_roomCenterWorldPos = p_position;
         newData.m_roomCellIndex = p_refCellData.m_gridIndex;
+        newData.m_roomIndex = p_roomIndex;
+        p_refCellData.m_centerWorldPosition = p_position;
+
         RoomGridData data;
 
         newData.m_enemySpawnLocations = new List<Vector2Int>();
         newData.m_itemSpawnLocations = new List<Vector2Int>();
         newData.m_trapSpawnLocations = new List<Vector2Int>();
+        newData.m_roomSize = new Vector2Int((m_roomGridData.Count - 1) / 2, (m_roomGridData[0].m_roomRowData.Count - 1) / 2);
         for (int x = 0; x < m_roomGridData.Count; x++)
         {
             for (int y = 0; y < m_roomGridData[x].m_roomRowData.Count; y++)
@@ -144,17 +155,17 @@ public class DungeonGeneration_RoomLayout : ScriptableObject
 
                 if (data.m_cellType == GlobalVariables.m_hazardCell)
                 {
-                    p_dungeonGrid[pos.x, pos.y] = GlobalVariables.m_hazardCell - p_roomIndex;
+                    p_dungeonGrid[pos.x, pos.y] = GlobalVariables.m_hazardCell - p_roomIndex + 1;
                 }
                 else if (data.m_cellType == GlobalVariables.m_trapSpawnCell)
                 {
                     newData.m_trapSpawnLocations.Add(new Vector2Int(data.m_gridPosition.x, data.m_gridPosition.y));
-                    p_dungeonGrid[pos.x, pos.y] = GlobalVariables.m_startingWalkable + p_roomIndex;
+                    p_dungeonGrid[pos.x, pos.y] = GlobalVariables.m_startingWalkable + p_roomIndex + 1;
                 }
                 else if (data.m_cellType == GlobalVariables.m_itemSpawnCell)
                 {
                     newData.m_itemSpawnLocations.Add(new Vector2Int(data.m_gridPosition.x, data.m_gridPosition.y));
-                    p_dungeonGrid[pos.x, pos.y] = GlobalVariables.m_startingWalkable + p_roomIndex;
+                    p_dungeonGrid[pos.x, pos.y] = GlobalVariables.m_startingWalkable + p_roomIndex + 1;
                 }
 
                 else if (data.m_cellType == GlobalVariables.m_unwalkableCell)
@@ -163,7 +174,7 @@ public class DungeonGeneration_RoomLayout : ScriptableObject
                 }
                 else if (data.m_cellType == GlobalVariables.m_startingWalkable)
                 {
-                    p_dungeonGrid[pos.x, pos.y] = GlobalVariables.m_startingWalkable + p_roomIndex;
+                    p_dungeonGrid[pos.x, pos.y] = GlobalVariables.m_startingWalkable + p_roomIndex + 1;
 
 
                     if (!CheckIfCellIsExit(new Vector2Int(data.m_gridPosition.x, data.m_gridPosition.y)))
@@ -174,21 +185,26 @@ public class DungeonGeneration_RoomLayout : ScriptableObject
             }
         }
 
+        newData.m_exitPoints = new List<Vector2Int>();
         if (m_northExit)
         {
             p_refCellData.m_northConnectionPoint = p_position + m_northExitPos;
+            newData.m_exitPoints.Add(m_northExitPos);
         }
         if (m_southExit)
         {
             p_refCellData.m_southConnectionPoint = p_position + m_southExitPos;
+            newData.m_exitPoints.Add(m_southExitPos);
         }
         if (m_eastExit)
         {
             p_refCellData.m_eastConnectionPoint = p_position + m_eastExitPos;
+            newData.m_exitPoints.Add(m_eastExitPos);
         }
         if (m_westExit)
         {
             p_refCellData.m_westConnectionPoint = p_position + m_westExitPos;
+            newData.m_exitPoints.Add(m_westExitPos);
         }
 
         return newData;
@@ -197,11 +213,11 @@ public class DungeonGeneration_RoomLayout : ScriptableObject
     private bool CheckIfCellIsExit(Vector2Int p_checkPoint)
     {
 
-            
+
 
         if (m_northExit)
         {
-            if(p_checkPoint == m_northExitPos)
+            if (p_checkPoint == m_northExitPos)
             {
                 return true;
             }

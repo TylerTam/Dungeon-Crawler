@@ -137,7 +137,8 @@ public class DungeonNavigation : MonoBehaviour
     //Called to gather a node using a world point
     public Node NodeFromWorldPoint(Vector3 p_worldPos)
     {
-        return m_grid[(int)p_worldPos.x, (int)p_worldPos.y];
+        
+        return m_grid[(int)p_worldPos.x, Mathf.Abs((int)p_worldPos.y)];
     }
     public Vector3 NodeToWorldPoint(Node navNode)
     {

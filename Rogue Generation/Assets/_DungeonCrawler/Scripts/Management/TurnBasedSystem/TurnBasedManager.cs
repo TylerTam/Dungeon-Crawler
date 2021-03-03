@@ -102,9 +102,9 @@ public class TurnBasedManager : MonoBehaviour
     /// Called from the dungeon manager, when a new ai has spawned.
     /// This adds it to the agent queue.
     /// </summary>
-    public void NewAgent(TurnBasedAgent p_newAgent)
+    public void NewAgent(GameObject p_newAgent)
     {
-        m_allAgents.Add(p_newAgent);
+        m_allAgents.Add(p_newAgent.GetComponent<TurnBasedAgent>());
     }
 
     /// <summary>

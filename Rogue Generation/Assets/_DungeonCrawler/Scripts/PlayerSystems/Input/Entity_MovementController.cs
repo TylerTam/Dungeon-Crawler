@@ -19,11 +19,6 @@ public class Entity_MovementController : MonoBehaviour
 
     public Vector2 m_facingDir = new Vector2(0, -1);
 
-
-
-
-    public LayerMask m_objectsOnFloorLayer;
-
     private void Start()
     {
 
@@ -46,12 +41,22 @@ public class Entity_MovementController : MonoBehaviour
         {
             if (DungeonNavigation.Instance.NodeIsNeighbor(transform.position, (Vector2)transform.position + p_movement.normalized))
             {
-
-                UpdateFacingDir(p_movement);
-                if (p_movement.magnitude != 0)
+                GameObject objectInNextCell = DungeonGenerationManager.Instance.GetEntityCheck((Vector2)transform.position + p_movement.normalized);
+                if (objectInNextCell == null)
                 {
-                    m_entityContainer.m_turnBasedAgent.Action_Move(p_movement + (Vector2)transform.position);
+                    UpdateFacingDir(p_movement);
+
+                    if (p_movement.magnitude != 0)
+                    {
+                        m_entityContainer.m_turnBasedAgent.Action_Move(p_movement + (Vector2)transform.position);
+                    }
                 }
+                else
+                {
+                    rotate = true;
+                }
+
+                ///TODO: Check if the gameobject is friendly, if it is, and this is the player, switch places with the entity
 
             }
             else
@@ -100,13 +105,5 @@ public class Entity_MovementController : MonoBehaviour
 
     private void CheckGround()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.forward, 100f, m_objectsOnFloorLayer);
-        if (hit)
-        {
-
-            hit.transform.GetComponent<IFloorObject>().Interact();
-
-        }
-
     }
 }

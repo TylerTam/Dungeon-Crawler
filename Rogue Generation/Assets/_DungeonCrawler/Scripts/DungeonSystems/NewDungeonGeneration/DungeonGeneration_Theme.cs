@@ -6,7 +6,8 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu(fileName = "New Dungeon Generation Theme", menuName = "NewDungeonGen/New Dungeon Generation Theme", order = 0)]
 public class DungeonGeneration_Theme : ScriptableObject
 {
-    public Tile m_wallTile, m_floorTile, m_debugTile;
+    public Tile m_wallTile, m_floorTile;
+    public List<Tile> m_debugTiles;
 
     public List<FloorGenerationData> m_floorData;
     public List<DungeonGeneration_RoomLayout> m_connectionTypesInDungeon;
@@ -20,12 +21,17 @@ public class DungeonGeneration_Theme : ScriptableObject
         public DungeonGeneration_GenerationLayout m_layoutType;
         public List<DungeonGeneration_RoomLayout> m_roomTypesInDungeon;
 
+
+        [Tooltip("Ensure that the AI rarity add up to 1")]
+        [Header("The AI that can appear on this floor")]
+        public AIFloorData m_aiOnFloor;
     }
+
 
     public FloorData GenerateFloor(int p_currentFloor)
     {
         FloorGenerationData floorType = m_floorData[p_currentFloor];
-        return floorType.m_layoutType.GenerateArray(floorType.m_roomTypesInDungeon,m_connectionTypesInDungeon, floorType.m_cellAmount, floorType.m_cellSize, floorType.m_roomCount, floorType.m_connectPointCount);
+        return floorType.m_layoutType.GenerateArray(floorType.m_roomTypesInDungeon, m_connectionTypesInDungeon, floorType.m_cellAmount, floorType.m_cellSize, floorType.m_roomCount, floorType.m_connectPointCount);
     }
 
     public void PaintDungeon(int[,] p_floorLayout, Tilemap p_wallTilemap, Tilemap p_floorTilemap)
@@ -36,13 +42,38 @@ public class DungeonGeneration_Theme : ScriptableObject
             {
                 if (p_floorLayout[x, y] == 0)
                 {
-                    p_wallTilemap.SetTile(new Vector3Int(x, -y-1, 0), m_wallTile);
+                    p_wallTilemap.SetTile(new Vector3Int(x, -y - 1, 0), m_wallTile);
                 }
                 else if (p_floorLayout[x, y] >= GlobalVariables.m_startingWalkable)
                 {
-                    p_floorTilemap.SetTile(new Vector3Int(x, -y-1, 0), m_floorTile);
+                    if (p_floorLayout[x, y] == GlobalVariables.m_startingWalkable)
+                    {
+                        p_floorTilemap.SetTile(new Vector3Int(x, -y - 1, 0), m_floorTile);
+                    }
+                    else
+                    {
+                        p_floorTilemap.SetTile(new Vector3Int(x, -y - 1, 0), m_debugTiles[p_floorLayout[x, y] - GlobalVariables.m_startingWalkable-1]);
+                    }
                 }
             }
         }
     }
 }
+
+[System.Serializable]
+public struct AIFloorData
+{
+    public float m_chanceOfAiSpawn;
+    public List<AISpawnData> m_aiFloorData;
+    [System.Serializable]
+    public struct AISpawnData
+    {
+        public EntityData m_entityType;
+        public int m_minLevel, m_maxLevel;
+        [Range(0, 1)]
+        public float m_rarity;
+    }
+
+}
+
+

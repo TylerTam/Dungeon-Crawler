@@ -25,18 +25,13 @@ public class AIController : MonoBehaviour
 
     public int m_skipTurnAmount = 3;
     private int m_currentSkipTurn = 0;
-    public LayerMask m_blockingMask;
+    
 
     #endregion
 
 
     #region Detection
-
-    public Vector2Int m_detectionRadius;
-    public LayerMask m_detectionMask;
     public GameObject m_currentTarget;
-    private Transform m_currentTargetPrediction;
-    public Transform m_predictedPlace;
     #endregion
     private void Awake()
     {
@@ -60,7 +55,6 @@ public class AIController : MonoBehaviour
         m_currentBehaviour = AiBehaviour.Idle;
         m_path = null;
         m_currentNode = null;
-        m_currentTargetPrediction = null;
         /*if (m_dungeonManager != null)
         {
             m_restart = true;
@@ -112,10 +106,11 @@ public class AIController : MonoBehaviour
             switch (m_currentBehaviour)
             {
                 case AiBehaviour.Attack:
-                    m_currentTargetPos = (Vector2)m_currentTargetPrediction.transform.position;
+                    //m_currentTargetPos = (Vector2)m_currentTargetPrediction.transform.position;
                     break;
                 case AiBehaviour.Idle:
-                    //m_currentTargetPos = m_dungeonManager.GetRandomCell(transform.position);
+                    m_currentTargetPos = DungeonGenerationManager.Instance.GetRandomTargetPosition(transform.position.x, transform.position.y, m_entityContainer.m_movementController.m_facingDir);
+                    ///TODO: Make this an actual idle target
                     break;
             }
         }
@@ -138,7 +133,7 @@ public class AIController : MonoBehaviour
     /// </summary>
     private void MoveAi()
     {
-        if (Vector2.Distance(transform.position, (Vector2)m_currentTargetPos) < m_nodeStoppingDistance || m_path == null)
+        if (Vector2.Distance(new Vector3((int)transform.position.x, (int)Mathf.Abs(transform.position.y)), (Vector2)m_currentTargetPos) < m_nodeStoppingDistance || m_path == null)
         {
 
             NewPath();
@@ -151,10 +146,10 @@ public class AIController : MonoBehaviour
         if (m_currentBehaviour == AiBehaviour.Attack)
         {
 
-            if (m_currentTargetPrediction.position != m_currentTargetPos)
+            /*if (m_currentTargetPrediction.position != m_currentTargetPos)
             {
                 NewPath();
-            }
+            }*/
 
         }
         if (Vector2.Distance(transform.position, (Vector2)m_currentNode.worldPosition) < m_nodeStoppingDistance)
@@ -174,8 +169,7 @@ public class AIController : MonoBehaviour
         ///The current stuck code
         if (m_currentNode != null)
         {
-            RaycastHit2D stuckCast = Physics2D.Raycast(m_currentNode.worldPosition, transform.forward, 100f, m_blockingMask);
-            if (stuckCast && stuckCast.transform.gameObject != this.gameObject)
+            if (DungeonGenerationManager.Instance.GetEntityCheck(m_currentNode.worldPosition.x,m_currentNode.worldPosition.y))
             {
                 if (m_currentSkipTurn >= m_skipTurnAmount)
                 {
@@ -251,14 +245,6 @@ public class AIController : MonoBehaviour
             {
             }
 
-            #region Radius Check
-            ///Else, only check 2 sqaures around
-            if (Vector3.Distance(m_predictedPlace.position, m_currentTargetPrediction.position) < 1.45 * 2)
-            {
-                return true;
-            }
-            #endregion
-
         }
         return false;
     }
@@ -278,7 +264,7 @@ public class AIController : MonoBehaviour
             else
             {
                 #region Radius Check
-                ///Else, only check 2 sqaures around
+                /*///Else, only check 2 sqaures around
                 for (int x = -2; x <= 2; x++)
                 {
                     for (int y = -2; y <= 2; y++)
@@ -293,12 +279,12 @@ public class AIController : MonoBehaviour
                             if (newTeam.m_entityTeam.m_currentTeam != m_entityContainer.m_entityTeam.m_currentTeam && newTeam.m_entityTeam.m_currentTeam != EntityTeam.Team.Neutral)
                             {
                                 Debug.Log("Player Located: Radius");
-                                m_currentTargetPrediction = newTeam.m_turnBasedAgent.m_predictedPlace.transform;
+                                //m_currentTargetPrediction = newTeam.m_turnBasedAgent.m_predictedPlace.transform;
                                 return hit2D.transform.gameObject;
                             }
                         }
                     }
-                }
+                }*/
                 #endregion
             }
 

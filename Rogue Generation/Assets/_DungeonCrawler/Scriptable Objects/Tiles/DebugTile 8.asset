@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: DebugTile
+  m_Name: DebugTile 8
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 1636218515589646465, guid: d2cf7cadb5f2a1c4daa16f9f3d96309a,
+  m_Sprite: {fileID: 6364511379630794068, guid: d2cf7cadb5f2a1c4daa16f9f3d96309a,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:

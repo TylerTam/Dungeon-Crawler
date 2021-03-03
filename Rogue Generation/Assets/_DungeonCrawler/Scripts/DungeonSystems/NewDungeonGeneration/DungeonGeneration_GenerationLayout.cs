@@ -80,7 +80,7 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
             CellGridData cell = cellsWithRooms[i];
             DungeonGeneration_RoomLayout tempRoom = GetCellBasedRoom(p_rooms, allCells, cell);
             allCells[cell.m_gridIndex.x].m_gridColumn[cell.m_gridIndex.y].m_roomLayout = tempRoom;
-            UpdateSurroundingCells(ref floorLayout, ref allCells, tempRoom, cell, p_cellSize, p_rooms);
+            UpdateSurroundingCells(ref allCells, tempRoom, cell, p_rooms);
 
 
 
@@ -99,8 +99,6 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
                 cell.m_gridIndex.y * p_cellSize.y + randomOffset.y + cell.m_roomLayout.m_roomGridData[0].m_roomRowData.Count / 2);
 
             RoomData newRoom = new RoomData();
-            newRoom.m_roomCenterWorldPos = worldPos;
-
             if (cell.m_roomLayout != null)
             {
                 newRoom = cell.m_roomLayout.UpdateFloorLayoutWithRoom(ref floorLayout, worldPos, ref cell, currentFloorData.m_allRooms.Count);
@@ -397,7 +395,7 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
         }
     }
 
-    private void UpdateSurroundingCells(ref int[,] p_floorLayout, ref List<DungeonCellGridRow> p_allCells, DungeonGeneration_RoomLayout p_roomLayout, CellGridData p_placedCell, Vector2Int p_cellSize, List<DungeonGeneration_RoomLayout> p_allRooms)
+    private void UpdateSurroundingCells(ref List<DungeonCellGridRow> p_allCells, DungeonGeneration_RoomLayout p_roomLayout, CellGridData p_placedCell, List<DungeonGeneration_RoomLayout> p_allRooms)
     {
         CellGridData currentNewCell = null;
         if (p_roomLayout.m_northExit)
@@ -649,12 +647,18 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
                     for (int y = 0; y < Mathf.Abs(disY) + 1; y++)
                     {
                         curY = p_startPos.y + y * dirY;
-                        p_floorLayout[curX, curY] = 1;
+                        if (p_floorLayout[curX, curY] < GlobalVariables.m_startingWalkable)
+                        {
+                            p_floorLayout[curX, curY] = 1;
+                        }
                     }
                     isTurning = false;
                     canTurn = false;
                 }
-                p_floorLayout[curX, curY] = 1;
+                if (p_floorLayout[curX, curY] < GlobalVariables.m_startingWalkable)
+                {
+                    p_floorLayout[curX, curY] = 1;
+                }
                 if (canTurn)
                 {
                     if (curX > 2)
@@ -685,13 +689,19 @@ public class DungeonGeneration_GenerationLayout : ScriptableObject
                     for (int x = 0; x < Mathf.Abs(disX) + 1; x++)
                     {
                         curX = p_startPos.x + x * dirX;
-                        p_floorLayout[curX, curY] = 1;
+                        if (p_floorLayout[curX, curY] < GlobalVariables.m_startingWalkable)
+                        {
+                            p_floorLayout[curX, curY] = 1;
+                        }
                     }
                     isTurning = false;
                     canTurn = false;
                 }
 
-                p_floorLayout[curX, curY] = 1;
+                if (p_floorLayout[curX, curY] < GlobalVariables.m_startingWalkable)
+                {
+                    p_floorLayout[curX, curY] = 1;
+                }
                 if (canTurn)
                 {
                     if (curY > 2)

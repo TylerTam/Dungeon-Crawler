@@ -14,7 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_wallTile: {fileID: 11400000, guid: 83fe01f95cf9c07469a02c605a2d8606, type: 2}
   m_floorTile: {fileID: 11400000, guid: d49517db042273c41a120139b8f9f115, type: 2}
-  m_debugTile: {fileID: 0}
+  m_debugTiles:
+  - {fileID: 11400000, guid: 23a158dc74e5f964b8ef58b1a987fa6e, type: 2}
+  - {fileID: 11400000, guid: d09dccfce77ae584b8b867a30b816603, type: 2}
+  - {fileID: 11400000, guid: 655488c1aad0e304d88a9f96a771a0c1, type: 2}
+  - {fileID: 11400000, guid: cba159cd73a917d4286ce245ff800db9, type: 2}
+  - {fileID: 11400000, guid: 26c2af70b2a2e6b4e9275e0d673e744c, type: 2}
+  - {fileID: 11400000, guid: 4ebeeeb8fbe8dc249b2a3086247214b7, type: 2}
+  - {fileID: 11400000, guid: 5cc80b92fedc32445945e4ae48f05969, type: 2}
+  - {fileID: 11400000, guid: 2eedf32d37b9adf4e970007886a627e2, type: 2}
   m_floorData:
   - m_roomCount: 6
     m_connectPointCount: 1
@@ -37,6 +45,13 @@ MonoBehaviour:
     - {fileID: 11400000, guid: e8c147c7369dad04cbdcbc6482facd0f, type: 2}
     - {fileID: 11400000, guid: 15d676881a0af7d478e5631cc687e129, type: 2}
     - {fileID: 11400000, guid: 9dfc2fb9dbe93a549913a8a357f97770, type: 2}
+    m_aiOnFloor:
+      m_chanceOfAiSpawn: 0.75
+      m_aiFloorData:
+      - m_entityType: {fileID: 11400000, guid: 703920c3fe225264fbf41f2d29703912, type: 2}
+        m_minLevel: 5
+        m_maxLevel: 10
+        m_rarity: 1
   m_connectionTypesInDungeon:
   - {fileID: 11400000, guid: f2da64364f4906c45bd3beb887652734, type: 2}
   - {fileID: 11400000, guid: 68adfe6d9f3cd364d8a69e34c2c958cb, type: 2}
