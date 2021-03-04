@@ -87,7 +87,7 @@ public class AIManager : MonoBehaviour
             }
         }
 
-        newAi.GetComponent<AIController>().InitializeAi(currentData.m_entityType);
+        newAi.GetComponent<AIController>().InitializeAi(currentData.m_entityType, Random.Range(currentData.m_minLevel, currentData.m_maxLevel));
         List<Vector2> randomSpawnPos = new List<Vector2>();
         foreach (RoomData room in DungeonGenerationManager.Instance.m_floorData.m_allRooms)
         {

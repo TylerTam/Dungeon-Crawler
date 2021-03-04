@@ -122,7 +122,6 @@ MonoBehaviour:
   m_currentAnimationState: 0
   m_currentFacingDir: {x: 0, y: 0}
   m_currentMovementDir: {x: 0, y: 0}
-  m_debugMovemmentLogs: 1
 --- !u!1 &5134884546887740690
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +224,7 @@ GameObject:
   - component: {fileID: 5715755393832415617}
   - component: {fileID: 5134884547314991775}
   - component: {fileID: 8172292840321747689}
+  - component: {fileID: 7925544264456884441}
   m_Layer: 0
   m_Name: AiShell
   m_TagString: Untagged
@@ -288,6 +288,7 @@ MonoBehaviour:
   m_entityTeam: {fileID: 5112181938764940866}
   m_dungeonState: {fileID: 5715755393832415617}
   m_entityHealth: {fileID: 8172292840321747689}
+  m_runtimeStats: {fileID: 7925544264456884441}
 --- !u!114 &5134884547314991781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,8 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51c7bb6d2ce8da49a428a9ac9d5d851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_attackType:
-  - {fileID: 11400000, guid: 7051b08ebf11d96459c997ce3c8056dd, type: 2}
+  m_allAttacks: []
   m_attackAnimComplete: 0
   m_attackAnimator: {fileID: 0}
   m_entityContainer: {fileID: 0}
@@ -437,3 +437,24 @@ MonoBehaviour:
   m_maxHealth: 1
   m_currentHealth: 0
   m_damageAnimComplete: 0
+--- !u!114 &7925544264456884441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134884547314991772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d789d046822094e418e10fc65380206f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_currentStats:
+    m_health: 0
+    m_attack: 0
+    m_defense: 0
+    m_magic: 0
+    m_resistance: 0
+  m_currentData: {fileID: 0}
+  m_entContainer: {fileID: 0}
+  m_currentLevel: 0

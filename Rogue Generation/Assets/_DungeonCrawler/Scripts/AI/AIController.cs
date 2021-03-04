@@ -45,13 +45,13 @@ public class AIController : MonoBehaviour
     /// This function will set up the ai, with the provided sprite, animator, stats, and moveset
     /// </summary>
 
-    public void InitializeAi(EntityData p_entityType)
+    public void InitializeAi(EntityData p_entityType, int p_level)
     {
         m_entityType = p_entityType;
         m_entityContainer.m_entityVisualManager.AssignEntityData(p_entityType);
         m_path = null;
         m_currentNode = null;
-        m_entityContainer.Reinitialize(p_entityType);
+        m_entityContainer.Reinitialize(p_entityType, p_level);
         m_currentTarget = null;
         m_currentBehaviour = AiBehaviour.Idle;
         m_path = null;
@@ -332,7 +332,11 @@ public class AIController : MonoBehaviour
     }
     public bool CanAttack()
     {
-        //Check if any attacks can currently hit
+        List<int> possibleAttacks;
+        if(m_entityContainer.m_attackController.CanPerformAttack(m_currentTarget.transform.position, out possibleAttacks))
+        {
+
+        }
         return false;
     }
     public int ChooseAttack()

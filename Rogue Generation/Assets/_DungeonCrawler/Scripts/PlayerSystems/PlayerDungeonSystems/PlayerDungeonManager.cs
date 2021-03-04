@@ -23,7 +23,7 @@ public class PlayerDungeonManager : MonoBehaviour
 
     private void InitializePlayerObject()
     {
-        m_playerEntityContainer.Reinitialize(PlayerData.Instance.m_playerEntityData);
+        m_playerEntityContainer.Reinitialize(PlayerData.Instance.m_playerEntityData, PlayerData.Instance.m_playerLevel);
         
     }
 

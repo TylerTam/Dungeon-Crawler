@@ -4,24 +4,21 @@ using UnityEngine;
 //public class HealthEvent : UnityEngine.Events.UnityEvent { }
 public class Health : MonoBehaviour
 {
-    public enum DamageType { Def, Res, Poision }
     public bool m_defeated;
     public int m_maxHealth;
     public int m_currentHealth;
 
     private EntityContainer m_entityContainer;
 
-
     public bool m_damageAnimComplete;
     //public HealthEvent m_onDamageTaken, m_onDefeatedEvent;
 
-    private void Start()
-    {
-        m_entityContainer = GetComponent<EntityContainer>();
-    }
 
-    private void OnEnable()
+    public void InitializeData(EntityContainer p_cont, EntityRuntimeStats p_runtimeStats)
     {
+        m_entityContainer = p_cont;
+        m_maxHealth = p_runtimeStats.m_currentStats.m_health;
+        m_currentHealth = m_maxHealth;
         Respawn();
     }
     public void Respawn()
@@ -29,10 +26,22 @@ public class Health : MonoBehaviour
         m_currentHealth = m_maxHealth;
         m_defeated = false;
     }
-    public IEnumerator TakeDamage(int p_damageTaken, DamageType p_damageType)
+    public IEnumerator TakeDamage(int p_damageTaken, AttackType_Base.AttackType p_damageType)
     {
         m_damageAnimComplete = false;
-        m_currentHealth -= p_damageTaken;
+        int damageTaken = p_damageTaken;
+
+        switch (p_damageType)
+        {
+            case AttackType_Base.AttackType.PhysicalAttack:
+                damageTaken -= m_entityContainer.m_runtimeStats.m_currentStats.m_defense;
+                break;
+            case AttackType_Base.AttackType.Magic:
+                damageTaken -= m_entityContainer.m_runtimeStats.m_currentStats.m_resistance;
+                break;
+        }
+        Debug.Log("Finalized Damage Taken: " + damageTaken);
+        m_currentHealth -= damageTaken;
         if (m_currentHealth <= 0)
         {
             m_entityContainer.m_entityVisualManager.SwitchToDefeatedAnimation();

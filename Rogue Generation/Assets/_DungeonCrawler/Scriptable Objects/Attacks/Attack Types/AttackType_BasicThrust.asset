@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c558bcd56fb0e8441a7643bc1ca1d8a2, type: 3}
   m_Name: AttackType_BasicThrust
   m_EditorClassIdentifier: 
-  m_attackType: 1
-  m_baseDamage: 0
-  m_attackFunction: {fileID: 11400000, guid: 9cd1c96dd937ebd41b21c39b32a31b81, type: 2}
+  m_attackType: 0
+  m_baseDamage: 5
+  m_attackDetection: {fileID: 11400000, guid: 9cd1c96dd937ebd41b21c39b32a31b81, type: 2}
   m_attackSpawnAmount: 0
   m_attackAnimationController: {fileID: 9100000, guid: dc6eea579c6bf1641833ae3d809f3b09,
     type: 2}

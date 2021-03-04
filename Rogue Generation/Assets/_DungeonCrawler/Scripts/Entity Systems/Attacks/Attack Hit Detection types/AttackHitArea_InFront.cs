@@ -27,4 +27,7 @@ public class AttackHitArea_InFront : AttackHitArea_Base
         return gatheredActions;
 
     }
+
+
+
 }

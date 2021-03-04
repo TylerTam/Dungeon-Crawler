@@ -12,7 +12,241 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5134f4f0e1177b74dac4de28d7554e81, type: 3}
   m_Name: AiTest_JOLTEON
   m_EditorClassIdentifier: 
+  m_entityName: Jolteon
   m_animController: {fileID: 22100000, guid: a914b54543e3ae942b357ac60d7c1325, type: 2}
+  m_baseStats:
+    m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 1
+    m_resistance: 1
+  m_statIncreasePerLevel:
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 1
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 1
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 1
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 1
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 1
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 1
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 1
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 1
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 1
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 1
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 1
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 1
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 1
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 1
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 1
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 1
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 1
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 1
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 1
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  - m_health: 1
+    m_attack: 1
+    m_defense: 1
+    m_magic: 0
+    m_resistance: 1
+  m_defaultAttack: {fileID: 11400000, guid: 7051b08ebf11d96459c997ce3c8056dd, type: 2}
+  m_attacks:
+  - m_learnedLevel: 2
+    m_attack:
+      m_attack: {fileID: 11400000, guid: 7051b08ebf11d96459c997ce3c8056dd, type: 2}
+      m_maxAmount: 10
+      m_attacksLeft: 0
+      m_drainAttackOnUse: 1
+  - m_learnedLevel: 4
+    m_attack:
+      m_attack: {fileID: 11400000, guid: 7051b08ebf11d96459c997ce3c8056dd, type: 2}
+      m_maxAmount: 10
+      m_attacksLeft: 0
+      m_drainAttackOnUse: 1
+  - m_learnedLevel: 6
+    m_attack:
+      m_attack: {fileID: 11400000, guid: 7051b08ebf11d96459c997ce3c8056dd, type: 2}
+      m_maxAmount: 10
+      m_attacksLeft: 0
+      m_drainAttackOnUse: 1
+  - m_learnedLevel: 8
+    m_attack:
+      m_attack: {fileID: 11400000, guid: 7051b08ebf11d96459c997ce3c8056dd, type: 2}
+      m_maxAmount: 10
+      m_attacksLeft: 0
+      m_drainAttackOnUse: 1
   m_attackSprites:
   - {fileID: -7234886626553379438, guid: d500356f38681df4bbda7b7dea99fe34, type: 3}
   - {fileID: 6385032312417581072, guid: d500356f38681df4bbda7b7dea99fe34, type: 3}

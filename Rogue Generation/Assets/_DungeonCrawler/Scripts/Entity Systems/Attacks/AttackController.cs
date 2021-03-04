@@ -7,8 +7,11 @@ using UnityEngine;
 public class AttackController : MonoBehaviour
 {
 
-    [Header("Attack properties")]
-    public List<AttackType_Base> m_attackType;
+
+    [Header("Unique Attack properties")]
+    public List<AttackSlots> m_allAttacks;
+
+
 
     [HideInInspector]
     public bool m_attackAnimComplete = false;
@@ -41,13 +44,64 @@ public class AttackController : MonoBehaviour
         m_attackAnimator = GetComponent<Animator>();
     }
 
+    public void InitializeAttack(EntityData p_entityData, int p_level)
+    {
+        m_allAttacks.Clear();
+
+        AttackSlots defaultAttack = new AttackSlots();
+        defaultAttack.m_attack = p_entityData.m_defaultAttack;
+        defaultAttack.m_drainAttackOnUse = false;
+        defaultAttack.m_attacksLeft = defaultAttack.m_maxAmount = 100;
+        m_allAttacks.Add(defaultAttack);
+
+
+        int attackIndexOfCurrentLevel = p_entityData.GetCurrentAttackIndex(p_level);
+        if (attackIndexOfCurrentLevel < 0) return;
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (attackIndexOfCurrentLevel - i < 0) return;
+            AttackSlots newSlot = new AttackSlots();
+            newSlot.m_attack = p_entityData.m_attacks[attackIndexOfCurrentLevel - i].m_attack.m_attack;
+            newSlot.m_attacksLeft = newSlot.m_maxAmount = p_entityData.m_attacks[attackIndexOfCurrentLevel - i].m_attack.m_maxAmount;
+            newSlot.m_drainAttackOnUse = p_entityData.m_attacks[attackIndexOfCurrentLevel - i].m_attack.m_drainAttackOnUse;
+            m_allAttacks.Add(newSlot);
+        }
+    }
+
+    public bool CanPerformAttack(Vector3 p_targetPos, out List<int> p_attack)
+    {
+        p_attack = new List<int>();
+        foreach (AttackSlots attack in m_allAttacks)
+        {
+            if (attack.m_attacksLeft <= 0) continue;
+
+            if (attack.m_attack.m_attackDetection.IsWithinRange(transform.position, p_targetPos))
+            {
+                p_attack.Add(m_allAttacks.IndexOf(attack));
+            }
+        }
+
+        if (p_attack.Count > 0)
+        {
+            return true;
+        }
+        return false;
+    }
+
+
     /// <summary>
     /// Performs the selected attack
     /// </summary>
     public IEnumerator StartAttack(int p_chosenAttack)
     {
         m_attackAnimComplete = false;
-        m_currentAttack = m_attackType[p_chosenAttack];
+        m_currentAttack = m_allAttacks[p_chosenAttack].m_attack;
+
+        if (m_allAttacks[p_chosenAttack].m_drainAttackOnUse)
+        {
+            m_allAttacks[p_chosenAttack].m_attacksLeft--;
+        }
         m_currentAttack.StartAttack(this, m_entityContainer.m_movementController.m_facingDir);
 
 
@@ -55,7 +109,6 @@ public class AttackController : MonoBehaviour
         {
             yield return null;
         }
-        Debug.Log("Anim Complete");
         ChangeToIdleAnimation();
 
         m_currentAttack.CreateAttackEffects(this);
@@ -63,13 +116,23 @@ public class AttackController : MonoBehaviour
 
 
         #region Perform All actions of this attack
+        int damageAmount = m_currentAttack.m_baseDamage;
+        if (m_currentAttack.m_attackType == AttackType_Base.AttackType.PhysicalAttack)
+        {
+            damageAmount += m_entityContainer.m_runtimeStats.m_currentStats.m_attack;
+        }
+        else if (m_currentAttack.m_attackType == AttackType_Base.AttackType.Magic)
+        {
+            damageAmount += m_entityContainer.m_runtimeStats.m_currentStats.m_magic;
+        }
+        Debug.Log("Entity: " + gameObject.name + " | Damage: " + damageAmount + " | Damage Type: " + m_currentAttack.m_attackType);
+
         bool allActionsComplete = false;
         while (!allActionsComplete)
         {
-
             for (int i = 0; i < m_newActions.Count; i++)
             {
-                yield return StartCoroutine(m_newActions[i].AttackAnimComplete());
+                yield return StartCoroutine(m_newActions[i].AttackAnimComplete(damageAmount, m_currentAttack.m_attackType));
 
                 m_newActions.Remove(m_newActions[i]);
                 i -= 1;
@@ -81,7 +144,6 @@ public class AttackController : MonoBehaviour
                 allActionsComplete = true;
             }
         }
-        Debug.Log("All Actions Complete ");
         //Allow for multiple attacks, IE Fury attack
         if (m_currentAttackAmount < m_currentAttack.m_attackSpawnAmount)
         {
@@ -99,29 +161,19 @@ public class AttackController : MonoBehaviour
 
 
     #region Attacked Functionality
-    private int m_takenDamage = 100;
-    Health.DamageType m_takenDamageType;
-
-    public void ApplyAttackedDamage(int p_takenDamage, Health.DamageType p_damageType)
-    {
-        m_takenDamage = p_takenDamage;
-
-        m_takenDamageType = p_damageType;
-    }
-
     /// <summary>
     /// Inherited from the TurnBasedAction Interface<br/>
     /// Used to determine whether the hurt animation is complete.
     /// </summary>
-    public IEnumerator AttackAnimComplete()
+    public IEnumerator AttackAnimComplete(int p_damageAmount, AttackType_Base.AttackType p_attackType)
     {
         //TODO: Put hurt message here
-//        Debug.Log("Put hurt message here");
+        //        Debug.Log("Put hurt message here");
         /*
         GameObject damageObject = Instantiate (m_damageObjectPrefab, transform.position, Quaternion.identity);
         damageObject.GetComponent<InWorldUI>().m_uiText.text = -m_takenDamage.ToString();
         */
-        yield return m_entityContainer.m_entityHealth.TakeDamage(m_takenDamage, m_takenDamageType);
+        yield return m_entityContainer.m_entityHealth.TakeDamage(p_damageAmount, p_attackType);
 
         if (m_entityContainer.m_entityHealth.m_defeated)
         {
@@ -147,7 +199,7 @@ public class AttackController : MonoBehaviour
             case AttackType_Base.AttackType.PhysicalAttack:
                 m_entityContainer.m_entityVisualManager.SwitchToPhysicalAttackAnimation();
                 break;
-            case AttackType_Base.AttackType.SpecialAttack:
+            case AttackType_Base.AttackType.Magic:
                 m_entityContainer.m_entityVisualManager.SwitchToSpecialAttackAnimation();
                 break;
         }

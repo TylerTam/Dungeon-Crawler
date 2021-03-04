@@ -49,8 +49,8 @@ MonoBehaviour:
       m_chanceOfAiSpawn: 0.75
       m_aiFloorData:
       - m_entityType: {fileID: 11400000, guid: 703920c3fe225264fbf41f2d29703912, type: 2}
-        m_minLevel: 5
-        m_maxLevel: 10
+        m_minLevel: 2
+        m_maxLevel: 5
         m_rarity: 1
   m_connectionTypesInDungeon:
   - {fileID: 11400000, guid: f2da64364f4906c45bd3beb887652734, type: 2}

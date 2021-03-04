@@ -258,7 +258,6 @@ public class TurnBasedAgent : MonoBehaviour
 
 
         yield return StartCoroutine( m_entityContainer.m_attackController.StartAttack(m_currentAttackIndex));
-        Debug.Log("Finish Attack");
         m_actionComplete = true;
         m_performingAction = false;
         m_attackCoroutine = null;

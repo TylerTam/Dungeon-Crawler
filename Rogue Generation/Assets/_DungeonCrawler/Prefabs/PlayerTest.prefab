@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 998601835824673501}
   - component: {fileID: 3131622806014942529}
   - component: {fileID: 8612987149793237717}
+  - component: {fileID: 3104768155769231549}
   m_Layer: 0
   m_Name: PlayerTest
   m_TagString: Untagged
@@ -332,6 +333,7 @@ MonoBehaviour:
   m_entityTeam: {fileID: 7189210199279401681}
   m_dungeonState: {fileID: 998601835824673501}
   m_entityHealth: {fileID: 8612987149793237717}
+  m_runtimeStats: {fileID: 3104768155769231549}
 --- !u!114 &4597749072606483185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,13 +381,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51c7bb6d2ce8da49a428a9ac9d5d851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_enemyMask:
-    serializedVersion: 2
-    m_Bits: 0
-  m_attackType: []
-  m_attackComplete: 0
+  m_allAttacks: []
   m_attackAnimComplete: 0
   m_attackAnimator: {fileID: 0}
+  m_entityContainer: {fileID: 0}
   m_newActions: []
 --- !u!114 &7189210199279401681
 MonoBehaviour:
@@ -451,6 +450,27 @@ MonoBehaviour:
   m_maxHealth: 0
   m_currentHealth: 0
   m_damageAnimComplete: 0
+--- !u!114 &3104768155769231549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4597749072606483144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d789d046822094e418e10fc65380206f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_currentStats:
+    m_health: 0
+    m_attack: 0
+    m_defense: 0
+    m_magic: 0
+    m_resistance: 0
+  m_currentData: {fileID: 0}
+  m_entContainer: {fileID: 0}
+  m_currentLevel: 0
 --- !u!1 &4597749072650042694
 GameObject:
   m_ObjectHideFlags: 0
