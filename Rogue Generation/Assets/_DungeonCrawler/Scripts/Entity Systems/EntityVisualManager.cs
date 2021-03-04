@@ -58,7 +58,7 @@ public class EntityVisualManager : MonoBehaviour
         /*if (m_debugMovemmentLogs)
         {
             Debug.Log("GameObject: " + transform.parent.gameObject.name + " | Movement Animation | Pass Vector: " + p_facingDir + " | X: " + facingX + " | Y: " + facingY);
-        }/*
+        }*/
 
         m_spriteAnimator.SetInteger("FacingX", facingX);
         m_spriteAnimator.SetInteger("FacingY", facingY);
