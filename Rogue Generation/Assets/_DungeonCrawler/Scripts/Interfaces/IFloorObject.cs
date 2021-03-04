@@ -5,6 +5,6 @@ using UnityEngine;
 
 public interface IFloorObject
 {
-    void Interact();
+    void Interact(EntityContainer p_interactingEntity);
     
 }

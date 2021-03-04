@@ -8,7 +8,7 @@ public class TurnBasedAgent : MonoBehaviour
 
     public enum AgentAction { Move, Attack, UseItem, SkipTurn };
     public AgentAction m_currentAgentAction;
-    [HideInInspector]
+    //[HideInInspector]
     public bool m_performAction;           //The boolean that determines if they are doing an action
     [HideInInspector]
     public bool m_performingAction; //Used by the controller, to determine if they can start a new function
@@ -53,8 +53,9 @@ public class TurnBasedAgent : MonoBehaviour
         m_movementCoroutine = null;
         m_attackCoroutine = null;
         m_actionComplete = true;
-        
-
+        m_performAction = false;
+        m_performingAction = false;
+        m_currentAgentAction = AgentAction.Move;
     }
 
     public void SetupCellAttendence()
@@ -130,6 +131,7 @@ public class TurnBasedAgent : MonoBehaviour
         {
             m_targetPos = p_targetPos;
             m_currentAgentAction = AgentAction.Move;
+            GameObject temp = gameObject;
             m_performAction = true;
 
 
@@ -144,6 +146,7 @@ public class TurnBasedAgent : MonoBehaviour
 
             m_currentAttackIndex = p_currentAttack;
             m_currentAgentAction = AgentAction.Attack;
+            GameObject temp = gameObject;
             m_performAction = true;
 
         }
@@ -153,6 +156,7 @@ public class TurnBasedAgent : MonoBehaviour
     {
         //m_currentItemAction = p_currentItemAction;
         m_currentAgentAction = AgentAction.UseItem;
+        GameObject temp = gameObject;
         m_performAction = true;
         m_actionComplete = false;
     }
@@ -162,6 +166,7 @@ public class TurnBasedAgent : MonoBehaviour
         if (!m_performingAction)
         {
             m_currentAgentAction = AgentAction.SkipTurn;
+            GameObject temp = gameObject;
             m_performAction = true;
         }
     }

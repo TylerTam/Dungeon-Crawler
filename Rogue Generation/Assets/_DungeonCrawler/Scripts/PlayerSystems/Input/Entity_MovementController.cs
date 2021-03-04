@@ -19,6 +19,8 @@ public class Entity_MovementController : MonoBehaviour
 
     public Vector2 m_facingDir = new Vector2(0, -1);
 
+    private GameObject m_currentStoodOnObject;
+
     private void Start()
     {
 
@@ -105,5 +107,10 @@ public class Entity_MovementController : MonoBehaviour
 
     private void CheckGround()
     {
+        m_currentStoodOnObject = DungeonGenerationManager.Instance.m_interactableGridOccupancy[(int)transform.position.x, Mathf.Abs((int)transform.position.y)];
+        if (m_currentStoodOnObject)
+        {
+            m_currentStoodOnObject.GetComponent<IFloorObject>().Interact(m_entityContainer);
+        }
     }
 }

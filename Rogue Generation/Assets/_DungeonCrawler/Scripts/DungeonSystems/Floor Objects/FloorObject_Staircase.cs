@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FloorObject_Staircase : MonoBehaviour, IFloorObject
 {
@@ -10,19 +8,14 @@ public class FloorObject_Staircase : MonoBehaviour, IFloorObject
     {
         Instance = this;
     }
-    public void Interact()
+    public void Interact(EntityContainer p_interactingEntity)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.forward, 100f, m_playerLayer);
-        if (hit)
-        {
-            if (hit.transform.GetComponent<Input_Base>() != null)
-            {
-                Input_Base playerInput = hit.transform.GetComponent<Input_Base>();
-                playerInput.m_canPerform = false;
-                DungeonGenerationManager.Instance.NewFloor();
-            }
-            
 
+        if (PlayerDungeonManager.Instance.m_playerEntityContainer == p_interactingEntity)
+        {
+            Input_Base.Instance.m_canPerform = false;
+            DungeonGenerationManager.Instance.NewFloor();
         }
+
     }
 }

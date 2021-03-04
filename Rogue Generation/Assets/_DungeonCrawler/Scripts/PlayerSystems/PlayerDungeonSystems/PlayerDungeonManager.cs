@@ -18,6 +18,12 @@ public class PlayerDungeonManager : MonoBehaviour
     private void Start()
     {
         m_currentTeamAmount = PlayerData.Instance.m_currentPlayerTeam.Count;
+
+        foreach(GameObject keepAgent in m_playerTeam)
+        {
+            TurnBasedManager.Instance.m_keepAgents.Add(keepAgent.GetComponent<TurnBasedAgent>());
+            TurnBasedManager.Instance.m_allAgents.Add(keepAgent.GetComponent<TurnBasedAgent>());
+        }
         InitializePlayerObject();
     }
 

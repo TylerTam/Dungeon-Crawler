@@ -51,6 +51,7 @@ public class DungeonGenerationManager : MonoBehaviour
     }
     private void Start()
     {
+        Input_Base.Instance.m_canPerform = false;
         GenerateFloor();
     }
     private void Update()
@@ -125,10 +126,14 @@ public class DungeonGenerationManager : MonoBehaviour
         newPos = (Vector2)(m_floorData.m_allRooms[currentRoomIndex].m_roomCenterWorldPos + m_floorData.m_allRooms[currentRoomIndex].m_enemySpawnLocations[Random.Range(0, m_floorData.m_allRooms[currentRoomIndex].m_enemySpawnLocations.Count)]);
         newPos = new Vector3(newPos.x + 0.5f, -newPos.y - 0.5f, 0);
         FloorObject_Staircase.Instance.transform.position = newPos;
+        m_interactableGridOccupancy[(int)newPos.x, Mathf.Abs((int)newPos.y)] = FloorObject_Staircase.Instance.gameObject;
 
         #endregion
 
         AIManager.Instance.m_currentAIFloorData = m_dungeonTheme.m_floorData[m_currentFloor].m_aiOnFloor;
+
+        yield return null;
+        Input_Base.Instance.m_canPerform = true;
     }
 
     public void NewFloor()
@@ -137,6 +142,8 @@ public class DungeonGenerationManager : MonoBehaviour
         ///
         ///Fade to black;
         ///
+
+        AIManager.Instance.ClearFloor();
         GenerateFloor();
         ///
         ///Fade out black
@@ -334,6 +341,7 @@ public class DungeonGenerationManager : MonoBehaviour
 
         if (hallwayPossiblePoints.Count > 0)
         {
+            Debug.Log("Return random Point Here");
             return (Vector2)hallwayPossiblePoints[Random.Range(0, hallwayPossiblePoints.Count)];
         }
 

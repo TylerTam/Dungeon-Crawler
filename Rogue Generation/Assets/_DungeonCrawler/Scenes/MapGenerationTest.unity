@@ -2575,10 +2575,8 @@ MonoBehaviour:
   m_normalLerpSpeed: 0.35
   m_fastLerpSpeed: 0.01
   m_moveDistance: 1
-  m_keepAgents:
-  - {fileID: 259538146}
-  m_allAgents:
-  - {fileID: 259538146}
+  m_keepAgents: []
+  m_allAgents: []
   m_currentAgentIndex: 0
   m_currentAgent: {fileID: 0}
   m_turnComplete:

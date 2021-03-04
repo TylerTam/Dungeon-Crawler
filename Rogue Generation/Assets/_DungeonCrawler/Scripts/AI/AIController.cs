@@ -26,7 +26,7 @@ public class AIController : MonoBehaviour
     private int m_skipTurnAmount = 1;
     private int m_currentSkipTurn = 0;
 
-
+    private bool m_reused;
     #endregion
 
 
@@ -39,7 +39,6 @@ public class AIController : MonoBehaviour
         m_entityContainer = GetComponent<EntityContainer>();
         m_navAgent = GetComponent<DungeonNavigation_Agent>();
     }
-    private bool m_restart;
     /// <summary>
     /// Called from the Dungeon manager, in the SpawnAI Function
     /// This function will set up the ai, with the provided sprite, animator, stats, and moveset
@@ -49,26 +48,16 @@ public class AIController : MonoBehaviour
     {
         m_entityType = p_entityType;
         m_entityContainer.m_entityVisualManager.AssignEntityData(p_entityType);
-        m_path = null;
-        m_currentNode = null;
         m_entityContainer.Reinitialize(p_entityType, p_level);
         m_currentTarget = null;
-        m_currentBehaviour = AiBehaviour.Idle;
+        m_targetDungeonState = null;
         m_path = null;
         m_currentNode = null;
-        /*if (m_dungeonManager != null)
-        {
-            m_restart = true;
-            NewPath();
-        }*/
+        m_currentBehaviour = AiBehaviour.Idle;
     }
 
     public void UpdateAI()
     {
-        if (m_restart)
-        {
-            Debug.Log("Reused AI");
-        }
         CheckCurrentBehaviour();
         switch (m_currentBehaviour)
         {
@@ -79,7 +68,7 @@ public class AIController : MonoBehaviour
                 int currentAttack = 0;
                 if (CanAttack(out currentAttack))
                 {
-                    Vector2 facingDir = ((Vector2)m_currentTarget.transform.position - (Vector2)transform.position).normalized;
+                    Vector2 facingDir = ((Vector2)m_targetDungeonState.m_currentGridPosition - (Vector2)transform.position).normalized;
                     m_entityContainer.m_movementController.UpdateFacingDir(facingDir);
                     m_entityContainer.m_entityVisualManager.UpdateFacingDir(facingDir);
 
@@ -111,7 +100,7 @@ public class AIController : MonoBehaviour
         switch (m_currentBehaviour)
         {
             case AiBehaviour.Attack:
-                m_currentTargetPos = m_currentTarget.transform.position;
+                m_currentTargetPos = (Vector2)m_targetDungeonState.m_currentGridPosition;
                 break;
             case AiBehaviour.Idle:
                 if (m_currentSkipTurn >= m_skipTurnAmount)
@@ -155,15 +144,7 @@ public class AIController : MonoBehaviour
             NewPath();
 
         }
-        if (m_currentBehaviour == AiBehaviour.Attack)
-        {
 
-            /*if (m_currentTargetPrediction.position != m_currentTargetPos)
-            {
-                NewPath();
-            }*/
-
-        }
         if (Vector2.Distance(transform.position, (Vector2)m_currentNode.worldPosition) < m_nodeStoppingDistance)
         {
             m_path.Remove(m_currentNode);
@@ -220,7 +201,7 @@ public class AIController : MonoBehaviour
                 m_currentTarget = SearchForNewTarget();
                 if (m_currentTarget != null)
                 {
-                    m_prevTargetPos = m_currentTarget.transform.position;
+                    m_prevTargetPos = (Vector2)m_targetDungeonState.m_currentGridPosition;
                     m_targetDungeonState = m_currentTarget.GetComponent<EntityDungeonState>();
                 }
             }
@@ -231,9 +212,9 @@ public class AIController : MonoBehaviour
             if (m_currentTarget != null)
             {
                 m_currentBehaviour = AiBehaviour.Attack;
-                NewPath();
-                m_prevTargetPos = m_currentTarget.transform.position;
                 m_targetDungeonState = m_currentTarget.GetComponent<EntityDungeonState>();
+                m_prevTargetPos = (Vector2)m_targetDungeonState.m_currentGridPosition;
+                NewPath();
             }
         }
 
@@ -265,7 +246,7 @@ public class AIController : MonoBehaviour
             if (m_targetDungeonState.m_inRoom && m_targetDungeonState.m_roomIndex == m_entityContainer.m_dungeonState.m_roomIndex) return true;
         }
 
-        if(Mathf.Abs(m_currentTarget.transform.position.x - transform.position.x) <= 3 && Mathf.Abs(m_currentTarget.transform.position.y - transform.position.y) < 3)
+        if (Mathf.Abs(m_targetDungeonState.m_currentGridPosition.x - transform.position.x) <= 3 && Mathf.Abs(m_targetDungeonState.m_currentGridPosition.y - transform.position.y) < 3)
         {
             return true;
         }
@@ -329,16 +310,16 @@ public class AIController : MonoBehaviour
     private Vector2 m_prevTargetPos;
     private void CheckAttackTargetPosition()
     {
-        if ((Vector2)m_currentTarget.transform.position != m_prevTargetPos)
+        if ((Vector2)m_targetDungeonState.m_currentGridPosition != m_prevTargetPos)
         {
-            m_prevTargetPos = (Vector2)m_currentTarget.transform.position;
+            m_prevTargetPos = (Vector2)m_targetDungeonState.m_currentGridPosition;
             NewPath();
         }
     }
     public bool CanAttack(out int p_attackIndex)
     {
         List<int> possibleAttacks;
-        if(m_entityContainer.m_attackController.CanPerformAttack(m_targetDungeonState.m_currentGridPosition, out possibleAttacks))
+        if (m_entityContainer.m_attackController.CanPerformAttack(m_targetDungeonState.m_currentGridPosition, out possibleAttacks))
         {
             p_attackIndex = possibleAttacks[Random.Range(0, possibleAttacks.Count)];
             return true;

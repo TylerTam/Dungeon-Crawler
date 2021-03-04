@@ -35,8 +35,10 @@ public class AIManager : MonoBehaviour
     /// </summary>
     public void ClearFloor()
     {
+        TurnBasedManager.Instance.ClearAgents();
         foreach (GameObject entity in m_activeAiEntities)
         {
+
             m_pooler.ReturnToPool(entity);
         }
         m_activeAiEntities.Clear();
@@ -87,7 +89,7 @@ public class AIManager : MonoBehaviour
             }
         }
 
-        newAi.GetComponent<AIController>().InitializeAi(currentData.m_entityType, Random.Range(currentData.m_minLevel, currentData.m_maxLevel));
+        
         List<Vector2> randomSpawnPos = new List<Vector2>();
         foreach (RoomData room in DungeonGenerationManager.Instance.m_floorData.m_allRooms)
         {
@@ -101,6 +103,8 @@ public class AIManager : MonoBehaviour
         }
         Vector2 spawnPos = randomSpawnPos[Random.Range(0, randomSpawnPos.Count)];
         newAi.transform.position = spawnPos + new Vector2(0.5f, -0.5f);
+
+        newAi.GetComponent<AIController>().InitializeAi(currentData.m_entityType, Random.Range(currentData.m_minLevel, currentData.m_maxLevel));
         return newAi;
     }
 }

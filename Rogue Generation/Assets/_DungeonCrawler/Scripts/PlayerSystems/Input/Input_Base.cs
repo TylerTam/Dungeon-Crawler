@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Input_Base : MonoBehaviour
 {
+    public static Input_Base Instance;
     public Vector2 m_movementDirection;
     [HideInInspector]
     public Entity_MovementController m_movementController;
@@ -16,7 +17,10 @@ public abstract class Input_Base : MonoBehaviour
 
     #endregion
 
-
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     public virtual void Start()
     {

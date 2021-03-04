@@ -104,12 +104,10 @@ public class AttackController : MonoBehaviour
         }
         m_currentAttack.StartAttack(this, m_entityContainer.m_movementController.m_facingDir);
 
-        Debug.Log("Attack Anim Start");
         while (!m_attackAnimComplete)
         {
             yield return null;
         }
-        Debug.Log("Attack Anim Finished");
         ChangeToIdleAnimation();
 
         m_currentAttack.CreateAttackEffects(this);
@@ -126,8 +124,6 @@ public class AttackController : MonoBehaviour
         {
             damageAmount += m_entityContainer.m_runtimeStats.m_currentStats.m_magic;
         }
-        Debug.Log("Entity: " + gameObject.name + " | Damage: " + damageAmount + " | Damage Type: " + m_currentAttack.m_attackType);
-
         bool allActionsComplete = false;
         while (!allActionsComplete)
         {

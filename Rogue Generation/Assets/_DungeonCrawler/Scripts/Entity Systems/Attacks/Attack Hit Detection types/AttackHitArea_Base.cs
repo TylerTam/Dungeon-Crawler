@@ -51,8 +51,9 @@ public abstract class AttackHitArea_Base : ScriptableObject
 
     public virtual bool IsWithinRange(Vector2 p_attackerPos, Vector2 p_targetPos)
     {
-        if ((int)Mathf.Abs(p_targetPos.x - p_attackerPos.x) <= m_attackDistance && (int)Mathf.Abs(Mathf.Abs(p_targetPos.y) - Mathf.Abs(p_attackerPos.y)) <= m_attackDistance)
+        if ((int)Mathf.Abs(p_targetPos.x - p_attackerPos.x) <= m_attackDistance && (int)Mathf.Abs(Mathf.Abs((int)p_targetPos.y) - Mathf.Abs((int)p_attackerPos.y)) <= m_attackDistance)
         {
+            Debug.DrawLine(p_targetPos, p_attackerPos, Color.red, 2f);
             if (Random.Range(0, 1f) < m_chanceOfAttack)
             {
                 return true;
