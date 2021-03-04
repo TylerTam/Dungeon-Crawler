@@ -2572,6 +2572,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_lerpSpeed: 0.35
+  m_normalLerpSpeed: 0.35
+  m_fastLerpSpeed: 0.01
   m_moveDistance: 1
   m_keepAgents:
   - {fileID: 259538146}

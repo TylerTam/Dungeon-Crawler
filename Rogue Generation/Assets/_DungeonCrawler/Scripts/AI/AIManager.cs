@@ -66,6 +66,7 @@ public class AIManager : MonoBehaviour
                 Debug.Log("Spawn Ai");
                 GameObject newAI = SpawnAi();
                 AddAiEntity(newAI);
+                newAI.GetComponent<EntityContainer>().m_turnBasedAgent.SetupCellAttendence();
                 TurnBasedManager.Instance.NewAgent(newAI);
                 m_currentAiOnFloor++;
             }

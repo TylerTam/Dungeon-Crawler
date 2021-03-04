@@ -1,62 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5134884546370170687
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5134884546370170686}
-  - component: {fileID: 5134884546370170817}
-  m_Layer: 11
-  m_Name: PredictedPlace
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5134884546370170686
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5134884546370170687}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5134884547314991774}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &5134884546370170817
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5134884546370170687}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.75, y: 0.75}
-  m_EdgeRadius: 0
 --- !u!1 &5134884546461566381
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +31,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5134884547314991774}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1859227586939157960
 Animator:
@@ -208,7 +151,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 5134884547314991774}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5134884546887740692
 SpriteRenderer:
@@ -299,7 +242,6 @@ Transform:
   m_LocalPosition: {x: 12.5, y: 21.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5134884546370170686}
   - {fileID: 5134884546461566380}
   - {fileID: 5134884546887740693}
   m_Father: {fileID: 0}
@@ -357,17 +299,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3771dd1f1f9b80b4d98fa2cbcb48e791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_terrainLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  m_diagonalTerrainLayer:
-    serializedVersion: 2
-    m_Bits: 7424
   m_performLayerCheck: 0
   m_facingDir: {x: 0, y: 0}
-  m_objectsOnFloorLayer:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!114 &1541658862317782881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,7 +321,6 @@ MonoBehaviour:
   m_previousAgent: {fileID: 0}
   m_entityContainer: {fileID: 0}
   m_targetPos: {x: 0, y: 0, z: 0}
-  m_predictedPlace: {fileID: 5134884546370170686}
   m_attackSpawnPos: {x: 0, y: 0, z: 0}
   m_aiCont: {fileID: 5134884547314991760}
 --- !u!114 &5134884547314991778
@@ -446,16 +378,7 @@ MonoBehaviour:
   m_currentBehaviour: 0
   m_entityType: {fileID: 0}
   m_nodeStoppingDistance: 0.1
-  m_skipTurnAmount: 3
-  m_blockingMask:
-    serializedVersion: 2
-    m_Bits: 7424
-  m_detectionRadius: {x: 0, y: 0}
-  m_detectionMask:
-    serializedVersion: 2
-    m_Bits: 1024
   m_currentTarget: {fileID: 0}
-  m_predictedPlace: {fileID: 5134884546370170686}
 --- !u!114 &5112181938764940866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,18 +405,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_inRoom: 0
-  m_currentCell:
-    m_currentCellType: 0
-    m_roomIndex: 0
-    m_cellMultiplier: 0
-    m_gridPosition: {x: 0, y: 0}
-    m_worldPos: {x: 0, y: 0}
-    m_roomSize: {x: 0, y: 0}
-    m_connectionPoints: []
-    m_connectedTo: []
-    m_floorTiles: []
-    m_entitiesInRoom: []
-  predictedPlace: {fileID: 5134884546370170686}
+  m_roomIndex: 0
+  m_cellType: 0
+  predictedPlace: {fileID: 0}
 --- !u!114 &5134884547314991775
 MonoBehaviour:
   m_ObjectHideFlags: 0

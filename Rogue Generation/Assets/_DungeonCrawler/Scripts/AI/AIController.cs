@@ -32,6 +32,7 @@ public class AIController : MonoBehaviour
 
     #region Detection
     public GameObject m_currentTarget;
+    private EntityDungeonState m_targetDungeonState;
     #endregion
     private void Awake()
     {
@@ -73,7 +74,6 @@ public class AIController : MonoBehaviour
         {
             case AiBehaviour.Idle:
                 MoveAi();
-                //CheckForPlayer();
                 break;
             case AiBehaviour.Attack:
                 if (CanAttack())
@@ -82,6 +82,7 @@ public class AIController : MonoBehaviour
                 }
                 else
                 {
+                    CheckAttackTargetPosition();
                     MoveAi();
 
                 }
@@ -97,30 +98,29 @@ public class AIController : MonoBehaviour
     /// called when their current target has been reached
     /// TODO: Implement the ability for them to recalculate when they become stuck, and cannot continue on their current path
     /// </summary>
-    public void NewPath(bool p_continueCurrent = false)
+    public void NewPath()
     {
 
 
-        if (!p_continueCurrent)
+
+        switch (m_currentBehaviour)
         {
-            switch (m_currentBehaviour)
-            {
-                case AiBehaviour.Attack:
-                    //m_currentTargetPos = (Vector2)m_currentTargetPrediction.transform.position;
-                    break;
-                case AiBehaviour.Idle:
-                    if (m_currentSkipTurn >= m_skipTurnAmount)
-                    {
-                        m_currentTargetPos = DungeonGenerationManager.Instance.GetRandomTargetPosition(transform.position.x, transform.position.y, -m_entityContainer.m_movementController.m_facingDir);
-                    }
-                    else
-                    {
-                        m_currentTargetPos = DungeonGenerationManager.Instance.GetRandomTargetPosition(transform.position.x, transform.position.y, m_entityContainer.m_movementController.m_facingDir);
-                    }
-                    ///TODO: Make this an actual idle target
-                    break;
-            }
+            case AiBehaviour.Attack:
+                m_currentTargetPos = m_currentTarget.transform.position;
+                break;
+            case AiBehaviour.Idle:
+                if (m_currentSkipTurn >= m_skipTurnAmount)
+                {
+                    m_currentTargetPos = DungeonGenerationManager.Instance.GetRandomTargetPosition(transform.position.x, transform.position.y, -m_entityContainer.m_movementController.m_facingDir);
+                }
+                else
+                {
+                    m_currentTargetPos = DungeonGenerationManager.Instance.GetRandomTargetPosition(transform.position.x, transform.position.y, m_entityContainer.m_movementController.m_facingDir);
+                }
+                ///TODO: Make this an actual idle target
+                break;
         }
+
 
         m_path = m_navAgent.CreatePath(transform.position, m_currentTargetPos);
         if (m_path != null)
@@ -213,6 +213,11 @@ public class AIController : MonoBehaviour
             {
                 findNewPath = true;
                 m_currentTarget = SearchForNewTarget();
+                if (m_currentTarget != null)
+                {
+                    m_prevTargetPos = m_currentTarget.transform.position;
+                    m_targetDungeonState = m_currentTarget.GetComponent<EntityDungeonState>();
+                }
             }
         }
         else
@@ -222,6 +227,8 @@ public class AIController : MonoBehaviour
             {
                 m_currentBehaviour = AiBehaviour.Attack;
                 NewPath();
+                m_prevTargetPos = m_currentTarget.transform.position;
+                m_targetDungeonState = m_currentTarget.GetComponent<EntityDungeonState>();
             }
         }
 
@@ -231,8 +238,9 @@ public class AIController : MonoBehaviour
             m_currentBehaviour = AiBehaviour.Idle;
             if (findNewPath)
             {
-                m_currentTargetPos = m_path[m_path.Count - 1].worldPosition;
-                NewPath(m_path.Count > 1);
+                Debug.Log("Find New Path");
+                m_currentSkipTurn = 0;
+                NewPath();
             }
         }
         else
@@ -245,14 +253,18 @@ public class AIController : MonoBehaviour
     #region Detection
     public bool CanSeeTarget()
     {
-        if (m_entityContainer.m_dungeonState)
+        if (!m_entityContainer.gameObject.activeSelf || m_entityContainer.m_entityHealth.m_defeated) return false;
+        ///If in a room, check the entire room
+        if (m_entityContainer.m_dungeonState.m_inRoom)
         {
-            ///If in a room, check the entire room
-            if (m_entityContainer.m_dungeonState.m_inRoom)
-            {
-            }
-
+            if (m_targetDungeonState.m_inRoom && m_targetDungeonState.m_roomIndex == m_entityContainer.m_dungeonState.m_roomIndex) return true;
         }
+
+        if(Mathf.Abs(m_currentTarget.transform.position.x - transform.position.x) <= 3 && Mathf.Abs(m_currentTarget.transform.position.y - transform.position.y) < 3)
+        {
+            return true;
+        }
+
         return false;
     }
 
@@ -265,33 +277,36 @@ public class AIController : MonoBehaviour
             if (m_entityContainer.m_dungeonState.m_inRoom)
             {
                 #region Room Check
-                ///Check if any enemy team is in the room
+                if (PlayerDungeonManager.Instance.m_playerEntityContainer.m_dungeonState.m_inRoom &&
+                    PlayerDungeonManager.Instance.m_playerEntityContainer.m_dungeonState.m_roomIndex == m_entityContainer.m_dungeonState.m_roomIndex)
+                {
+                    //Debug.Log("Player in same room");
+                    return PlayerDungeonManager.Instance.m_playerEntityContainer.gameObject;
+                }
                 #endregion
             }
             else
             {
                 #region Radius Check
-                /*///Else, only check 2 sqaures around
+                ///Else, only check 2 sqaures around
                 for (int x = -2; x <= 2; x++)
                 {
                     for (int y = -2; y <= 2; y++)
                     {
                         if (x == 0 && y == 0) continue;
 
-                        //Debug.DrawLine(m_predictedPlace.position, m_predictedPlace.position + new Vector3(x, y), Color.green, 1f);
-                        RaycastHit2D hit2D = Physics2D.Raycast(m_predictedPlace.position + new Vector3(x, y, 0) - Vector3.forward * 1, Vector3.forward, 5, m_detectionMask);
-                        if (hit2D)
+                        GameObject currentTarg = DungeonGenerationManager.Instance.GetEntityCheck((Vector2)transform.position + new Vector2(x, -y));
+                        if (currentTarg != null)
                         {
-                            EntityContainer newTeam = hit2D.transform.GetComponent<EntityContainer>();
+                            EntityContainer newTeam = currentTarg.transform.GetComponent<EntityContainer>();
                             if (newTeam.m_entityTeam.m_currentTeam != m_entityContainer.m_entityTeam.m_currentTeam && newTeam.m_entityTeam.m_currentTeam != EntityTeam.Team.Neutral)
                             {
-                                Debug.Log("Player Located: Radius");
-                                //m_currentTargetPrediction = newTeam.m_turnBasedAgent.m_predictedPlace.transform;
-                                return hit2D.transform.gameObject;
+                                //Debug.Log("Player Located: Radius");
+                                return currentTarg;
                             }
                         }
                     }
-                }*/
+                }
                 #endregion
             }
 
@@ -299,11 +314,22 @@ public class AIController : MonoBehaviour
         }
         return null;
     }
+
+
+
     #endregion
 
     #region Attacking Behaviour
 
-
+    private Vector2 m_prevTargetPos;
+    private void CheckAttackTargetPosition()
+    {
+        if ((Vector2)m_currentTarget.transform.position != m_prevTargetPos)
+        {
+            m_prevTargetPos = (Vector2)m_currentTarget.transform.position;
+            NewPath();
+        }
+    }
     public bool CanAttack()
     {
         //Check if any attacks can currently hit

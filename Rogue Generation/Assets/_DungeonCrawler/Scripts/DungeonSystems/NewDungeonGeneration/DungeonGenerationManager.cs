@@ -102,7 +102,9 @@ public class DungeonGenerationManager : MonoBehaviour
         m_runtimeGridOccupancy = new GameObject[m_floorData.m_floorLayout.GetLength(0), m_floorData.m_floorLayout.GetLength(1)];
         m_interactableGridOccupancy = new GameObject[m_floorData.m_floorLayout.GetLength(0), m_floorData.m_floorLayout.GetLength(1)];
 
-        ///Spawn the player and staircase
+
+        #region Placing player team
+
         int currentRoomIndex = Random.Range(0, m_floorData.m_allRooms.Count);
         Vector3 newPos = Vector3.zero;
         for (int i = 0; i < PlayerDungeonManager.Instance.m_playerTeam.Count; i++)
@@ -112,13 +114,19 @@ public class DungeonGenerationManager : MonoBehaviour
 
 
             PlayerDungeonManager.Instance.m_playerTeam[i].transform.position = newPos;
+            PlayerDungeonManager.Instance.m_playerTeam[i].GetComponent<EntityContainer>().m_turnBasedAgent.SetupCellAttendence();
         }
+        #endregion
+
+        #region Placing Staircase
+
         currentRoomIndex = Random.Range(0, m_floorData.m_allRooms.Count);
 
         newPos = (Vector2)(m_floorData.m_allRooms[currentRoomIndex].m_roomCenterWorldPos + m_floorData.m_allRooms[currentRoomIndex].m_enemySpawnLocations[Random.Range(0, m_floorData.m_allRooms[currentRoomIndex].m_enemySpawnLocations.Count)]);
         newPos = new Vector3(newPos.x + 0.5f, -newPos.y - 0.5f, 0);
         FloorObject_Staircase.Instance.transform.position = newPos;
 
+        #endregion
 
         AIManager.Instance.m_currentAIFloorData = m_dungeonTheme.m_floorData[m_currentFloor].m_aiOnFloor;
     }
@@ -146,6 +154,12 @@ public class DungeonGenerationManager : MonoBehaviour
     {
         return m_runtimeGridOccupancy[(int)x, Mathf.Abs((int)y)];
     }
+
+    public GameObject GetEntityCheck(Vector3 p_pos)
+    {
+        return GetEntityCheck(p_pos.x, p_pos.y);
+    }
+
 
     public GameObject GetEntityCheck(Vector2 p_pos)
     {

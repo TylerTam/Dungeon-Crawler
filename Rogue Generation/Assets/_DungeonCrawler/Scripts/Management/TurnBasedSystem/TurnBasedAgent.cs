@@ -53,7 +53,14 @@ public class TurnBasedAgent : MonoBehaviour
         m_movementCoroutine = null;
         m_attackCoroutine = null;
         m_actionComplete = true;
+        
 
+    }
+
+    public void SetupCellAttendence()
+    {
+        m_entityContainer.m_dungeonState.UpdateCellAttendance(transform.position);
+        DungeonGenerationManager.Instance.AdjustEntityCheckGrid(transform.position.x, transform.position.y, gameObject);
     }
 
     /// <summary>
@@ -185,7 +192,7 @@ public class TurnBasedAgent : MonoBehaviour
         m_performingAction = true;
         m_currentMovementTimer = 0;
         Vector3 startPos = transform.position;
-        m_entityContainer.m_dungeonState.UpdateCellAttendance();
+        m_entityContainer.m_dungeonState.UpdateCellAttendance(m_targetPos);
         Vector2 newFacingDir = new Vector2(Mathf.Sign(m_targetPos.x - transform.position.x) * Mathf.Abs(m_targetPos.x - transform.position.x),
                                                         Mathf.Sign(m_targetPos.y - transform.position.y) * Mathf.Abs(m_targetPos.y - transform.position.y));
         m_entityContainer.m_movementController.UpdateFacingDir(newFacingDir);
@@ -204,13 +211,14 @@ public class TurnBasedAgent : MonoBehaviour
         }
         transform.position = m_targetPos;
 
-        if (m_isPlayer)
+        /*if (m_isPlayer)
         {
             yield return new WaitForSeconds(.001f);
-        }
-        m_actionComplete = true;
+        }*/
         m_entityContainer.m_movementController.MovementComplete();
         m_entityContainer.m_entityVisualManager.UpdateFacingDir(newFacingDir);
+
+        m_actionComplete = true;
         
         m_performingAction = false;
         m_movementCoroutine = null;

@@ -12,6 +12,8 @@ public class TurnBasedManager : MonoBehaviour
     public static TurnBasedManager Instance { get; private set; }
 
     public float m_lerpSpeed;
+    public float m_normalLerpSpeed;
+    public float m_fastLerpSpeed;
     public float m_moveDistance = 1;
     public List<TurnBasedAgent> m_keepAgents;
     public List<TurnBasedAgent> m_allAgents;
@@ -20,18 +22,44 @@ public class TurnBasedManager : MonoBehaviour
     int m_indexAlter;
 
 
-    Coroutine m_turnCoroutine;
-
     //public List<ActionStoppingObjects>
 
     public ActivationEvent m_turnComplete = new ActivationEvent();
     public ActivationEvent m_cycleComplete = new ActivationEvent();
 
+
+
     private void Awake()
     {
+        ToggleLerpSpeed(false);
         Instance = this;
         StartCoroutine(PerformTurns());
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ToggleLerpSpeed(true);
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            ToggleLerpSpeed(false);
+        }
+    }
+
+    public void ToggleLerpSpeed(bool p_toggleFast)
+    {
+        if (p_toggleFast)
+        {
+            m_lerpSpeed = m_fastLerpSpeed;
+        }
+        else
+        {
+            m_lerpSpeed = m_normalLerpSpeed;
+        }
+    }
+
     public bool CurrentAgent(TurnBasedAgent p_agentRequest)
     {
         return m_allAgents[m_currentAgentIndex] == p_agentRequest;

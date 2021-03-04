@@ -1,62 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4597749072206790507
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4597749072206790506}
-  - component: {fileID: 4597749072206790549}
-  m_Layer: 10
-  m_Name: PredictedPlace
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4597749072206790506
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4597749072206790507}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4597749072606483146}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &4597749072206790549
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4597749072206790507}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.75, y: 0.75}
-  m_EdgeRadius: 0
 --- !u!1 &4597749072222295545
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +31,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4597749072606483146}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4597749072222295547
 SpriteRenderer:
@@ -176,6 +119,10 @@ MonoBehaviour:
   m_sRend: {fileID: 4597749072222295547}
   m_spriteAnimator: {fileID: 3191191909163644450}
   m_entityData: {fileID: 0}
+  m_entityHealth: {fileID: 0}
+  m_currentAnimationState: 0
+  m_currentFacingDir: {x: 0, y: 0}
+  m_currentMovementDir: {x: 0, y: 0}
 --- !u!1 &4597749072236266340
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +154,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4597749072606483146}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &4597749072236266342
 Camera:
@@ -317,7 +264,6 @@ Transform:
   m_LocalPosition: {x: 22.10804, y: 7.4974174, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4597749072206790506}
   - {fileID: 4597749072222295544}
   - {fileID: 4597749072650042689}
   - {fileID: 4597749072236266337}
@@ -364,6 +310,7 @@ MonoBehaviour:
   m_currentInputType: 0
   m_joystickCanvas: {fileID: 0}
   m_joystick: {fileID: 0}
+  m_raycastInput: {fileID: 0}
   m_deadzone: 0.3
   m_inputPressed: 0
 --- !u!114 &4019395655413876849
@@ -397,17 +344,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3771dd1f1f9b80b4d98fa2cbcb48e791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_terrainLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  m_diagonalTerrainLayer:
-    serializedVersion: 2
-    m_Bits: 4352
   m_performLayerCheck: 1
   m_facingDir: {x: 0, y: 0}
-  m_objectsOnFloorLayer:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!114 &4597749072606483191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,7 +366,6 @@ MonoBehaviour:
   m_previousAgent: {fileID: 0}
   m_entityContainer: {fileID: 0}
   m_targetPos: {x: 0, y: 0, z: 0}
-  m_predictedPlace: {fileID: 4597749072206790506}
   m_attackSpawnPos: {x: 0, y: 0, z: 0}
 --- !u!114 &4597749072606483190
 MonoBehaviour:
@@ -476,18 +413,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_inRoom: 0
-  m_currentCell:
-    m_currentCellType: 0
-    m_roomIndex: 0
-    m_cellMultiplier: 0
-    m_gridPosition: {x: 0, y: 0}
-    m_worldPos: {x: 0, y: 0}
-    m_roomSize: {x: 0, y: 0}
-    m_connectionPoints: []
-    m_connectedTo: []
-    m_floorTiles: []
-    m_entitiesInRoom: []
-  predictedPlace: {fileID: 4597749072206790506}
+  m_roomIndex: 0
+  m_cellType: 0
+  predictedPlace: {fileID: 0}
 --- !u!95 &3131622806014942529
 Animator:
   serializedVersion: 3
@@ -522,7 +450,6 @@ MonoBehaviour:
   m_defeated: 0
   m_maxHealth: 0
   m_currentHealth: 0
-  m_visualManager: {fileID: 0}
   m_damageAnimComplete: 0
 --- !u!1 &4597749072650042694
 GameObject:
@@ -553,7 +480,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4597749072606483146}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4597749072650042688
 SpriteRenderer:
