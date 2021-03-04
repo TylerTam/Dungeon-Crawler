@@ -7,14 +7,16 @@ public class EntityVisualManager : MonoBehaviour
 {
     public SpriteRenderer m_sRend;
     public Animator m_spriteAnimator;
-    
+
     public EntityData m_entityData;
     public Health m_entityHealth;
-    public enum CurrentState { Movement,Hurt,Idle,Attack,SpecialAttack,Sleep,Defeated}
+    public enum CurrentState { Movement, Hurt, Idle, Attack, SpecialAttack, Sleep, Defeated }
     public CurrentState m_currentAnimationState;
     public Vector2 m_currentFacingDir;
     public Vector2 m_currentMovementDir;
 
+
+    //public bool m_debugMovemmentLogs;
     [System.Serializable]
     public struct VisualEvents
     {
@@ -48,9 +50,19 @@ public class EntityVisualManager : MonoBehaviour
     #region Animation Switch Functions
     public void UpdateFacingDir(Vector2 p_facingDir)
     {
-        m_spriteAnimator.SetInteger("FacingX", (int)p_facingDir.x);
-        m_spriteAnimator.SetInteger("FacingY", (int)p_facingDir.y);
-        m_currentFacingDir = p_facingDir;
+
+        int facingX = (Mathf.Abs(p_facingDir.x) < 0.5f ? 0 : (int)Mathf.Sign(p_facingDir.x));
+        int facingY = (Mathf.Abs(p_facingDir.y) < 0.5f ? 0 : (int)Mathf.Sign(p_facingDir.y));
+
+
+        /*if (m_debugMovemmentLogs)
+        {
+            Debug.Log("GameObject: " + transform.parent.gameObject.name + " | Movement Animation | Pass Vector: " + p_facingDir + " | X: " + facingX + " | Y: " + facingY);
+        }/*
+
+        m_spriteAnimator.SetInteger("FacingX", facingX);
+        m_spriteAnimator.SetInteger("FacingY", facingY);
+        m_currentFacingDir = new Vector2(facingX, facingY);
     }
 
     public void SwitchToIdleAnimation()
@@ -97,7 +109,7 @@ public class EntityVisualManager : MonoBehaviour
 
     public void HurtAnimationComplete()
     {
-        
+
         Debug.Log("Hurt Animation Complete");
     }
 
@@ -106,10 +118,7 @@ public class EntityVisualManager : MonoBehaviour
         m_currentAnimationState = CurrentState.Defeated;
         m_spriteAnimator.SetTrigger("Defeated");
     }
-    public void DefeatedAnimationComplete()
-    {
-        Debug.Log("Defeated Animation Complete");
-    }
+
     #endregion
 
     #endregion
@@ -191,6 +200,6 @@ public class EntityVisualManager : MonoBehaviour
 
 
 
-    
+
     #endregion
 }

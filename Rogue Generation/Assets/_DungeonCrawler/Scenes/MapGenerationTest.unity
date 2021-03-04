@@ -2580,6 +2580,7 @@ MonoBehaviour:
   m_allAgents:
   - {fileID: 259538146}
   m_currentAgentIndex: 0
+  m_currentAgent: {fileID: 0}
   m_turnComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -3773,7 +3774,7 @@ PrefabInstance:
     - target: {fileID: 4597749072606483147, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
         type: 3}
       propertyPath: m_currentInputType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4597749072606483147, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
         type: 3}

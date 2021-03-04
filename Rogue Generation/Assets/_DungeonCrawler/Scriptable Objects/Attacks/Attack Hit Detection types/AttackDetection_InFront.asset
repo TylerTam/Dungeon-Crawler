@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639b85d0b05d0e94d913eb22a0537080, type: 3}
   m_Name: AttackDetection_InFront
   m_EditorClassIdentifier: 
+  m_targetTeams: 1

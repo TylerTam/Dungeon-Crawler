@@ -18,6 +18,7 @@ public class TurnBasedManager : MonoBehaviour
     public List<TurnBasedAgent> m_keepAgents;
     public List<TurnBasedAgent> m_allAgents;
     public int m_currentAgentIndex;
+    public TurnBasedAgent m_currentAgent;
     List<TurnBasedAgent> m_defeatedAgents = new List<TurnBasedAgent>();
     int m_indexAlter;
 
@@ -69,17 +70,17 @@ public class TurnBasedManager : MonoBehaviour
     /// <summary>
     /// Returns the previous agent, if there is one. 
     /// </summary>
-    
+
     public TurnBasedAgent PreviousAgent()
     {
         if (m_currentAgentIndex - 1 < 0)
         {
-            
-            return m_allAgents[m_allAgents.Count-1];
+
+            return m_allAgents[m_allAgents.Count - 1];
         }
         else
         {
-            
+
             return m_allAgents[m_currentAgentIndex - 1];
         }
     }
@@ -144,7 +145,7 @@ public class TurnBasedManager : MonoBehaviour
         foreach (TurnBasedAgent keepAgent in m_keepAgents)
         {
             m_allAgents.Add(keepAgent);
-            
+
         }
         m_currentAgentIndex = 0;
     }
@@ -159,19 +160,20 @@ public class TurnBasedManager : MonoBehaviour
     {
         while (true)
         {
-            if(m_allAgents.Count > 0)
-            for (int i = 0; i < m_allAgents.Count; i++)
-            {
-                if (m_currentAgentIndex != i)
+            if (m_allAgents.Count > 0)
+                for (int i = 0; i < m_allAgents.Count; i++)
                 {
-                    continue;
+                    if (m_currentAgentIndex != i)
+                    {
+                        continue;
+                    }
+                    else if (m_currentAgentIndex == i)
+                    {
+                        m_currentAgent = m_allAgents[i];
+                        m_allAgents[i].AgentUpdate();
+                        break;
+                    }
                 }
-                else if (m_currentAgentIndex == i)
-                {
-                    m_allAgents[i].AgentUpdate();
-                    break;
-                }
-            }
             yield return null;
         }
     }

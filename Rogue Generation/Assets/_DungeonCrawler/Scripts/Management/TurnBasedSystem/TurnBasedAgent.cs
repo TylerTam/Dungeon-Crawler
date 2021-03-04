@@ -63,6 +63,11 @@ public class TurnBasedAgent : MonoBehaviour
         DungeonGenerationManager.Instance.AdjustEntityCheckGrid(transform.position.x, transform.position.y, gameObject);
     }
 
+    public void RemoveCellAttendence()
+    {
+        DungeonGenerationManager.Instance.AdjustEntityCheckGrid(transform.position.x, transform.position.y, null);
+    }
+
     /// <summary>
     /// This function is called from the turn system manager, in it's coroutine that constantly runs.
     /// </summary>
@@ -252,12 +257,8 @@ public class TurnBasedAgent : MonoBehaviour
         }
 
 
-        m_entityContainer.m_attackController.StartAttack(m_currentAttackIndex);
-
-        while (!m_entityContainer.m_attackController.m_attackComplete)
-        {
-            yield return null;
-        }
+        yield return StartCoroutine( m_entityContainer.m_attackController.StartAttack(m_currentAttackIndex));
+        Debug.Log("Finish Attack");
         m_actionComplete = true;
         m_performingAction = false;
         m_attackCoroutine = null;

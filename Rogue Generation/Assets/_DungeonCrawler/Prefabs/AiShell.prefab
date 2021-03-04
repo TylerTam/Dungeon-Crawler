@@ -122,6 +122,7 @@ MonoBehaviour:
   m_currentAnimationState: 0
   m_currentFacingDir: {x: 0, y: 0}
   m_currentMovementDir: {x: 0, y: 0}
+  m_debugMovemmentLogs: 1
 --- !u!1 &5134884546887740690
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,14 +336,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51c7bb6d2ce8da49a428a9ac9d5d851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_enemyMask:
-    serializedVersion: 2
-    m_Bits: 0
   m_attackType:
   - {fileID: 11400000, guid: 7051b08ebf11d96459c997ce3c8056dd, type: 2}
-  m_attackComplete: 0
   m_attackAnimComplete: 0
   m_attackAnimator: {fileID: 0}
+  m_entityContainer: {fileID: 0}
   m_newActions: []
 --- !u!95 &5134884547314991773
 Animator:

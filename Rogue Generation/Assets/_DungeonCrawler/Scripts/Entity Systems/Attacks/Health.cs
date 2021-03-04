@@ -36,7 +36,9 @@ public class Health : MonoBehaviour
         if (m_currentHealth <= 0)
         {
             m_entityContainer.m_entityVisualManager.SwitchToDefeatedAnimation();
+            //Defeated();
             m_defeated = true;
+            //m_damageAnimComplete = true;
         }
         else
         {
@@ -46,19 +48,23 @@ public class Health : MonoBehaviour
         {
             yield return null;
         }
+
+        if (m_defeated)
+        {
+            Debug.Log("Remove Agent");
+            TurnBasedManager.Instance.AgentDefeated(m_entityContainer.m_turnBasedAgent);
+        }
     }
 
     public void HurtAnimationCompleted()
     {
-        if (m_defeated)
-        {
-            TurnBasedManager.Instance.AgentDefeated(m_entityContainer.m_turnBasedAgent);
-        }
         m_damageAnimComplete = true;
     }
     public void Defeated()
     {
+        m_entityContainer.m_turnBasedAgent.RemoveCellAttendence();
         ObjectPooler.instance.ReturnToPool(gameObject);
+
     }
 
 

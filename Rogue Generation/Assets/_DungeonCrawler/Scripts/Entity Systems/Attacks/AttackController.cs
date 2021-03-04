@@ -7,12 +7,8 @@ using UnityEngine;
 public class AttackController : MonoBehaviour
 {
 
-    public LayerMask m_enemyMask;
-
     [Header("Attack properties")]
     public List<AttackType_Base> m_attackType;
-
-    public bool m_attackComplete;
 
     [HideInInspector]
     public bool m_attackAnimComplete = false;
@@ -23,7 +19,7 @@ public class AttackController : MonoBehaviour
     [HideInInspector]
     public Animator m_attackAnimator;
 
-    private EntityContainer m_entityContainer;
+    public EntityContainer m_entityContainer;
     #endregion
 
     #region Attack type management
@@ -48,40 +44,25 @@ public class AttackController : MonoBehaviour
     /// <summary>
     /// Performs the selected attack
     /// </summary>
-    public void StartAttack(int p_chosenAttack)
+    public IEnumerator StartAttack(int p_chosenAttack)
     {
-        m_attackComplete = false;
         m_attackAnimComplete = false;
         m_currentAttack = m_attackType[p_chosenAttack];
         m_currentAttack.StartAttack(this, m_entityContainer.m_movementController.m_facingDir);
-        StartCoroutine(CheckAttackAnimation());
-
-    }
 
 
-    /// <summary>
-    /// The ienumerator that runs until the animation is complete
-    /// When the animation is complete, create the attack effects
-    /// </summary>
-
-    private IEnumerator CheckAttackAnimation()
-    {
         while (!m_attackAnimComplete)
         {
             yield return null;
         }
+        Debug.Log("Anim Complete");
         ChangeToIdleAnimation();
 
         m_currentAttack.CreateAttackEffects(this);
-        StartCoroutine(CheckAllActions());
 
-    }
 
-    //The coroutine that runs to check if all the actions are completed from this attack
-    //IE, all the attack anims, all the hurt anims, etc.
-    //IE. The thunderbolts, or projectiles as well as the different hurt enemy animations
-    private IEnumerator CheckAllActions()
-    {
+
+        #region Perform All actions of this attack
         bool allActionsComplete = false;
         while (!allActionsComplete)
         {
@@ -100,7 +81,7 @@ public class AttackController : MonoBehaviour
                 allActionsComplete = true;
             }
         }
-
+        Debug.Log("All Actions Complete ");
         //Allow for multiple attacks, IE Fury attack
         if (m_currentAttackAmount < m_currentAttack.m_attackSpawnAmount)
         {
@@ -109,10 +90,13 @@ public class AttackController : MonoBehaviour
         }
         else
         {
-            m_attackComplete = true;
             m_currentAttackAmount = 0;
         }
+        #endregion
+
     }
+
+
 
     #region Attacked Functionality
     private int m_takenDamage = 100;
@@ -139,7 +123,6 @@ public class AttackController : MonoBehaviour
         */
         yield return m_entityContainer.m_entityHealth.TakeDamage(m_takenDamage, m_takenDamageType);
 
-
         if (m_entityContainer.m_entityHealth.m_defeated)
         {
             m_entityContainer.m_entityHealth.Defeated();
@@ -152,7 +135,6 @@ public class AttackController : MonoBehaviour
 
     public void AttackAnimationCompleted()
     {
-        Debug.Log("Attack Complete");
         m_attackAnimComplete = true;
         m_entityContainer.m_entityVisualManager.SwitchToIdleAnimation();
     }

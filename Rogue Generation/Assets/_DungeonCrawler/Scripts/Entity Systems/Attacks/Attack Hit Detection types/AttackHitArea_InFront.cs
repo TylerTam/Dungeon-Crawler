@@ -8,12 +8,20 @@ public class AttackHitArea_InFront : AttackHitArea_Base
     public override List<AttackController> CommencedActions(AttackController p_attackController, Vector2 p_facingDir)
     {
         List<AttackController> gatheredActions = new List<AttackController>();
-        Vector3 attackPos = new Vector3(p_attackController.transform.position.x + p_facingDir.x, p_attackController.transform.position.y + p_facingDir.y,0);
-        RaycastHit2D hit = Physics2D.Raycast(attackPos, Vector3.forward, 100f, p_attackController.m_enemyMask);
 
-        if (hit)
+        Vector2 pos = new Vector2(p_attackController.transform.position.x + p_facingDir.x, -(p_attackController.transform.position.y + p_facingDir.y));
+        GameObject hitObject = DungeonGenerationManager.Instance.GetEntityCheck(pos.x, pos.y);
+        if (hitObject)
         {
-            gatheredActions.Add(hit.transform.GetComponent<AttackController>());
+            EntityTeam.Team hitTeam = hitObject.GetComponent<EntityContainer>().m_entityTeam.m_currentTeam;
+
+            if (CanAddTarget(hitTeam, p_attackController.m_entityContainer.m_entityTeam.m_currentTeam))
+            {
+                gatheredActions.Add(hitObject.transform.GetComponent<AttackController>());
+            }
+
+
+
         }
 
         return gatheredActions;
