@@ -23,9 +23,9 @@ public class AIController : MonoBehaviour
     public float m_nodeStoppingDistance = .1f;
     private Node m_currentNode;
 
-    public int m_skipTurnAmount = 3;
+    private int m_skipTurnAmount = 1;
     private int m_currentSkipTurn = 0;
-    
+
 
     #endregion
 
@@ -109,7 +109,14 @@ public class AIController : MonoBehaviour
                     //m_currentTargetPos = (Vector2)m_currentTargetPrediction.transform.position;
                     break;
                 case AiBehaviour.Idle:
-                    m_currentTargetPos = DungeonGenerationManager.Instance.GetRandomTargetPosition(transform.position.x, transform.position.y, m_entityContainer.m_movementController.m_facingDir);
+                    if (m_currentSkipTurn >= m_skipTurnAmount)
+                    {
+                        m_currentTargetPos = DungeonGenerationManager.Instance.GetRandomTargetPosition(transform.position.x, transform.position.y, -m_entityContainer.m_movementController.m_facingDir);
+                    }
+                    else
+                    {
+                        m_currentTargetPos = DungeonGenerationManager.Instance.GetRandomTargetPosition(transform.position.x, transform.position.y, m_entityContainer.m_movementController.m_facingDir);
+                    }
                     ///TODO: Make this an actual idle target
                     break;
             }
@@ -169,7 +176,7 @@ public class AIController : MonoBehaviour
         ///The current stuck code
         if (m_currentNode != null)
         {
-            if (DungeonGenerationManager.Instance.GetEntityCheck(m_currentNode.worldPosition.x,m_currentNode.worldPosition.y))
+            if (DungeonGenerationManager.Instance.GetEntityCheck(m_currentNode.worldPosition.x, m_currentNode.worldPosition.y))
             {
                 if (m_currentSkipTurn >= m_skipTurnAmount)
                 {
