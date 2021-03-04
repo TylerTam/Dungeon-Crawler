@@ -6,7 +6,7 @@ public class EntityDungeonState : MonoBehaviour
     public int m_roomIndex;
     public int m_cellType;
 
-    public Transform predictedPlace;
+    public Vector3 m_currentGridPosition;
 
     public void Reinitialize()
     {
@@ -16,6 +16,7 @@ public class EntityDungeonState : MonoBehaviour
     public void UpdateCellAttendance(Vector2 p_targetPos)
     {
         m_cellType = DungeonGenerationManager.Instance.GetWallCheck(p_targetPos.x, p_targetPos.y);
+        m_currentGridPosition = p_targetPos;
         if (m_cellType > GlobalVariables.m_startingWalkable)
         {
             m_roomIndex = m_cellType - GlobalVariables.m_startingWalkable - 1;

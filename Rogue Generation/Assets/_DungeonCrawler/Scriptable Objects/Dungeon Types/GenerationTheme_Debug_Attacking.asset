@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c5c90e19467a67418bc66f8a7d969ab, type: 3}
+  m_Name: GenerationTheme_Debug_Attacking
+  m_EditorClassIdentifier: 
+  m_wallTile: {fileID: 11400000, guid: 83fe01f95cf9c07469a02c605a2d8606, type: 2}
+  m_floorTile: {fileID: 11400000, guid: d49517db042273c41a120139b8f9f115, type: 2}
+  m_debugTiles:
+  - {fileID: 11400000, guid: 23a158dc74e5f964b8ef58b1a987fa6e, type: 2}
+  - {fileID: 11400000, guid: d09dccfce77ae584b8b867a30b816603, type: 2}
+  - {fileID: 11400000, guid: 655488c1aad0e304d88a9f96a771a0c1, type: 2}
+  - {fileID: 11400000, guid: cba159cd73a917d4286ce245ff800db9, type: 2}
+  - {fileID: 11400000, guid: 26c2af70b2a2e6b4e9275e0d673e744c, type: 2}
+  - {fileID: 11400000, guid: 4ebeeeb8fbe8dc249b2a3086247214b7, type: 2}
+  - {fileID: 11400000, guid: 5cc80b92fedc32445945e4ae48f05969, type: 2}
+  - {fileID: 11400000, guid: 2eedf32d37b9adf4e970007886a627e2, type: 2}
+  m_floorData:
+  - m_roomCount: 2
+    m_connectPointCount: 0
+    m_cellAmount: {x: 2, y: 2}
+    m_cellSize: {x: 10, y: 10}
+    m_layoutType: {fileID: 11400000, guid: e3eeba4d9b4878b48823647850a531c7, type: 2}
+    m_roomTypesInDungeon:
+    - {fileID: 11400000, guid: dac1569262cc73d41a669310edb50a9d, type: 2}
+    - {fileID: 11400000, guid: be15fe083f0596e4c8cb4add7297a37b, type: 2}
+    - {fileID: 11400000, guid: 0bf3f1b8e0ba7494482dbd813de1357d, type: 2}
+    - {fileID: 11400000, guid: 46685e3ab84f65843861ba2b897c25ad, type: 2}
+    - {fileID: 11400000, guid: cdcb0faaadf8caf4e97eb2333fd12bdc, type: 2}
+    - {fileID: 11400000, guid: 85b630f25c1245b40b6793a8ddcaac5b, type: 2}
+    - {fileID: 11400000, guid: 5dc8f3863aa59f2468a0d31a8f5815f4, type: 2}
+    - {fileID: 11400000, guid: 97a74b9917a405b4bb28899578cae774, type: 2}
+    - {fileID: 11400000, guid: b0dc0ba9102fadf4d86f692b64b7dbb1, type: 2}
+    - {fileID: 11400000, guid: e66642a3e5901c342ac75caf81b25423, type: 2}
+    - {fileID: 11400000, guid: 8757d4b99b9b13d41a835a8481c71000, type: 2}
+    - {fileID: 11400000, guid: 2f4f40bcbbd2a93459daccfb25df01f9, type: 2}
+    - {fileID: 11400000, guid: e8c147c7369dad04cbdcbc6482facd0f, type: 2}
+    - {fileID: 11400000, guid: 15d676881a0af7d478e5631cc687e129, type: 2}
+    - {fileID: 11400000, guid: 9dfc2fb9dbe93a549913a8a357f97770, type: 2}
+    m_aiOnFloor:
+      m_chanceOfAiSpawn: 0.75
+      m_aiFloorData:
+      - m_entityType: {fileID: 11400000, guid: 703920c3fe225264fbf41f2d29703912, type: 2}
+        m_minLevel: 2
+        m_maxLevel: 5
+        m_rarity: 1
+  m_connectionTypesInDungeon:
+  - {fileID: 11400000, guid: f2da64364f4906c45bd3beb887652734, type: 2}
+  - {fileID: 11400000, guid: 68adfe6d9f3cd364d8a69e34c2c958cb, type: 2}
+  - {fileID: 11400000, guid: 0cdbe652d5b712142a3116f9c314ef65, type: 2}
+  - {fileID: 11400000, guid: 790c6a56c043d7f41a7b218406a504c7, type: 2}
+  - {fileID: 11400000, guid: b5abaeaeae47f7d46ac772e3699fe0c0, type: 2}
+  - {fileID: 11400000, guid: aea2b085f0f76f7419fb192d6ddd9921, type: 2}
+  - {fileID: 11400000, guid: e9e5169b1e0def54dbd073c9b0d0aa31, type: 2}
+  - {fileID: 11400000, guid: b91af4debac9c0d4f9144abc8c421c03, type: 2}
+  - {fileID: 11400000, guid: 88cb5ab04211ea9478d51ad3d21ab4ab, type: 2}
+  - {fileID: 11400000, guid: 8f9019b046c1fec44858ae203ac857a2, type: 2}
+  - {fileID: 11400000, guid: df81345424274c94880f9b4b8d7acff3, type: 2}
+  - {fileID: 11400000, guid: ce574f26af9e03749ad20a5db98e2920, type: 2}
+  - {fileID: 11400000, guid: 6bcffba7b15a78e4f8f5e36a4d993b1c, type: 2}
+  - {fileID: 11400000, guid: e7f69488c8c7ff246aa28dfc1122339a, type: 2}
+  - {fileID: 11400000, guid: b1623ac2fcd9e524285f21dd44dc3cdf, type: 2}
+  - {fileID: 11400000, guid: e97a285ac1753f24bb3724fd90089272, type: 2}

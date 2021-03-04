@@ -104,11 +104,12 @@ public class AttackController : MonoBehaviour
         }
         m_currentAttack.StartAttack(this, m_entityContainer.m_movementController.m_facingDir);
 
-
+        Debug.Log("Attack Anim Start");
         while (!m_attackAnimComplete)
         {
             yield return null;
         }
+        Debug.Log("Attack Anim Finished");
         ChangeToIdleAnimation();
 
         m_currentAttack.CreateAttackEffects(this);
@@ -203,6 +204,7 @@ public class AttackController : MonoBehaviour
                 m_entityContainer.m_entityVisualManager.SwitchToSpecialAttackAnimation();
                 break;
         }
+
         m_attackAnimator.SetInteger("FacingX", (int)m_entityContainer.m_movementController.m_facingDir.x);
         m_attackAnimator.SetInteger("FacingY", (int)m_entityContainer.m_movementController.m_facingDir.y);
 

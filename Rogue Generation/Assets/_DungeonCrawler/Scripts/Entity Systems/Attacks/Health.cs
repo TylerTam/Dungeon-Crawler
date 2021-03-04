@@ -41,6 +41,10 @@ public class Health : MonoBehaviour
                 break;
         }
         Debug.Log("Finalized Damage Taken: " + damageTaken);
+        if(damageTaken <= 0)
+        {
+            damageTaken = 1;
+        }
         m_currentHealth -= damageTaken;
         if (m_currentHealth <= 0)
         {

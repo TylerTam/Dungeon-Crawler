@@ -87,7 +87,7 @@ public class Entity_MovementController : MonoBehaviour
 
     public void UpdateFacingDir(Vector2 p_newDir)
     {
-        m_facingDir = p_newDir;
+        m_facingDir = new Vector2(Mathf.Abs(p_newDir.x) < 0.5 ? 0 : (int)Mathf.Sign(p_newDir.x), Mathf.Abs(p_newDir.y) < 0.5 ? 0 : (int)Mathf.Sign(p_newDir.y));
     }
 
     public void RotateCharacterIdle(Vector2 p_newDir)

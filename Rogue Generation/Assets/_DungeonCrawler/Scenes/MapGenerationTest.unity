@@ -2257,7 +2257,7 @@ MonoBehaviour:
   m_cellWorldSize: 1
   m_floorTilemap: {fileID: 1570283518}
   m_wallTilemap: {fileID: 532188027}
-  m_dungeonTheme: {fileID: 11400000, guid: 24e3ce03d437af641843307f9ffa3ecd, type: 2}
+  m_dungeonTheme: {fileID: 11400000, guid: 19c343c00b3636f4aa9c6e1d9d48d032, type: 2}
   m_navGrid: {fileID: 1144627410}
   m_checkAgent: {fileID: 1144627411}
   m_floorData:

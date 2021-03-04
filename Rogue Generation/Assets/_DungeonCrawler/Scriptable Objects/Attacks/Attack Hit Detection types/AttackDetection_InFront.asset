@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: AttackDetection_InFront
   m_EditorClassIdentifier: 
   m_targetTeams: 1
+  m_attackDistance: 1
+  m_chanceOfAttack: 1

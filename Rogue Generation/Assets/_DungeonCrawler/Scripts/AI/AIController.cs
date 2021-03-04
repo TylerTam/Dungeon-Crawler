@@ -76,9 +76,14 @@ public class AIController : MonoBehaviour
                 MoveAi();
                 break;
             case AiBehaviour.Attack:
-                if (CanAttack())
+                int currentAttack = 0;
+                if (CanAttack(out currentAttack))
                 {
-                    ChooseAttack();
+                    Vector2 facingDir = ((Vector2)m_currentTarget.transform.position - (Vector2)transform.position).normalized;
+                    m_entityContainer.m_movementController.UpdateFacingDir(facingDir);
+                    m_entityContainer.m_entityVisualManager.UpdateFacingDir(facingDir);
+
+                    m_entityContainer.m_turnBasedAgent.Action_Attack(currentAttack);
                 }
                 else
                 {
@@ -330,19 +335,16 @@ public class AIController : MonoBehaviour
             NewPath();
         }
     }
-    public bool CanAttack()
+    public bool CanAttack(out int p_attackIndex)
     {
         List<int> possibleAttacks;
-        if(m_entityContainer.m_attackController.CanPerformAttack(m_currentTarget.transform.position, out possibleAttacks))
+        if(m_entityContainer.m_attackController.CanPerformAttack(m_targetDungeonState.m_currentGridPosition, out possibleAttacks))
         {
-
+            p_attackIndex = possibleAttacks[Random.Range(0, possibleAttacks.Count)];
+            return true;
         }
+        p_attackIndex = 0;
         return false;
-    }
-    public int ChooseAttack()
-    {
-        //Check which attack can hit
-        return 0;
     }
     #endregion
 
