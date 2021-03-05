@@ -307,7 +307,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1839735485 &140938921
 Tilemap:
   m_ObjectHideFlags: 0
@@ -1093,7 +1093,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &362030493
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1533,7 +1533,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -2861,7 +2861,7 @@ MonoBehaviour:
   m_cellWorldSize: 1
   m_floorTilemap: {fileID: 1570283518}
   m_wallTilemap: {fileID: 532188027}
-  m_dungeonTheme: {fileID: 11400000, guid: 19c343c00b3636f4aa9c6e1d9d48d032, type: 2}
+  m_dungeonTheme: {fileID: 11400000, guid: 24e3ce03d437af641843307f9ffa3ecd, type: 2}
   m_navGrid: {fileID: 1144627410}
   m_checkAgent: {fileID: 1144627411}
   m_floorData:
@@ -2869,6 +2869,7 @@ MonoBehaviour:
     m_cellGrid: []
   m_dungeonCellGrid: []
   m_currentFloor: 0
+  m_debugCurrentFloor: 0
   m_debug: 1
   m_debugCellSizes: 1
   m_xColor:
@@ -3719,7 +3720,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -3785,7 +3786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e827e1736f76a349a837c2cb42d03ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxAiOnFloor: 1
+  m_maxAiOnFloor: 5
   m_currentAiOnFloor: 0
   m_aiShellPrefab: {fileID: 5134884547314991772, guid: 3b6bc1e0b434a8c42a2aa8e9e9958ced,
     type: 3}

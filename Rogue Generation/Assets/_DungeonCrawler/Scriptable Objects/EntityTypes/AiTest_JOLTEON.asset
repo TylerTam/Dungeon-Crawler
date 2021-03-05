@@ -216,7 +216,7 @@ MonoBehaviour:
     m_defense: 1
     m_magic: 0
     m_resistance: 1
-  - m_health: 1
+  - m_health: 11000
     m_attack: 1
     m_defense: 1
     m_magic: 0
