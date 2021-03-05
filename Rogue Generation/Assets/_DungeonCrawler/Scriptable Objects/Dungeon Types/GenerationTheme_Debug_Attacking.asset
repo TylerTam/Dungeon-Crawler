@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c5c90e19467a67418bc66f8a7d969ab, type: 3}
   m_Name: GenerationTheme_Debug_Attacking
   m_EditorClassIdentifier: 
+  m_dungeonName: Small Debug Cave
   m_wallTile: {fileID: 11400000, guid: 83fe01f95cf9c07469a02c605a2d8606, type: 2}
   m_floorTile: {fileID: 11400000, guid: d49517db042273c41a120139b8f9f115, type: 2}
   m_debugTiles:

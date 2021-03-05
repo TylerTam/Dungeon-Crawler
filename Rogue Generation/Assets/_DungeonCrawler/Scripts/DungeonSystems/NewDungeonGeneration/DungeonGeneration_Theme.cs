@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu(fileName = "New Dungeon Generation Theme", menuName = "NewDungeonGen/New Dungeon Generation Theme", order = 0)]
 public class DungeonGeneration_Theme : ScriptableObject
 {
+    public string m_dungeonName;
     public Tile m_wallTile, m_floorTile;
     public List<Tile> m_debugTiles;
 

@@ -25,6 +25,7 @@ public class DungeonGenerationManager : MonoBehaviour
 
     [Header("Runtime Variables")]
     public int m_currentFloor;
+    public int m_debugCurrentFloor;
 
 
     [Header("Debugging")]
@@ -40,44 +41,56 @@ public class DungeonGenerationManager : MonoBehaviour
 
     public bool m_debugEntityCheck;
     public Color m_debugEntityColor;
+    public bool m_showNextFloorText;
+
+
 
     //Used to keep track of entities
     //Used to replace raycasts check, and to check this 2d array instead for detection
     public GameObject[,] m_runtimeGridOccupancy;
     public GameObject[,] m_interactableGridOccupancy;
+
+
     private void Awake()
     {
         Instance = this;
     }
     private void Start()
     {
+        StartCoroutine(InitialGeneration());
+    }
+    private IEnumerator InitialGeneration()
+    {
         Input_Base.Instance.m_canPerform = false;
-        GenerateFloor();
-    }
-    private void Update()
-    {
-        if (!m_isDebuggingFloorGeneration) return;
-        if (m_generate)
+        if (m_showNextFloorText)
         {
-            GenerateFloor();
-            m_generate = false;
+            UI_NewFloor.Instance.InitialFadeIn();
         }
-    }
-
-    public void GenerateFloor()
-    {
-        m_floorTilemap.ClearAllTiles();
-        m_wallTilemap.ClearAllTiles();
-        StartCoroutine(GenerationCoroutine());
-
+        else
+        {
+            UI_NewFloor.Instance.DisableFloorUI();
+        }
+        yield return StartCoroutine(GenerationCoroutine());
     }
 
     private IEnumerator GenerationCoroutine()
     {
+
+        m_debugCurrentFloor++;
+        Input_Base.Instance.m_canPerform = false;
+        if (m_showNextFloorText)
+        {
+            yield return StartCoroutine(UI_NewFloor.Instance.FadeIn(m_dungeonTheme.m_dungeonName, m_debugCurrentFloor));
+        }
+
+        AIManager.Instance.ClearFloor();
+        m_floorTilemap.ClearAllTiles();
+        m_wallTilemap.ClearAllTiles();
         bool canPass = false;
         while (!canPass)
         {
-            m_floorData = m_dungeonTheme.GenerateFloor(m_currentFloor);
+            int debugFloorNum = 0;
+            m_floorData = m_dungeonTheme.GenerateFloor(debugFloorNum);
             m_navGrid.GenerateGrid(m_floorData.m_floorLayout);
 
 
@@ -133,6 +146,11 @@ public class DungeonGenerationManager : MonoBehaviour
         AIManager.Instance.m_currentAIFloorData = m_dungeonTheme.m_floorData[m_currentFloor].m_aiOnFloor;
 
         yield return null;
+        if (m_showNextFloorText)
+        {
+            yield return StartCoroutine(UI_NewFloor.Instance.FadeOut());
+        }
+
         Input_Base.Instance.m_canPerform = true;
     }
 
@@ -143,8 +161,8 @@ public class DungeonGenerationManager : MonoBehaviour
         ///Fade to black;
         ///
 
-        AIManager.Instance.ClearFloor();
-        GenerateFloor();
+        
+        StartCoroutine(GenerationCoroutine());
         ///
         ///Fade out black
         ///
@@ -201,7 +219,7 @@ public class DungeonGenerationManager : MonoBehaviour
     {
         List<Node> pathToPlayer = m_checkAgent.CreatePath(p_aiPosition, p_lostPlayer.transform.position);
         List<List<Node>> pathsToConnections = new List<List<Node>>();
-        foreach(Vector2Int cellConnection in p_currentCell.m_connectedCells)
+        foreach (Vector2Int cellConnection in p_currentCell.m_connectedCells)
         {
             Vector2 worldPos = m_floorData.m_cellGrid[cellConnection.x].m_gridColumn[cellConnection.y].m_centerWorldPosition;
             worldPos = new Vector2(worldPos.x, -(Mathf.Abs(worldPos.y)));
