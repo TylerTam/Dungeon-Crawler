@@ -178,7 +178,7 @@ public class AttackController : MonoBehaviour
     public IEnumerator AttackAnimComplete(int p_damageAmount, AttackType_Base.AttackType p_attackType, AttackType_Base p_attackBase)
     {
 
-        GameObject damageObject = Instantiate(m_damageMsgPrefab, transform.position, Quaternion.identity);
+        GameObject damageObject = ObjectPooler.instance.NewObject(m_damageMsgPrefab, transform.position, Quaternion.identity);
         damageObject.GetComponent<DamagePrompt>().SetUi("-" + m_entityContainer.m_entityHealth.CalculateDamage(p_damageAmount, p_attackType).ToString(), true);
 
 

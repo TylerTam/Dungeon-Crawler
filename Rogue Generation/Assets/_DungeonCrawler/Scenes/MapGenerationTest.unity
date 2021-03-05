@@ -2266,7 +2266,7 @@ MonoBehaviour:
   m_dungeonCellGrid: []
   m_currentFloor: 0
   m_debug: 1
-  m_debugCellSizes: 0
+  m_debugCellSizes: 1
   m_xColor:
     serializedVersion: 2
     key0: {r: 1, g: 0.61547077, b: 0, a: 0.5019608}
@@ -3129,7 +3129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e827e1736f76a349a837c2cb42d03ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxAiOnFloor: 1
+  m_maxAiOnFloor: 5
   m_currentAiOnFloor: 0
   m_aiShellPrefab: {fileID: 5134884547314991772, guid: 3b6bc1e0b434a8c42a2aa8e9e9958ced,
     type: 3}

@@ -197,9 +197,40 @@ public class DungeonGenerationManager : MonoBehaviour
         return false;
     }
 
+    public Vector3 GetNewPaintCauseLostPlayerInHallway(Vector2 p_aiPosition, CellGridData p_currentCell, GameObject p_lostPlayer)
+    {
+        List<Node> pathToPlayer = m_checkAgent.CreatePath(p_aiPosition, p_lostPlayer.transform.position);
+        List<List<Node>> pathsToConnections = new List<List<Node>>();
+        foreach(Vector2Int cellConnection in p_currentCell.m_connectedCells)
+        {
+            Vector2 worldPos = m_floorData.m_cellGrid[cellConnection.x].m_gridColumn[cellConnection.y].m_centerWorldPosition;
+            worldPos = new Vector2(worldPos.x, -(Mathf.Abs(worldPos.y)));
+            pathsToConnections.Add(m_checkAgent.CreatePath(p_aiPosition, worldPos));
+        }
 
+        bool foundPath = true;
+        foreach (List<Node> node in pathsToConnections)
+        {
+            foundPath = true;
+            for (int i = 0; i < 2; i++)
+            {
+                if (pathToPlayer[i].worldPosition != node[i].worldPosition)
+                {
+                    foundPath = false;
+                    break;
+                }
 
-    public Vector3 GetRandomTargetPosition(float x, float y, Vector2 p_facingDir, bool p_lostPlayer)
+            }
+            if (foundPath)
+            {
+                Vector2Int connectedCell = p_currentCell.m_connectedCells[pathsToConnections.IndexOf(node)];
+                return (Vector2)m_floorData.m_cellGrid[connectedCell.x].m_gridColumn[connectedCell.y].m_centerWorldPosition;
+            }
+        }
+        return (Vector2)p_currentCell.m_centerWorldPosition;
+    }
+
+    public Vector3 GetRandomTargetPosition(float x, float y, Vector2 p_facingDir, bool p_lostPlayer, GameObject p_lostPlayerObject = null)
     {
         int currentTileType = m_floorData.m_floorLayout[(int)x, (int)Mathf.Abs(y)];
 
@@ -333,12 +364,12 @@ public class DungeonGenerationManager : MonoBehaviour
 
         List<Vector2Int> hallwayPossiblePoints = new List<Vector2Int>();
 
-        /*if (!p_lostPlayer)
+        if (p_lostPlayer)
         {
-            DungeonGenerationManager
+            return GetNewPaintCauseLostPlayerInHallway(new Vector2(x, y), currentCell, p_lostPlayerObject);
         }
         else
-        {*/
+        {
             foreach (Vector2Int connection in currentCell.m_connectedCells)
             {
                 //if its different horizontally
@@ -371,7 +402,7 @@ public class DungeonGenerationManager : MonoBehaviour
                     }
                 }
             }
-        //}
+        }
 
         if (hallwayPossiblePoints.Count > 0)
         {

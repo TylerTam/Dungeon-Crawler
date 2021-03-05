@@ -25,7 +25,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2eedf32d37b9adf4e970007886a627e2, type: 2}
   m_floorData:
   - m_roomCount: 2
-    m_connectPointCount: 0
+    m_connectPointCount: 2
     m_cellAmount: {x: 2, y: 2}
     m_cellSize: {x: 10, y: 10}
     m_layoutType: {fileID: 11400000, guid: e3eeba4d9b4878b48823647850a531c7, type: 2}

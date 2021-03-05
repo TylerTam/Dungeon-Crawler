@@ -40,11 +40,9 @@ public class AttackType_Base : ScriptableObject
         {
             if (Random.Range(0, 1f) < m_changeOfAttack)
             {
-                Debug.Log("Try Attack");
                 return true;
             }
         }
-        Debug.Log("No Attack");
         return false;
     }
 
