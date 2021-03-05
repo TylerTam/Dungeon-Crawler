@@ -162,7 +162,10 @@ public class UIRaycastInput : MonoBehaviour
                 ///Select the attack here;
                 if (m_currentTapped == m_attackKey)
                 {
-                    m_playerEntityContainer.m_turnBasedAgent.Action_Attack(m_attackIndex);
+                    if (m_playerEntityContainer.m_attackController.CanUseAttack(m_attackIndex))
+                    {
+                        m_playerEntityContainer.m_turnBasedAgent.Action_Attack(m_attackIndex);
+                    }
                 }
                 break;
             case TouchState.Movement:

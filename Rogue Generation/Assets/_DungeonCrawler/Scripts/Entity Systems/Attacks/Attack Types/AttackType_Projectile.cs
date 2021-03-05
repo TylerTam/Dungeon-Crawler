@@ -36,7 +36,6 @@ public class AttackType_Projectile : AttackType_Base
             {
                 if(DungeonGenerationManager.Instance.GetWallCheck(startingPos.x + (i* dirX),startingPos.y + (i * dirY)) == GlobalVariables.m_wallCell)
                 {
-                    Debug.Log("Found wall");
                     startingPos = startingPos + new Vector2(((i-1) * dirX), ((i-1) * dirY));
                     foundTarget = true;
                     break;

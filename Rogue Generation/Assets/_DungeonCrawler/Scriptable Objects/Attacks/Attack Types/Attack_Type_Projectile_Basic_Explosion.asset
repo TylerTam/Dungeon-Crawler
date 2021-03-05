@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e64b1b5647525b942a1caba8b3f0023b, type: 3}
-  m_Name: Attack_Type_Projectile_Basic
+  m_Name: Attack_Type_Projectile_Basic_Explosion
   m_EditorClassIdentifier: 
   m_attackType: 1
   m_baseDamage: 15
   m_changeOfAttack: 1
   m_attackDetection: {fileID: 11400000, guid: afc9712c5af287e4ca39cebf8064ae61, type: 2}
   m_range: 5
-  m_explosionRange: {x: 0, y: 0}
+  m_explosionRange: {x: 2, y: 2}
   m_attackSpawnAmount: 0
   m_attackAnimationController: {fileID: 9100000, guid: dc6eea579c6bf1641833ae3d809f3b09,
     type: 2}

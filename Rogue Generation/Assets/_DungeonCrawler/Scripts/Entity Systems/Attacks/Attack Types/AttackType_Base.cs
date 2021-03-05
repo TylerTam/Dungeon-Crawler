@@ -34,15 +34,17 @@ public class AttackType_Base : ScriptableObject
 
 
 
-    public bool IsWithinRange(Vector2 p_attackerPos, Vector2 p_targetPos)
+    public bool IsWithinRange(Vector2 p_attackerPos, Vector2 p_targetPos, EntityTeam.Team p_attackerTeam)
     {
-        if (m_attackDetection.IsWithinRange(p_attackerPos, p_targetPos, m_range))
+        if (m_attackDetection.IsWithinRange(p_attackerPos, p_targetPos, m_range, p_attackerTeam))
         {
             if (Random.Range(0, 1f) < m_changeOfAttack)
             {
+                Debug.Log("Try Attack");
                 return true;
             }
         }
+        Debug.Log("No Attack");
         return false;
     }
 

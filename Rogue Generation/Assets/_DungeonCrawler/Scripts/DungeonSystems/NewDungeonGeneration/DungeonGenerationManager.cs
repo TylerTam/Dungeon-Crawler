@@ -153,6 +153,13 @@ public class DungeonGenerationManager : MonoBehaviour
 
     #region Getter Functions
 
+    public bool IsInGrid(float x, float y)
+    {
+        if ((int)x >= m_floorData.m_floorLayout.GetLength(0) || (int)x < 0) return false;
+        if ((int)-y >= m_floorData.m_floorLayout.GetLength(0) || (int)-y < 0) return false;
+        return true;
+    }
+
     public int GetWallCheck(float x, float y)
     {
         return m_floorData.m_floorLayout[(int)x, Mathf.Abs((int)y)];
@@ -192,7 +199,7 @@ public class DungeonGenerationManager : MonoBehaviour
 
 
 
-    public Vector3 GetRandomTargetPosition(float x, float y, Vector2 p_facingDir)
+    public Vector3 GetRandomTargetPosition(float x, float y, Vector2 p_facingDir, bool p_lostPlayer)
     {
         int currentTileType = m_floorData.m_floorLayout[(int)x, (int)Mathf.Abs(y)];
 
@@ -210,10 +217,30 @@ public class DungeonGenerationManager : MonoBehaviour
                 #region Logic for being in room
                 List<Vector2Int> possiblePoints = new List<Vector2Int>();
 
-                foreach (Vector2Int exitPoints in currentRoom.m_exitPoints)
+                if (p_lostPlayer)
                 {
-                    if ((int)x == exitPoints.x + currentRoom.m_roomCenterWorldPos.x && Mathf.Abs((int)(y)) == exitPoints.y + currentRoom.m_roomCenterWorldPos.y) continue;
-                    possiblePoints.Add(exitPoints);
+                    float currentDis = 1000;
+                    Vector2Int currentExit = Vector2Int.zero;
+                    Vector2 playerPos = PlayerDungeonManager.Instance.m_playerEntityContainer.transform.position;
+                    playerPos = new Vector2(playerPos.x, Mathf.Abs(playerPos.y));
+                    foreach (Vector2Int exitPoints in currentRoom.m_exitPoints)
+                    {
+                        float curDis = Vector2.Distance(currentRoom.m_roomCenterWorldPos + exitPoints, playerPos);
+                        if (curDis < currentDis)
+                        {
+                            currentDis = curDis;
+                            currentExit = currentRoom.m_roomCenterWorldPos + exitPoints;
+                        }
+                    }
+                    return (Vector3)(Vector2)currentExit;
+                }
+                else
+                {
+                    foreach (Vector2Int exitPoints in currentRoom.m_exitPoints)
+                    {
+                        if ((int)x == exitPoints.x + currentRoom.m_roomCenterWorldPos.x && Mathf.Abs((int)(y)) == exitPoints.y + currentRoom.m_roomCenterWorldPos.y) continue;
+                        possiblePoints.Add(exitPoints);
+                    }
                 }
 
                 if (possiblePoints.Count == 0)
@@ -247,17 +274,17 @@ public class DungeonGenerationManager : MonoBehaviour
                 Vector2Int roomCheckCell = new Vector2Int((int)(x / m_dungeonTheme.m_floorData[m_currentFloor].m_cellSize.x),
                                         (int)((Mathf.Abs(y)) / m_dungeonTheme.m_floorData[m_currentFloor].m_cellSize.y));
 
-                if (p_facingDir.x <0)
+                if (p_facingDir.x < 0)
                 {
-                    foreach(Vector2Int connect in m_floorData.m_cellGrid[roomCheckCell.x].m_gridColumn[roomCheckCell.y].m_connectedCells)
+                    foreach (Vector2Int connect in m_floorData.m_cellGrid[roomCheckCell.x].m_gridColumn[roomCheckCell.y].m_connectedCells)
                     {
-                        if(connect.x - roomCheckCell.x == -1)
+                        if (connect.x - roomCheckCell.x == -1)
                         {
-                            return (Vector2) m_floorData.m_cellGrid[connect.x].m_gridColumn[connect.y].m_eastConnectionPoint;
+                            return (Vector2)m_floorData.m_cellGrid[connect.x].m_gridColumn[connect.y].m_eastConnectionPoint;
                         }
                     }
                 }
-                else if (p_facingDir.x >0)
+                else if (p_facingDir.x > 0)
                 {
                     foreach (Vector2Int connect in m_floorData.m_cellGrid[roomCheckCell.x].m_gridColumn[roomCheckCell.y].m_connectedCells)
                     {
@@ -306,42 +333,48 @@ public class DungeonGenerationManager : MonoBehaviour
 
         List<Vector2Int> hallwayPossiblePoints = new List<Vector2Int>();
 
-        foreach (Vector2Int connection in currentCell.m_connectedCells)
+        /*if (!p_lostPlayer)
         {
-            //if its different horizontally
-            if (connection.x != currentCell.m_gridIndex.x && connection.y == currentCell.m_gridIndex.y)
-            {
-                if (Mathf.Sign(p_facingDir.x) == Mathf.Sign(connection.x - currentCell.m_gridIndex.x) || p_facingDir.x == 0)
-                {
-                    if (Mathf.Sign(connection.x - currentCell.m_gridIndex.x) == 1)
-                    {
-                        hallwayPossiblePoints.Add(m_floorData.m_cellGrid[connection.x].m_gridColumn[connection.y].m_westConnectionPoint);
-                    }
-                    else
-                    {
-                        hallwayPossiblePoints.Add(m_floorData.m_cellGrid[connection.x].m_gridColumn[connection.y].m_eastConnectionPoint);
-                    }
-                }
-            }
-            else if (connection.x == currentCell.m_gridIndex.x && connection.y != currentCell.m_gridIndex.y)
-            {
-                if (Mathf.Sign(p_facingDir.y) != Mathf.Sign(connection.y - currentCell.m_gridIndex.y) || p_facingDir.y == 0)
-                {
-                    if (Mathf.Sign(connection.y - currentCell.m_gridIndex.y) == 1)
-                    {
-                        hallwayPossiblePoints.Add(m_floorData.m_cellGrid[connection.x].m_gridColumn[connection.y].m_northConnectionPoint);
-                    }
-                    else
-                    {
-                        hallwayPossiblePoints.Add(m_floorData.m_cellGrid[connection.x].m_gridColumn[connection.y].m_southConnectionPoint);
-                    }
-                }
-            }
+            DungeonGenerationManager
         }
+        else
+        {*/
+            foreach (Vector2Int connection in currentCell.m_connectedCells)
+            {
+                //if its different horizontally
+                if (connection.x != currentCell.m_gridIndex.x && connection.y == currentCell.m_gridIndex.y)
+                {
+                    if (Mathf.Sign(p_facingDir.x) == Mathf.Sign(connection.x - currentCell.m_gridIndex.x) || p_facingDir.x == 0)
+                    {
+                        if (Mathf.Sign(connection.x - currentCell.m_gridIndex.x) == 1)
+                        {
+                            hallwayPossiblePoints.Add(m_floorData.m_cellGrid[connection.x].m_gridColumn[connection.y].m_westConnectionPoint);
+                        }
+                        else
+                        {
+                            hallwayPossiblePoints.Add(m_floorData.m_cellGrid[connection.x].m_gridColumn[connection.y].m_eastConnectionPoint);
+                        }
+                    }
+                }
+                else if (connection.x == currentCell.m_gridIndex.x && connection.y != currentCell.m_gridIndex.y)
+                {
+                    if (Mathf.Sign(p_facingDir.y) != Mathf.Sign(connection.y - currentCell.m_gridIndex.y) || p_facingDir.y == 0)
+                    {
+                        if (Mathf.Sign(connection.y - currentCell.m_gridIndex.y) == 1)
+                        {
+                            hallwayPossiblePoints.Add(m_floorData.m_cellGrid[connection.x].m_gridColumn[connection.y].m_northConnectionPoint);
+                        }
+                        else
+                        {
+                            hallwayPossiblePoints.Add(m_floorData.m_cellGrid[connection.x].m_gridColumn[connection.y].m_southConnectionPoint);
+                        }
+                    }
+                }
+            }
+        //}
 
         if (hallwayPossiblePoints.Count > 0)
         {
-            Debug.Log("Return random Point Here");
             return (Vector2)hallwayPossiblePoints[Random.Range(0, hallwayPossiblePoints.Count)];
         }
 

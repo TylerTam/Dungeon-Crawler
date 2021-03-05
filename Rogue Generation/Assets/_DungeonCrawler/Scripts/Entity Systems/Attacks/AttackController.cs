@@ -79,7 +79,7 @@ public class AttackController : MonoBehaviour
         {
             if (attack.m_attacksLeft <= 0) continue;
 
-            if (attack.m_attack.IsWithinRange(transform.position, p_targetPos))
+            if (attack.m_attack.IsWithinRange(transform.position, p_targetPos, m_entityContainer.m_entityTeam.m_currentTeam))
             {
                 p_attack.Add(m_allAttacks.IndexOf(attack));
             }
@@ -92,6 +92,10 @@ public class AttackController : MonoBehaviour
         return false;
     }
 
+    public bool CanUseAttack(int p_attackIndex)
+    {
+        return m_allAttacks[p_attackIndex].m_attacksLeft > 0;
+    }
 
     /// <summary>
     /// Performs the selected attack
@@ -118,8 +122,8 @@ public class AttackController : MonoBehaviour
         if (weaponEffect != null)
         {
             yield return StartCoroutine(weaponEffect.PlayWeaponEffect());
+            ObjectPooler.instance.ReturnToPool(weaponEffect.gameObject);
         }
-        ObjectPooler.instance.ReturnToPool(weaponEffect.gameObject);
 
 
         #region Perform All actions of this attack
@@ -175,7 +179,7 @@ public class AttackController : MonoBehaviour
     {
 
         GameObject damageObject = Instantiate(m_damageMsgPrefab, transform.position, Quaternion.identity);
-        damageObject.GetComponent<DamagePrompt>().SetUi("-" + p_damageAmount.ToString(), true);
+        damageObject.GetComponent<DamagePrompt>().SetUi("-" + m_entityContainer.m_entityHealth.CalculateDamage(p_damageAmount, p_attackType).ToString(), true);
 
 
         yield return StartCoroutine(p_attackBase.CreateIndividualAttackEffect(transform.position));

@@ -92,7 +92,7 @@ public class AIController : MonoBehaviour
     /// called when their current target has been reached
     /// TODO: Implement the ability for them to recalculate when they become stuck, and cannot continue on their current path
     /// </summary>
-    public void NewPath()
+    public void NewPath(bool p_lostPlayer = false)
     {
 
 
@@ -105,11 +105,11 @@ public class AIController : MonoBehaviour
             case AiBehaviour.Idle:
                 if (m_currentSkipTurn >= m_skipTurnAmount)
                 {
-                    m_currentTargetPos = DungeonGenerationManager.Instance.GetRandomTargetPosition(transform.position.x, transform.position.y, -m_entityContainer.m_movementController.m_facingDir);
+                    m_currentTargetPos = DungeonGenerationManager.Instance.GetRandomTargetPosition(transform.position.x, transform.position.y, -m_entityContainer.m_movementController.m_facingDir, false);
                 }
                 else
                 {
-                    m_currentTargetPos = DungeonGenerationManager.Instance.GetRandomTargetPosition(transform.position.x, transform.position.y, m_entityContainer.m_movementController.m_facingDir);
+                    m_currentTargetPos = DungeonGenerationManager.Instance.GetRandomTargetPosition(transform.position.x, transform.position.y, m_entityContainer.m_movementController.m_facingDir, p_lostPlayer);
                 }
                 ///TODO: Make this an actual idle target
                 break;
@@ -224,9 +224,9 @@ public class AIController : MonoBehaviour
             m_currentBehaviour = AiBehaviour.Idle;
             if (findNewPath)
             {
-                Debug.Log("Find New Path");
+                Debug.Log("Lost Player");
                 m_currentSkipTurn = 0;
-                NewPath();
+                NewPath(true);
             }
         }
         else

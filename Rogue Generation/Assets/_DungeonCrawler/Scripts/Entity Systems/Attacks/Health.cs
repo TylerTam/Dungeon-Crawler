@@ -26,9 +26,9 @@ public class Health : MonoBehaviour
         m_currentHealth = m_maxHealth;
         m_defeated = false;
     }
-    public IEnumerator TakeDamage(int p_damageTaken, AttackType_Base.AttackType p_damageType)
+
+    public int CalculateDamage(int p_damageTaken, AttackType_Base.AttackType p_damageType)
     {
-        m_damageAnimComplete = false;
         int damageTaken = p_damageTaken;
 
         switch (p_damageType)
@@ -40,11 +40,17 @@ public class Health : MonoBehaviour
                 damageTaken -= m_entityContainer.m_runtimeStats.m_currentStats.m_resistance;
                 break;
         }
-        if(damageTaken <= 0)
+        if (damageTaken <= 0)
         {
             damageTaken = 1;
         }
-        m_currentHealth -= damageTaken;
+        return damageTaken;
+    }
+    public IEnumerator TakeDamage(int p_damageTaken, AttackType_Base.AttackType p_damageType)
+    {
+        m_damageAnimComplete = false;
+        
+        m_currentHealth -= CalculateDamage(p_damageTaken, p_damageType);
         if (m_currentHealth <= 0)
         {
             m_entityContainer.m_entityVisualManager.SwitchToDefeatedAnimation();

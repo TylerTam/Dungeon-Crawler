@@ -143,7 +143,7 @@ public class TurnBasedAgent : MonoBehaviour
         if (!m_performingAction)
         {
 
-
+  
             m_currentAttackIndex = p_currentAttack;
             m_currentAgentAction = AgentAction.Attack;
             GameObject temp = gameObject;

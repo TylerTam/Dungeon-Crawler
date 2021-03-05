@@ -213,6 +213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5134884547314991774}
+  - component: {fileID: 7925544264456884441}
   - component: {fileID: 7126509641186255227}
   - component: {fileID: 5134884547314991781}
   - component: {fileID: 1541658862317782881}
@@ -223,7 +224,6 @@ GameObject:
   - component: {fileID: 5715755393832415617}
   - component: {fileID: 5134884547314991775}
   - component: {fileID: 8172292840321747689}
-  - component: {fileID: 7925544264456884441}
   m_Layer: 0
   m_Name: AiShell
   m_TagString: Untagged
@@ -247,6 +247,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7925544264456884441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134884547314991772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d789d046822094e418e10fc65380206f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_currentStats:
+    m_health: 0
+    m_attack: 0
+    m_defense: 0
+    m_magic: 0
+    m_resistance: 0
+  m_currentData: {fileID: 0}
+  m_entContainer: {fileID: 0}
+  m_currentLevel: 0
 --- !u!114 &7126509641186255227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,24 +438,3 @@ MonoBehaviour:
   m_maxHealth: 1
   m_currentHealth: 0
   m_damageAnimComplete: 0
---- !u!114 &7925544264456884441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5134884547314991772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d789d046822094e418e10fc65380206f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_currentStats:
-    m_health: 0
-    m_attack: 0
-    m_defense: 0
-    m_magic: 0
-    m_resistance: 0
-  m_currentData: {fileID: 0}
-  m_entContainer: {fileID: 0}
-  m_currentLevel: 0

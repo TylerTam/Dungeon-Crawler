@@ -229,10 +229,10 @@ MonoBehaviour:
       m_maxAmount: 10
       m_attacksLeft: 0
       m_drainAttackOnUse: 1
-  - m_learnedLevel: 4
+  - m_learnedLevel: 2
     m_attack:
-      m_attack: {fileID: 11400000, guid: 7051b08ebf11d96459c997ce3c8056dd, type: 2}
-      m_maxAmount: 10
+      m_attack: {fileID: 11400000, guid: 499e8e2ba435d6b408c9d73a09a3d785, type: 2}
+      m_maxAmount: 100
       m_attacksLeft: 0
       m_drainAttackOnUse: 1
   - m_learnedLevel: 6

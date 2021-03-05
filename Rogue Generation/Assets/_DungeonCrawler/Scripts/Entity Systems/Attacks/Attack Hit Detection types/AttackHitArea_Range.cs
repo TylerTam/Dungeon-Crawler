@@ -15,9 +15,9 @@ public class AttackHitArea_Range : AttackHitArea_Base
 
         for (int i = 1; i <= p_range; i++)
         {
+            if (!DungeonGenerationManager.Instance.IsInGrid(startingPos.x + (i * dirX), startingPos.y + (i * dirY))) continue;
             if (DungeonGenerationManager.Instance.GetEntityCheck(startingPos.x + (i * dirX), startingPos.y + (i * dirY)) != null)
             {
-                Debug.Log("Found Target");
                 startingPos = startingPos + new Vector2((i * dirX), (i * dirY));
                 foundTarget = true;
                 AttackController target = DungeonGenerationManager.Instance.GetEntityCheck(startingPos.x, startingPos.y).GetComponent<AttackController>();
@@ -55,13 +55,16 @@ public class AttackHitArea_Range : AttackHitArea_Base
 
         if (p_explosionRange != Vector2Int.zero)
         {
-            for (int x = 1; x < p_explosionRange.x; x++)
+            for (int x = -p_explosionRange.x; x <= p_explosionRange.x; x++)
             {
-                for (int y = 1; y < p_explosionRange.y; y++)
+                for (int y = -p_explosionRange.y; y <= p_explosionRange.y; y++)
                 {
-                    if (DungeonGenerationManager.Instance.GetEntityCheck(startingPos.x + x, startingPos.y + dirY) != null)
+                    if (!DungeonGenerationManager.Instance.IsInGrid(startingPos.x + x, startingPos.y + y)) continue;
+                    if (DungeonGenerationManager.Instance.GetEntityCheck(startingPos.x + x, startingPos.y + y) != null)
                     {
-                        affectedControllers.Add(DungeonGenerationManager.Instance.GetEntityCheck(startingPos.x + x, startingPos.y + dirY).GetComponent<AttackController>());
+                        AttackController addCont = DungeonGenerationManager.Instance.GetEntityCheck(startingPos.x + x, startingPos.y + y).GetComponent<AttackController>();
+                        if (affectedControllers.Contains(addCont)) continue;
+                        affectedControllers.Add(addCont);
                     }
                 }
             }
@@ -70,8 +73,46 @@ public class AttackHitArea_Range : AttackHitArea_Base
 
     }
 
-    public override bool IsWithinRange(Vector2 p_attackerPos, Vector2 p_targetPos, int p_range)
+    public override bool IsWithinRange(Vector2 p_attackerPos, Vector2 p_targetPos, int p_range, EntityTeam.Team p_attackerTeam)
     {
-        throw new System.NotImplementedException();
+        int xDis = (int)p_targetPos.x - (int)p_attackerPos.x;
+        int yDis = (int)p_targetPos.y - (int)p_attackerPos.y;
+
+        if (Mathf.Abs(xDis) != Mathf.Abs(yDis) && yDis != 0 && xDis != 0) return false;
+
+        if (Mathf.Abs(xDis) > p_range || Mathf.Abs(yDis) > p_range) return false;
+
+        int dis = 0;
+        if(Mathf.Abs(xDis) >= Mathf.Abs(yDis))
+        {
+            dis = Mathf.Abs(xDis);
+        }else if (Mathf.Abs(xDis) < Mathf.Abs(yDis))
+        {
+            dis = Mathf.Abs(yDis);
+        }
+
+        int xDir = xDis == 0 ? 0 : (int)Mathf.Sign((p_targetPos.x - p_attackerPos.x));
+        int yDir = yDis == 0 ? 0 : (int)Mathf.Sign((p_targetPos.y - p_attackerPos.y));
+
+        for (int i = 1; i <= dis; i++)
+        {
+            if(DungeonGenerationManager.Instance.IsInGrid(i*xDir + p_attackerPos.x, i*yDir + p_attackerPos.y))
+            {
+                if (DungeonGenerationManager.Instance.GetWallCheck(i * xDir + p_attackerPos.x, i * yDir + p_attackerPos.y) == GlobalVariables.m_wallCell) return false;
+                GameObject check = DungeonGenerationManager.Instance.GetEntityCheck(i * xDir + p_attackerPos.x, i * yDir + p_attackerPos.y);
+                if(check != null)
+                {
+                    if(CanAddTarget(check.GetComponent<EntityTeam>().m_currentTeam, p_attackerTeam))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }

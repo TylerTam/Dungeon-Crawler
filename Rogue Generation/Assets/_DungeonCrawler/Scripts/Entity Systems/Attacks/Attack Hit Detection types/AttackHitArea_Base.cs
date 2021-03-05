@@ -13,7 +13,7 @@ public abstract class AttackHitArea_Base : ScriptableObject
     public TargetTeams m_targetTeams;
 
     public abstract List<AttackController> CommencedActions(AttackController p_attackController, Vector2 p_facingDir, int p_range, Vector2Int p_explosionRange);
-    public abstract bool IsWithinRange(Vector2 p_attackerPos, Vector2 p_targetPos, int p_range);
+    public abstract bool IsWithinRange(Vector2 p_attackerPos, Vector2 p_targetPos, int p_range, EntityTeam.Team p_attackerTeam);
 
     public bool CanAddTarget(EntityTeam.Team p_target, EntityTeam.Team p_controllerTeam)
     {

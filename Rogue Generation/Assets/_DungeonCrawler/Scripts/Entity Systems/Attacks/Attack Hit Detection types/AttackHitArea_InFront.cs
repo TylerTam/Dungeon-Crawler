@@ -28,12 +28,12 @@ public class AttackHitArea_InFront : AttackHitArea_Base
 
     }
 
-    public override bool IsWithinRange(Vector2 p_attackerPos, Vector2 p_targetPos, int p_range)
+    public override bool IsWithinRange(Vector2 p_attackerPos, Vector2 p_targetPos, int p_range, EntityTeam.Team p_team)
     {
         if ((int)Mathf.Abs(p_targetPos.x - p_attackerPos.x) <= p_range && (int)Mathf.Abs(Mathf.Abs((int)p_targetPos.y) - Mathf.Abs((int)p_attackerPos.y)) <= p_range)
         {
-            Debug.DrawLine(p_targetPos, p_attackerPos, Color.red, 2f);
-
+            //Debug.DrawLine(p_targetPos, p_attackerPos, Color.red, 2f);
+            return true;
         }
         return false;
     }
