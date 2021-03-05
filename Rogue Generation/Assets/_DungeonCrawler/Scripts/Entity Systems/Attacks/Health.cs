@@ -40,7 +40,6 @@ public class Health : MonoBehaviour
                 damageTaken -= m_entityContainer.m_runtimeStats.m_currentStats.m_resistance;
                 break;
         }
-        Debug.Log("Finalized Damage Taken: " + damageTaken);
         if(damageTaken <= 0)
         {
             damageTaken = 1;
@@ -49,9 +48,7 @@ public class Health : MonoBehaviour
         if (m_currentHealth <= 0)
         {
             m_entityContainer.m_entityVisualManager.SwitchToDefeatedAnimation();
-            //Defeated();
             m_defeated = true;
-            //m_damageAnimComplete = true;
         }
         else
         {
@@ -64,7 +61,6 @@ public class Health : MonoBehaviour
 
         if (m_defeated)
         {
-            Debug.Log("Remove Agent");
             TurnBasedManager.Instance.AgentDefeated(m_entityContainer.m_turnBasedAgent);
         }
     }

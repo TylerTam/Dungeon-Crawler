@@ -3514,6 +3514,7 @@ MonoBehaviour:
   m_aimingText: {fileID: 183460550}
   m_attackKey: {fileID: 277728568}
   m_secondaryAttackKeys: []
+  m_attackIndex: 1
 --- !u!225 &1864299813
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3685,30 +3686,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1044018911}
     m_Modifications:
-    - target: {fileID: 3422668320827393992, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
-        type: 3}
-      propertyPath: m_currentAnimationState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4597749072222295544, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4597749072236266336, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4597749072606483144, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
         type: 3}
       propertyPath: m_Name
       value: PlayerAvatar
-      objectReference: {fileID: 0}
-    - target: {fileID: 4597749072606483144, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4597749072606483146, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
         type: 3}
@@ -3767,21 +3748,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4597749072606483147, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
         type: 3}
-      propertyPath: m_inputPressed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4597749072606483147, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
-        type: 3}
-      propertyPath: m_currentInputType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4597749072606483147, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
-        type: 3}
-      propertyPath: m_canPerform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4597749072606483147, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
-        type: 3}
       propertyPath: m_joystickCanvas
       value: 
       objectReference: {fileID: 1249692858}
@@ -3790,31 +3756,5 @@ PrefabInstance:
       propertyPath: m_joystick
       value: 
       objectReference: {fileID: 1860307041}
-    - target: {fileID: 4597749072606483185, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
-        type: 3}
-      propertyPath: m_terrainLayer.m_Bits
-      value: 2304
-      objectReference: {fileID: 0}
-    - target: {fileID: 4597749072606483190, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
-        type: 3}
-      propertyPath: m_attackType.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4597749072606483190, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
-        type: 3}
-      propertyPath: m_attackType.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 7051b08ebf11d96459c997ce3c8056dd,
-        type: 2}
-    - target: {fileID: 4597749072606483190, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
-        type: 3}
-      propertyPath: m_enemyMask.m_Bits
-      value: 2048
-      objectReference: {fileID: 0}
-    - target: {fileID: 4597749072606483191, guid: 7f00d8a2bb817dc429c1f6812d6a626c,
-        type: 3}
-      propertyPath: m_isPlayer
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f00d8a2bb817dc429c1f6812d6a626c, type: 3}

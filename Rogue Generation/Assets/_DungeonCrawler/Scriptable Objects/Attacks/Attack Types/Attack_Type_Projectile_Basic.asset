@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64b1b5647525b942a1caba8b3f0023b, type: 3}
+  m_Name: Attack_Type_Projectile_Basic
+  m_EditorClassIdentifier: 
+  m_attackType: 1
+  m_baseDamage: 15
+  m_changeOfAttack: 1
+  m_attackDetection: {fileID: 11400000, guid: afc9712c5af287e4ca39cebf8064ae61, type: 2}
+  m_range: 3
+  m_explosionRange: {x: 0, y: 0}
+  m_attackSpawnAmount: 0
+  m_attackAnimationController: {fileID: 9100000, guid: dc6eea579c6bf1641833ae3d809f3b09,
+    type: 2}
+  m_spawnedProjecticle: {fileID: 1176876467774695385, guid: bf99528e7d749854ab2eede34b60a829,
+    type: 3}

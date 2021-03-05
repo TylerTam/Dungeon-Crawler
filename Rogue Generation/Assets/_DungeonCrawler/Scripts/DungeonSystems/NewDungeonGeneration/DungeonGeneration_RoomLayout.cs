@@ -168,7 +168,7 @@ public class DungeonGeneration_RoomLayout : ScriptableObject
                     p_dungeonGrid[pos.x, pos.y] = GlobalVariables.m_startingWalkable + p_roomIndex + 1;
                 }
 
-                else if (data.m_cellType == GlobalVariables.m_unwalkableCell)
+                else if (data.m_cellType == GlobalVariables.m_wallCell)
                 {
                     p_dungeonGrid[pos.x, pos.y] = 0;
                 }

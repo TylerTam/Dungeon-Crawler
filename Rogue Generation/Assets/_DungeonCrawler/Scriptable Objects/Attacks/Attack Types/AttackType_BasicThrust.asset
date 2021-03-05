@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_attackType: 0
   m_baseDamage: 5
+  m_changeOfAttack: 1
   m_attackDetection: {fileID: 11400000, guid: 9cd1c96dd937ebd41b21c39b32a31b81, type: 2}
+  m_range: 1
+  m_explosionRange: {x: 0, y: 0}
   m_attackSpawnAmount: 0
   m_attackAnimationController: {fileID: 9100000, guid: dc6eea579c6bf1641833ae3d809f3b09,
     type: 2}

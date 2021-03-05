@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AttackDetection_InFront", menuName = "Attack Detection / InFront", order = 0)]
+[CreateAssetMenu(fileName = "AttackDetection_InFront", menuName = "Attacks/Attack Detection / InFront", order = 0)]
 public class AttackHitArea_InFront : AttackHitArea_Base
 {
-    public override List<AttackController> CommencedActions(AttackController p_attackController, Vector2 p_facingDir)
+    public override List<AttackController> CommencedActions(AttackController p_attackController, Vector2 p_facingDir, int p_range, Vector2Int p_explosionRange)
     {
         List<AttackController> gatheredActions = new List<AttackController>();
 
@@ -28,6 +28,14 @@ public class AttackHitArea_InFront : AttackHitArea_Base
 
     }
 
+    public override bool IsWithinRange(Vector2 p_attackerPos, Vector2 p_targetPos, int p_range)
+    {
+        if ((int)Mathf.Abs(p_targetPos.x - p_attackerPos.x) <= p_range && (int)Mathf.Abs(Mathf.Abs((int)p_targetPos.y) - Mathf.Abs((int)p_attackerPos.y)) <= p_range)
+        {
+            Debug.DrawLine(p_targetPos, p_attackerPos, Color.red, 2f);
 
+        }
+        return false;
+    }
 
 }

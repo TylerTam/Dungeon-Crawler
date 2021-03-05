@@ -213,7 +213,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5134884547314991774}
-  - component: {fileID: 5134884547314991777}
   - component: {fileID: 7126509641186255227}
   - component: {fileID: 5134884547314991781}
   - component: {fileID: 1541658862317782881}
@@ -248,27 +247,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &5134884547314991777
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5134884547314991772}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &7126509641186255227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,6 +320,8 @@ MonoBehaviour:
   m_attackAnimator: {fileID: 0}
   m_entityContainer: {fileID: 0}
   m_newActions: []
+  m_damageMsgPrefab: {fileID: 5031494248542699512, guid: 7595b6df3f1b0b049a5346a7c4987bac,
+    type: 3}
 --- !u!95 &5134884547314991773
 Animator:
   serializedVersion: 3
@@ -405,7 +385,7 @@ MonoBehaviour:
   m_inRoom: 0
   m_roomIndex: 0
   m_cellType: 0
-  predictedPlace: {fileID: 0}
+  m_currentGridPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &5134884547314991775
 MonoBehaviour:
   m_ObjectHideFlags: 0

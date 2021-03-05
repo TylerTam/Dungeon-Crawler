@@ -11,12 +11,9 @@ public abstract class AttackHitArea_Base : ScriptableObject
 {
     public enum TargetTeams { Friendly, Enemy, All }
     public TargetTeams m_targetTeams;
-    public int m_attackDistance;
 
-    [Range(0, 1)]
-    public float m_chanceOfAttack;
-
-    public abstract List<AttackController> CommencedActions(AttackController p_attackController, Vector2 p_facingDir);
+    public abstract List<AttackController> CommencedActions(AttackController p_attackController, Vector2 p_facingDir, int p_range, Vector2Int p_explosionRange);
+    public abstract bool IsWithinRange(Vector2 p_attackerPos, Vector2 p_targetPos, int p_range);
 
     public bool CanAddTarget(EntityTeam.Team p_target, EntityTeam.Team p_controllerTeam)
     {
@@ -49,16 +46,4 @@ public abstract class AttackHitArea_Base : ScriptableObject
         return false;
     }
 
-    public virtual bool IsWithinRange(Vector2 p_attackerPos, Vector2 p_targetPos)
-    {
-        if ((int)Mathf.Abs(p_targetPos.x - p_attackerPos.x) <= m_attackDistance && (int)Mathf.Abs(Mathf.Abs((int)p_targetPos.y) - Mathf.Abs((int)p_attackerPos.y)) <= m_attackDistance)
-        {
-            Debug.DrawLine(p_targetPos, p_attackerPos, Color.red, 2f);
-            if (Random.Range(0, 1f) < m_chanceOfAttack)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
 }

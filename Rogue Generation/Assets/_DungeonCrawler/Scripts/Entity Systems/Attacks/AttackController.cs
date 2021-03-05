@@ -37,6 +37,9 @@ public class AttackController : MonoBehaviour
     public List<AttackController> m_newActions = new List<AttackController>();
     #endregion
 
+    [Header("Damage Msg")]
+    public GameObject m_damageMsgPrefab;
+
 
     private void Start()
     {
@@ -76,7 +79,7 @@ public class AttackController : MonoBehaviour
         {
             if (attack.m_attacksLeft <= 0) continue;
 
-            if (attack.m_attack.m_attackDetection.IsWithinRange(transform.position, p_targetPos))
+            if (attack.m_attack.IsWithinRange(transform.position, p_targetPos))
             {
                 p_attack.Add(m_allAttacks.IndexOf(attack));
             }
@@ -110,8 +113,13 @@ public class AttackController : MonoBehaviour
         }
         ChangeToIdleAnimation();
 
-        m_currentAttack.CreateAttackEffects(this);
+        WeaponEffect_Base weaponEffect = m_currentAttack.CreateAttackEffects(this, m_newActions, m_entityContainer.m_movementController.m_facingDir);
 
+        if (weaponEffect != null)
+        {
+            yield return StartCoroutine(weaponEffect.PlayWeaponEffect());
+        }
+        ObjectPooler.instance.ReturnToPool(weaponEffect.gameObject);
 
 
         #region Perform All actions of this attack
@@ -129,9 +137,12 @@ public class AttackController : MonoBehaviour
         {
             for (int i = 0; i < m_newActions.Count; i++)
             {
-                yield return StartCoroutine(m_newActions[i].AttackAnimComplete(damageAmount, m_currentAttack.m_attackType));
+                if (m_newActions[i] != null)
+                {
+                    yield return StartCoroutine(m_newActions[i].AttackAnimComplete(damageAmount, m_currentAttack.m_attackType, m_currentAttack));
+                }
+                m_newActions.RemoveAt(i);
 
-                m_newActions.Remove(m_newActions[i]);
                 i -= 1;
 
             }
@@ -155,21 +166,19 @@ public class AttackController : MonoBehaviour
 
     }
 
-
-
     #region Attacked Functionality
     /// <summary>
     /// Inherited from the TurnBasedAction Interface<br/>
     /// Used to determine whether the hurt animation is complete.
     /// </summary>
-    public IEnumerator AttackAnimComplete(int p_damageAmount, AttackType_Base.AttackType p_attackType)
+    public IEnumerator AttackAnimComplete(int p_damageAmount, AttackType_Base.AttackType p_attackType, AttackType_Base p_attackBase)
     {
-        //TODO: Put hurt message here
-        //        Debug.Log("Put hurt message here");
-        /*
-        GameObject damageObject = Instantiate (m_damageObjectPrefab, transform.position, Quaternion.identity);
-        damageObject.GetComponent<InWorldUI>().m_uiText.text = -m_takenDamage.ToString();
-        */
+
+        GameObject damageObject = Instantiate(m_damageMsgPrefab, transform.position, Quaternion.identity);
+        damageObject.GetComponent<DamagePrompt>().SetUi("-" + p_damageAmount.ToString(), true);
+
+
+        yield return StartCoroutine(p_attackBase.CreateIndividualAttackEffect(transform.position));
         yield return m_entityContainer.m_entityHealth.TakeDamage(p_damageAmount, p_attackType);
 
         if (m_entityContainer.m_entityHealth.m_defeated)

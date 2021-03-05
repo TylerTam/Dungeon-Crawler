@@ -31,7 +31,7 @@ public class UIRaycastInput : MonoBehaviour
     [Header("Attack Keys")]
     public GameObject m_attackKey;
     public List<GameObject> m_secondaryAttackKeys;
-
+    public int m_attackIndex;
 
     private GameObject m_currentTapped;
     private void Awake()
@@ -162,7 +162,7 @@ public class UIRaycastInput : MonoBehaviour
                 ///Select the attack here;
                 if (m_currentTapped == m_attackKey)
                 {
-                    m_playerEntityContainer.m_turnBasedAgent.Action_Attack(0);
+                    m_playerEntityContainer.m_turnBasedAgent.Action_Attack(m_attackIndex);
                 }
                 break;
             case TouchState.Movement:
