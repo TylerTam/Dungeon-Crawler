@@ -11,6 +11,7 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "Attack_Type_Base_", menuName = "Attacks/AttackTypes/Basic", order = 0)]
 public class AttackType_Base : ScriptableObject
 {
+    public string m_attackName;
     public enum AttackType { PhysicalAttack, Magic }
     public AttackType m_attackType;
     public int m_baseDamage;

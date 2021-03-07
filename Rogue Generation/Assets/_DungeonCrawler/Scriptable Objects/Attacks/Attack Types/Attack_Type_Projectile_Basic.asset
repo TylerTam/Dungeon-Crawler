@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e64b1b5647525b942a1caba8b3f0023b, type: 3}
   m_Name: Attack_Type_Projectile_Basic
   m_EditorClassIdentifier: 
+  m_attackName: Projectile
   m_attackType: 1
   m_baseDamage: 15
   m_changeOfAttack: 1

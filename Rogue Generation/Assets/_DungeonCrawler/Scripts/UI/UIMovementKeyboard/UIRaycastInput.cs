@@ -30,10 +30,19 @@ public class UIRaycastInput : MonoBehaviour
 
     [Header("Attack Keys")]
     public GameObject m_attackKey;
-    public List<GameObject> m_secondaryAttackKeys;
+    public GameObject m_attackSelectionGroup;
+    public List<SecondaryAttackButtons> m_secondaryAttackKeys;
     public int m_attackIndex;
+    public AttackController m_playerAttacks;
 
     private GameObject m_currentTapped;
+
+    [System.Serializable]
+    public class SecondaryAttackButtons
+    {
+        public GameObject m_attackButtonObject;
+        public TMPro.TextMeshProUGUI m_buttonText;
+    }
     private void Awake()
     {
         Instance = this;
@@ -64,10 +73,8 @@ public class UIRaycastInput : MonoBehaviour
     }
 
 
-
-    private void PerformDrag()
+    public List<RaycastResult> GetRayHit()
     {
-
         List<RaycastResult> hitUI = new List<RaycastResult>();
 
         PointerEventData pointerData = new PointerEventData(EventSystem.current)
@@ -77,6 +84,12 @@ public class UIRaycastInput : MonoBehaviour
         pointerData.position = Input.mousePosition;
 
         EventSystem.current.RaycastAll(pointerData, hitUI);
+        return hitUI;
+    }
+    private void PerformDrag()
+    {
+
+        List<RaycastResult> hitUI = GetRayHit();
 
 
 
@@ -92,9 +105,22 @@ public class UIRaycastInput : MonoBehaviour
             {
                 case TouchState.Initial:
                     m_currentTapped = res.gameObject;
-                    if (res.gameObject == m_attackKey)
+                    if (res.gameObject.transform.parent.gameObject == m_attackKey)
                     {
                         m_touchState = TouchState.Attack;
+                        m_attackSelectionGroup.SetActive(true);
+
+                        m_attackKey.SetActive(false);
+                        for (int i = 0; i < m_secondaryAttackKeys.Count; i++)
+                        {
+                            m_secondaryAttackKeys[i].m_attackButtonObject.SetActive(false);
+                        }
+
+                        for (int i = 0; i < m_playerAttacks.m_allAttacks.Count; i++)
+                        {
+                            m_secondaryAttackKeys[i].m_attackButtonObject.SetActive(true);
+                            m_secondaryAttackKeys[i].m_buttonText.text = m_playerAttacks.m_allAttacks[i].m_attack.m_attackName;
+                        }
                         return;
                     }
 
@@ -113,7 +139,6 @@ public class UIRaycastInput : MonoBehaviour
                     break;
 
                 case TouchState.Attack:
-                    //Do the expanding UI check here
                     break;
 
                 case TouchState.Movement:
@@ -159,12 +184,37 @@ public class UIRaycastInput : MonoBehaviour
             case TouchState.Initial:
                 break;
             case TouchState.Attack:
-                ///Select the attack here;
-                if (m_currentTapped == m_attackKey)
+
+                List<RaycastResult> rayHit = GetRayHit();
+
+                bool hitAttack = false;
+                int attackIndex = 0;
+                foreach(RaycastResult hit in rayHit)
                 {
-                    if (m_playerEntityContainer.m_attackController.CanUseAttack(m_attackIndex))
+                    foreach(SecondaryAttackButtons attacks in m_secondaryAttackKeys)
                     {
-                        m_playerEntityContainer.m_turnBasedAgent.Action_Attack(m_attackIndex);
+                        if(attacks.m_attackButtonObject == hit.gameObject.transform.parent.gameObject)
+                        {
+                            attackIndex = m_secondaryAttackKeys.IndexOf(attacks);
+                            hitAttack = true;
+                            break;
+                        }
+                    }
+                    if (hitAttack)
+                    {
+                        break;
+                    }
+                }
+
+                m_attackSelectionGroup.SetActive(false);
+                m_attackKey.SetActive(true);
+
+                if (hitAttack)
+                {
+                    Debug.Log("Hit Index: " + attackIndex);
+                    if (m_playerEntityContainer.m_attackController.CanUseAttack(attackIndex))
+                    {
+                        m_playerEntityContainer.m_turnBasedAgent.Action_Attack(attackIndex);
                     }
                 }
                 break;
